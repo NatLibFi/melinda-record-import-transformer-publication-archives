@@ -29,36 +29,24 @@
 
 'use strict';
 
-import MarcRecord from 'marc-record-js';
-import validateFactory from '@natlibfi/marc-record-validators-melinda';
-import {TransformerUtils as utils} from '@natlibfi/melinda-record-import-commons';
-import config from './config';
-//Filter dummys for testing filtering
-// //Development XML
-import {dummyXML} from './dummyXML.js';
-import {dummyJSON} from './dummyJSON.js';
+import transform from './transform';
+import createValidateFunction from './validate';
+import {TransformerUtils as Utils} from '@natlibfi/melinda-record-import-commons';
 
 start();
 
 async function start() {
-	let validate;
-	const logger = utils.createLogger(); //Shared
+	const logger = Utils.createLogger();
 
-	utils.registerSignalHandlers(); //Shared
-	utils.checkEnv([]); //Custom
-	console.log("Done");
+	Utils.registerSignalHandlers();
+	Utils.checkEnv();
 
-	const stopHealthCheckService = utils.startHealthCheckService(process.env.HEALTH_CHECK_PORT); //Shared
-	console.log("1");
+	const stopHealthCheckService = Utils.startHealthCheckService(process.env.HEALTH_CHECK_PORT);
 
 	try {
-		//validate = validateFactory(config.validators);
-
-		await utils.startTransformation(transform); //Custom //Modified to provide dummy response. 
-		//Starts function provided as callback ('transform') after fetching http response 
-		console.log("4");
+		logger.log('info', 'Starting melinda-record-import-transformer-helmet');
+		await Utils.startTransformation(transformCallback);
 		stopHealthCheckService();
-		console.log("5");
 		process.exit();
 	} catch (err) {
 		stopHealthCheckService();
@@ -66,58 +54,11 @@ async function start() {
 		process.exit(-1);
 	}
 
-	//This is called as callback from startTransformation providing 
-	//Precondition:
-	//let response = await fetch(`${process.env.API_URL}/blobs/${process.env.BLOB_ID}/content`
-	//Postcondition:
-	//const records = await transformCallback(response);
-	async function transform(response) {
-		//response = dummyXML;
-		//console.log("Dummy: ", dummyXML);
-		console.log("Response: ", response); //Response from modified transformer is dummy response with mock-http
-		console.log("-----------------------");
-		console.log("JSON 1: ", response.json())
-		// const records = await response.json();
-		const records = dummyJSON;
-		console.log("JSON 2: ", records);
-
-		const convertedRecords = await Promise.all(records.map(convertRecord));
-		const validationResults = await Promise.all(convertedRecords.map(r => validate(r, {
-			fix: true,
-			validateFixes: true
-		})));
-
-		return convertedRecords.reduce((acc, record, index) => {
-			return acc.concat({
-				record,
-				failed: validationResults[index].failed,
-				messages: validationResults[index].validators
-			});
-		}, []);
-
-		function convertRecord(record) {
-			const marcRecord = new MarcRecord();
-			record.varFields.forEach(field => {
-				if (field.content) {
-					if (field.fieldTag === '_') {
-						marcRecord.setLeader(field.content);
-					} else {
-						marcRecord.insertControlField({tag: field.marcTag, value: field.content});
-					}
-				} else {
-					marcRecord.insertField({
-						tag: field.marcTag,
-						ind1: field.ind1,
-						ind2: field.ind2,
-						subfields: field.subfields.map(subfield => ({
-							code: subfield.tag,
-							value: subfield.content
-						}))
-					});
-				}
-			});
-
-			return marcRecord;
-		}
+	async function transformCallback(response) {
+		logger.log('debug', 'Transforming records');
+		const records = await transform(response.body);
+		const validate = await createValidateFunction();
+		logger.log('debug', 'Validating records');
+		return Utils.runValidate(validate, records, true);
 	}
 }
