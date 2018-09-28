@@ -4,3 +4,7 @@ coverage
 dist
 .nyc_output
 env
+
+src/helmet*
+src/dummyJSON.js
+src/dummyXML.js
