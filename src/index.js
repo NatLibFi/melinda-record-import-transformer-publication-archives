@@ -44,8 +44,8 @@ async function start() {
 	const stopHealthCheckService = Utils.startHealthCheckService(process.env.HEALTH_CHECK_PORT);
 
 	try {
-		logger.log('info', 'Starting melinda-record-import-transformer-helmet');
-		await Utils.startTransformation(transformCallback);
+		logger.log('info', 'Starting melinda-record-import-transformer-helmet'); 
+		await Utils.startTransformation(transformCallback); 
 		stopHealthCheckService();
 		process.exit();
 	} catch (err) {
@@ -55,6 +55,8 @@ async function start() {
 	}
 
 	async function transformCallback(response) {
+		// console.log("------ body ------");
+		// console.log(response.body)
 		logger.log('debug', 'Transforming records');
 		const records = await transform(response.body);
 		const validate = await createValidateFunction();
