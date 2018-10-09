@@ -32,14 +32,50 @@ import moment from 'moment';
 import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
 import {TransformerUtils as Utils} from '@natlibfi/melinda-record-import-commons';
-// import createMaterialFields from './create-material-fields';
+import langs from 'langs';
 
 export default async function (stream) {
 	const records = await JSON.parse(await getStream(stream));
 	return Promise.all(records.map(convertRecord));
 
 	function convertRecord(record) {
-		const marcRecord = new MarcRecord();		
+		var control008Structure = [{
+				start: 1,
+				end: 7,
+				value: '000000s'
+			},{
+				start: 8,
+				end: 11,
+				value: null,
+				from: 'dc.date.issued',
+			},{
+				start: 12,
+				end: 15,
+				value: '    '
+			},{
+				start: 16,
+				end: 17,
+				value: 'fi',
+				from: 'dc.publisher.country',
+			},{
+				start: 18,
+				end: 35,
+				value: ' |||||s|||||||| |b'
+			},{
+				start: 36,
+				end: 38,
+				value: null,
+				from: 'dc.language.iso',
+			},{
+				start: 39,
+				to: 40,
+				value: '  '
+			}];
+
+		var onTaso = [];
+
+		const marcRecord = new MarcRecord();
+		var marcRecords = [];	
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
 		console.log("------- Detailing record -------")
 		console.log("Record: ", record)
@@ -48,213 +84,185 @@ export default async function (stream) {
 		console.log("Header: ", record.header[0])
 		console.log("------- Detailing record end -------");
 		console.log("Fields: ", fields);
-		console.log("--------------------------------");
-		var sumFound = 0;
-		var sumNotFound = 0;
-
-		var found = [];
-		var notFound = [];
-		var conf;
+		console.log("--------------- EoF --------------");
 		
-		fields.forEach(field => {
+		//Function to get DC path from field
+		function getDCPath(field){
 			var dcPath = field['$'].schema + '.' + field['$'].element;
 			if(typeof(field['$'].qualifier) !== 'undefined'){
 				dcPath = dcPath + '.' + field['$'].qualifier;
 			}
-			// console.log(field['$']);
-			// console.log("Path: ", dcPath);
-			// console.log("Find: ", conf.get(dcPath))
-			// console.log("--------------------------------");
-			conf = confMap.get(dcPath)
-			if(typeof(conf) !== 'undefined'){
-				found.push(field);
-				sumFound++;
-
-				marcRecord.insertField({
-					tag: conf.marc,
-					ind1: conf.ind1,
-					ind2: conf.ind2,
-					// subfields: field.subfields.map(subfield => ({
-					// 	code: subfield.tag,
-					// 	value: subfield.content
-					// }))
-				});
-
-			}else{
-				notFound.push(field);
-				sumNotFound++;
-			}
-		});
-
-		// [
-		// 	'dc.publisher.country',
-		// 	{
-		// 		label: 'Teoksen julkaisumaa',
-		// 		marc: '008',
-		// 		ind1: null, //ToDo: ''
-		// 		ind2: null //ToDo: ''
-		// 	}
-		// ],
-
-		console.log("Found: ")
-		console.log(found)
-		console.log("Not found: ")
-		console.log(notFound)
-		console.log("Sum founds")
-		console.log("Found: ", sumFound, " not found: ", sumNotFound);
-		console.log("Array lengths")
-		console.log("Found length: ", found.length, " not found: ", notFound.length)
-		// record.varFields.forEach(field => {
-		// 	if (field.content) {
-		// 		if (field.fieldTag === '_') {
-		// 			marcRecord.leader = field.content;
-		// 		} else {
-		// 			marcRecord.insertField({tag: field.marcTag, value: field.content});
-		// 		}
-		// 	} else if (field.subfields) {
-		// 		try {
-		// 			marcRecord.insertField({
-		// 				tag: field.marcTag,
-		// 				ind1: field.ind1,
-		// 				ind2: field.ind2,
-		// 				subfields: field.subfields.map(subfield => ({
-		// 					code: subfield.tag,
-		// 					value: subfield.content
-		// 				}))
-		// 			});
-		// 		} catch (err) {
-		// 			if (!/^Field is invalid/.test(err.message)) {
-		// 				throw err;
-		// 			}
-		// 		}
-		// 	}
-		// });
-
-		if (!record.varFields.find(f => f.marcTag === '007')) {
-			console.log("Should create fields here");
-			// const fields = createMaterialFields(record) || [];
-			// fields.forEach(f => {
-			// 	if (f.tag === '006') {
-			// 		const f006 = marcRecord.get(/^006$/).shift();
-
-			// 		if (f006) {
-			// 			marcRecord.removeField(f006);
-			// 		}
-			// 	}
-
-			// 	marcRecord.insertField(f)
-			// });
+			return dcPath;
 		}
 
-		marcRecord.insertField({tag: 'SID', subfields: [
-			{code: 'a', value: record.id},
-			{code: 'b', value: 'helme'}
-		]});
+		fields.forEach(field => {
+			//Recursive function to go generate JSON marcRecords later to be transformed to actual Marc
+			upsertRecord(confMap.get(getDCPath(field)), field);
+		});
+
+		generateControlFields();
+		// marcRecord.insertField(marcRec);
+		console.log("Marc records: ")
+		console.log(JSON.stringify(marcRecords, null, 2));
 
 		return marcRecord;
+
+		////////////////////////////////////////////////////
+		// Start of supporting functions
+
+		//conf: configuration object: {
+		// 	marcIf: enum string of cases, 
+		//	marcIfUnique: boolean if unique marc instance of tag
+		// 	marcTag: string for marc tag, 
+		// 	marcSecondaryTag: string of secondary tag to use
+		//	marcSub: string of marc subfield tag
+		//	marcSecondarySub: string of secondary marc subfield tags
+		//	ind1&ind2: strings of marc indicators
+		// }
+		//field: single field got from harvesting
+		function upsertRecord(conf, field){
+			if(typeof(conf) === 'undefined') return;
+			// console.log("-------------- new upsert ------------")
+			// console.log(conf)
+			// console.log("***")
+			// console.log(field)
+
+			//Handle special cases by marcIf, default is normal case
+			switch(conf.marcIf){
+				case 'onTaso':{
+					console.log("onTaso")
+					console.log(conf)
+					console.log(field)
+					console.log("------------")
+					break;
+				}
+				//First to primary tag, if tag already used generate new with secondary tag
+				case 'rest':{
+					var foundRec = marcRecords.find(x => x.tag === conf.marcTag);
+					if(foundRec){
+						// console.log("*** found earlier")
+						upsertRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique}, field);
+						break;
+					}//If foundRec === null -> no break -> default
+				}
+				default:{
+					generateRecord(conf, field)
+				}
+			}
+		}
+
+		function generateRecord(conf, field) {
+			//Controller fields
+			if( conf.marcTag === '008'){
+				modifyControlField(field);
+			//Normal fields
+			}else{
+				var foundRec = marcRecords.find(x => x.tag === conf.marcTag);
+				
+				//Earlier existing record and should be unique -> push new subfield
+				if(foundRec && conf.unique){
+					// console.log("Earlier record: ");
+					// console.log(foundRec);
+					foundRec.subfields.push({
+						code: conf.marcSub,
+						value: field['$'].value
+					});
+	
+				//No earlier record or not unique -> generate new record
+				}else{
+					// console.log("New marc record to insert: ");
+					foundRec = {
+						tag: conf.marcTag,
+						ind1: conf.ind1 || '',
+						ind2: conf.ind2 || '',
+						subfields:[{
+							code: conf.marcSub,
+							value: field['$'].value
+						}]
+					};
+					// console.log(foundRec);
+					marcRecords.push(foundRec);
+				}
+	
+				//If secondary tag&sub exist, field is suppose to be save to secondary location also
+				if(conf.marcSecondaryTag){
+					generateRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique, marcIf: conf.marcIf, ind1: conf.ind1, ind2: conf.ind2}, field)
+				}
+			}
+		};
+
+		// <controlfield tag="007">cr ||||||||||p</controlfield>
+		// <controlfield tag="008">180822s2018    fi |||||s|||||||| |bfin  </controlfield>
+		//Modify control field structure by field: 
+		//find correct sub object by DC path -> shorten/transform if needed -> set value
+		function modifyControlField(field){
+			var dcPath = getDCPath(field);			
+			var fieldToEdit = control008Structure.find(obj => {
+				return obj.from === dcPath
+			});
+
+			var fieldVal = field['$'].value;
+			switch(fieldToEdit.from){
+				case 'dc.date.issued':{
+					if( fieldVal > 4){
+						fieldVal = fieldVal.substring(0, 4);
+					}
+					break;
+				}				
+				case 'dc.publisher.country':{
+					if(fieldVal.length > 2){
+						fieldVal = fieldVal.substring(0, 2);
+					}
+					break;
+				}
+				case 'dc.language.iso':{
+					//Language code might be already in ISO 639-2b (3 chars)
+					if(fieldVal.length === 2){
+						fieldVal = langs.where(1, fieldVal)['2B']
+					}
+					break;
+				}
+			}
+			fieldToEdit.value = fieldVal;
+		}
+
+		//Generate control field after all fields are read
+		function generateControlFields(){
+			//Generate control fields and push to records
+			console.log("---- Generate control fields: -----");
+			var controlValue008 = '';
+			control008Structure.forEach(element => {
+				if(typeof(element.value) === 'undefined'){
+					console.log("Broken element: ", element) //ToDo
+				}
+				controlValue008 += element.value;
+			});
+
+			var controlField008 = {
+				tag: '008',
+				value: controlValue008
+			};
+			//ToDo: these are actually insterted with  .insertControlField = function(fieldDef, index) to MarcRecords, might not be useful to push to other records
+			marcRecords.push(controlField008);
+		}
+
+		// End of supporting functions
+		////////////////////////////////////////////////////
 	}
 }
 
-// https://www.kiwi.fi/pages/viewpage.action?pageId=97881359
-// Not found:
-// [ 
-// This is not in spec, but sibling dc.date.issued	is
-// 	{ '$':
-//      { schema: 'dc',
-//        element: 'date',
-//        qualifier: 'accessioned', 
-//        language: 'none',
-//        value: '2018-09-06T12:17:17Z' } },
-
-// This is not in spec, but sibling dc.date.issued	is
-//   { '$':
-//      { schema: 'dc',
-//        element: 'date',
-//        qualifier: 'available',
-//        language: 'none',
-//        value: '2018-09-06T12:17:17Z' } },
-
-// This is not in spec, but sibling dc.type.ontasot	is
-//   { '$':
-//      { schema: 'dc',
-//        element: 'type',
-//        qualifier: 'version',
-//        language: '-',
-//        value: 'publishedVersion' } },
-
-// This is not in spec, but sibling dc.type.ontasot	is
-//   { '$':
-//      { schema: 'dc',
-//        element: 'type',
-//        qualifier: 'publication',
-//        language: '-',
-//        value: 'article' } },
-
-// This is not in spec, but parent dc.subject is
-//   { '$':
-//      { schema: 'dc',
-//        element: 'subject',
-//        qualifier: 'okm',
-//        language: '-',
-//        value: 'fi=Hoitotiede | en=Nursing|' } },
-
-// This is not in spec, but parent dc.subject is
-//   { '$':
-//      { schema: 'dc',
-//        element: 'subject',
-//        qualifier: 'okm',
-//        language: '-',
-//        value: 'fi=Oikeuslääketiede ja muut lääketieteet | en=Forensic science and other medical sciences|' } },
-
-// This is not in spec, but siblings dc.format.extent & dc.format.content are
-//   { '$':
-//      { schema: 'dc',
-//        element: 'format',
-//        qualifier: 'pagerange',
-//        language: '-',
-//        value: '11-20' } },
-
-// This is not in spec, but cousin dc.identifier.doi is
-//   { '$':
-//      { schema: 'dc',
-//        element: 'relation',
-//        qualifier: 'doi',
-//        language: '-',
-//        value: '10.5430/cns.v7n1p11' } },
-
-// This is not in spec
-//   { '$':
-//      { schema: 'dc',
-//        element: 'relation',
-//        qualifier: 'issue',
-//        language: '-',
-//        value: '1' } },
-
-// This is not in spec, but siblings dc.relation.ispartofseries & .numberinseries & .issn & .isversionof & .url & .uri & .urn are
-//   { '$':
-//      { schema: 'dc',
-//        element: 'relation',
-//        qualifier: 'ispartofjournal',
-//        language: '-',
-//        value: 'Clinical Nursing Studies' } },
-
-// This is not in spec, but siblings dc.relation.ispartofseries & .numberinseries & .issn & .isversionof & .url & .uri & .urn are
-//   { '$':
-//      { schema: 'dc',
-//        element: 'relation',
-//        qualifier: 'volume',
-//        language: '-',
-//        value: '7' } }
-//	]
-
-
+//Some configuration settings:
+//unique: should new subfields be inserted previous record (unique record) or not
+//marcIf: enumeration of sort for special cases (rest, dc.type.ontasot, array)
+//marcIfUnique: if if-statement is fulfilled (rest) should following record be unique
+//All unclear ind* are marked as null/ToDo tag
 const confMap = new Map([
 	// Teoksen julkaisumaa	Oletuksena aina 'fi'	dc.publisher.country	008 (katso tarkempi ohje)
 	[
 		'dc.publisher.country',
 		{
 			label: 'Teoksen julkaisumaa',
-			marc: '008',
+			marcTag: '008',
 			ind1: null, //ToDo: ''
 			ind2: null //ToDo: ''
 		}
@@ -264,10 +272,11 @@ const confMap = new Map([
 		'dc.language.iso',
 			{
 			label: 'Teoksen kieli',
-			marc: '041$a', //ToDo - complex rule: 041$a + 008
-			marcSecondary: '008',
-			ind1: null,
-			ind2: null
+			marcTag: '041', //ToDo - complex rule: 041$a + 008
+			marcSub: 'a',
+			marcSecondaryTag: '008',
+			ind1: '',
+			ind2: ''
 		}
 	],
 	// Julkaisuaika	 	dc.date.issued	264$c + 008	tyhjä	?	 	2018 /  264 __ $c 2018
@@ -275,9 +284,10 @@ const confMap = new Map([
 		'dc.date.issued',
 		{
 			label: 'Julkaisuaika',
-			marc: '264$c', //ToDo - complex rule: 264$c + 008
-			marcSecondary: '008',
-			ind1: null,
+			marcTag: '264', //ToDo - complex rule: 264$c + 008
+			marcSub: 'c',
+			marcSecondaryTag: '008',
+			ind1: '',
 			ind2: null //ToDo: '?'
 		}
 	],
@@ -286,9 +296,10 @@ const confMap = new Map([
 		'dc.identifier.isbn',
 		{
 			label: 'Verkkomonografian ISBN-numero',
-			marc: '020$a',
-			ind1: null,
-			ind2: null
+			marcTag: '020',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0
@@ -296,9 +307,10 @@ const confMap = new Map([
 		'dc.title',
 		{
 			label: 'Nimike',
-			marc: '245$a',
-			ind1: 1,
-			ind2: 0
+			marcTag: '245',
+			marcSub: 'a',
+			ind1: '1',
+			ind2: '0'
 		},
 	],
 	// 	Vaihtoehtoinen nimeke	 	dc.title.alternative	246$a	1	3	 	 
@@ -306,9 +318,10 @@ const confMap = new Map([
 		'dc.title.alternative',
 		{
 			label: 'Vaihtoehtoinen nimeke',
-			marc: '246$a',
-			ind1: 1,
-			ind2: 3
+			marcTag: '246',
+			marcSub: 'a',
+			ind1: '1',
+			ind2: '3'
 		},
 	],
 	// Julkaisun painosmerkintä	 	dc.description.edition	250$a	tyhjä	tyhjä	 	 
@@ -316,9 +329,10 @@ const confMap = new Map([
 		'dc.description.edition',
 		{
 			label: 'Julkaisun painosmerkintä',
-			marc: '250$a',
-			ind1: null,
-			ind2: null
+			marcTag: '250',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Teoksen kustannuspaikkakunta	 	dc.publisher.place	264$a	tyhjä	?	 	 
@@ -326,8 +340,9 @@ const confMap = new Map([
 		'dc.publisher.place',
 		{
 			label: 'Teoksen kustannuspaikkakunta',
-			marc: '264$a',
-			ind1: null,
+			marcTag: '264',
+			marcSub: 'a',
+			ind1: '',
 			ind2: null //ToDo: ?
 		},
 	],
@@ -336,9 +351,10 @@ const confMap = new Map([
 		'dc.publisher',
 		{
 			label: 'Julkaisija (kustantaja)',
-			marc: '264$b',
-			ind1: null,
-			ind2: 1 //ToDo: 1?
+			marcTag: '264',
+			marcSub: 'b',
+			ind1: '',
+			ind2: '1' //ToDo: 1?
 		},
 	],
 	// Sivumäärä	 	dc.format.extent	300$a	tyhjä	tyhjä	 	esimerkit DC:stä?
@@ -346,9 +362,10 @@ const confMap = new Map([
 		'dc.format.extent',
 		{
 			label: 'Sivumäärä',
-			marc: '300$a',
-			ind1: null,
-			ind2: null
+			marcTag: '300',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Sarjatieto, nimeke	 	dc.relation.ispartofseries	490$a	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -356,9 +373,10 @@ const confMap = new Map([
 		'dc.relation.ispartofseries',
 		{
 			label: 'Sarjatieto, nimeke',
-			marc: '490$a',
-			ind1: 1,
-			ind2: null
+			marcTag: '490',
+			marcSub: 'a',
+			ind1: '1',
+			ind2: ''
 		},
 	],
 	// Sarjatieto, järjestysnumero	 	dc.relation.numberinseries	490$v	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -366,9 +384,10 @@ const confMap = new Map([
 		'dc.relation.numberinseries',
 		{
 			label: 'Sarjatieto, järjestysnumero',
-			marc: '490$v',
-			ind1: 1,
-			ind2: null
+			marcTag: '490',
+			marcSub: 'v',
+			ind1: '1',
+			ind2: ''
 		},
 	],
 	// Sarjan/lehden ISSN-numero	 	dc.relation.issn	490$x	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -376,9 +395,10 @@ const confMap = new Map([
 		'dc.relation.issn',
 		{
 			label: 'Sarjan/lehden ISSN-numero',
-			marc: '490$x',
-			ind1: 1,
-			ind2: null
+			marcTag: '490',
+			marcSub: 'x',
+			ind1: '1',
+			ind2: ''
 		},
 	],
 	// Lyhyt kuvaus	 	dc.description	500$a	tyhjä	tyhjä	 	500  __ $a Joku huomautus.
@@ -386,9 +406,10 @@ const confMap = new Map([
 		'dc.description',
 		{
 			label: 'Lyhyt kuvaus',
-			marc: '500$a',
-			ind1: null,
-			ind2: null
+			marcTag: '500',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Muu huomautus	 	dc.description.notification	500$a	tyhjä	tyhjä	 	500  __ $a Joku huomautus.
@@ -396,9 +417,10 @@ const confMap = new Map([
 		'dc.description.notification',
 		{
 			label: 'Muu huomautus',
-			marc: '500$a',
-			ind1: null,
-			ind2: null
+			marcTag: '500',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Opinnäytteen taso	Väitöskirja/Doctoral dissertation/Doktorsavhandling/Monografiaväitöskirja/Doctoral dissertation (monograph)/Monografiavhandling/Artikkeliväitöskirja/Doctoral dissertation (article-based)/Artikelavhandling/Lisensiaatintyö/Licentiate thesis/Licentiatarbete	
@@ -407,10 +429,13 @@ const confMap = new Map([
 		'dc.type.ontasot',
 		{
 			label: 'Opinnäytteen taso',
-			marc: '500$a', //ToDo - complex rule: 500$a [kentän sisältö] + 502$a 'Väitöskirja'
-			marcSecondary: '502$a',
-			ind1: null,
-			ind2: null
+			marcTag: '500', //ToDo - complex rule: 500$a [kentän sisältö] + 502$a 'Väitöskirja'
+			marcSub: 'a',
+			marcSecondaryTag: '502',
+			marcSecondarySub: 'a',
+			marcIf: 'onTaso',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	//  	ks. esimerkki	dc.contributor.organization	JOS dc.type.ontasot, niin 502$c	 	 	 	502 __ $a Väitöskirja : $c Helsingin yliopisto, valtiotieteellinen tiedekunta, $d 2016.
@@ -418,8 +443,10 @@ const confMap = new Map([
 		'dc.contributor.organization',
 		{
 			label: '', //ToDo
-			marc: '502$c', //ToDo - complex rule: JOS dc.type.ontasot, niin 502$c
-			marcIf: 'dc.type.ontasot',
+			marcTag: '502', //ToDo - complex rule: JOS dc.type.ontasot, niin 502$c
+			marcSub: 'c',
+			marcIf: 'onTaso',
+			marcIfDetails: 'dc.type.ontasot',
 			ind1: null, //ToDo
 			ind2: null //ToDo
 		},
@@ -429,8 +456,10 @@ const confMap = new Map([
 		'dc.contributor.faculty',
 		{
 			label: '', //ToDo
-			marc: '502$c',
-			marcIf: ['dc.type.ontasot', 'dc.contributor.faculty'],
+			marcTag: '502',
+			marcSub: 'c',
+			marcIf: 'onTaso',
+			marcIfDetails: ['dc.type.ontasot', 'dc.contributor.faculty'],
 			ind1: null, //ToDo
 			ind2: null //ToDo
 		},
@@ -440,9 +469,10 @@ const confMap = new Map([
 		'dc.rights.accessrights',
 		{
 			label: 'Rajattu pääsyoikeustieto',
-			marc: '506$a',
-			ind1: 1,
-			ind2: null
+			marcTag: '506',
+			marcSub: 'a',
+			ind1: '1',
+			ind2: ''
 		},
 	],
 	// Tiivistelmä	 	dc.description.abstract	520$a	tyhjä	tyhjä	 	520  __ $a Tiivistelmä.
@@ -450,9 +480,10 @@ const confMap = new Map([
 		'dc.description.abstract',
 		{
 			label: 'Tiivistelmä',
-			marc: '520$a',
-			ind1: null,
-			ind2: null
+			marcTag: '520',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Tekijänoikeus-/käyttöoikeustiedot	 	dc.rights	540$c	tyhjä	tyhjä	 	540  __ $c FinELib-lisenssi $u https://www.kiwi.fi/display/finelib/Ellibs
@@ -460,9 +491,10 @@ const confMap = new Map([
 		'dc.rights',
 		{
 			label: 'Tekijänoikeus-/käyttöoikeustiedot',
-			marc: '540$c',
-			ind1: null,
-			ind2: null
+			marcTag: '540',
+			marcSub: 'c',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	//  	 	dc.rights.accesslevel	506$a	 	 	 	 
@@ -470,9 +502,10 @@ const confMap = new Map([
 		'dc.rights.accesslevel',
 		{
 			label: '',
-			marc: '506$a',
-			ind1: null,
-			ind2: null
+			marcTag: '506',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	 	dc.rights.uri	540$u	tyhjä	tyhjä	 	 
@@ -480,9 +513,10 @@ const confMap = new Map([
 		'dc.rights.uri',
 		{
 			label: 'Tekijänoikeus-/käyttöoikeussivun verkko-osoite',
-			marc: '540$u',
-			ind1: null,
-			ind2: null
+			marcTag: '540',
+			marcSub: 'u',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	vaihtoehtoinen	dc.rights.url	540$u	tyhjä	tyhjä	 	 
@@ -490,9 +524,10 @@ const confMap = new Map([
 		'dc.rights.url',
 		{
 			label: 'Tekijänoikeus-/käyttöoikeussivun verkko-osoite',
-			marc: '540$u',
-			ind1: null,
-			ind2: null
+			marcTag: '540',
+			marcSub: 'u',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Tekijänoikeuksien haltija	 	dc.rights.copyrightholder	542$d	tyhjä	tyhjä	 	 
@@ -500,9 +535,10 @@ const confMap = new Map([
 		'dc.rights.copyrightholder',
 		{
 			label: 'Tekijänoikeuksien haltija',
-			marc: '542$d',
-			ind1: null,
-			ind2: null
+			marcTag: '542',
+			marcSub: 'd',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Muu tekijänoikeustieto	 	dc.rights.copyright	542$l	tyhjä	tyhjä	 	 
@@ -510,9 +546,10 @@ const confMap = new Map([
 		'dc.rights.copyright',
 		{
 			label: 'Muu tekijänoikeustieto',
-			marc: '542$l',
-			ind1: null,
-			ind2: null
+			marcTag: '542',
+			marcSub: '1',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Julkaisun kattavuus (aika)	 	dc.coverage.temporal	648$a	tyhjä	7	 	648 _7  $a 1900-luku  $2 ysa  
@@ -520,9 +557,10 @@ const confMap = new Map([
 		'dc.coverage.temporal',
 		{
 			label: 'Julkaisun kattavuus (aika)',
-			marc: '648$a',
-			ind1: null,
-			ind2: 7
+			marcTag: '648',
+			marcSub: 'a',
+			ind1: '',
+			ind2: '7'
 		},
 	],
 	// Asiasanat	tarkenne	dc.subject.ysa (esim.)	650$a, mahd. tarkenne: 650$2	tyhjä	7	 	650 _7  $a historia  $2 ysa  
@@ -530,10 +568,12 @@ const confMap = new Map([
 		'dc.subject.ysa', //ToDo: "(esim.)"
 		{
 			label: 'Asiasanat',
-			marc: '650$a', //ToDo - complex rule: 650$a, mahd. tarkenne: 650$2
-			marcSecondary: '650$2',
-			ind1: null,
-			ind2: 7
+			marcTag: '650', //ToDo - complex rule: 650$a, mahd. tarkenne: 650$2
+			marcSub: 'a',
+			marcSecondaryTag: '650',
+			marcSecondarySub: '2',
+			ind1: '',
+			ind2: '7'
 		},
 	],
 	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa  
@@ -541,9 +581,10 @@ const confMap = new Map([
 		'dc.coverage.spatial',
 		{
 			label: 'Julkaisun kattavuus (paikka)',
-			marc: '651$a',
-			ind1: null,
-			ind2: 7
+			marcTag: '651',
+			marcSub: 'a',
+			ind1: '',
+			ind2: '7'
 		},
 	],
 	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä	 	 
@@ -551,9 +592,10 @@ const confMap = new Map([
 		'dc.subject',
 		{
 			label: 'Avainsanat',
-			marc: '653$a',
-			ind1: null,
-			ind2: null
+			marcTag: '653',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		},
 	],
 	// Toimittaja	 	dc.contributor.editor	700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e toimittaja.
@@ -561,9 +603,10 @@ const confMap = new Map([
 		'dc.contributor.editor',
 		{
 			label: 'Toimittaja',
-			marc: '700$a',
-			ind1: 1,
-			ind2: null
+			marcTag: '700',
+			marcSub: 'a',
+			ind1: '1',
+			ind2: ''
 		},
 	],
 	// Painetun monografian ISBN-numero	 	dc.relation.isversionof	776$z (vakiofraasi i osakenttään)	0	8	 	776 08 $i Painettu: $z 9518826536
@@ -571,19 +614,22 @@ const confMap = new Map([
 		'dc.relation.isversionof',
 		{
 			label: 'Painetun monografian ISBN-numero',
-			marc: '776$z', //ToDo: (vakiofraasi i osakenttään)
-			ind1: null,
-			ind2: null
+			marcTag: '776', //ToDo: (vakiofraasi i osakenttään)
+			marcSub: 'z',
+			ind1: 0,
+			ind2: 8
 		},
 	],
 	// Julkaisun DOI-tunnus	 	dc.identifier.doi	856$u	4	0	 	 
 	[
-		'dc.identifier.doi',
+		'dc.identifier.doi', //ToDo: 024$a $2 doi 7 # 
 		{
 			label: 'Julkaisun DOI-tunnus',
-			marc: '856$u',
-			ind1: 4,
-			ind2: 0
+			marcTag: '856',
+			marcSub: 'u',
+			unique: true,
+			ind1: '4',
+			ind2: '0'
 		},
 	],
 	// Julkaisun URI	 	dc.identifier.uri	856$u	4	0	 	 
@@ -591,29 +637,32 @@ const confMap = new Map([
 		'dc.identifier.uri',
 		{
 			label: 'Julkaisun URI',
-			marc: '856$u',
-			ind1: 4,
-			ind2: 0
+			marcTag: '856',
+			marcSub: 'u',
+			ind1: '4',
+			ind2: '0'
 		},
 	],
 	// Julkaisun URL	vaihtoehtoinen	dc.identifier.url	856$u	4	0	 	 
 	[
-		'dc.identifier.url',
+		'dc.identifier.url', 
 		{
 			label: 'Julkaisun URL', //vaihtoehtoinen
-			marc: '856$u',
-			ind1: 4,
-			ind2: 0
+			marcTag: '856',
+			marcSub: 'u',
+			ind1: '4',
+			ind2: '0'
 		},
 	],
 	// URN-tunnus	 	dc.identifier.urn	856$u	4	0	 	 
 	[
-		'dc.identifier.urn',
+		'dc.identifier.urn', //ToDo: 024$a $2 urn 7 # 
 		{
 			label: 'URN-tunnus',
-			marc: '856$u',
-			ind1: 4,
-			ind2: 0
+			marcTag: '856',
+			marcSub: 'u',
+			ind1: '4',
+			ind2: '0'
 		},
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2	 	 
@@ -621,9 +670,10 @@ const confMap = new Map([
 		'dc.relation.url',
 		{
 			label: 'Muu verkko-osoite',
-			marc: '856$u',
-			ind1: 4,
-			ind2: 2
+			marcTag: '856',
+			marcSub: 'u',
+			ind1: '4',
+			ind2: '2' //ToDo: If previous #4#0 should we create new record or update to #4#2 
 		},
 	],
 	// Muu verkko-osoite	 	dc.relation.uri	 	 	 	 	 
@@ -631,7 +681,7 @@ const confMap = new Map([
 		'dc.relation.uri',
 		{
 			label: 'Muu verkko-osoite',
-			marc: '', //ToDo
+			marcTag: '', //ToDo
 			ind1: null, //ToDo
 			ind2: null //ToDo
 		},
@@ -641,9 +691,10 @@ const confMap = new Map([
 		'dc.relation.urn',
 		{
 			label: 'Muu URN-tunnus',
-			marc: '856$u',
-			ind1: 4,
-			ind2: 2
+			marcTag: '856',
+			marcSub: 'u',
+			ind1: '4',
+			ind2: '2'
 		},
 	],
 	// Tekijä	 	dc.contributor.author	Eka 100$a, loput 700$a	1	tyhjä	 	100 1_ $a Ahola, Johanna, $e kirjoittaja.
@@ -651,9 +702,14 @@ const confMap = new Map([
 		'dc.contributor.author',
 		{
 			label: 'Tekijä',
-			marc: '100$a', //ToDo: Eka 100$a, loput 700$a
-			ind1: 1,
-			ind2: null
+			marcTag: '100', //ToDo: Eka 100$a, loput 700$a
+			marcSub: 'a',
+			marcIf: 'rest',
+			marcIfUnique: false,
+			marcSecondaryTag: '700',
+			marcSecondarySub: 'a',
+			ind1: '1',
+			ind2: ''
 		},
 	],
 	// Tekijä	vaihtoehtoinen	dc.creator	Eka 100$a, loput 700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e kirjoittaja.
@@ -661,9 +717,14 @@ const confMap = new Map([
 		'dc.creator',
 		{
 			label: 'Tekijä',
-			marc: '100$a', //ToDo: Eka 100$a, loput 700$a
-			ind1: 1,
-			ind2: null
+			marcTag: '100', //ToDo: Eka 100$a, loput 700$a
+			marcSub: 'a',
+			marcIf: 'rest',
+			marcIfUnique: false,
+			marcSecondaryTag: '700',
+			marcSecondarySub: 'a',
+			ind1: '1',
+			ind2: ''
 		},
 	],
 	// Tietueen sisältö	fulltext=0/metadataOnly=2/abstractOnly=2	dc.format.content	Vaikutta 856 2.indikaattoriin (0=fulltext,2=muu)	 	0 tai 2	 	 
@@ -671,29 +732,10 @@ const confMap = new Map([
 		'dc.format.content',
 		{
 			label: 'Tietueen sisältö',
-			marc: '',
+			marcTag: '856',
+			marcIf: 'something',
 			ind1: null,
-			ind2: null
+			ind2: null //ToDo: 0 || 2
 		},
 	]
 ]);
-
-// [
-// 	'dc.',
-// 	{
-// 		label: '',
-// 		marc: '',
-// 		ind1: null,
-// 		ind2: null
-// 	},
-// ]
-
-// var parseDublinCore = require('metadata-parser').parseDublinCore;
-// console.log("Parse: ", parseDublinCore);
-// parseDublinCore(record, function(error, metadata){
-// 	console.log("---------- DC parse ------------");
-// 	console.log(error);
-// 	console.log(metadata);
-// 	console.log("--------------------------------");
-// });
-// console.log("Past PDC")
