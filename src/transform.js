@@ -33,13 +33,21 @@ import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
 import {TransformerUtils as Utils} from '@natlibfi/melinda-record-import-commons';
 import langs from 'langs';
+import fs, { write } from 'fs';
+
 
 export default async function (stream) {
+	var marcRecords = [];
+
 	const records = await JSON.parse(await getStream(stream));
-	return Promise.all(records.map(convertRecord));
+	var result = records.map(convertRecord);
+	console.log("Transformed " + marcRecords.length + " of " + records.length);
+	fs.writeFileSync('marcRecords.json', JSON.stringify(marcRecords, undefined, 2));
+	return Promise.all(result);
+	// return Promise.all(records.map(convertRecord)); //Original line, now replaced with broken code above for file saving
 
 	function convertRecord(record) {
-		console.log("ConvRecord")
+		console.log("---------- Convert record ----------")
 		var control008Structure = [{
 				start: 1,
 				end: 7,
@@ -76,17 +84,10 @@ export default async function (stream) {
 		var onTaso = [];
 
 		const marcRecord = new MarcRecord();
-		var marcJSON = [];	
+		var marcJSON = [];
+		var marc856modifier = '2';
 		var controlJSON = [];	
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
-		console.log("------- Detailing record -------")
-		console.log("Record: ", record)
-		console.log("--------------------------------");
-		// console.log("Header: ", record.header)
-		console.log("Header: ", record.header[0])
-		console.log("------- Detailing record end -------");
-		console.log("Fields: ", fields);
-		console.log("--------------- EoF --------------");
 		
 		//Function to get DC path from field
 		function getDCPath(field){
@@ -98,14 +99,11 @@ export default async function (stream) {
 		}
 
 		fields.forEach(field => {
-			//Recursive function to go generate marcJSON later to be transformed to actual Marc
-			upsertRecord(confMap.get(getDCPath(field)), field);
+			upsertRecord(confMap.get(getDCPath(field)), field); //Recursive function to go generate marcJSON later to be transformed to actual Marc
 		});
 		generateOnTaso();
 		generateControlFields();
-		//generateMarcRecord();
-		console.log("Marc records: ")
-		console.log(JSON.stringify(marcJSON, null, 2));
+		generateMarcRecord();
 
 		return marcRecord;
 
@@ -124,15 +122,11 @@ export default async function (stream) {
 		//field: single field got from harvesting
 		function upsertRecord(conf, field){
 			if(typeof(conf) === 'undefined') return;
-			// console.log("-------------- new upsert ------------")
-			// console.log(conf)
-			// console.log("***")
-			// console.log(field)
 
 			//Handle special cases by marcIf, default is normal case
 			switch(conf.marcIf){
+				//Save onTaso fields for end parsing
 				case 'onTaso':{
-					//Save onTaso fields for end parsing
 					onTaso.push( {dc: getDCPath(field), value: field['$'].value})
 					
 					//Primary tag used for generating record 500, secondary for onTaso stuff for 502
@@ -141,20 +135,20 @@ export default async function (stream) {
 					}
 					break;
 				}
+				//Save if dc.format.contet sets ind2 and modify all effected 856 fields when generating actual Marc
+				case 'modify':{
+					if(conf.marcTag === '856' && field['$'].value === 'else'){
+						marc856modifier = '0';
+					}
+					break;
+				}
 				//First to primary tag, if tag already used generate new with secondary tag
 				case 'rest':{
 					var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
 					if(foundRec){
-						// console.log("*** found earlier")
 						upsertRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique}, field);
 						break;
 					}//If foundRec === null -> no break -> default
-				}
-				case 'modify':{
-					console.log("********* Modifier")
-					if(field.marcTag === '856'){
-						console.log("********* Modifier")
-					}
 				}
 				default:{
 					generateRecord(conf, field)
@@ -162,18 +156,18 @@ export default async function (stream) {
 			}
 		}
 
+
 		function generateRecord(conf, field) {
 			//Controller fields
 			if( conf.marcTag === '008'){
 				modifyControlField(field);
+
 			//Normal fields
 			}else{
 				var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
 				
 				//Earlier existing record and should be unique -> push new subfield
 				if(foundRec && conf.unique){
-					// console.log("Earlier record: ");
-					// console.log(foundRec);
 					foundRec.subfields.push({
 						code: conf.marcSub,
 						value: field['$'].value
@@ -181,7 +175,6 @@ export default async function (stream) {
 	
 				//No earlier record or not unique -> generate new record
 				}else{
-					// console.log("New marc record to insert: ");
 					foundRec = {
 						tag: conf.marcTag,
 						ind1: conf.ind1 || '',
@@ -191,19 +184,26 @@ export default async function (stream) {
 							value: field['$'].value
 						}]
 					};
-					// console.log(foundRec);
 					marcJSON.push(foundRec);
 				}
+
+				//Set possibly preset value as subfield (describing static type etc)
+				if(conf.marcPresetValue){
+					foundRec.subfields.push({
+						code: conf.marcPresetValue.sub,
+						value: conf.marcPresetValue.value
+					});
+				}
 	
-				//If secondary tag&sub exist, field is suppose to be save to secondary location also
-				if(conf.marcSecondaryTag){
-					generateRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique, /*marcIf: conf.marcIf,*/ ind1: conf.ind1, ind2: conf.ind2}, field)
+				//If secondary tag exist, field is suppose to be also saved to secondary location: generate config file with secondary fields as primary keys
+				//Exception: conf.marcIf === 'rest' -> secondary values describe values for 2nd, 3th ... values (handled in upsertRecord())
+				if(conf.marcSecondaryTag && (!conf.marcIf === 'rest')){
+					generateRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique, ind1: conf.marcSecondaryInd1 || conf.ind1, ind2: conf.marcSecondaryInd2 || conf.ind2, marcPresetValue: conf.marcSecondaryPresetValue}, field)
 				}
 			}
 		};
 
-		// <controlfield tag="007">cr ||||||||||p</controlfield>
-		// <controlfield tag="008">180822s2018    fi |||||s|||||||| |bfin  </controlfield>
+
 		//Modify control field structure by field: 
 		//find correct sub object by DC path -> shorten/transform if needed -> set value
 		function modifyControlField(field){
@@ -237,17 +237,9 @@ export default async function (stream) {
 			fieldToEdit.value = fieldVal;
 		}
 
-		//This handles 502 field to be sure that it is generated correctly
-		//[ { 
-		// 	dc: 'dc.contributor.faculty',
-		// 	value: 'fi=Yhteiskuntatieteiden tiedekunta | en=Faculty of Social Sciences|' 
-		// },{ 
-		// 	dc: 'dc.contributor.organization',
-		// 	value: 'University of Tampere' 
-		// } 
+
+		//This handles 502 field to be sure that it is generated correctly after all fields are read
 		function generateOnTaso(){
-			console.log("------ onTaso: ------");
-			console.log(onTaso)
 			if(onTaso.find( e => { return e.dc === 'dc.type.ontasot'})){
 				var rec = {
 					tag: '502',
@@ -264,10 +256,6 @@ export default async function (stream) {
 					
 					//JOS dc.type.ontasot JA dc.contributor.faculty, niin 502$c (ks. Esimerkki)
 					if(onTaso.find( e => { return e.dc === 'dc.contributor.faculty'})){
-						//502 __ 	$a 'Väitöskirja :' 
-						//			$c [dc.contributor.organization] + ', ' + [dc.contributor.faculty] + ', '  $d [dc.date.issued / pelkkä vuosi=4 ekaa merkkiä]
-						console.log("--- Generate 502 and $c with full");
-
 						//Faculty can be like: 'fi=Yhteiskuntatieteiden tiedekunta | en=Faculty of Social Sciences|'
 						var faculty = onTaso.find( e => { return e.dc === 'dc.contributor.faculty'}).value;
 						if(faculty.includes('fi=') && faculty.includes(' | ')){
@@ -280,9 +268,6 @@ export default async function (stream) {
 						});	
 					
 					}else{
-						//502 __ 	$a Väitöskirja : 
-						//			$c Helsingin yliopisto, valtiotieteellinen tiedekunta, $d 2016.
-						console.log("--- Generate 502 and $c with only organization");
 						rec.subfields.push({
 							code: conf.marcSub,
 							value: onTaso.find( e => { return e.dc === 'dc.contributor.organization'}).value
@@ -293,10 +278,9 @@ export default async function (stream) {
 			}
 		}
 
-		//Generate control field after all fields are read
+
+		//Generate control field after all fields are read and push to records
 		function generateControlFields(){
-			//Generate control fields and push to records
-			console.log("---- Generate control fields: -----");
 			var controlValue008 = '';
 			control008Structure.forEach(element => {
 				if(typeof(element.value) === 'undefined'){
@@ -309,23 +293,25 @@ export default async function (stream) {
 				tag: '008',
 				value: controlValue008
 			};
-			//ToDo: these are actually insterted with  .insertControlField = function(fieldDef, index) to MarcRecords, might not be useful to push to other records
 			controlJSON.push(controlField008);
 		}
 
+		
 		function generateMarcRecord(){
 			marcJSON.forEach(field => {
 				console.log(field)
+				if(field.tag === '856' && marc856modifier){
+					field.ind2 = marc856modifier;
+				}
 				marcRecord.insertField(field);
-				console.log("---------------")
 			});
-			controlJSON.forEach(field => {
-				marcRecord.insertControlField(field);
-			});
-			console.log("MarcRecord:")
-			console.log(marcRecord)
-		}
 
+			controlJSON.forEach(field => {
+				marcRecord.insertField(field);
+			});
+
+			marcRecords.push(marcRecord); //Save all records to array for debug saving
+		}
 		// End of supporting functions
 		////////////////////////////////////////////////////
 	}
@@ -694,18 +680,25 @@ const confMap = new Map([
 			label: 'Painetun monografian ISBN-numero',
 			marcTag: '776', //ToDo: (vakiofraasi i osakenttään)
 			marcSub: 'z',
-			ind1: 0,
-			ind2: 8
+			ind1: '0',
+			ind2: '8'
 		},
 	],
 	// Julkaisun DOI-tunnus	 	dc.identifier.doi	856$u	4	0	 	 
 	[
-		'dc.identifier.doi', //ToDo: 024$a $2 doi 7 # 
+		'dc.identifier.doi', //ToDo: 024$a $2 doi 7 #  //URN, DOI
 		{
 			label: 'Julkaisun DOI-tunnus',
 			marcTag: '856',
 			marcSub: 'u',
-			unique: true,
+			marcSecondaryTag: '024', //ToDo: 024$a $2 doi 7 #
+			marcSecondarySub: 'a',
+			marcSecondaryInd1: '7',
+			marcSecondaryInd2: '#',
+			marcSecondaryPresetValue:{
+				sub: '2',
+				value: 'doi'
+			},
 			ind1: '4',
 			ind2: '0'
 		},
@@ -734,11 +727,19 @@ const confMap = new Map([
 	],
 	// URN-tunnus	 	dc.identifier.urn	856$u	4	0	 	 
 	[
-		'dc.identifier.urn', //ToDo: 024$a $2 urn 7 # 
+		'dc.identifier.urn',  
 		{
 			label: 'URN-tunnus',
 			marcTag: '856',
 			marcSub: 'u',
+			marcSecondaryTag: '024', //ToDo: 024$a $2 urn 7 #
+			marcSecondarySub: 'a',
+			marcSecondaryInd1: '7',
+			marcSecondaryInd2: '#',
+			marcSecondaryPresetValue:{
+				sub: '2',
+				value: 'urn'
+			},
 			ind1: '4',
 			ind2: '0'
 		},
@@ -811,9 +812,7 @@ const confMap = new Map([
 		{
 			label: 'Tietueen sisältö',
 			marcTag: '856',
-			marcIf: 'modify',
-			ind1: null,
-			ind2: null //ToDo: 0 || 2
+			marcIf: 'modify'
 		},
 	]
 ]);
