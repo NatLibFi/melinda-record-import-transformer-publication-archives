@@ -6,8 +6,7 @@ dist
 env
 
 src/helmet*
-src/dummyJSON.js
-src/dummyXML.js
+src/dummy*
 
 marcRecords.json
 
