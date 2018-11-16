@@ -26,16 +26,17 @@
 *
 */
 
-//Some configuration settings:
-//unique: should new subfields be inserted previous record (unique record) or not
-//marcIf: enumeration of sort for special cases (rest, dc.type.ontasot, array)
-//marcIfUnique: if if-statement is fulfilled (rest) should following record be unique
-//All unclear ind* are marked as null/ToDo tag
+/* eslint-disable no-warning-comments */
+// Some configuration settings:
+// unique: should new subfields be inserted previous record (unique record) or not
+// marcIf: enumeration of sort for special cases (rest, dc.type.ontasot, array)
+// marcIfUnique: if if-statement is fulfilled (rest) should following record be unique
+// All unclear ind* are marked as null/ToDo tag
 const orderMap = new Map([
 	[
 		'264',
 		{
-			order: [ '6', '8', '3', 'a', 'b', 'c', '9']
+			order: ['6', '8', '3', 'a', 'b', 'c', '9']
 		}
 	],
 	[
@@ -52,13 +53,13 @@ const confMap = new Map([
 		'dc.publisher.country',
 		{
 			label: 'Teoksen julkaisumaa',
-			marcTag: '008' //Control field
+			marcTag: '008' // Control field
 		}
 	],
 	// Teoksen kieli	 	dc.language.iso	041$a + 008	tyhjä	tyhjä	 	eng /  041 __ $a eng
 	[
 		'dc.language.iso',
-			{
+		{
 			label: 'Teoksen kieli',
 			marcTag: '041',
 			marcIf: 'langField',
@@ -74,7 +75,7 @@ const confMap = new Map([
 		{
 			label: 'Julkaisuaika',
 			marcTag: '264',
-			marcIf: 'issued', //This saves year for multiple purposes
+			marcIf: 'issued', // This saves year for multiple purposes
 			marcSub: 'c',
 			marcSecondaryTag: '008',
 			ind1: '',
@@ -104,9 +105,9 @@ const confMap = new Map([
 			ind1: '1',
 			ind2: '0',
 			suffix: '.'
-		},
+		}
 	],
-	// 	Vaihtoehtoinen nimeke	 	dc.title.alternative	246$a	1	3	 	 
+	// 	Vaihtoehtoinen nimeke	 	dc.title.alternative	246$a	1	3
 	[
 		'dc.title.alternative',
 		{
@@ -115,9 +116,9 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '1',
 			ind2: '3'
-		},
+		}
 	],
-	// Julkaisun painosmerkintä	 	dc.description.edition	250$a	tyhjä	tyhjä	 	 
+	// Julkaisun painosmerkintä	 	dc.description.edition	250$a	tyhjä	tyhjä
 	[
 		'dc.description.edition',
 		{
@@ -126,9 +127,9 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	// Teoksen kustannuspaikkakunta	 	dc.publisher.place	264$a	tyhjä	1	 	 
+	// Teoksen kustannuspaikkakunta	 	dc.publisher.place	264$a	tyhjä	1
 	[
 		'dc.publisher.place',
 		{
@@ -138,7 +139,7 @@ const confMap = new Map([
 			ind1: '',
 			ind2: '1',
 			unique: true
-		},
+		}
 	],
 	// Julkaisija (kustantaja)	Julkaisijan nimi	dc.publisher	264$b	tyhjä	1 (Valitaan julkaisun kielen mukaan)	264 _1 $b Turun yliopisto
 	[
@@ -151,7 +152,7 @@ const confMap = new Map([
 			ind2: '1',
 			unique: true,
 			suffix: ','
-		},
+		}
 	],
 	// Sivumäärä	 	dc.format.extent	300$a	tyhjä	tyhjä	 	esimerkit DC:stä?
 	[
@@ -163,7 +164,7 @@ const confMap = new Map([
 			ind1: '',
 			ind2: '',
 			suffix: ' sivua'
-		},
+		}
 	],
 	// Sarjatieto, nimeke	 	dc.relation.ispartofseries	490$a	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
 	[
@@ -176,7 +177,7 @@ const confMap = new Map([
 			ind2: '',
 			unique: true,
 			suffix: ','
-		},
+		}
 	],
 	// Sarjan/lehden ISSN-numero	 	dc.relation.issn	490$x	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
 	[
@@ -189,7 +190,7 @@ const confMap = new Map([
 			ind2: '',
 			unique: true,
 			suffix: ';'
-		},
+		}
 	],
 	// Sarjatieto, järjestysnumero	 	dc.relation.numberinseries	490$v	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
 	[
@@ -201,7 +202,7 @@ const confMap = new Map([
 			ind1: '1',
 			ind2: '',
 			unique: true
-		},
+		}
 	],
 	// Lyhyt kuvaus	 	dc.description	500$a	tyhjä	tyhjä	 	500  __ $a Joku huomautus.
 	[
@@ -213,7 +214,7 @@ const confMap = new Map([
 			ind1: '',
 			ind2: '',
 			suffix: '.'
-		},
+		}
 	],
 	// Muu huomautus	 	dc.description.notification	500$a	tyhjä	tyhjä	 	500  __ $a Joku huomautus.
 	[
@@ -224,9 +225,9 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	// Opinnäytteen taso	Väitöskirja/Doctoral dissertation/Doktorsavhandling/Monografiaväitöskirja/Doctoral dissertation (monograph)/Monografiavhandling/Artikkeliväitöskirja/Doctoral dissertation (article-based)/Artikelavhandling/Lisensiaatintyö/Licentiate thesis/Licentiatarbete	
+	// Opinnäytteen taso	Väitöskirja/Doctoral dissertation/Doktorsavhandling/Monografiaväitöskirja/Doctoral dissertation (monograph)/Monografiavhandling/Artikkeliväitöskirja/Doctoral dissertation (article-based)/Artikelavhandling/Lisensiaatintyö/Licentiate thesis/Licentiatarbete
 	// dc.type.ontasot	500$a [kentän sisältö] + 502$a 'Väitöskirja'	tyhjä	tyhjä	 	500 __ $a Artikkeliväitöskirja  502 __ $a Väitöskirja
 	[
 		'dc.type.ontasot',
@@ -239,9 +240,9 @@ const confMap = new Map([
 			marcIf: 'onTaso',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	//  	ks. esimerkki	dc.contributor.organization	JOS dc.type.ontasot, niin 502$c	 	 	 	502 __ $a Väitöskirja : $c Helsingin yliopisto, valtiotieteellinen tiedekunta, $d 2016.
+	//  	Ks. esimerkki	dc.contributor.organization	JOS dc.type.ontasot, niin 502$c	 	 	 	502 __ $a Väitöskirja : $c Helsingin yliopisto, valtiotieteellinen tiedekunta, $d 2016.
 	[
 		'dc.contributor.organization',
 		{
@@ -251,9 +252,9 @@ const confMap = new Map([
 			marcIf: 'onTaso',
 			ind1: null,
 			ind2: null
-		},
+		}
 	],
-	//  	ks. esimerkki	dc.contributor.faculty	JOS dc.type.ontasot ja dc.contributor.faculty, niin 502$c (ks. Esimerkki)	 	 	 	502 __ $a 'Väitöskirja :' $c [dc.contributor.organization] + ', ' + [dc.contributor.faculty] + ', '  $d [dc.date.issued / pelkkä vuosi=4 ekaa merkkiä]
+	//  	Ks. esimerkki	dc.contributor.faculty	JOS dc.type.ontasot ja dc.contributor.faculty, niin 502$c (ks. Esimerkki)	 	 	 	502 __ $a 'Väitöskirja :' $c [dc.contributor.organization] + ', ' + [dc.contributor.faculty] + ', '  $d [dc.date.issued / pelkkä vuosi=4 ekaa merkkiä]
 	[
 		'dc.contributor.faculty',
 		{
@@ -263,9 +264,9 @@ const confMap = new Map([
 			marcIf: 'onTaso',
 			ind1: null,
 			ind2: null
-		},
+		}
 	],
-	// Rajattu pääsyoikeustieto	 	dc.rights.accessrights	506$a	1	tyhjä	 	 
+	// Rajattu pääsyoikeustieto	 	dc.rights.accessrights	506$a	1	tyhjä
 	[
 		'dc.rights.accessrights',
 		{
@@ -274,7 +275,7 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '1',
 			ind2: ''
-		},
+		}
 	],
 	// Tiivistelmä	 	dc.description.abstract	520$a	tyhjä	tyhjä	 	520  __ $a Tiivistelmä.
 	[
@@ -285,7 +286,7 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
 	// Tekijänoikeus-/käyttöoikeustiedot	 	dc.rights	540$c	tyhjä	tyhjä	 	540  __ $c FinELib-lisenssi $u https://www.kiwi.fi/display/finelib/Ellibs
 	[
@@ -296,9 +297,9 @@ const confMap = new Map([
 			marcSub: 'c',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	//  	 	dc.rights.accesslevel	506$a	 	 	 	 
+	//  	 	Dc.rights.accesslevel	506$a
 	[
 		'dc.rights.accesslevel',
 		{
@@ -307,9 +308,9 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	 	dc.rights.uri	540$u	tyhjä	tyhjä	 	 
+	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	 	dc.rights.uri	540$u	tyhjä	tyhjä
 	[
 		'dc.rights.uri',
 		{
@@ -318,9 +319,9 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	vaihtoehtoinen	dc.rights.url	540$u	tyhjä	tyhjä	 	 
+	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	vaihtoehtoinen	dc.rights.url	540$u	tyhjä	tyhjä
 	[
 		'dc.rights.url',
 		{
@@ -329,9 +330,9 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	// Tekijänoikeuksien haltija	 	dc.rights.copyrightholder	542$d	tyhjä	tyhjä	 	 
+	// Tekijänoikeuksien haltija	 	dc.rights.copyrightholder	542$d	tyhjä	tyhjä
 	[
 		'dc.rights.copyrightholder',
 		{
@@ -340,9 +341,9 @@ const confMap = new Map([
 			marcSub: 'd',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	// Muu tekijänoikeustieto	 	dc.rights.copyright	542$l	tyhjä	tyhjä	 	 
+	// Muu tekijänoikeustieto	 	dc.rights.copyright	542$l	tyhjä	tyhjä
 	[
 		'dc.rights.copyright',
 		{
@@ -351,9 +352,9 @@ const confMap = new Map([
 			marcSub: '1',
 			ind1: '',
 			ind2: ''
-		},
+		}
 	],
-	// Julkaisun kattavuus (aika)	 	dc.coverage.temporal	648$a	tyhjä	7	 	648 _7  $a 1900-luku  $2 ysa  
+	// Julkaisun kattavuus (aika)	 	dc.coverage.temporal	648$a	tyhjä	7	 	648 _7  $a 1900-luku  $2 ysa
 	[
 		'dc.coverage.temporal',
 		{
@@ -362,9 +363,9 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '7'
-		},
+		}
 	],
-	// Asiasanat	tarkenne	dc.subject.ysa (esim.)	650$a, mahd. tarkenne: 650$2	tyhjä	7	 	650 _7  $a historia  $2 ysa  
+	// Asiasanat	tarkenne	dc.subject.ysa (esim.)	650$a, mahd. tarkenne: 650$2	tyhjä	7	 	650 _7  $a historia  $2 ysa
 	[
 		'dc.subject.ysa',
 		{
@@ -375,9 +376,9 @@ const confMap = new Map([
 			marcSecondarySub: '2',
 			ind1: '',
 			ind2: '7'
-		},
+		}
 	],
-	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa  
+	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
 	[
 		'dc.coverage.spatial',
 		{
@@ -386,9 +387,9 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '7'
-		},
+		}
 	],
-	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä	 	 
+	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä
 	[
 		'dc.subject',
 		{
@@ -398,7 +399,7 @@ const confMap = new Map([
 			ind1: '',
 			ind2: '',
 			unique: true
-		},
+		}
 	],
 	// Toimittaja	 	dc.contributor.editor	700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e toimittaja.
 	[
@@ -409,39 +410,39 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '1',
 			ind2: ''
-		},
+		}
 	],
 	// Painetun monografian ISBN-numero	 	dc.relation.isversionof	776$z (vakiofraasi i osakenttään)	0	8	 	776 08 $i Painettu: $z 9518826536
 	[
 		'dc.relation.isversionof',
 		{
 			label: 'Painetun monografian ISBN-numero',
-			marcTag: '776', //ToDo: (vakiofraasi i osakenttään)
+			marcTag: '776', // ToDo: (vakiofraasi i osakenttään)
 			marcSub: 'z',
 			ind1: '0',
 			ind2: '8'
-		},
+		}
 	],
-	// Julkaisun DOI-tunnus	 	dc.identifier.doi	856$u	4	0	 	 
+	// Julkaisun DOI-tunnus	 	dc.identifier.doi	856$u	4	0
 	[
-		'dc.identifier.doi', 
+		'dc.identifier.doi',
 		{
 			label: 'Julkaisun DOI-tunnus',
 			marcTag: '856',
 			marcSub: 'u',
-			marcSecondaryTag: '024', //024$a $2 doi 7 #  //URN, DOI
+			marcSecondaryTag: '024', // 024$a $2 doi 7 #  //URN, DOI
 			marcSecondarySub: 'a',
 			marcSecondaryInd1: '7',
 			marcSecondaryInd2: '',
-			marcSecondaryPresetValue:{
+			marcSecondaryPresetValue: {
 				sub: '2',
 				value: 'doi'
 			},
 			ind1: '4',
 			ind2: '0'
-		},
+		}
 	],
-	// Julkaisun URI	 	dc.identifier.uri	856$u	4	0	 	 
+	// Julkaisun URI	 	dc.identifier.uri	856$u	4	0
 	[
 		'dc.identifier.uri',
 		{
@@ -450,39 +451,39 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0'
-		},
+		}
 	],
-	// Julkaisun URL	vaihtoehtoinen	dc.identifier.url	856$u	4	0	 	 
+	// Julkaisun URL	vaihtoehtoinen	dc.identifier.url	856$u	4	0
 	[
-		'dc.identifier.url', 
+		'dc.identifier.url',
 		{
-			label: 'Julkaisun URL', //vaihtoehtoinen
+			label: 'Julkaisun URL', // Vaihtoehtoinen
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0'
-		},
+		}
 	],
-	// URN-tunnus	 	dc.identifier.urn	856$u	4	0	 	 
+	// URN-tunnus	 	dc.identifier.urn	856$u	4	0
 	[
-		'dc.identifier.urn',  
+		'dc.identifier.urn',
 		{
 			label: 'URN-tunnus',
 			marcTag: '856',
 			marcSub: 'u',
-			marcSecondaryTag: '024', //024$a $2 urn 7 #
+			marcSecondaryTag: '024', // 024$a $2 urn 7 #
 			marcSecondarySub: 'a',
 			marcSecondaryInd1: '7',
 			marcSecondaryInd2: '#',
-			marcSecondaryPresetValue:{
+			marcSecondaryPresetValue: {
 				sub: '2',
 				value: 'urn'
 			},
 			ind1: '4',
 			ind2: '0'
-		},
+		}
 	],
-	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2	 	 
+	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
 	[
 		'dc.relation.url',
 		{
@@ -490,20 +491,20 @@ const confMap = new Map([
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
-			ind2: '2' //ToDo: If previous #4#0 should we create new record or update to #4#2 
-		},
+			ind2: '2' // ToDo: If previous #4#0 should we create new record or update to #4#2
+		}
 	],
-	// Muu verkko-osoite	 	dc.relation.uri	 	 	 	 	 
+	// Muu verkko-osoite	 	dc.relation.uri
 	[
 		'dc.relation.uri',
 		{
 			label: 'Muu verkko-osoite',
-			marcTag: '', //ToDo
-			ind1: null, //ToDo
-			ind2: null //ToDo
-		},
+			marcTag: '', // ToDo
+			ind1: null, // ToDo
+			ind2: null // ToDo
+		}
 	],
-	// Muu URN-tunnus	 	dc.relation.urn	856$u	4	2	 	 
+	// Muu URN-tunnus	 	dc.relation.urn	856$u	4	2
 	[
 		'dc.relation.urn',
 		{
@@ -512,7 +513,7 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '2'
-		},
+		}
 	],
 	// Tekijä	 	dc.contributor.author	Eka 100$a, loput 700$a	1	tyhjä	 	100 1_ $a Ahola, Johanna, $e kirjoittaja.
 	[
@@ -527,7 +528,7 @@ const confMap = new Map([
 			marcSecondarySub: 'a',
 			ind1: '1',
 			ind2: ''
-		},
+		}
 	],
 	// Tekijä	vaihtoehtoinen	dc.creator	Eka 100$a, loput 700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e kirjoittaja.
 	[
@@ -542,16 +543,16 @@ const confMap = new Map([
 			marcSecondarySub: 'a',
 			ind1: '1',
 			ind2: ''
-		},
+		}
 	],
-	// Tietueen sisältö	fulltext=0/metadataOnly=2/abstractOnly=2	dc.format.content	Vaikutta 856 2.indikaattoriin (0=fulltext,2=muu)	 	0 tai 2	 	 
+	// Tietueen sisältö	fulltext=0/metadataOnly=2/abstractOnly=2	dc.format.content	Vaikutta 856 2.indikaattoriin (0=fulltext,2=muu)	 	0 tai 2
 	[
 		'dc.format.content',
 		{
 			label: 'Tietueen sisältö',
 			marcTag: '856',
 			marcIf: 'modify'
-		},
+		}
 	]
 ]);
 

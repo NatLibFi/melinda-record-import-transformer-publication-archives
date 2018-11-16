@@ -28,7 +28,6 @@
 */
 
 import fs from 'fs';
-import path from 'path';
 import ora from 'ora';
 import transform from './transform';
 import createValidateFunction from './validate';
@@ -66,7 +65,6 @@ async function run() {
 			} else {
 				console.log(JSON.stringify(results, undefined, 2));
 			}
-
 		} else {
 			const records = await transform(fs.createReadStream(file));
 			spinner.succeed();
