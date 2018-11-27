@@ -527,7 +527,8 @@ const confMap = new Map([
 			marcSecondaryTag: '700',
 			marcSecondarySub: 'a',
 			ind1: '1',
-			ind2: ''
+			ind2: '',
+			suffix: '.'
 		}
 	],
 	// Tekijä	vaihtoehtoinen	dc.creator	Eka 100$a, loput 700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e kirjoittaja.
@@ -542,7 +543,8 @@ const confMap = new Map([
 			marcSecondaryTag: '700',
 			marcSecondarySub: 'a',
 			ind1: '1',
-			ind2: ''
+			ind2: '',
+			suffix: '.'
 		}
 	],
 	// Tietueen sisältö	fulltext=0/metadataOnly=2/abstractOnly=2	dc.format.content	Vaikutta 856 2.indikaattoriin (0=fulltext,2=muu)	 	0 tai 2
