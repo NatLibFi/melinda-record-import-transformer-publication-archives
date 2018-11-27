@@ -33,7 +33,7 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import transform from '../src/transform';
-import {utaSingle, utaComplex, doriaSingle} from './validResponses'
+import {utaChecked/*, utaSingle, utaComplex, doriaSingle*/} from './validResponses'
 import fs from 'fs';
 
 const {expect} = chai;
@@ -42,22 +42,29 @@ chai.use(chaiAsPromised);
 describe('Check different transformation cases', () => {
 
 	describe('#UTA', () => {
-		it('Single complex record', async () => {
-			const result = await transform(fs.createReadStream('./test/recordsUtaSingle.json', 'utf8'));
-			expect(result).to.eql(utaSingle);
+		//ToDo, multiple dc.description.abstract fields (in eng and fi)
+		it('Single checked record', async () => {
+			const result = await transform(fs.createReadStream('./test/recordsUtaChecked.json', 'utf8'));
+			console.log(JSON.stringify(result, null, 2));
+			expect(result).to.eql(utaChecked);
 		});
+		
+		// it('Single complex record', async () => {
+		// 	const result = await transform(fs.createReadStream('./test/recordsUtaSingle.json', 'utf8'));
+		// 	expect(result).to.eql(utaSingle);
+		// });
 
-		it('Multiple records', async () => {
-			const result = await transform(fs.createReadStream('./test/recordsUtaMultiple.json', 'utf8'));
-			expect(result).to.eql(utaComplex);
-		});
+		// it('Multiple records', async () => {
+		// 	const result = await transform(fs.createReadStream('./test/recordsUtaMultiple.json', 'utf8'));
+		// 	expect(result).to.eql(utaComplex);
+		// });
 	});
 	  
-	describe('#Doria', () => {
-		it('Single complex record', async () => {
-			const result = await transform(fs.createReadStream('./test/recordsDoriaSingle.json', 'utf8'));
-			expect(result).to.eql(doriaSingle);
-		});
-	});
+	// describe('#Doria', () => {
+	// 	it('Single complex record', async () => {
+	// 		const result = await transform(fs.createReadStream('./test/recordsDoriaSingle.json', 'utf8'));
+	// 		expect(result).to.eql(doriaSingle);
+	// 	});
+	// });
 });
 // console.log(JSON.stringify(result, null, 2));

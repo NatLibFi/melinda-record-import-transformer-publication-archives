@@ -27,6 +27,278 @@
 */
 
 'use strict';
+const utaChecked = [
+  {
+    "_validationOptions": {},
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr ||||||||||p"
+      },
+      {
+        "tag": "008",
+        "value": "000000s2018    fi |||||s|||||||| |beng  "
+      },
+      {
+        "tag": "020",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "978-952-03-0864-3"
+          }
+        ]
+      },
+      {
+        "tag": "024",
+        "ind1": "7",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "URN:ISBN: 978-952-03-0864-3"
+          },
+          {
+            "code": "u",
+            "value": "rn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
+          }
+        ]
+      },
+      {
+        "tag": "100",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "von Essen, Magdaléna."
+          }
+        ]
+      },
+      {
+        "tag": "245",
+        "ind1": "1",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Mechanobiology in Health and Disease : Exploring Talin’s mechanobiology with computational modeling and simulation techniques."
+          }
+        ]
+      },
+      {
+        "tag": "246",
+        "ind1": "1",
+        "ind2": "3",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Terveyden ja sairauden mekanobiologiaa : Taliinin mekanobiologian tarkastelua laskennallisen mallinnuksen ja simulaatioiden avulla"
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "b",
+            "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "490",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Acta Electronica Universitatis Tamperensis,"
+          },
+          {
+            "code": "x",
+            "value": "1456-954X;"
+          },
+          {
+            "code": "v",
+            "value": "1933"
+          }
+        ]
+      },
+      {
+        "tag": "500",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Artikkeliväitöskirja"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Artikkeliväitöskirja :"
+          },
+          {
+            "code": "c",
+            "value": "University of Tampere, Lääketieteen ja biotieteiden tiedekunta, "
+          },
+          {
+            "code": "d",
+            "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "506",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "openAccess"
+          }
+        ]
+      },
+      {
+        "tag": "520",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Kaikki elävät organismit..."
+          }
+        ]
+      },
+      {
+        "tag": "520",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "All living organisms..."
+          }
+        ]
+      },
+      {
+        "tag": "540",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited."
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "taliini"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "mekanobiologia"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "ateroskleroosi"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "laskennallinen molekyylidynamiikka"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Gromacs"
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "http://tampub.uta.fi/handle/10024/104531"
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "URN:ISBN: 978-952-03-0864-3"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 const utaSingle = [
 	{
 		"leader": "01704nam a  002653i   00",
@@ -27578,4 +27850,4 @@ const doriaSingle = [
 	}
   ];
 
-export {utaSingle, utaComplex, doriaSingle};
+export {utaChecked, utaSingle, utaComplex, doriaSingle};
