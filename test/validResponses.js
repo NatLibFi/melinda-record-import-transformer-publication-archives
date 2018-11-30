@@ -29,7 +29,6 @@
 'use strict';
 const utaChecked = [
   {
-    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -274,6 +273,50 @@ const utaChecked = [
         ]
       },
       {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "talin"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "mechanobiology"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "atherosclerosis"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "computational molecular dynamics"
+          }
+        ]
+      },
+      {
         "tag": "856",
         "ind1": "4",
         "ind2": "0",
@@ -300,130 +343,129 @@ const utaChecked = [
 ];
 
 const utaSingle = [
-	{
-		"leader": "01704nam a  002653i   00",
-		"fields": [
-		{
-			"tag": "007",
-			"value": "cr ||||||||||p"
-		},
-		{
-			"tag": "008",
-			"value": "000000s2011    fi |||||s|||||||| |beng  "
-		},
-		{
-			"tag": "020",
-			"ind1": " ",
-			"ind2": " ",
-			"subfields": [
-			{
-				"code": "a",
-				"value": "9783905404579"
-			}
-			]
-		},
-		{
-			"tag": "041",
-			"ind1": " ",
-			"ind2": " ",
-			"subfields": [
-			{
-				"code": "a",
-				"value": "eng"
-			}
-			]
-		},
-		{
-			"tag": "100",
-			"ind1": "1",
-			"ind2": " ",
-			"subfields": [
-			{
-				"code": "a",
-				"value": "Grönroos, Mauri"
-			}
-			]
-		},
-		{
-			"tag": "245",
-			"ind1": "1",
-			"ind2": "0",
-			"subfields": [
-			{
-				"code": "a",
-				"value": "Cultural and intercultural negotiating aspects."
-			}
-			]
-		},
-		{
-			"tag": "264",
-			"ind1": " ",
-			"ind2": "1",
-			"subfields": [
-			{
-				"code": "b",
-				"value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
-			},
-			{
-				"code": "c",
-				"value": "2011."
-			}
-			]
-		},
-		{
-			"tag": "300",
-			"ind1": " ",
-			"ind2": " ",
-			"subfields": [
-			{
-				"code": "a",
-				"value": "54-66 sivua"
-			}
-			]
-		},
-		{
-			"tag": "653",
-			"ind1": " ",
-			"ind2": " ",
-			"subfields": [
-			{
-				"code": "a",
-				"value": "globalization"
-			},
-			{
-				"code": "a",
-				"value": "culture"
-			},
-			{
-				"code": "a",
-				"value": "negotiations"
-			}
-			]
-		},
-		{
-			"tag": "700",
-			"ind1": "1",
-			"ind2": " ",
-			"subfields": [
-			{
-				"code": "a",
-				"value": "Seppänen, Ann"
-			}
-			]
-		},
-		{
-			"tag": "856",
-			"ind1": "4",
-			"ind2": "2",
-			"subfields": [
-			{
-				"code": "u",
-				"value": "http://www.doria.fi/handle/10024/73840"
-			}
-			]
-		}
-		]
-	}
+  {
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr ||||||||||p"
+      },
+      {
+        "tag": "008",
+        "value": "000000s2011    fi |||||s|||||||| |beng  "
+      },
+      {
+        "tag": "020",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "9783905404579"
+          }
+        ]
+      },
+      {
+        "tag": "100",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Grönroos, Mauri."
+          }
+        ]
+      },
+      {
+        "tag": "245",
+        "ind1": "1",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Cultural and intercultural negotiating aspects."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "b",
+            "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
+          }
+        ]
+      },
+      {
+        "tag": "300",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "54-66 sivua"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "globalization"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "culture"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "negotiations"
+          }
+        ]
+      },
+      {
+        "tag": "700",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Seppänen, Ann."
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "http://www.doria.fi/handle/10024/73840"
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 /*******************************************/
@@ -452,24 +494,13 @@ const utaComplex = [
         ]
       },
       {
-        "tag": "041",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "eng"
-          }
-        ]
-      },
-      {
         "tag": "100",
         "ind1": "1",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "Paavolainen, Teemu"
+            "value": "Paavolainen, Teemu."
           }
         ]
       },
@@ -492,10 +523,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
-          },
-          {
-            "code": "c",
-            "value": "2011."
           }
         ]
       },
@@ -532,7 +559,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Väitöskirja"
+            "value": "Väitöskirja :"
           },
           {
             "code": "c",
@@ -540,7 +567,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2011"
+            "value": "2011."
           }
         ]
       },
@@ -585,39 +612,102 @@ const utaComplex = [
           {
             "code": "a",
             "value": "teatteri"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "ekologia"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kognitio"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "esineet"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Puola"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "theatre"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "ecology"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "cognition"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "objects"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Poland"
@@ -627,7 +717,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -661,23 +751,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:ISBN:978-951-44-8963-1"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:ISBN:978-951-44-8963-1"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -700,10 +783,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
-          },
-          {
-            "code": "c",
-            "value": "2012."
           }
         ]
       },
@@ -787,7 +866,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -798,7 +877,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -821,23 +900,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "urn:nbn:fi:uta-1-23087"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "urn:nbn:fi:uta-1-23087"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -848,7 +920,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "HAAPALA, RITVA"
+            "value": "HAAPALA, RITVA."
           }
         ]
       },
@@ -860,17 +932,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "MISTÄ TYYTYMÄTTÖMYYS SYNTYY? Hallintokantelun sisällöt sosiaalipalveluissa ja toimeentulotuessa."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2012."
           }
         ]
       },
@@ -903,7 +964,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lisensiaatintyö"
+            "value": "Lisensiaatintyö :"
           },
           {
             "code": "c",
@@ -911,7 +972,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2012"
+            "value": "2012."
           }
         ]
       },
@@ -951,7 +1012,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -962,7 +1023,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -985,23 +1046,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201503021156"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201503021156"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -1012,7 +1066,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mettälä, Marika"
+            "value": "Mettälä, Marika."
           }
         ]
       },
@@ -1024,17 +1078,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Vanhempien kokemuksia lapsivuodeajan hoidosta potilashotellin lapsivuodeosastolla."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2015."
           }
         ]
       },
@@ -1067,7 +1110,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -1075,7 +1118,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2015"
+            "value": "2015."
           }
         ]
       },
@@ -1109,11 +1152,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "lapsivuodeaika"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kokemus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "vanhemmat"
@@ -1123,7 +1180,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1134,7 +1191,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1157,23 +1214,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201507282171"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201507282171"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -1184,7 +1234,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Åkerman, Christa"
+            "value": "Åkerman, Christa."
           }
         ]
       },
@@ -1196,17 +1246,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "\"Finland, a country with an unshakable sense of fair play\" : The New York Timesin suomalaisrepresentaatiot 2003-2013."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2015."
           }
         ]
       },
@@ -1239,7 +1278,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -1247,7 +1286,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2015"
+            "value": "2015."
           }
         ]
       },
@@ -1270,11 +1309,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "representaatio"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "stereotypia"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "maakuva ja kansallisuus"
@@ -1284,7 +1337,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1295,7 +1348,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1329,23 +1382,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:ISBN:978-952-03-0038-8"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:ISBN:978-952-03-0038-8"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -1356,7 +1402,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pokkinen, Satu"
+            "value": "Pokkinen, Satu."
           }
         ]
       },
@@ -1390,10 +1436,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
-          },
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -1434,7 +1476,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Artikkeliväitöskirja"
+            "value": "Artikkeliväitöskirja :"
           },
           {
             "code": "c",
@@ -1442,7 +1484,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2016"
+            "value": "2016."
           }
         ]
       },
@@ -1498,23 +1540,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "kohdunpoisto"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kipu"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "anestesia"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "hysterectomy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "pain"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "anaesthesia"
@@ -1524,7 +1601,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1535,7 +1612,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1558,23 +1635,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201603071283"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201603071283"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -1585,7 +1655,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Koskela, Minja"
+            "value": "Koskela, Minja."
           }
         ]
       },
@@ -1597,17 +1667,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Se on työtä vaan : seksityöntekijänä suomalaisessa yhteiskunnassa - vapaaehtoisesti seksityötä tekevien suomalaisnaisten kokemuksia."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2015."
           }
         ]
       },
@@ -1640,7 +1699,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -1648,7 +1707,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2015"
+            "value": "2015."
           }
         ]
       },
@@ -1671,15 +1730,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "seksityö"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "toimijuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "stigma"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "seksin oston kriminalisointi"
@@ -1689,7 +1769,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1700,7 +1780,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1723,23 +1803,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201611142566"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201611142566"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -1750,7 +1823,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkinen, Ilkka"
+            "value": "Mäkinen, Ilkka."
           }
         ]
       },
@@ -1762,17 +1835,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "From library and information science through information studies to information studies and interactive media: emergence, expansion and integration of information studies at the University of Tampere illustrated in word clouds."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -1828,39 +1890,102 @@ const utaComplex = [
           {
             "code": "a",
             "value": "informaatiotutkimus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "informaatiotutkimus ja interaktiivinen media"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Tampereen yliopisto"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sanapilvet"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "tieteenhistoria"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "information studies"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "information studies and interactive media"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "University of Tampere"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "word clouds"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "history of science"
@@ -1874,7 +1999,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Järvelin, Kalervo"
+            "value": "Järvelin, Kalervo."
           }
         ]
       },
@@ -1885,7 +2010,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Savolainen, Reijo"
+            "value": "Savolainen, Reijo."
           }
         ]
       },
@@ -1896,14 +2021,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sormunen, Eero"
+            "value": "Sormunen, Eero."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1914,7 +2039,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -1948,23 +2073,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201612162852"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201612162852"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -1975,7 +2093,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lindfors, Pirjo"
+            "value": "Lindfors, Pirjo."
           }
         ]
       },
@@ -1998,10 +2116,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Helsingin yliopisto,"
-          },
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -2049,7 +2163,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Karvonen, Sakari"
+            "value": "Karvonen, Sakari."
           }
         ]
       },
@@ -2060,7 +2174,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Minkkinen, Jaana"
+            "value": "Minkkinen, Jaana."
           }
         ]
       },
@@ -2071,7 +2185,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rimpelä, Arja"
+            "value": "Rimpelä, Arja."
           }
         ]
       },
@@ -2210,7 +2324,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2221,7 +2335,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2244,23 +2358,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201612212892"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201612212892"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -2271,7 +2378,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hakkarainen, Jani"
+            "value": "Hakkarainen, Jani."
           }
         ]
       },
@@ -2294,10 +2401,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Societas philosophica Fennica,"
-          },
-          {
-            "code": "c",
-            "value": "2012."
           }
         ]
       },
@@ -2367,7 +2470,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2378,7 +2481,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2401,23 +2504,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201703291375"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201703291375"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -2428,7 +2524,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Millei, Zsuzsa"
+            "value": "Millei, Zsuzsa."
           }
         ]
       },
@@ -2440,17 +2536,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Ad-hoc numbers forming provision and policy: round and round of universal access in an Australian preschool."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -2490,7 +2575,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2501,7 +2586,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2524,23 +2609,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201703301377"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201703301377"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -2551,7 +2629,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oulasvirta, Lasse"
+            "value": "Oulasvirta, Lasse."
           }
         ]
       },
@@ -2563,17 +2641,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Adoption of comprehensive risk management in local government."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -2617,14 +2684,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Anttiroiko, Ari-Veikko"
+            "value": "Anttiroiko, Ari-Veikko."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2635,7 +2702,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2658,23 +2725,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705021493"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201705021493"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -2685,7 +2745,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kudo, Saki"
+            "value": "Kudo, Saki."
           }
         ]
       },
@@ -2697,17 +2757,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The influence of firms on female lifecycle decisions."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -2740,7 +2789,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -2748,7 +2797,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -2793,23 +2842,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "gender equality"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "lifecycle decisions"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "family policy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "the absence of work"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "the influence of firms"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "lifestyle preferences"
@@ -2819,7 +2903,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2830,7 +2914,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -2853,23 +2937,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705081535"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201705081535"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -2880,7 +2957,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ulmanen, Sanna"
+            "value": "Ulmanen, Sanna."
           }
         ]
       },
@@ -2892,17 +2969,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Students’ experiences of the development of emotional engagement."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -2947,31 +3013,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "oppilaiden emotionaalinen koulutyöhön kiinnittyminen"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kuulumisen kokemus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "opettaja-oppilas vuorovaikutus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "vertaisvuorovaikutus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "students' emotional engagement"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sense of belonging"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "teacher-student relationships"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "peer relationships"
@@ -2985,7 +3100,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Soini, Tiina"
+            "value": "Soini, Tiina."
           }
         ]
       },
@@ -2996,7 +3111,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pietarinen, Janne"
+            "value": "Pietarinen, Janne."
           }
         ]
       },
@@ -3007,14 +3122,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pyhältö, Kirsi"
+            "value": "Pyhältö, Kirsi."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3025,7 +3140,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3048,23 +3163,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705101549"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201705101549"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -3075,7 +3183,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kallio, Kirsi Pauliina"
+            "value": "Kallio, Kirsi Pauliina."
           }
         ]
       },
@@ -3087,17 +3195,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Children's caring agencies."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -3142,31 +3239,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "huolenpidon politiikka"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "lasten poliittisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "huolehtiva toimijuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "poliittinen maantiede"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "politics of care"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "children's politics"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "caring agency"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "political geography"
@@ -3180,14 +3326,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Bartos, Ann E."
+            "value": "Bartos, Ann E.."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3198,7 +3344,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3221,23 +3367,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705161571"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201705161571"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -3248,7 +3387,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sianoja, Marjaana"
+            "value": "Sianoja, Marjaana."
           }
         ]
       },
@@ -3260,17 +3399,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Enhancing daily well-being at work through lunchtime park walks and relaxation exercises : Recovery experiences as mediators."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -3326,19 +3454,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "lunchtime recovery"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "park walking"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "relaxation exercise"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "detachment"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "enjoyment"
@@ -3352,7 +3508,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Syrek, Christine"
+            "value": "Syrek, Christine."
           }
         ]
       },
@@ -3363,7 +3519,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "de Bloom, Jessica"
+            "value": "de Bloom, Jessica."
           }
         ]
       },
@@ -3374,7 +3530,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korpela, Kalevi"
+            "value": "Korpela, Kalevi."
           }
         ]
       },
@@ -3385,14 +3541,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kinnunen, Ulla"
+            "value": "Kinnunen, Ulla."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3403,7 +3559,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3426,23 +3582,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705301737"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201705301737"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -3453,7 +3602,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kuusela, Hanna"
+            "value": "Kuusela, Hanna."
           }
         ]
       },
@@ -3465,17 +3614,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The Material Trajectories of Cultural Texts : The Bookseller of Kabul and the Ahistoric Women of Afghanistan."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -3515,7 +3653,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3526,7 +3664,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3549,23 +3687,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706011774"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706011774"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -3576,7 +3707,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pascucci, Elisa"
+            "value": "Pascucci, Elisa."
           }
         ]
       },
@@ -3588,17 +3719,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Community infrastructures: shelter, self-reliance and polymorphic borders in urban refugee governance."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -3638,7 +3758,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3649,7 +3769,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3672,23 +3792,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706192048"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706192048"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -3699,7 +3812,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lobanovskiy, Arseniy"
+            "value": "Lobanovskiy, Arseniy."
           }
         ]
       },
@@ -3711,17 +3824,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Guessing right and wrong : intra-party bargaining and electoral uncertainty : a game-theoretical study of policy-motivated factions and voters in a two-party democracy with a laboratory experiment."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -3754,7 +3856,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -3762,7 +3864,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -3807,23 +3909,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "political parties"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "party factions"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "voting behaviour"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "imperfect information"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sequential game"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "laboratory experiment."
@@ -3833,7 +3970,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3844,7 +3981,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -3867,23 +4004,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262090"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706262090"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -3894,7 +4024,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heba Sigurðardóttir"
+            "value": "Heba Sigurðardóttir."
           }
         ]
       },
@@ -3906,17 +4036,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "There is only one colour that truly matters - Global identification and consciousness in Avaaz discourse on global activism."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -3949,7 +4068,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -3957,7 +4076,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -4002,23 +4121,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "global identity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "global consciousness"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "new social movements"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Avaaz"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "epistemic governance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "membership categorization"
@@ -4028,7 +4182,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4039,7 +4193,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4062,23 +4216,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262093"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706262093"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -4089,7 +4236,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hietala, Verneri"
+            "value": "Hietala, Verneri."
           }
         ]
       },
@@ -4101,17 +4248,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Think Global, Act Local : Cultural Policies of Dundee from World Cultural Perspective."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -4144,7 +4280,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -4152,7 +4288,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -4197,19 +4333,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "world culture theory"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "urban cultural policies"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "discourse analysis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "policy documents"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Dundee"
@@ -4219,7 +4383,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4230,7 +4394,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4253,23 +4417,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262098"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706262098"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -4280,7 +4437,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kalchev, Daniel"
+            "value": "Kalchev, Daniel."
           }
         ]
       },
@@ -4292,17 +4449,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The impact of positive emotions on altruism in the presence of familiarity."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -4335,7 +4481,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -4343,7 +4489,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -4388,23 +4534,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "experimental economics"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "laboratory experiment"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "altruism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "familiarity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "positive emotions"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "dictator game"
@@ -4414,7 +4595,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4425,7 +4606,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4448,23 +4629,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262101"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706262101"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -4475,7 +4649,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kuivalainen, Tuomo"
+            "value": "Kuivalainen, Tuomo."
           }
         ]
       },
@@ -4487,17 +4661,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Comparative education systems : student performance & private and public funding, management and schools : a case study of Finland and Sweden."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -4530,7 +4693,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -4538,7 +4701,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -4583,15 +4746,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "education systems"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "education policy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "private provision"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "public provision"
@@ -4601,7 +4785,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4612,7 +4796,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4635,23 +4819,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262112"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706262112"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -4662,7 +4839,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Qureshi, Mohammad Ahsan"
+            "value": "Qureshi, Mohammad Ahsan."
           }
         ]
       },
@@ -4674,17 +4851,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Epistemic Governance in the Discourse Around the Blasphemy Laws in Pakistan: A review of columns in Dawn and Daily Jang."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -4717,7 +4883,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -4725,7 +4891,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -4770,11 +4936,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Blasphemy Laws"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Epistemic Governance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "World Culture"
@@ -4784,7 +4964,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4795,7 +4975,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -4818,23 +4998,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706272121"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706272121"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -4845,7 +5018,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hänninen, Timo"
+            "value": "Hänninen, Timo."
           }
         ]
       },
@@ -4857,17 +5030,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Interpreting change on the SCAT3 in professional ice hockey players."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -4923,15 +5085,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "brain concussion"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "head injuries"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "baseline survey"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "ice hockey"
@@ -4945,7 +5128,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Parkkari, Jari"
+            "value": "Parkkari, Jari."
           }
         ]
       },
@@ -4956,7 +5139,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tuominen, Markku"
+            "value": "Tuominen, Markku."
           }
         ]
       },
@@ -4967,7 +5150,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Iverson, Grant L"
+            "value": "Iverson, Grant L."
           }
         ]
       },
@@ -4978,7 +5161,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Öhman, Juha"
+            "value": "Öhman, Juha."
           }
         ]
       },
@@ -4989,7 +5172,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vartiainen, Matti"
+            "value": "Vartiainen, Matti."
           }
         ]
       },
@@ -5000,14 +5183,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luoto, Teemu M"
+            "value": "Luoto, Teemu M."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5018,7 +5201,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5041,23 +5224,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706292160"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201706292160"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -5068,7 +5244,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harjunpää, Ielyzaveta"
+            "value": "Harjunpää, Ielyzaveta."
           }
         ]
       },
@@ -5080,17 +5256,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Nudging Sustainability: Triggering Conservation Behaviour in the Household s Electricity Consumption."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -5123,7 +5288,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -5131,7 +5296,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -5176,23 +5341,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "nudge"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "choice architecture"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "behavioral economics"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "energy behavior"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "environmental values"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "polycentricity"
@@ -5202,7 +5402,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5213,7 +5413,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5236,23 +5436,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201708292341"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201708292341"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -5263,7 +5456,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Koski, Kaisu"
+            "value": "Koski, Kaisu."
           }
         ]
       },
@@ -5275,17 +5468,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Exploring Vaccine Hesitancy Through an Artist–Scientist Collaboration: Visualizing Vaccine-Critical Parents’ Health Beliefs."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -5329,14 +5511,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Holst, Johan"
+            "value": "Holst, Johan."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5347,7 +5529,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5370,23 +5552,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709122420"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201709122420"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -5397,7 +5572,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Serlachius, Anna"
+            "value": "Serlachius, Anna."
           }
         ]
       },
@@ -5409,17 +5584,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Does high optimism protect against the inter-generational transmission of high BMI? The Cardiovascular Risk in Young Finns Study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -5474,7 +5638,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pulkki-Råback, Laura"
+            "value": "Pulkki-Råback, Laura."
           }
         ]
       },
@@ -5485,7 +5649,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Juonala, Markus"
+            "value": "Juonala, Markus."
           }
         ]
       },
@@ -5496,7 +5660,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sabin, Matthew"
+            "value": "Sabin, Matthew."
           }
         ]
       },
@@ -5507,7 +5671,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Terho"
+            "value": "Lehtimäki, Terho."
           }
         ]
       },
@@ -5518,7 +5682,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raitakari, Olli"
+            "value": "Raitakari, Olli."
           }
         ]
       },
@@ -5529,14 +5693,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Elovainio, Marko"
+            "value": "Elovainio, Marko."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5547,7 +5711,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5570,23 +5734,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709122421"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201709122421"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -5597,7 +5754,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mauno, Saija"
+            "value": "Mauno, Saija."
           }
         ]
       },
@@ -5609,17 +5766,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Does recovery buffer against emotional labor outcomes at work? Analyzing age differences care professionals."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -5674,7 +5820,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ruokolainen, Mervi"
+            "value": "Ruokolainen, Mervi."
           }
         ]
       },
@@ -5685,7 +5831,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "de Bloom, Jessica"
+            "value": "de Bloom, Jessica."
           }
         ]
       },
@@ -5696,14 +5842,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kinnunen, Ulla"
+            "value": "Kinnunen, Ulla."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5714,7 +5860,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5737,23 +5883,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709192448"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201709192448"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -5764,7 +5903,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Helve, Helena"
+            "value": "Helve, Helena."
           }
         ]
       },
@@ -5776,17 +5915,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Identity Horizons Among Finnish Postsecondary Students : A Comparative Analysis."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -5830,7 +5958,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Côté, James"
+            "value": "Côté, James."
           }
         ]
       },
@@ -5841,7 +5969,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Svynarenko, Arseniy"
+            "value": "Svynarenko, Arseniy."
           }
         ]
       },
@@ -5852,7 +5980,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sinisalo-Juha, Eeva"
+            "value": "Sinisalo-Juha, Eeva."
           }
         ]
       },
@@ -5863,7 +5991,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mizokami, Shinichi"
+            "value": "Mizokami, Shinichi."
           }
         ]
       },
@@ -5874,7 +6002,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Roberts, Sharon E"
+            "value": "Roberts, Sharon E."
           }
         ]
       },
@@ -5885,14 +6013,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nakama, Reiko"
+            "value": "Nakama, Reiko."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5903,7 +6031,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -5926,23 +6054,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709222465"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201709222465"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -5953,7 +6074,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Soini, Tuuli"
+            "value": "Soini, Tuuli."
           }
         ]
       },
@@ -5965,17 +6086,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Long-term Follow-up After Endometrial Ablation in Finland : Cancer Risks and Later Hysterectomies."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -6019,7 +6129,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rantanen, Matti"
+            "value": "Rantanen, Matti."
           }
         ]
       },
@@ -6030,7 +6140,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Paavonen, Jorma"
+            "value": "Paavonen, Jorma."
           }
         ]
       },
@@ -6041,7 +6151,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Grénman, Seija"
+            "value": "Grénman, Seija."
           }
         ]
       },
@@ -6052,7 +6162,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Johanna"
+            "value": "Mäenpää, Johanna."
           }
         ]
       },
@@ -6063,7 +6173,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pukkala, Eero"
+            "value": "Pukkala, Eero."
           }
         ]
       },
@@ -6074,7 +6184,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Gissler, Mika"
+            "value": "Gissler, Mika."
           }
         ]
       },
@@ -6085,14 +6195,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hurskainen, Ritva"
+            "value": "Hurskainen, Ritva."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6103,7 +6213,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6126,23 +6236,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282489"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201709282489"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -6153,7 +6256,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hirvonen, Hanna"
+            "value": "Hirvonen, Hanna."
           }
         ]
       },
@@ -6165,17 +6268,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The effect of cryotherapy on total antioxidative capacity in patients with active seropositive rheumatoid arthritis."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -6220,19 +6312,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "rheumatoid arthritis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "cryotherapy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "antioxidant capacity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "peroxyl radical trapping"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "rehabilitation"
@@ -6246,7 +6366,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kautiainen, Hannu"
+            "value": "Kautiainen, Hannu."
           }
         ]
       },
@@ -6257,7 +6377,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Moilanen, Eeva"
+            "value": "Moilanen, Eeva."
           }
         ]
       },
@@ -6268,7 +6388,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mikkelsson, Marja"
+            "value": "Mikkelsson, Marja."
           }
         ]
       },
@@ -6279,14 +6399,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Leirisalo-Repo, Marjatta"
+            "value": "Leirisalo-Repo, Marjatta."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6297,7 +6417,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6320,23 +6440,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282488"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201709282488"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -6347,7 +6460,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Härkönen, Saaga"
+            "value": "Härkönen, Saaga."
           }
         ]
       },
@@ -6359,17 +6472,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Konflikteja, yhteisymmärrystä ja monipuolisia merkityksiä : digitaalinen media nuoren ja vanhemman välisessä suhteessa."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -6402,7 +6504,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -6410,7 +6512,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -6455,35 +6557,91 @@ const utaComplex = [
           {
             "code": "a",
             "value": "digitaalinen media"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kännykkä"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "nuoret"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "vanhemmat"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sosiaalinen konstruktionismi"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "eläytymismenetelmä"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kertomukset"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kerronnallisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "positiot"
@@ -6493,7 +6651,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6504,7 +6662,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6527,23 +6685,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282492"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201709282492"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -6554,7 +6705,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lauronen, Sirkka-Liisa"
+            "value": "Lauronen, Sirkka-Liisa."
           }
         ]
       },
@@ -6566,17 +6717,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Thermal suit in preventing unintentional intraoperative hypothermia during general anaesthesia: a randomized controlled trial."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -6620,7 +6760,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kalliomäki, Maija-Liisa"
+            "value": "Kalliomäki, Maija-Liisa."
           }
         ]
       },
@@ -6631,7 +6771,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aho, Antti"
+            "value": "Aho, Antti."
           }
         ]
       },
@@ -6642,7 +6782,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kalliovalkama, Jarkko"
+            "value": "Kalliovalkama, Jarkko."
           }
         ]
       },
@@ -6653,7 +6793,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Riikonen, Jarno"
+            "value": "Riikonen, Jarno."
           }
         ]
       },
@@ -6664,7 +6804,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkinen, Marja-Tellervo"
+            "value": "Mäkinen, Marja-Tellervo."
           }
         ]
       },
@@ -6675,7 +6815,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Leppikangas, Heli"
+            "value": "Leppikangas, Heli."
           }
         ]
       },
@@ -6686,14 +6826,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Yli-Hankala, Arvi"
+            "value": "Yli-Hankala, Arvi."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6704,7 +6844,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6727,23 +6867,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282494"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201709282494"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -6754,7 +6887,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Marttila, Saara"
+            "value": "Marttila, Saara."
           }
         ]
       },
@@ -6766,17 +6899,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Human endogenous retrovirus HERV-K(HML-2) env expression is not associated with markers of immunosenescence."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -6832,19 +6954,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "human endogenous retrovirus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "HERV-K(HML-2)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "ageing"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "immunosenescence"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "B cells"
@@ -6858,7 +7008,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nevalainen, Tapio"
+            "value": "Nevalainen, Tapio."
           }
         ]
       },
@@ -6869,7 +7019,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhävä, Juulia"
+            "value": "Jylhävä, Juulia."
           }
         ]
       },
@@ -6880,7 +7030,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kananen, Laura"
+            "value": "Kananen, Laura."
           }
         ]
       },
@@ -6891,7 +7041,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhä, Marja"
+            "value": "Jylhä, Marja."
           }
         ]
       },
@@ -6902,7 +7052,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hervonen, Antti"
+            "value": "Hervonen, Antti."
           }
         ]
       },
@@ -6913,14 +7063,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hurme, Mikko"
+            "value": "Hurme, Mikko."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6931,7 +7081,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -6954,23 +7104,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710042514"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710042514"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -6981,7 +7124,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ikonen, Hanna-Mari"
+            "value": "Ikonen, Hanna-Mari."
           }
         ]
       },
@@ -6993,17 +7136,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "'I <3 my high-performance dog’ : love for the sport in agility coach representations in social media."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -7048,47 +7180,124 @@ const utaComplex = [
           {
             "code": "a",
             "value": "tunteet ja talous"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sosiaalinen media"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "koiraurheilu"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "agility"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "urheiluvalmennus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "rakkaus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "affective economies"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "social media"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "dog sports"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "agility"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sport coaching"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "love"
@@ -7102,14 +7311,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pehkonen, Samu"
+            "value": "Pehkonen, Samu."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7120,7 +7329,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7143,23 +7352,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710042520"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710042520"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -7170,7 +7372,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raittio, Lauri"
+            "value": "Raittio, Lauri."
           }
         ]
       },
@@ -7182,17 +7384,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Comparison of volar-flexion, ulnar-deviation and functional position cast immobilization in the non-operative treatment of distal radius fracture in elderly patients : a pragmatic randomized controlled trial study protocol."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -7247,7 +7438,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Launonen, Antti"
+            "value": "Launonen, Antti."
           }
         ]
       },
@@ -7258,7 +7449,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hevonkorpi, Teemu"
+            "value": "Hevonkorpi, Teemu."
           }
         ]
       },
@@ -7269,7 +7460,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luokkala, Toni"
+            "value": "Luokkala, Toni."
           }
         ]
       },
@@ -7280,7 +7471,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kukkonen, Juha"
+            "value": "Kukkonen, Juha."
           }
         ]
       },
@@ -7291,7 +7482,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Reito, Aleksi"
+            "value": "Reito, Aleksi."
           }
         ]
       },
@@ -7302,7 +7493,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sumrein, Bakir"
+            "value": "Sumrein, Bakir."
           }
         ]
       },
@@ -7313,7 +7504,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Laitinen, Minna"
+            "value": "Laitinen, Minna."
           }
         ]
       },
@@ -7324,14 +7515,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mattila, Ville M"
+            "value": "Mattila, Ville M."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7342,7 +7533,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7365,23 +7556,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710042526"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710042526"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -7392,7 +7576,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niemi, Riikka"
+            "value": "Niemi, Riikka."
           }
         ]
       },
@@ -7404,17 +7588,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Urinary polyamines as biomarkers for ovarian cancer."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -7458,7 +7631,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Roine, Antti"
+            "value": "Roine, Antti."
           }
         ]
       },
@@ -7469,7 +7642,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Häkkinen, Merja"
+            "value": "Häkkinen, Merja."
           }
         ]
       },
@@ -7480,7 +7653,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kumpulainen, Pekka"
+            "value": "Kumpulainen, Pekka."
           }
         ]
       },
@@ -7491,7 +7664,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Keinänen, Tuomo"
+            "value": "Keinänen, Tuomo."
           }
         ]
       },
@@ -7502,7 +7675,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vepsäläinen, Jouko"
+            "value": "Vepsäläinen, Jouko."
           }
         ]
       },
@@ -7513,7 +7686,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Terho"
+            "value": "Lehtimäki, Terho."
           }
         ]
       },
@@ -7524,7 +7697,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oksala, Niku"
+            "value": "Oksala, Niku."
           }
         ]
       },
@@ -7535,14 +7708,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Johanna"
+            "value": "Mäenpää, Johanna."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7553,7 +7726,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7576,23 +7749,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710102578"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710102578"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -7603,7 +7769,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Enroth, Linda"
+            "value": "Enroth, Linda."
           }
         ]
       },
@@ -7615,17 +7781,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cardiometabolic and Inflammatory Biomarkers as Mediators Between Educational Attainment and Functioning at the Age of 90 Years."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -7680,7 +7835,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raitanen, Jani"
+            "value": "Raitanen, Jani."
           }
         ]
       },
@@ -7691,7 +7846,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hervonen, Antti"
+            "value": "Hervonen, Antti."
           }
         ]
       },
@@ -7702,7 +7857,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Terho"
+            "value": "Lehtimäki, Terho."
           }
         ]
       },
@@ -7713,7 +7868,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhävä, Juulia"
+            "value": "Jylhävä, Juulia."
           }
         ]
       },
@@ -7724,7 +7879,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hurme, Mikko"
+            "value": "Hurme, Mikko."
           }
         ]
       },
@@ -7735,14 +7890,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhä, Marja"
+            "value": "Jylhä, Marja."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7753,7 +7908,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7776,23 +7931,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710102580"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710102580"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -7803,7 +7951,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Karvonen, Tuomas"
+            "value": "Karvonen, Tuomas."
           }
         ]
       },
@@ -7815,17 +7963,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Comparison of feasibility and estimates of central and peripheral nitric oxide parameters by different mathematical models."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -7869,7 +8006,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kankaanranta, Hannu"
+            "value": "Kankaanranta, Hannu."
           }
         ]
       },
@@ -7880,7 +8017,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Saarelainen, Seppo"
+            "value": "Saarelainen, Seppo."
           }
         ]
       },
@@ -7891,7 +8028,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Moilanen, Eeva"
+            "value": "Moilanen, Eeva."
           }
         ]
       },
@@ -7902,14 +8039,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Lauri"
+            "value": "Lehtimäki, Lauri."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7920,7 +8057,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -7943,23 +8080,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710112598"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710112598"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -7970,7 +8100,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ikonen, Hanna-Mari"
+            "value": "Ikonen, Hanna-Mari."
           }
         ]
       },
@@ -7982,17 +8112,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Passionately yours : Managing emotional and spatial boundaries in lifestyle-based hospitality businesses."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -8037,47 +8156,124 @@ const utaComplex = [
           {
             "code": "a",
             "value": "koirat"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "matkailu ja majoitustoiminta"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "elämäntapayrittäjyys"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "uusi työ ja talous"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "intohimo"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "työn ja muun elämän yhteensovittaminen"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "dogs"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "hospitality"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "lifestyle entrepreneurship"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "new economy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "passion"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "work–life balance"
@@ -8087,7 +8283,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8098,7 +8294,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8121,23 +8317,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710262635"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710262635"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -8148,7 +8337,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harju, Eeva"
+            "value": "Harju, Eeva."
           }
         ]
       },
@@ -8160,17 +8349,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The Health-Related Quality of Life of Patients with Prostate Cancer and Their Spouses before Treatment Compared with the General Population."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -8215,23 +8393,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "eturauhassyöpäpotilas"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "terveyteen liittyvä elämänlaatu"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "puoliso"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "prostate cancer"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "quality of life"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "spouses"
@@ -8245,7 +8458,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rantanen, Anja"
+            "value": "Rantanen, Anja."
           }
         ]
       },
@@ -8256,7 +8469,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaunonen, Marja"
+            "value": "Kaunonen, Marja."
           }
         ]
       },
@@ -8267,7 +8480,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Helminen, Mika"
+            "value": "Helminen, Mika."
           }
         ]
       },
@@ -8278,7 +8491,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Isotalo, Taina"
+            "value": "Isotalo, Taina."
           }
         ]
       },
@@ -8289,14 +8502,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Åstedt-Kurki, Päivi"
+            "value": "Åstedt-Kurki, Päivi."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8307,7 +8520,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8341,23 +8554,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:ISBN:978-952-03-0557-4"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:ISBN:978-952-03-0557-4"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -8368,7 +8574,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jalkanen, Ville"
+            "value": "Jalkanen, Ville."
           }
         ]
       },
@@ -8402,10 +8608,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
-          },
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -8446,7 +8648,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Artikkeliväitöskirja"
+            "value": "Artikkeliväitöskirja :"
           },
           {
             "code": "c",
@@ -8454,7 +8656,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -8510,27 +8712,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "suPAR"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "prognostiikka"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "liukoinen urokinaasityyppinen plasminogeenia aktivoiva reseptori"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "tehohoito"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "prognostication"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "soluble urokinase plasminogen activator receptor"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "intensive care"
@@ -8540,7 +8784,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8551,7 +8795,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8574,23 +8818,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710312652"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710312652"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -8601,7 +8838,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Haukka, Jari"
+            "value": "Haukka, Jari."
           }
         ]
       },
@@ -8613,17 +8850,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Risk of Cause-Specific Death in Individuals with Cancer — Modifying Role Diabetes, Statins and Metformin."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -8668,15 +8894,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "cancer survival"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "diabetes"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "statins"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "metformin"
@@ -8690,7 +8937,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niskanen, Leo"
+            "value": "Niskanen, Leo."
           }
         ]
       },
@@ -8701,14 +8948,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Auvinen, Anssi"
+            "value": "Auvinen, Anssi."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8719,7 +8966,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8742,23 +8989,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710312653"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201710312653"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -8769,7 +9009,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Halonen, Mia"
+            "value": "Halonen, Mia."
           }
         ]
       },
@@ -8781,17 +9021,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Tracing the indexicalization of the notion \"Helsinki s\"."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -8835,14 +9064,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vaattovaara, Johanna"
+            "value": "Vaattovaara, Johanna."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8853,7 +9082,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -8876,23 +9105,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711022671"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711022671"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -8903,7 +9125,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Liehu-Martiskainen, Milla"
+            "value": "Liehu-Martiskainen, Milla."
           }
         ]
       },
@@ -8915,17 +9137,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Interleukin 17A gene polymorphism rs2275913 is associated with osteitis after the Bacillus Calmette-Guérin vaccination."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -8970,19 +9181,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Bacillus Calmette-Guérin"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "innate immunity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "interleukin 17A"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "tuberculosis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "vaccination complications"
@@ -8996,7 +9235,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korppi, Matti"
+            "value": "Korppi, Matti."
           }
         ]
       },
@@ -9007,7 +9246,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Teräsjärvi, Johanna"
+            "value": "Teräsjärvi, Johanna."
           }
         ]
       },
@@ -9018,7 +9257,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vuononvirta, Juho"
+            "value": "Vuononvirta, Juho."
           }
         ]
       },
@@ -9029,7 +9268,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini"
+            "value": "Huhtala, Heini."
           }
         ]
       },
@@ -9040,7 +9279,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nuolivirta, Kirsi"
+            "value": "Nuolivirta, Kirsi."
           }
         ]
       },
@@ -9051,7 +9290,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kröger, Liisa"
+            "value": "Kröger, Liisa."
           }
         ]
       },
@@ -9062,7 +9301,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltola, Ville"
+            "value": "Peltola, Ville."
           }
         ]
       },
@@ -9073,7 +9312,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pöyhönen, Laura"
+            "value": "Pöyhönen, Laura."
           }
         ]
       },
@@ -9084,14 +9323,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "He, Quishui"
+            "value": "He, Quishui."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9102,7 +9341,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9125,23 +9364,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711202725"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711202725"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -9152,7 +9384,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tirkkonen, Maria T."
+            "value": "Tirkkonen, Maria T.."
           }
         ]
       },
@@ -9164,17 +9396,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Human rights brought home : domestication of human rights discourse in Vienna."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -9207,7 +9428,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -9215,7 +9436,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -9244,7 +9465,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9255,7 +9476,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9278,23 +9499,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711202735"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711202735"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -9305,7 +9519,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Härkönen, Kati"
+            "value": "Härkönen, Kati."
           }
         ]
       },
@@ -9317,17 +9531,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Hybrid cochlear implantation : quality of life, quality of hearing, and working performance compared to patients with conventional unilateral or bilateral cochlear implantation."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -9371,7 +9574,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kivekäs, Ilkka"
+            "value": "Kivekäs, Ilkka."
           }
         ]
       },
@@ -9382,7 +9585,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kotti, Voitto"
+            "value": "Kotti, Voitto."
           }
         ]
       },
@@ -9393,7 +9596,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sivonen, Ville"
+            "value": "Sivonen, Ville."
           }
         ]
       },
@@ -9404,14 +9607,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vasama, Juha-Pekka"
+            "value": "Vasama, Juha-Pekka."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9422,7 +9625,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9445,23 +9648,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711212747"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711212747"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -9472,7 +9668,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Honkaniemi, Noora"
+            "value": "Honkaniemi, Noora."
           }
         ]
       },
@@ -9484,17 +9680,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Characteristics of social media usage in a B2B company : case: UPM Raflatac."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -9527,7 +9712,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -9535,7 +9720,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -9580,23 +9765,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "social media"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "B2B"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Facebook"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "LinkedIn"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Twitter"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "engagement rate"
@@ -9606,7 +9826,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9617,7 +9837,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9640,23 +9860,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711212750"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711212750"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -9667,7 +9880,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tötterman, Kristian"
+            "value": "Tötterman, Kristian."
           }
         ]
       },
@@ -9679,17 +9892,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The effects of fiscal policy on long-term interest rates : evidence from 29 OECD countries."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -9722,7 +9924,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -9730,7 +9932,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -9775,35 +9977,91 @@ const utaComplex = [
           {
             "code": "a",
             "value": "fiscal policy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "budget deficit"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "public debt"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "long-term interest rates"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "OECD countries"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "panel data"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "fixed effects estimation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "omitted factors"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "financial crisis of 2007–08"
@@ -9813,7 +10071,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9824,7 +10082,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -9847,23 +10105,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222760"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711222760"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -9874,7 +10125,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Chen, Tingji"
+            "value": "Chen, Tingji."
           }
         ]
       },
@@ -9886,17 +10137,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Modulation of the eyeblink and cardiac startle reflexes by genuine eye contact."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -9941,19 +10181,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "affective evaluation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "direct gaze"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "heart rate"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "implicit response"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "startle reflex"
@@ -9967,7 +10235,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltola, Mikko"
+            "value": "Peltola, Mikko."
           }
         ]
       },
@@ -9978,7 +10246,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Dunn, Richard"
+            "value": "Dunn, Richard."
           }
         ]
       },
@@ -9989,7 +10257,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pajunen, Sanna"
+            "value": "Pajunen, Sanna."
           }
         ]
       },
@@ -10000,14 +10268,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hietanen, Jari"
+            "value": "Hietanen, Jari."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10018,7 +10286,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10041,23 +10309,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222761"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711222761"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -10068,7 +10329,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sohail, Hasan"
+            "value": "Sohail, Hasan."
           }
         ]
       },
@@ -10080,17 +10341,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Prevalence and risk factors associated with under-5 mortality : a multi-country comparative study in South Asia."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -10123,7 +10373,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -10131,7 +10381,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -10176,19 +10426,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Under-5 mortality"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "WHO South Asian countries"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "DHS"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Sustainable Development Goals"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Socio-demographic variables"
@@ -10198,7 +10476,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10209,7 +10487,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10232,23 +10510,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222774"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711222774"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -10259,7 +10530,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Agbebi, Motolani"
+            "value": "Agbebi, Motolani."
           }
         ]
       },
@@ -10271,17 +10542,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Dependency Theory : A Conceptual lens to Understand China’s presence in Africa."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -10326,19 +10586,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "dependency theory"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "China"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Africa"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "development"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "economic engagement"
@@ -10352,14 +10640,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virtanen, Petri"
+            "value": "Virtanen, Petri."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10370,7 +10658,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10393,23 +10681,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222782"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711222782"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -10420,7 +10701,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sokuri, Paula"
+            "value": "Sokuri, Paula."
           }
         ]
       },
@@ -10432,17 +10713,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "National high-flow nasal cannula and bronchiolitis survey highlights need for further research and evidence-based guidelines."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -10487,19 +10757,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "bronchiolitis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "high-flow nasal cannula"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "respiratory syncytial virus epidemic"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "treatment instructions"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "weaning instructions"
@@ -10513,7 +10811,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heikkilä, Paula"
+            "value": "Heikkilä, Paula."
           }
         ]
       },
@@ -10524,14 +10822,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korppi, Matti"
+            "value": "Korppi, Matti."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10542,7 +10840,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10565,23 +10863,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222783"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711222783"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -10592,7 +10883,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtonen, Arttu O"
+            "value": "Lehtonen, Arttu O."
           }
         ]
       },
@@ -10604,17 +10895,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Incidence rates, correlates, and prognosis of electrocardiographic P-wave abnormalities : a nationwide population-based study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -10659,19 +10939,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "P-wave"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "risk marker"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "atrial fibrillation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "electrocardiography"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "epidemiology"
@@ -10685,7 +10993,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Langén, Ville L"
+            "value": "Langén, Ville L."
           }
         ]
       },
@@ -10696,7 +11004,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Puukka, Pauli J"
+            "value": "Puukka, Pauli J."
           }
         ]
       },
@@ -10707,7 +11015,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kähönen, Mika"
+            "value": "Kähönen, Mika."
           }
         ]
       },
@@ -10718,7 +11026,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nieminen, Markku S"
+            "value": "Nieminen, Markku S."
           }
         ]
       },
@@ -10729,7 +11037,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jula, Antti M"
+            "value": "Jula, Antti M."
           }
         ]
       },
@@ -10740,14 +11048,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niiranen, Teemu J"
+            "value": "Niiranen, Teemu J."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10758,7 +11066,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10781,23 +11089,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711232792"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711232792"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -10808,7 +11109,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hännikäinen, Jari"
+            "value": "Hännikäinen, Jari."
           }
         ]
       },
@@ -10820,17 +11121,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "When does the yield curve contain predictive power? Evidence from a data-rich environment."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -10875,23 +11165,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Yield curve"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Factor model"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Data-rich environment"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Macroeconomic forecasting"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Macroeconomic regimes"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Conditional predictive ability"
@@ -10901,7 +11226,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10912,7 +11237,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -10935,23 +11260,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711242796"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711242796"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -10962,7 +11280,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hietanen, Jari K"
+            "value": "Hietanen, Jari K."
           }
         ]
       },
@@ -10974,17 +11292,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Your attention makes me smile : Direct gaze elicits affiliative facial expressions."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -11029,19 +11336,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "affect"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "facial EMG"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "eye contact"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "facial expression"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "SCR"
@@ -11055,7 +11390,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Helminen, Terhi M"
+            "value": "Helminen, Terhi M."
           }
         ]
       },
@@ -11066,7 +11401,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kiilavuori, Helena"
+            "value": "Kiilavuori, Helena."
           }
         ]
       },
@@ -11077,7 +11412,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kylliäinen, Anneli"
+            "value": "Kylliäinen, Anneli."
           }
         ]
       },
@@ -11088,7 +11423,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtonen, Heidi"
+            "value": "Lehtonen, Heidi."
           }
         ]
       },
@@ -11099,14 +11434,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltola, Mikko J"
+            "value": "Peltola, Mikko J."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11117,7 +11452,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11140,23 +11475,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711292821"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711292821"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -11167,7 +11495,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Islam, Zahedul"
+            "value": "Islam, Zahedul."
           }
         ]
       },
@@ -11179,17 +11507,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Customer perspective to sharing location based data."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -11222,7 +11539,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -11230,7 +11547,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -11275,23 +11592,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Location based data (LBD)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Location Based Service (LBS)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Customer data"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Customer value"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Perceived benefits"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "and perceived Sacrifices."
@@ -11301,7 +11653,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11312,7 +11664,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11335,23 +11687,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711302833"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711302833"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -11362,7 +11707,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vuorinen, Riikka-Liisa K"
+            "value": "Vuorinen, Riikka-Liisa K."
           }
         ]
       },
@@ -11374,17 +11719,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Costs of Robotic-Assisted Versus Traditional Laparoscopy in Endometrial Cancer."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -11428,7 +11762,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Minna M"
+            "value": "Mäenpää, Minna M."
           }
         ]
       },
@@ -11439,7 +11773,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nieminen, Kari"
+            "value": "Nieminen, Kari."
           }
         ]
       },
@@ -11450,7 +11784,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tomas, Eija"
+            "value": "Tomas, Eija."
           }
         ]
       },
@@ -11461,7 +11795,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luukkaala, Tiina"
+            "value": "Luukkaala, Tiina."
           }
         ]
       },
@@ -11472,7 +11806,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Auvinen, Anssi"
+            "value": "Auvinen, Anssi."
           }
         ]
       },
@@ -11483,14 +11817,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Johanna"
+            "value": "Mäenpää, Johanna."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11501,7 +11835,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11524,23 +11858,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711302834"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711302834"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -11551,7 +11878,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Malmelin, Nando"
+            "value": "Malmelin, Nando."
           }
         ]
       },
@@ -11563,17 +11890,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Managing for Serendipity: Exploring the Organizational Prerequisites for Emergent Creativity."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -11617,14 +11933,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virta, Sari"
+            "value": "Virta, Sari."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11635,7 +11951,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11658,23 +11974,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711302841"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201711302841"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -11685,7 +11994,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ihalainen, Johanna K"
+            "value": "Ihalainen, Johanna K."
           }
         ]
       },
@@ -11697,17 +12006,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Resistance training status modifies inflammatory response to explosive and hypertrophic resistance exercise bouts."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -11751,7 +12049,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ahtiainen, Juha P"
+            "value": "Ahtiainen, Juha P."
           }
         ]
       },
@@ -11762,7 +12060,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Walker, Simon"
+            "value": "Walker, Simon."
           }
         ]
       },
@@ -11773,7 +12071,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Paulsen, Goran"
+            "value": "Paulsen, Goran."
           }
         ]
       },
@@ -11784,7 +12082,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Selänne, Harri"
+            "value": "Selänne, Harri."
           }
         ]
       },
@@ -11795,7 +12093,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hämäläinen, Mari"
+            "value": "Hämäläinen, Mari."
           }
         ]
       },
@@ -11806,7 +12104,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Moilanen, Eeva"
+            "value": "Moilanen, Eeva."
           }
         ]
       },
@@ -11817,7 +12115,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltonen, Heikki"
+            "value": "Peltonen, Heikki."
           }
         ]
       },
@@ -11828,14 +12126,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mero, Antti A"
+            "value": "Mero, Antti A."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11846,7 +12144,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -11869,23 +12167,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712072878"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712072878"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -11896,7 +12187,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Teh, Soo Yee"
+            "value": "Teh, Soo Yee."
           }
         ]
       },
@@ -11908,17 +12199,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Small firm perspective in customer relationship management implementation."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -11951,7 +12231,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -11959,7 +12239,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -12004,11 +12284,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Small firm"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "customer relationship management (CRM)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "CRM process"
@@ -12018,7 +12312,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12029,7 +12323,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12052,23 +12346,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712112904"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712112904"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -12079,7 +12366,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Van der Velde, Anna"
+            "value": "Van der Velde, Anna."
           }
         ]
       },
@@ -12091,17 +12378,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Narrating everyday peace in Libya : a study of Libyan youth civil society activists’ framings and enactments of peace."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -12134,7 +12410,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -12142,7 +12418,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -12176,23 +12452,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Libya"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Youth"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Civil Society in Peacebuilding"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Everyday Peace"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Narratives"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Performance Analysis"
@@ -12202,7 +12513,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12213,7 +12524,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12236,23 +12547,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712112911"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712112911"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -12263,7 +12567,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hintikka, Marianna"
+            "value": "Hintikka, Marianna."
           }
         ]
       },
@@ -12275,17 +12579,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Representations of prostitutes and prostitution as a metaphor in nineteenth-century English newspapers."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -12330,15 +12623,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "linguistic representation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "evaluative person reference"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "conceptual metaphors"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Victorian press"
@@ -12352,14 +12666,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nevala, Minna"
+            "value": "Nevala, Minna."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12370,7 +12684,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12393,23 +12707,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712122916"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712122916"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -12420,7 +12727,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Becerra Zamora, Yuritzi G."
+            "value": "Becerra Zamora, Yuritzi G.."
           }
         ]
       },
@@ -12432,17 +12739,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Conceptualization and interventions of social inclusion in higher education institutions."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -12475,7 +12771,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -12483,7 +12779,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -12528,19 +12824,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "social inclusion"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "higher education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "postcolonialism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "policy analysis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Mexico"
@@ -12550,7 +12874,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12561,7 +12885,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12584,23 +12908,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712142930"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712142930"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -12611,7 +12928,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Forsman, Jan"
+            "value": "Forsman, Jan."
           }
         ]
       },
@@ -12634,10 +12951,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Eötvös University Press,"
-          },
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -12671,59 +12984,157 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Descartes"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "varhaismoderni filosofia"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "affektiivisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "vapaa tahto"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "moraalinen vastuu"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "doksastinen voluntarismi"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "arvostelmasta pidättäytyminen"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "epäily"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "early modern philosophy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "affectivity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "free will"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "moral responsibility"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "doxastic voluntarism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "suspension of judgment"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "doubt"
@@ -12777,7 +13188,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12788,7 +13199,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -12811,23 +13222,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712182939"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712182939"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -12838,7 +13242,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vänskä, Mervi"
+            "value": "Vänskä, Mervi."
           }
         ]
       },
@@ -12850,17 +13254,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Parental pre- and postpartum mental health predicts child mental health and development."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -12905,23 +13298,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "child development"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "child mental health"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "maternal depression"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "parental mental health"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "paternal depression"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "pre- and postpartum period"
@@ -12935,7 +13363,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Punamäki, Raija-Leena"
+            "value": "Punamäki, Raija-Leena."
           }
         ]
       },
@@ -12946,7 +13374,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lindblom, Jallu"
+            "value": "Lindblom, Jallu."
           }
         ]
       },
@@ -12957,7 +13385,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Flykt, Marjo"
+            "value": "Flykt, Marjo."
           }
         ]
       },
@@ -12968,7 +13396,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tolvanen, Asko"
+            "value": "Tolvanen, Asko."
           }
         ]
       },
@@ -12979,7 +13407,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Unkila-Kallio, Leila"
+            "value": "Unkila-Kallio, Leila."
           }
         ]
       },
@@ -12990,7 +13418,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tulppala, Maija"
+            "value": "Tulppala, Maija."
           }
         ]
       },
@@ -13001,14 +13429,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tiitinen, Aila"
+            "value": "Tiitinen, Aila."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13019,7 +13447,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13042,23 +13470,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712182942"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712182942"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -13069,7 +13490,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mustonen, Anni"
+            "value": "Mustonen, Anni."
           }
         ]
       },
@@ -13081,17 +13502,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Maintaining presence : Catholic aid agencies in Sri Lanka's civil war − towards a socio-theoretical perspective to humanitarian access and power."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -13124,7 +13534,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -13132,7 +13542,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -13177,19 +13587,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Sri Lanka"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "humanitarianism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "churches"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "religion and politics"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "institutions"
@@ -13199,7 +13637,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13210,7 +13648,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13233,23 +13671,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712182947"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712182947"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -13260,7 +13691,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Duy"
+            "value": "Nguyen, Duy."
           }
         ]
       },
@@ -13272,17 +13703,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Determinants of profitability in commercial banks : case of Vietnam."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -13315,7 +13735,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -13323,7 +13743,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -13368,15 +13788,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Vietnam commercial banks"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "profitability"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "determinants"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "regression"
@@ -13386,7 +13827,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13397,7 +13838,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13420,23 +13861,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712192973"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712192973"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -13447,7 +13881,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Thao"
+            "value": "Nguyen, Thao."
           }
         ]
       },
@@ -13459,17 +13893,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Undergraduate students’ use of Facebook for educational purposes : advantages, difficulties, and potential for connected learning."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -13502,7 +13925,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -13510,7 +13933,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -13555,23 +13978,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "social  networking  sites"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Facebook"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "higher  education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "usage"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "perception"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "connected learning"
@@ -13581,7 +14039,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13592,7 +14050,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13615,23 +14073,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712192975"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712192975"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -13642,7 +14093,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Park, Woojung"
+            "value": "Park, Woojung."
           }
         ]
       },
@@ -13654,17 +14105,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Promoting digital media literacy for the best quality of music performance."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -13697,7 +14137,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -13705,7 +14145,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -13750,27 +14190,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "media education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "media literacy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "flow"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "music performance anxiety"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "music performance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "music education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "YouTube"
@@ -13780,7 +14262,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13791,7 +14273,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13814,23 +14296,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712192977"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712192977"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -13841,7 +14316,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Thi Bich Tram"
+            "value": "Nguyen, Thi Bich Tram."
           }
         ]
       },
@@ -13853,17 +14328,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Domestication of global higher education policies : legitimating narratives in advocating student mobility in Finland and Vietnam."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -13896,7 +14360,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -13904,7 +14368,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -13949,11 +14413,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "domestication"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "student mobility"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "global higher education policies"
@@ -13963,7 +14441,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13974,7 +14452,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -13997,23 +14475,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712202990"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712202990"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -14024,7 +14495,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Palmu, Sauli"
+            "value": "Palmu, Sauli."
           }
         ]
       },
@@ -14036,17 +14507,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "National allergy programme had little impact on parent-reported food allergies in children aged 6-7 years."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -14091,15 +14551,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "avoidance diets"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "food allergies"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "national allergy programme"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "school health nurses"
@@ -14113,7 +14594,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heikkilä, Paula"
+            "value": "Heikkilä, Paula."
           }
         ]
       },
@@ -14124,7 +14605,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Uski, Virpi"
+            "value": "Uski, Virpi."
           }
         ]
       },
@@ -14135,7 +14616,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niitty, Siina"
+            "value": "Niitty, Siina."
           }
         ]
       },
@@ -14146,7 +14627,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kurikka, Sari"
+            "value": "Kurikka, Sari."
           }
         ]
       },
@@ -14157,14 +14638,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korppi, Matti"
+            "value": "Korppi, Matti."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14175,7 +14656,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14198,23 +14679,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712293022"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201712293022"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -14225,7 +14699,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Penttilä, Janne"
+            "value": "Penttilä, Janne."
           }
         ]
       },
@@ -14237,17 +14711,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Business-based contributions to peacebuilding and conflict prevention : identifying the Finnish private sector potential."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -14280,7 +14743,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -14288,7 +14751,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -14333,27 +14796,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "peacebuilding"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "conflict prevention"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "private sector"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sustainability"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "NGOs"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "corporate responsibility"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "global governance"
@@ -14363,7 +14868,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14374,7 +14879,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14397,23 +14902,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801021004"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801021004"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -14424,7 +14922,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aleburu, Omoikhefe Lynda"
+            "value": "Aleburu, Omoikhefe Lynda."
           }
         ]
       },
@@ -14436,17 +14934,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The association between depression and self-perceived oral health in migrants of Russian, Somali and Kurdish origin living in Finland : a population based study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -14479,7 +14966,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -14487,7 +14974,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -14532,15 +15019,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Key words: depression"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "oral health"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mental health"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "migrant"
@@ -14550,7 +15058,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14561,7 +15069,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14584,23 +15092,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801041011"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801041011"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -14611,7 +15112,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Partanen, Essi"
+            "value": "Partanen, Essi."
           }
         ]
       },
@@ -14623,17 +15124,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Zebrafish genes affecting susceptibility to pneumococcal infection."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -14666,7 +15156,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -14674,7 +15164,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -14692,7 +15182,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14703,7 +15193,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14726,23 +15216,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801081028"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801081028"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -14753,7 +15236,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Minkkinen, Jaana"
+            "value": "Minkkinen, Jaana."
           }
         ]
       },
@@ -14765,17 +15248,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Health as a predictor of students’ academic achievement: a 3-level longitudinal study of Finnish adolescents."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -14820,39 +15292,102 @@ const utaComplex = [
           {
             "code": "a",
             "value": "nuoret"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kouluterveys"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "psykososiaalinen oireilu"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "krooniset sairaudet"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "monitasomallinnus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "adolescent"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "school health"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "externalizing and internalizing behavior"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "chronic disease"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "multilevel modeling"
@@ -14866,7 +15401,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lindfors, Pirjo"
+            "value": "Lindfors, Pirjo."
           }
         ]
       },
@@ -14877,7 +15412,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kinnunen, Jaana"
+            "value": "Kinnunen, Jaana."
           }
         ]
       },
@@ -14888,7 +15423,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Finell, Eerika"
+            "value": "Finell, Eerika."
           }
         ]
       },
@@ -14899,7 +15434,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vainikainen, Mari-Pauliina"
+            "value": "Vainikainen, Mari-Pauliina."
           }
         ]
       },
@@ -14910,7 +15445,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Karvonen, Sakari"
+            "value": "Karvonen, Sakari."
           }
         ]
       },
@@ -14921,14 +15456,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rimpelä, Arja"
+            "value": "Rimpelä, Arja."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14939,7 +15474,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -14962,23 +15497,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801081030"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801081030"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -14989,7 +15517,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zheng, Gaoming"
+            "value": "Zheng, Gaoming."
           }
         ]
       },
@@ -15001,17 +15529,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Towards an analytical framework for understanding the development of a quality assurance system in an international joint programme."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -15056,31 +15573,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "quality assurance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Europe"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "China"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Portugal"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "doctoral education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "international joint programme"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "organizational innovation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "institutional logics"
@@ -15094,7 +15660,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Cai, Yuzhuo"
+            "value": "Cai, Yuzhuo."
           }
         ]
       },
@@ -15105,14 +15671,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ma, Shaozhuang"
+            "value": "Ma, Shaozhuang."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15123,7 +15689,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15146,23 +15712,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801121047"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801121047"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -15173,7 +15732,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Malkamäki, Maarit"
+            "value": "Malkamäki, Maarit."
           }
         ]
       },
@@ -15185,17 +15744,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The power of intergroup contact and experiential learning on individual perceptions in the United World College in Mostar, Bosnia and Herzegovina : a path towards bottom-up reconciliation?."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -15228,7 +15776,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -15236,7 +15784,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -15281,23 +15829,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "United World College"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Bosnia & Herzegovina"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Reconciliation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Contact Hypothesis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Intergroup Contact Theory"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Experiential Learning"
@@ -15307,7 +15890,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15318,7 +15901,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15341,23 +15924,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801161057"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801161057"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -15368,7 +15944,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zhang, Yitian"
+            "value": "Zhang, Yitian."
           }
         ]
       },
@@ -15380,17 +15956,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Breast-feeding patterns in rural China : a population based study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -15423,7 +15988,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -15431,7 +15996,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -15476,11 +16041,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "breastfeeding"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "exclusive breastfeeding"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "rural China"
@@ -15490,7 +16069,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15501,7 +16080,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15524,23 +16103,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801161060"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801161060"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -15551,7 +16123,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Wang, Haoxue"
+            "value": "Wang, Haoxue."
           }
         ]
       },
@@ -15563,17 +16135,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Am I professional as a nurse in Finland? : Chinese migrant nurses' interpretation of themselves as professionals."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -15606,7 +16167,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -15614,7 +16175,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -15659,11 +16220,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "nursing professionalism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "migrant nurses"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "social policy"
@@ -15673,7 +16248,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15684,7 +16259,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15707,23 +16282,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801291146"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801291146"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -15734,7 +16302,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ilikbaev, Aleksandr"
+            "value": "Ilikbaev, Aleksandr."
           }
         ]
       },
@@ -15746,17 +16314,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "A great divide on homosexuality in the contemporary world : how do attitudes change?."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -15789,7 +16346,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -15797,7 +16354,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2017"
+            "value": "2017."
           }
         ]
       },
@@ -15842,31 +16399,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "homosexuality"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "attitudes"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "value change"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "homonegativity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "religiosity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "religious denomination"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "World Values Survey"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "European Values Study"
@@ -15876,7 +16482,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15887,7 +16493,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -15910,23 +16516,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801311169"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201801311169"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -15937,7 +16536,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sabia, Taha"
+            "value": "Sabia, Taha."
           }
         ]
       },
@@ -15949,17 +16548,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Managing the popularity of streams in the Twitch.tv gatekeeping network."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -15992,7 +16580,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -16000,7 +16588,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -16045,27 +16633,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Twitch"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Twitch.tv"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "video games"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "online streaming"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "live streaming"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "esports"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "online audience"
@@ -16075,7 +16705,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16086,7 +16716,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16109,23 +16739,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802131216"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201802131216"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -16136,7 +16759,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaakinen, Markus"
+            "value": "Kaakinen, Markus."
           }
         ]
       },
@@ -16148,17 +16771,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cybercrime victimization and subjective well-being: An examination of buffering effect hypothesis among adolescents and young adults."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -16202,7 +16814,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Keipi, Teo"
+            "value": "Keipi, Teo."
           }
         ]
       },
@@ -16213,7 +16825,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Räsänen, Pekka"
+            "value": "Räsänen, Pekka."
           }
         ]
       },
@@ -16224,14 +16836,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oksanen, Atte"
+            "value": "Oksanen, Atte."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16242,7 +16854,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16265,23 +16877,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802141221"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201802141221"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -16292,7 +16897,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Norri, Juhani"
+            "value": "Norri, Juhani."
           }
         ]
       },
@@ -16304,17 +16909,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The Mystery of Mould 'Top of the Head' in Middle English Remedybooks."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2017."
           }
         ]
       },
@@ -16359,31 +16953,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "parannusoppaat"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "englanti"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "keskiaika"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "terminologia"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "remedybooks"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "English"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Middle Ages"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "terminology"
@@ -16393,7 +17036,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16404,7 +17047,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16438,23 +17081,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802141224"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201802141224"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -16465,7 +17101,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virtanen, Pekka"
+            "value": "Virtanen, Pekka."
           }
         ]
       },
@@ -16477,17 +17113,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Self-rated Health of the Temporary Employees in a Nordic Welfare State : Findings from the Finnish Public Sector Study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -16532,19 +17157,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Finland"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "welfare state model"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "public sector"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "temporary employment"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "self-rated health"
@@ -16558,7 +17211,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pentti, Jaana"
+            "value": "Pentti, Jaana."
           }
         ]
       },
@@ -16569,7 +17222,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vahtera, Jussi"
+            "value": "Vahtera, Jussi."
           }
         ]
       },
@@ -16580,7 +17233,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kivimäki, Mika"
+            "value": "Kivimäki, Mika."
           }
         ]
       },
@@ -16591,14 +17244,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virtanen, Marianna"
+            "value": "Virtanen, Marianna."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16609,7 +17262,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16632,23 +17285,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802191267"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201802191267"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -16659,7 +17305,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Li, Cai"
+            "value": "Li, Cai."
           }
         ]
       },
@@ -16671,17 +17317,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Consumer-brand relationship of American luxury brands in the Finnish market – A case study of Michael Kors."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -16714,7 +17349,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -16722,7 +17357,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -16767,11 +17402,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "American luxury brand"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "brand meaning"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "consumer-brand relationship"
@@ -16781,7 +17430,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16792,7 +17441,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16815,23 +17464,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802221295"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201802221295"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -16842,7 +17484,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kyrönlahti, Saila"
+            "value": "Kyrönlahti, Saila."
           }
         ]
       },
@@ -16854,17 +17496,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Educational differences in mobility decline in older adults over an 11-year follow-up."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -16897,7 +17528,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -16905,7 +17536,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -16923,7 +17554,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16934,7 +17565,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -16957,23 +17588,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803051326"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803051326"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -16984,7 +17608,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zhu, Yijun"
+            "value": "Zhu, Yijun."
           }
         ]
       },
@@ -16996,17 +17620,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Exploring consumer online product returning behavior : Chinese e-consumers’ perspective."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -17039,7 +17652,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -17047,7 +17660,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -17092,15 +17705,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "E-commerce"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "online product returning behavior"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Chinese online consumer"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "fraudulent returning behavior"
@@ -17110,7 +17744,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17121,7 +17755,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17144,23 +17778,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803071345"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803071345"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -17171,7 +17798,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Riabova, Ksenia"
+            "value": "Riabova, Ksenia."
           }
         ]
       },
@@ -17183,17 +17810,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Baltic dimension in the contemporary foreign policy of the USA : analysis of the relations of the USA and the Baltic States concerning security and defence issues."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -17226,7 +17842,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -17234,7 +17850,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -17279,27 +17895,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "USA foreign policy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Baltic region"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mechanisms of soft power"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "militarism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "neoliberal theory"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "NATO"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "the UN"
@@ -17309,7 +17967,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17320,7 +17978,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17343,23 +18001,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803131377"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803131377"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -17370,7 +18021,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Geneid, Ahmed"
+            "value": "Geneid, Ahmed."
           }
         ]
       },
@@ -17393,10 +18044,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "ISCA,"
-          },
-          {
-            "code": "c",
-            "value": "2016."
           }
         ]
       },
@@ -17440,7 +18087,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Laukkanen, Anne-Maria"
+            "value": "Laukkanen, Anne-Maria."
           }
         ]
       },
@@ -17451,7 +18098,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "McAllister, Anita"
+            "value": "McAllister, Anita."
           }
         ]
       },
@@ -17462,7 +18109,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Eklund, Robert"
+            "value": "Eklund, Robert."
           }
         ]
       },
@@ -17480,7 +18127,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17491,7 +18138,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17514,23 +18161,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803191425"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803191425"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -17541,7 +18181,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pellinen, Tapio"
+            "value": "Pellinen, Tapio."
           }
         ]
       },
@@ -17553,17 +18193,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Rules make the world better : justifications of Civilian Crisis Management in the EU Concept Core Course."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -17596,7 +18225,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -17604,7 +18233,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -17649,23 +18278,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "European Union"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "liberal peace"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "liberal peacebuilding"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "civilian crisis management"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "liberal peace critique"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "CSDP"
@@ -17675,7 +18339,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17686,7 +18350,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17709,23 +18373,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803201429"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803201429"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -17736,7 +18393,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Satomaa, Anna-Liisa"
+            "value": "Satomaa, Anna-Liisa."
           }
         ]
       },
@@ -17748,17 +18405,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Local changes in computational non-rapid eye movement sleep depth in infants."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -17802,7 +18448,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Saarenpää-Heikkilä, Outi"
+            "value": "Saarenpää-Heikkilä, Outi."
           }
         ]
       },
@@ -17813,7 +18459,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huupponen, Eero"
+            "value": "Huupponen, Eero."
           }
         ]
       },
@@ -17824,7 +18470,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kirjavainen, Turkka"
+            "value": "Kirjavainen, Turkka."
           }
         ]
       },
@@ -17835,7 +18481,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heinonen, Juhani"
+            "value": "Heinonen, Juhani."
           }
         ]
       },
@@ -17846,14 +18492,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Himanen, Sari-Leena"
+            "value": "Himanen, Sari-Leena."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17864,7 +18510,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -17887,23 +18533,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803221443"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803221443"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -17914,7 +18553,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hevonkorpi, Teemu"
+            "value": "Hevonkorpi, Teemu."
           }
         ]
       },
@@ -17926,17 +18565,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Incidence of distal radius fracture surgery in Finns aged 50 years or more between 1998 and 2016 : too many patients are yet operated on?."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -17981,19 +18609,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "distal radius"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "epidemiology"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "surgical treatment"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "volar plating"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "forearm fractures"
@@ -18007,7 +18663,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Launonen, Antti"
+            "value": "Launonen, Antti."
           }
         ]
       },
@@ -18018,7 +18674,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huttunen, Tuomas"
+            "value": "Huttunen, Tuomas."
           }
         ]
       },
@@ -18029,7 +18685,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kannus, Pekka"
+            "value": "Kannus, Pekka."
           }
         ]
       },
@@ -18040,7 +18696,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niemi, Seppo"
+            "value": "Niemi, Seppo."
           }
         ]
       },
@@ -18051,14 +18707,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mattila, Ville M"
+            "value": "Mattila, Ville M."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18069,7 +18725,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18092,23 +18748,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803221445"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803221445"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -18119,7 +18768,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pham, Thao"
+            "value": "Pham, Thao."
           }
         ]
       },
@@ -18131,17 +18780,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The effect of intranasal oxytocin on the neural process of child-related social signals on young mothers."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -18174,7 +18812,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -18182,7 +18820,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -18227,27 +18865,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "OT"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "double-blind within-subject design"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Event-Related Potentials"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "young mothers"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "infant’s face stimuli"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Postpartum Questionnaire"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Experiences of Close Relationship-Relationship Structure Questionnaire"
@@ -18257,7 +18937,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18268,7 +18948,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18291,23 +18971,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803261452"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803261452"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -18318,7 +18991,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harju, Teemu"
+            "value": "Harju, Teemu."
           }
         ]
       },
@@ -18330,17 +19003,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The effect of inferior turbinate surgery on ear symptoms."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -18385,23 +19047,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Eustachian tube dysfunction"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "inferior turbinate surgery"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "nasal obstruction"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "placebo-controlled"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "randomized"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "symptoms"
@@ -18415,7 +19112,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kivekäs, Ilkka"
+            "value": "Kivekäs, Ilkka."
           }
         ]
       },
@@ -18426,7 +19123,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Numminen, Jura"
+            "value": "Numminen, Jura."
           }
         ]
       },
@@ -18437,14 +19134,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rautiainen, Markus"
+            "value": "Rautiainen, Markus."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18455,7 +19152,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18478,23 +19175,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803291472"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201803291472"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -18505,7 +19195,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Makkonen, Teemu"
+            "value": "Makkonen, Teemu."
           }
         ]
       },
@@ -18517,17 +19207,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cross-border knowledge transfer and innovation in the European neighbourhood : Tourism cooperation at the Finnish-Russian border."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -18571,7 +19250,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Williams, Allan M"
+            "value": "Williams, Allan M."
           }
         ]
       },
@@ -18582,7 +19261,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Weidenfeld, Adi"
+            "value": "Weidenfeld, Adi."
           }
         ]
       },
@@ -18593,14 +19272,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaisto, Virpi"
+            "value": "Kaisto, Virpi."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18611,7 +19290,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18634,23 +19313,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804031480"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201804031480"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -18661,7 +19333,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jegede, Kolawole"
+            "value": "Jegede, Kolawole."
           }
         ]
       },
@@ -18673,17 +19345,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Evaluation of the impact of a school based health education program on caregivers’ knowledge, attitude and practices of malaria, diarrhea and pneumonia in Ibadan north local government area of Oyo state, Nigeria."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -18716,7 +19377,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -18724,7 +19385,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -18769,31 +19430,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "malaria"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "diarrhea"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "pneumonia"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "PTA meeting"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "medication compliance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "knowledge"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "attitude and practices questionnaire"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "school injury"
@@ -18803,7 +19513,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18814,7 +19524,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18837,23 +19547,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804051501"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201804051501"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -18864,7 +19567,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Linna, Malla"
+            "value": "Linna, Malla."
           }
         ]
       },
@@ -18876,17 +19579,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Preparedness for mental health and psychosocial support in humanitarian assistance : a discourse analysis of nurses' experiences in the Ebola Virus Disease epidemic in West Africa in 2014-2016."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -18919,7 +19611,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -18927,7 +19619,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -18950,23 +19642,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "mental health and psychosocial support"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "preparedness"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "humanitarian assistance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Ebola"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "nurses"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "discourse analysis"
@@ -18976,7 +19703,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -18987,7 +19714,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19010,23 +19737,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804051502"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201804051502"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -19037,7 +19757,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pasternack, Camilla"
+            "value": "Pasternack, Camilla."
           }
         ]
       },
@@ -19049,17 +19769,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Self-reported fractures in dermatitis herpetiformis compared to coeliac disease."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -19103,7 +19812,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mansikka, Eriika"
+            "value": "Mansikka, Eriika."
           }
         ]
       },
@@ -19114,7 +19823,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaukinen, Katri"
+            "value": "Kaukinen, Katri."
           }
         ]
       },
@@ -19125,7 +19834,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hervonen, Kaisa"
+            "value": "Hervonen, Kaisa."
           }
         ]
       },
@@ -19136,7 +19845,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Reunala, Timo"
+            "value": "Reunala, Timo."
           }
         ]
       },
@@ -19147,7 +19856,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Collin, Pekka"
+            "value": "Collin, Pekka."
           }
         ]
       },
@@ -19158,7 +19867,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini"
+            "value": "Huhtala, Heini."
           }
         ]
       },
@@ -19169,7 +19878,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mattila, Ville M"
+            "value": "Mattila, Ville M."
           }
         ]
       },
@@ -19180,14 +19889,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Salmi, Teea"
+            "value": "Salmi, Teea."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19198,7 +19907,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19221,23 +19930,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804191552"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201804191552"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -19248,7 +19950,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkelä, Ville"
+            "value": "Mäkelä, Ville."
           }
         ]
       },
@@ -19260,17 +19962,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Semi-Automated, Large-Scale Evaluation of Public Displays."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -19315,27 +20006,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "public displays"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "evaluation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "logged data"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "observation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "pervasive displays"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "long-term studies"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "deployment-based research"
@@ -19349,7 +20082,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heimonen, Tomi"
+            "value": "Heimonen, Tomi."
           }
         ]
       },
@@ -19360,14 +20093,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Turunen, Markku"
+            "value": "Turunen, Markku."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19378,7 +20111,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19401,23 +20134,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804231565"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201804231565"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -19428,7 +20154,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Molz, Erich"
+            "value": "Molz, Erich."
           }
         ]
       },
@@ -19440,17 +20166,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Does intercultural competence matter? : new perspectives on relationship-building in unarmed civilian protection."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -19483,7 +20198,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -19491,7 +20206,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -19536,31 +20251,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "unarmed civilian peacekeeping"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "unarmed civilian protection"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "accompaniment"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "relationship-building"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "intercultural competence"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "cross-cultural competence"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "intercultural sensitivity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "cultural intelligence"
@@ -19570,7 +20334,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19581,7 +20345,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19604,23 +20368,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805041634"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805041634"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -19631,7 +20388,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pham, Thi Thu Hang"
+            "value": "Pham, Thi Thu Hang."
           }
         ]
       },
@@ -19643,17 +20400,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The development of capacity for labour inspection : a case study of Ministry of Labour, Invalids and Social Affairs in Vietnam."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -19686,7 +20432,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -19694,7 +20440,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -19739,19 +20485,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "capacity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "capacity development"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "capacity building"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "inspection"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "labour inspection"
@@ -19761,7 +20535,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19772,7 +20546,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19795,23 +20569,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805041636"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805041636"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -19822,7 +20589,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Alfaro Viquez, Helen"
+            "value": "Alfaro Viquez, Helen."
           }
         ]
       },
@@ -19834,17 +20601,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Appealing multimodal languages to access first year university students’ understanding of mathematical concepts in Costa Rica."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -19877,7 +20633,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -19885,7 +20641,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -19930,15 +20686,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "languaging exercises"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mathematical proficiency"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "university mathematics"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "knowledge gap"
@@ -19948,7 +20725,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19959,7 +20736,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -19982,23 +20759,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805041637"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805041637"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -20009,7 +20779,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mikhuta, Maryna"
+            "value": "Mikhuta, Maryna."
           }
         ]
       },
@@ -20021,17 +20791,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The sound of radio speech : a comparative analysis of prosody in Swedish and Russian radio programs."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -20064,7 +20823,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -20072,7 +20831,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -20117,19 +20876,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "radio speech"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "intonation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "prosody"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Swedish"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Russian"
@@ -20139,7 +20926,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20150,7 +20937,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20173,23 +20960,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805141663"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805141663"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -20200,7 +20980,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Suuronen, Aleksi"
+            "value": "Suuronen, Aleksi."
           }
         ]
       },
@@ -20212,17 +20992,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Political competition and social media : can Facebook change the status quo of Finnish politics?."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -20255,7 +21024,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -20263,7 +21032,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -20308,15 +21077,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Facebook"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "social Media"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "elections"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Finland"
@@ -20326,7 +21116,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20337,7 +21127,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20360,23 +21150,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805151697"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805151697"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -20387,7 +21170,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nurmi, Rakel"
+            "value": "Nurmi, Rakel."
           }
         ]
       },
@@ -20399,17 +21182,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Celiac disease or positive tissue transglutaminase antibodies in patients undergoing renal biopsies."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -20453,7 +21225,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Metso, Martti"
+            "value": "Metso, Martti."
           }
         ]
       },
@@ -20464,7 +21236,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pörsti, Ilkka"
+            "value": "Pörsti, Ilkka."
           }
         ]
       },
@@ -20475,7 +21247,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niemelä, Onni"
+            "value": "Niemelä, Onni."
           }
         ]
       },
@@ -20486,7 +21258,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini"
+            "value": "Huhtala, Heini."
           }
         ]
       },
@@ -20497,7 +21269,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mustonen, Jukka"
+            "value": "Mustonen, Jukka."
           }
         ]
       },
@@ -20508,7 +21280,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaukinen, Katri"
+            "value": "Kaukinen, Katri."
           }
         ]
       },
@@ -20519,14 +21291,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkelä, Satu"
+            "value": "Mäkelä, Satu."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20537,7 +21309,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20560,23 +21332,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805211726"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805211726"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -20587,7 +21352,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sommerova, Lucie"
+            "value": "Sommerova, Lucie."
           }
         ]
       },
@@ -20599,17 +21364,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Environmental Kuznets Curve - The case studies for the Czech Republic and Finland."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -20642,7 +21396,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -20650,7 +21404,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -20695,27 +21449,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Finland"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "The Czech Republic"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Environmental Kuznets curve"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "relationship between GDP per\r\ncapita and pollutants per capita"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "regression analysis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "environmental regulations"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Pollution\r\nHeaven Hypothesis"
@@ -20725,7 +21521,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20736,7 +21532,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20759,23 +21555,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805251775"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805251775"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -20786,7 +21575,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Murtola, Teemu"
+            "value": "Murtola, Teemu."
           }
         ]
       },
@@ -20798,17 +21587,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Fasting blood glucose, glycaemic control and prostate cancer risk in the Finnish Randomized Study of Screening for Prostate Cancer."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -20852,7 +21630,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vihervuori, Ville"
+            "value": "Vihervuori, Ville."
           }
         ]
       },
@@ -20863,7 +21641,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lahtela, Jorma"
+            "value": "Lahtela, Jorma."
           }
         ]
       },
@@ -20874,7 +21652,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Talala, Kirsi"
+            "value": "Talala, Kirsi."
           }
         ]
       },
@@ -20885,7 +21663,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Taari, Kimmo"
+            "value": "Taari, Kimmo."
           }
         ]
       },
@@ -20896,7 +21674,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tammela, Teuvo LJ"
+            "value": "Tammela, Teuvo LJ."
           }
         ]
       },
@@ -20907,14 +21685,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Auvinen, Anssi"
+            "value": "Auvinen, Anssi."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20925,7 +21703,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -20948,23 +21726,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805291804"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201805291804"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -20975,7 +21746,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oinonen, Inka"
+            "value": "Oinonen, Inka."
           }
         ]
       },
@@ -20987,17 +21758,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Mullistaako laaja-alaisuus kouluopetuksen? Luokanopettajien käsityksiä laaja-alaisuudesta vuoden 2016 opetussuunnitelmassa."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -21030,7 +21790,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -21038,7 +21798,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -21083,15 +21843,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "laaja-alainen osaaminen"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "monialainen oppimiskokonaisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "opetussuunnitelma"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "eläytymismenetelmä"
@@ -21101,7 +21882,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21112,7 +21893,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21135,23 +21916,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805301834"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805301834"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -21162,7 +21936,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Hoang"
+            "value": "Nguyen, Hoang."
           }
         ]
       },
@@ -21174,17 +21948,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Consumers' pursuit of uniqueness in online fashion consumption."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -21217,7 +21980,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -21225,7 +21988,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -21270,11 +22033,25 @@ const utaComplex = [
           {
             "code": "a",
             "value": "need for uniqueness"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "uniqueness-seeking behaviour"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "online fashion consumption"
@@ -21284,7 +22061,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21295,7 +22072,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21318,23 +22095,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805311873"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201805311873"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -21345,7 +22115,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Limani, Keti"
+            "value": "Limani, Keti."
           }
         ]
       },
@@ -21357,17 +22127,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Branding with content : Digital content marketing as a viable online brand equity approach for Software-as-a-Service firms in business markets."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -21400,7 +22159,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -21408,7 +22167,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -21453,27 +22212,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Content marketing"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Online branding"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Online brand equity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Inbound marketing"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Firm-generated content"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "SaaS"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "B2B"
@@ -21483,7 +22284,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21494,7 +22295,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21517,23 +22318,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806111975"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806111975"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -21544,7 +22338,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Saari, Antti"
+            "value": "Saari, Antti."
           }
         ]
       },
@@ -21556,17 +22350,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The rhetoric of the ‘digital leap’ in Finnish educational policy documents."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -21610,14 +22393,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Säntti, Janne"
+            "value": "Säntti, Janne."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21628,7 +22411,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21651,23 +22434,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806121982"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806121982"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -21678,7 +22454,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Enroth, Linda"
+            "value": "Enroth, Linda."
           }
         ]
       },
@@ -21690,17 +22466,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Does use of long-term care differ between occupational classes among the oldest old? Vitality 90+ Study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -21745,15 +22510,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "socioeconomic factors"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "institutionalisation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "oldest old"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mortality"
@@ -21767,7 +22553,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aaltonen, Mari"
+            "value": "Aaltonen, Mari."
           }
         ]
       },
@@ -21778,7 +22564,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raitanen, Jani"
+            "value": "Raitanen, Jani."
           }
         ]
       },
@@ -21789,7 +22575,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nosraty, Lily"
+            "value": "Nosraty, Lily."
           }
         ]
       },
@@ -21800,14 +22586,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhä, Marja"
+            "value": "Jylhä, Marja."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21818,7 +22604,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -21841,23 +22627,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806121985"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806121985"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -21868,7 +22647,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Viskari, Hanna"
+            "value": "Viskari, Hanna."
           }
         ]
       },
@@ -21891,10 +22670,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Diabetologia,"
-          },
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -21939,19 +22714,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "autoantibody"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "enterovirus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "inactivated polio vaccine"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "oral polio vaccine"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "type 1 diabetes"
@@ -21965,7 +22768,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oikarinen, Sami"
+            "value": "Oikarinen, Sami."
           }
         ]
       },
@@ -21976,7 +22779,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hoppu, Sanna"
+            "value": "Hoppu, Sanna."
           }
         ]
       },
@@ -21987,7 +22790,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vuorinen, Tytti"
+            "value": "Vuorinen, Tytti."
           }
         ]
       },
@@ -21998,7 +22801,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini"
+            "value": "Huhtala, Heini."
           }
         ]
       },
@@ -22009,7 +22812,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Toppari, Jorma"
+            "value": "Toppari, Jorma."
           }
         ]
       },
@@ -22020,7 +22823,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Veijola, Riitta"
+            "value": "Veijola, Riitta."
           }
         ]
       },
@@ -22031,7 +22834,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ilonen, Jorma"
+            "value": "Ilonen, Jorma."
           }
         ]
       },
@@ -22042,7 +22845,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Knip, Mikael"
+            "value": "Knip, Mikael."
           }
         ]
       },
@@ -22053,14 +22856,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hyöty, Heikki"
+            "value": "Hyöty, Heikki."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22071,7 +22874,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22094,23 +22897,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806121995"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806121995"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -22121,7 +22917,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kuoppa, Arttu"
+            "value": "Kuoppa, Arttu."
           }
         ]
       },
@@ -22133,17 +22929,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Recommended by algorithm : relevance, affordances and agency of music recommender systems."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -22176,7 +22961,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -22184,7 +22969,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -22229,23 +23014,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "music recommender systems"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "taste"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "relevance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "agency"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "software"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "algorithms"
@@ -22255,7 +23075,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22266,7 +23086,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22289,23 +23109,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806192036"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201806192036"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -22316,7 +23129,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nurminen, Minna"
+            "value": "Nurminen, Minna."
           }
         ]
       },
@@ -22328,17 +23141,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Kohti yhteistä tietoa ja sen jakamista : kollektiivisen asiantuntijuuden kehittyminen ja hyödyntäminen lastensuojelun avohuollon uudessa tiimissä."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -22371,7 +23173,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -22379,7 +23181,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -22424,27 +23226,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "asiantuntijuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "dialogi"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kollektiivinen asiantuntijuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "tiimi"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "toimintatutkimus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "yhteinen tiedon muodostus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kertovan muutosselonteon menetelmä"
@@ -22454,7 +23298,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22465,7 +23309,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22488,23 +23332,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806252080"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806252080"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -22515,7 +23352,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Panula-Ontto, Juha"
+            "value": "Panula-Ontto, Juha."
           }
         ]
       },
@@ -22527,17 +23364,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cross-impact analysis of Finnish electricity system with increased renewables : Long-run energy policy challenges in balancing supply and consumption."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -22582,19 +23408,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "cross-impact analysis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "electricity system"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "low-carbon"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "renewables"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "transition"
@@ -22608,7 +23462,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luukkanen, Jyrki"
+            "value": "Luukkanen, Jyrki."
           }
         ]
       },
@@ -22619,7 +23473,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaivo-oja, Jari"
+            "value": "Kaivo-oja, Jari."
           }
         ]
       },
@@ -22630,7 +23484,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "O'Mahony, Tadhg"
+            "value": "O'Mahony, Tadhg."
           }
         ]
       },
@@ -22641,7 +23495,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vehmas, Jarmo"
+            "value": "Vehmas, Jarmo."
           }
         ]
       },
@@ -22652,7 +23506,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Valkealahti, Seppo"
+            "value": "Valkealahti, Seppo."
           }
         ]
       },
@@ -22663,7 +23517,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Björkqvist, Tomas"
+            "value": "Björkqvist, Tomas."
           }
         ]
       },
@@ -22674,7 +23528,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korpela, Timo"
+            "value": "Korpela, Timo."
           }
         ]
       },
@@ -22685,7 +23539,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Järventausta, Pertti"
+            "value": "Järventausta, Pertti."
           }
         ]
       },
@@ -22696,7 +23550,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Majanne, Yrjö"
+            "value": "Majanne, Yrjö."
           }
         ]
       },
@@ -22707,7 +23561,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kojo, Matti"
+            "value": "Kojo, Matti."
           }
         ]
       },
@@ -22718,7 +23572,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aalto, Pami"
+            "value": "Aalto, Pami."
           }
         ]
       },
@@ -22729,7 +23583,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harsia, Pirkko"
+            "value": "Harsia, Pirkko."
           }
         ]
       },
@@ -22740,7 +23594,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kallioharju, Kari"
+            "value": "Kallioharju, Kari."
           }
         ]
       },
@@ -22751,7 +23605,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Holttinen, Hannele"
+            "value": "Holttinen, Hannele."
           }
         ]
       },
@@ -22762,14 +23616,14 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Repo, Sami"
+            "value": "Repo, Sami."
           }
         ]
       },
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22780,7 +23634,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22803,23 +23657,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282102"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282102"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -22830,7 +23677,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Walt, Charlene van der"
+            "value": "Walt, Charlene van der."
           }
         ]
       },
@@ -22842,17 +23689,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Sustainability reporting practices in small-to-medium sized enterprises."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -22885,7 +23721,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -22893,7 +23729,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -22938,15 +23774,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "sustainability reporting"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "GRI"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "SME sustainability reporting"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sustainability indicators"
@@ -22956,7 +23813,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22967,7 +23824,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -22990,23 +23847,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282107"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282107"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -23017,7 +23867,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Diez Uriarte, Maria"
+            "value": "Diez Uriarte, Maria."
           }
         ]
       },
@@ -23029,17 +23879,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Analysis of the autonomy and the regulations of the private higher education in Mexico."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -23072,7 +23911,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -23080,7 +23919,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -23125,23 +23964,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "higher education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "private higher education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "autonomy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "regulatory policy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "regulatory instruments"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "regulations"
@@ -23151,7 +24025,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23162,7 +24036,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23185,23 +24059,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282111"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282111"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -23212,7 +24079,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rautela, Devashish"
+            "value": "Rautela, Devashish."
           }
         ]
       },
@@ -23224,17 +24091,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Characteristics of successful online marketing strategies in small and medium sized enterprises: A multiple case study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -23267,7 +24123,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -23275,7 +24131,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -23320,15 +24176,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "online marketing"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "key performance indicators (KPIs)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "return on\r\ninvestment (ROI)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "cost per acquisition (CPA)"
@@ -23338,7 +24215,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23349,7 +24226,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23372,23 +24249,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282122"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282122"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -23399,7 +24269,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zuev, Roman"
+            "value": "Zuev, Roman."
           }
         ]
       },
@@ -23411,17 +24281,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Identity Transformation through Dialogue: A Case Study of Student Video Messages Exchange in Russia-Ukraine Conflict."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -23454,7 +24313,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -23462,7 +24321,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -23491,7 +24350,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23502,7 +24361,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23525,23 +24384,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282125"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282125"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -23552,7 +24404,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Githieya, Njoki"
+            "value": "Githieya, Njoki."
           }
         ]
       },
@@ -23564,17 +24416,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "An analysis of key approaches and influencers of deradicalization of violent extremists : a case study of Al-Shabaab."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -23607,7 +24448,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -23615,7 +24456,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -23633,7 +24474,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23644,7 +24485,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23667,23 +24508,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282136"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282136"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -23694,7 +24528,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zhou, Hui"
+            "value": "Zhou, Hui."
           }
         ]
       },
@@ -23706,17 +24540,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Characteristics of user experience in art e-commerce : case \"buybuy Art\"."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -23749,7 +24572,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -23757,7 +24580,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -23802,19 +24625,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "art electronic supplier"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "art e-commerce"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "interactive design"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "user experience"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "artworks"
@@ -23824,7 +24675,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23835,7 +24686,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -23858,23 +24709,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282143"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282143"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -23885,7 +24729,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ke, Da"
+            "value": "Ke, Da."
           }
         ]
       },
@@ -23897,17 +24741,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Conceptual design on computer sentencing simulation based on SVM."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -23940,7 +24773,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -23948,7 +24781,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -23993,15 +24826,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "sentencing"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sentencing circumstances sentencing method"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "machine learning"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "support vector machines."
@@ -24011,7 +24865,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24022,7 +24876,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24045,23 +24899,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282144"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282144"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -24072,7 +24919,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Trubachyova, Yuliya"
+            "value": "Trubachyova, Yuliya."
           }
         ]
       },
@@ -24084,17 +24931,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Seen from the outside : perceptions of the EU in Kazakhstan."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -24127,7 +24963,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -24135,7 +24971,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -24175,7 +25011,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24186,7 +25022,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24209,23 +25045,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282148"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282148"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -24236,7 +25065,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pankakoski, Iiro"
+            "value": "Pankakoski, Iiro."
           }
         ]
       },
@@ -24248,17 +25077,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Youth livelihoods and the local conflict in North Kivu : a case study in the Eastern Democratic Republic of Congo."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -24291,7 +25109,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -24299,7 +25117,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -24344,23 +25162,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "youth"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "livelihoods"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "conflict"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "development programmes"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "North Kivu"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Finn Church Aid"
@@ -24370,7 +25223,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24381,7 +25234,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24404,23 +25257,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282149"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282149"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -24431,7 +25277,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Durante, Francesco"
+            "value": "Durante, Francesco."
           }
         ]
       },
@@ -24443,17 +25289,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Russia's international energy cooperation : the Yamal LNG case."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -24486,7 +25321,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -24494,7 +25329,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -24539,23 +25374,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "JSC Yamal LNG"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "international energy cooperation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Arctic"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Russian energy policy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "qualitative content analysis"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "structuration."
@@ -24565,7 +25435,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24576,7 +25446,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24599,23 +25469,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282157"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806282157"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -24626,7 +25489,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mochizuki Pelaez, Elisa"
+            "value": "Mochizuki Pelaez, Elisa."
           }
         ]
       },
@@ -24638,17 +25501,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Open governance for a social agenda across welfare states in Europe."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -24681,7 +25533,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -24689,7 +25541,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -24707,7 +25559,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24718,7 +25570,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24741,23 +25593,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806292186"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201806292186"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -24768,7 +25613,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ambrose Gregory, Charlotte"
+            "value": "Ambrose Gregory, Charlotte."
           }
         ]
       },
@@ -24780,17 +25625,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Working life discrimination among migrant registered nurses in hospitals in Finland : a pilot study."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -24823,7 +25657,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -24831,7 +25665,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -24876,15 +25710,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "workplace discrimination"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "migrant registered nurses"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Finland"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "job satisfaction"
@@ -24894,7 +25749,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24905,7 +25760,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -24928,23 +25783,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022190"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201807022190"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -24955,7 +25803,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Drufva, Satu"
+            "value": "Drufva, Satu."
           }
         ]
       },
@@ -24967,17 +25815,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Kohti osallistavaa verkko-ohjausta : tarkastelussa liiketalouden ammattitutkintoihin valmistava koulutus."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -25010,7 +25847,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -25018,7 +25855,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -25063,19 +25900,47 @@ const utaComplex = [
           {
             "code": "a",
             "value": "ammattikasvatus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mediakasvatus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "verkko-ohjaus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "aktiivinen oppiminen"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "osallisuus"
@@ -25085,7 +25950,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25096,7 +25961,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25119,23 +25984,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022191"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022191"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -25146,7 +26004,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Väänänen, Tiina"
+            "value": "Väänänen, Tiina."
           }
         ]
       },
@@ -25158,17 +26016,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Can immigration save the ageing economy of Finland? : the labor market integration of immigrants in the 21st century and the impacts of immigration on public economics."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -25201,7 +26048,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -25209,7 +26056,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -25254,23 +26101,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "demographic dependency ratio"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "economic dependency ratio"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "immigration"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "labor market integration"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "labor markets"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "population structure"
@@ -25280,7 +26162,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25291,7 +26173,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25314,23 +26196,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022192"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022192"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -25341,7 +26216,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Gräschke, Lucia"
+            "value": "Gräschke, Lucia."
           }
         ]
       },
@@ -25353,17 +26228,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The transportation of animals by air : a case study on international agreements and Lufthansa."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -25396,7 +26260,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -25404,7 +26268,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -25449,31 +26313,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "soft law governance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "epistemic governance"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "editing rules"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Scandinavian institutionalism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "translation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "circulating templates"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "Lufthansa"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "biopolitics"
@@ -25483,7 +26396,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25494,7 +26407,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25517,23 +26430,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022193"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022193"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -25544,7 +26450,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kim, You Kyung"
+            "value": "Kim, You Kyung."
           }
         ]
       },
@@ -25556,17 +26462,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Developing youth’s multicultural perspective within media education."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -25599,7 +26494,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -25607,7 +26502,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -25652,27 +26547,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Media information literacy(MIL)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "media education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "multicultural education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "VR (Virtual Reality)"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "action research"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "youth education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sustainability"
@@ -25682,7 +26619,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25693,7 +26630,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25716,23 +26653,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022205"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022205"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -25743,7 +26673,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Furs, Volha"
+            "value": "Furs, Volha."
           }
         ]
       },
@@ -25755,17 +26685,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Motivation, management and workflow in short-term media related innovation projects."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -25798,7 +26717,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -25806,7 +26725,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -25851,23 +26770,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "motivation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "management"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "workflow"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "creativity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "innovation"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "short-term media projects"
@@ -25877,7 +26831,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25888,7 +26842,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -25911,23 +26865,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022206"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022206"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -25938,7 +26885,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "An, Zihua"
+            "value": "An, Zihua."
           }
         ]
       },
@@ -25950,17 +26897,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Intercultural project-based learning and multiliteracy : an ethnography study on Finnish-Chinese PLATINUM project."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -25993,7 +26929,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -26001,7 +26937,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -26046,15 +26982,36 @@ const utaComplex = [
           {
             "code": "a",
             "value": "ethnography?intercultural competence?media literacy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "multiliteracy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "project based learning"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "university students?virtual reality game"
@@ -26064,7 +27021,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26075,7 +27032,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26098,23 +27055,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022207"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022207"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -26125,7 +27075,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Glotov, Sergei"
+            "value": "Glotov, Sergei."
           }
         ]
       },
@@ -26137,17 +27087,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Teaching film literacy for international educators."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -26180,7 +27119,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -26188,7 +27127,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -26233,23 +27172,58 @@ const utaComplex = [
           {
             "code": "a",
             "value": "film literacy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "film literacy education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "film education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "media literacy"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "media education"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "international educators"
@@ -26259,7 +27233,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26270,7 +27244,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26293,23 +27267,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022208"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201807022208"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -26320,7 +27287,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Autiosaari, Suvi"
+            "value": "Autiosaari, Suvi."
           }
         ]
       },
@@ -26332,17 +27299,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "\"Sydän lyö kotimaan tahtiin\" : maahanmuuttajanuorten kuulumisen merkityksiä paikallisessa ja ylirajaisessa arjessa."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -26375,7 +27331,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -26383,7 +27339,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -26428,27 +27384,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "maahanmuuttajanuoret"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kuuluminen"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "transnationaali"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "muuttoliike"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "osallisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "rasismi"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sijattomuus"
@@ -26458,7 +27456,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26469,7 +27467,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26492,23 +27490,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022210"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022210"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -26519,7 +27510,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Alasalmi, Juho"
+            "value": "Alasalmi, Juho."
           }
         ]
       },
@@ -26531,17 +27522,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Motivated prospects of upward mobility."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -26574,7 +27554,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -26582,7 +27562,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -26627,31 +27607,80 @@ const utaComplex = [
           {
             "code": "a",
             "value": "prospect of upward mobility"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "redistribution"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "endogenous beliefs"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "motivated beliefs"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "motivated reasoning"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "biased beliefs"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "over-optimism"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "anticipation"
@@ -26661,7 +27690,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26672,7 +27701,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26706,23 +27735,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:ISBN:978-952-03-0777-6"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:ISBN:978-952-03-0777-6"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -26733,7 +27755,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkinen, Meeri"
+            "value": "Mäkinen, Meeri."
           }
         ]
       },
@@ -26767,10 +27789,6 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
-          },
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -26811,7 +27829,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Artikkeliväitöskirja"
+            "value": "Artikkeliväitöskirja :"
           },
           {
             "code": "c",
@@ -26819,7 +27837,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -26875,39 +27893,102 @@ const utaComplex = [
           {
             "code": "a",
             "value": "kantasolut"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "hermoverkkoaktiivisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mikroelektrodihila"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kalsiumkuvantaminen"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "analyysimenetelmät"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "stem cells"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "neural network activity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "microelectrode array"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "calcium imaging"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "analysis methods"
@@ -26917,7 +27998,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26928,7 +28009,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -26951,23 +28032,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022216"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022216"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -26978,7 +28052,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Järvi, Theodora"
+            "value": "Järvi, Theodora."
           }
         ]
       },
@@ -26990,17 +28064,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Impact of information acquisition costs on voting choices : an experimental study on information acquisition and ideological distances."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -27033,7 +28096,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -27041,7 +28104,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -27086,27 +28149,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "voting behaviour"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "correct voting"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "rational voting"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "information acquisition"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "information acquisition costs"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "utility maximization"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "ideological distances"
@@ -27116,7 +28221,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27127,7 +28232,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27150,23 +28255,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022218"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "eng"
+            "value": "URN:NBN:fi:uta-201807022218"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -27177,7 +28275,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jokipalo, Veera"
+            "value": "Jokipalo, Veera."
           }
         ]
       },
@@ -27189,17 +28287,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Basic income and gift exchange : a laboratory experiment."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -27232,7 +28319,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -27240,7 +28327,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -27258,7 +28345,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27269,7 +28356,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27292,23 +28379,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022220"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201807022220"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -27319,7 +28399,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Grönholm, Pauliina"
+            "value": "Grönholm, Pauliina."
           }
         ]
       },
@@ -27331,17 +28411,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Arki nuorten turvapaikanhakijoiden silmin : ylirajaista mediaosallisuutta kehittämässä."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -27374,7 +28443,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -27382,7 +28451,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -27427,27 +28496,69 @@ const utaComplex = [
           {
             "code": "a",
             "value": "kriittinen mediakasvatus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "osallisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "osallistava valokuvaus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "yksintulleet turvapaikanhakijat"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "ylirajaisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mediaosallisuus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "toimintatutkimus"
@@ -27457,7 +28568,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27468,7 +28579,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27491,23 +28602,16 @@ const utaComplex = [
       },
       {
         "tag": "024",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807032226"
-          }
-        ]
-      },
-      {
-        "tag": "041",
-        "ind1": " ",
+        "ind1": "7",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "fin"
+            "value": "URN:NBN:fi:uta-201807032226"
+          },
+          {
+            "code": "u",
+            "value": "rn"
           }
         ]
       },
@@ -27518,7 +28622,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ranne, Tiia"
+            "value": "Ranne, Tiia."
           }
         ]
       },
@@ -27530,17 +28634,6 @@ const utaComplex = [
           {
             "code": "a",
             "value": "\"Kun ollaan ulapalla, on soudettava eteenpäin\" : alueellisen identiteetin ja identiteettiresurssin käyttö mielipidekirjoituksissa muutoksen aikana."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "2018."
           }
         ]
       },
@@ -27573,7 +28666,7 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pro gradu -tutkielma"
+            "value": "Pro gradu -tutkielma :"
           },
           {
             "code": "c",
@@ -27581,7 +28674,7 @@ const utaComplex = [
           },
           {
             "code": "d",
-            "value": "2018"
+            "value": "2018."
           }
         ]
       },
@@ -27626,39 +28719,102 @@ const utaComplex = [
           {
             "code": "a",
             "value": "alueellinen identiteetti"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "identiteettiresurssi"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "kuntarakenneuudistus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "mielipidekirjoitus"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "sisällönanalyysi"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "regional identity"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "identity resource"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "municipal structural reform"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "opinion piece"
-          },
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
           {
             "code": "a",
             "value": "content analysis"
@@ -27668,7 +28824,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27679,7 +28835,7 @@ const utaComplex = [
       {
         "tag": "856",
         "ind1": "4",
-        "ind2": "2",
+        "ind2": "0",
         "subfields": [
           {
             "code": "u",
@@ -27694,160 +28850,159 @@ const utaComplex = [
 /*******************************************/
 
 const doriaSingle = [
-	{
-	  "leader": "01704nam a  002653i   00",
-	  "fields": [
-		{
-		  "tag": "007",
-		  "value": "cr ||||||||||p"
-		},
-		{
-		  "tag": "008",
-		  "value": "000000s2011    fi |||||s|||||||| |beng  "
-		},
-		{
-		  "tag": "020",
-		  "ind1": " ",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "9783905404579"
-			}
-		  ]
-		},
-		{
-		  "tag": "041",
-		  "ind1": " ",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "eng"
-			}
-		  ]
-		},
-		{
-		  "tag": "100",
-		  "ind1": "1",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "Grönroos, Mauri"
-			}
-		  ]
-		},
-		{
-		  "tag": "245",
-		  "ind1": "1",
-		  "ind2": "0",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "Cultural and intercultural negotiating aspects."
-			}
-		  ]
-		},
-		{
-		  "tag": "264",
-		  "ind1": " ",
-		  "ind2": "1",
-		  "subfields": [
-			{
-			  "code": "b",
-			  "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
-			},
-			{
-			  "code": "c",
-			  "value": "2011."
-			}
-		  ]
-		},
-		{
-		  "tag": "300",
-		  "ind1": " ",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "54-66 sivua"
-			}
-		  ]
-		},
-		{
-		  "tag": "500",
-		  "ind1": " ",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "Pro gradu -tutkielma"
-			}
-		  ]
-		},
-		{
-		  "tag": "502",
-		  "ind1": " ",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "Pro gradu -tutkielma"
-			},
-			{
-			  "code": "c",
-			  "value": "University of Tampere, Yhteiskuntatieteiden tiedekunta, "
-			},
-			{
-			  "code": "d",
-			  "value": "2011"
-			}
-		  ]
-		},
-		{
-		  "tag": "653",
-		  "ind1": " ",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "globalization"
-			},
-			{
-			  "code": "a",
-			  "value": "culture"
-			},
-			{
-			  "code": "a",
-			  "value": "negotiations"
-			}
-		  ]
-		},
-		{
-		  "tag": "700",
-		  "ind1": "1",
-		  "ind2": " ",
-		  "subfields": [
-			{
-			  "code": "a",
-			  "value": "Seppänen, Ann"
-			}
-		  ]
-		},
-		{
-		  "tag": "856",
-		  "ind1": "4",
-		  "ind2": "2",
-		  "subfields": [
-			{
-			  "code": "u",
-			  "value": "http://www.doria.fi/handle/10024/73840"
-			}
-		  ]
-		}
-	  ]
-	}
-  ];
+  {
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr ||||||||||p"
+      },
+      {
+        "tag": "008",
+        "value": "000000s2011    fi |||||s|||||||| |beng  "
+      },
+      {
+        "tag": "020",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "9783905404579"
+          }
+        ]
+      },
+      {
+        "tag": "100",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Grönroos, Mauri."
+          }
+        ]
+      },
+      {
+        "tag": "245",
+        "ind1": "1",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Cultural and intercultural negotiating aspects."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "b",
+            "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
+          }
+        ]
+      },
+      {
+        "tag": "300",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "54-66 sivua"
+          }
+        ]
+      },
+      {
+        "tag": "500",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Pro gradu -tutkielma"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Pro gradu -tutkielma :"
+          },
+          {
+            "code": "c",
+            "value": "University of Tampere, Yhteiskuntatieteiden tiedekunta, "
+          },
+          {
+            "code": "d",
+            "value": "2011."
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "globalization"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "culture"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "negotiations"
+          }
+        ]
+      },
+      {
+        "tag": "700",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Seppänen, Ann."
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "http://www.doria.fi/handle/10024/73840"
+          }
+        ]
+      }
+    ]
+  }
+];
 
 export {utaChecked, utaSingle, utaComplex, doriaSingle};

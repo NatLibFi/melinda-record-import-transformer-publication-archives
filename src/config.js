@@ -62,9 +62,9 @@ const confMap = new Map([
 		{
 			label: 'Teoksen kieli',
 			marcTag: '041',
+			marcSecondaryTag: '008',
 			marcIf: 'langField',
 			marcSub: 'a',
-			marcSecondaryTag: '008',
 			ind1: '',
 			ind2: ''
 		}
@@ -75,9 +75,9 @@ const confMap = new Map([
 		{
 			label: 'Julkaisuaika',
 			marcTag: '264',
+			marcSecondaryTag: '008',
 			marcIf: 'issued', // This saves year for multiple purposes
 			marcSub: 'c',
-			marcSecondaryTag: '008',
 			ind1: '',
 			ind2: '1',
 			unique: true,
@@ -234,9 +234,8 @@ const confMap = new Map([
 		{
 			label: 'Opinnäytteen taso',
 			marcTag: '500',
-			marcSub: 'a',
 			marcSecondaryTag: '502',
-			marcSecondarySub: 'a',
+			marcSub: 'a',
 			marcIf: 'onTaso',
 			ind1: '',
 			ind2: ''
@@ -372,10 +371,14 @@ const confMap = new Map([
 			label: 'Asiasanat',
 			marcTag: '650',
 			marcSub: 'a',
-			marcSecondaryTag: '650',
-			marcSecondarySub: '2',
 			ind1: '',
-			ind2: '7'
+			ind2: '7',
+			secondary: {
+				marcTag: '650',
+				marcSub: '2',
+				ind1: '',
+				ind2: '7'
+			}
 		}
 	],
 	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
@@ -397,8 +400,7 @@ const confMap = new Map([
 			marcTag: '653',
 			marcSub: 'a',
 			ind1: '',
-			ind2: '',
-			unique: true
+			ind2: ''
 		}
 	],
 	// Toimittaja	 	dc.contributor.editor	700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e toimittaja.
@@ -430,16 +432,19 @@ const confMap = new Map([
 			label: 'Julkaisun DOI-tunnus',
 			marcTag: '856',
 			marcSub: 'u',
-			marcSecondaryTag: '024', // 024$a $2 doi 7 #  //URN, DOI
-			marcSecondarySub: 'a',
-			marcSecondaryInd1: '7',
-			marcSecondaryInd2: '',
-			marcSecondaryPresetValue: {
-				sub: '2',
-				value: 'doi'
-			},
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			secondary: {
+				marcTag: '024',
+				marcSub: 'a',
+				unique: false,
+				ind1: '7',
+				ind2: '',
+				presetValue: {
+					sub: '2',
+					value: 'doi'
+				}
+			}
 		}
 	],
 	// Julkaisun URI	 	dc.identifier.uri	856$u	4	0
@@ -471,16 +476,19 @@ const confMap = new Map([
 			label: 'URN-tunnus',
 			marcTag: '856',
 			marcSub: 'u',
-			marcSecondaryTag: '024', // 024$a $2 urn 7 #
-			marcSecondarySub: 'a',
-			marcSecondaryInd1: '7',
-			marcSecondaryInd2: '#',
-			marcSecondaryPresetValue: {
-				sub: '2',
-				value: 'urn'
-			},
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			secondary: {
+				marcTag: '024',
+				marcSub: 'a',
+				unique: false,
+				ind1: '7',
+				ind2: '',
+				presetValue: {
+					sub: 'u',
+					value: 'rn'
+				}
+			}
 		}
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
@@ -523,12 +531,17 @@ const confMap = new Map([
 			marcTag: '100',
 			marcSub: 'a',
 			marcIf: 'rest',
-			marcIfUnique: false,
-			marcSecondaryTag: '700',
-			marcSecondarySub: 'a',
 			ind1: '1',
 			ind2: '',
-			suffix: '.'
+			suffix: '.',
+			secondary: {
+				marcTag: '700',
+				marcSub: 'a',
+				unique: false,
+				ind1: '1',
+				ind2: '',
+				suffix: '.'
+			}
 		}
 	],
 	// Tekijä	vaihtoehtoinen	dc.creator	Eka 100$a, loput 700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e kirjoittaja.
@@ -539,21 +552,9 @@ const confMap = new Map([
 			marcTag: '100',
 			marcSub: 'a',
 			marcIf: 'rest',
-			marcIfUnique: false,
-			marcSecondaryTag: '700',
-			marcSecondarySub: 'a',
 			ind1: '1',
 			ind2: '',
 			suffix: '.'
-		}
-	],
-	// Tietueen sisältö	fulltext=0/metadataOnly=2/abstractOnly=2	dc.format.content	Vaikutta 856 2.indikaattoriin (0=fulltext,2=muu)	 	0 tai 2
-	[
-		'dc.format.content',
-		{
-			label: 'Tietueen sisältö',
-			marcTag: '856',
-			marcIf: 'modify'
 		}
 	]
 ]);

@@ -39,13 +39,12 @@ export default async function (stream) {
 
 	const records = await JSON.parse(await getStream(stream));
 	var result = records.map(convertRecord);
-	console.log('Transformed ' + marcRecords.length + ' of ' + records.length);
+	// Console.log('Transformed ' + marcRecords.length + ' of ' + records.length);
 	fs.writeFileSync('marcRecords.json', JSON.stringify(marcRecords, undefined, 2));
 	return Promise.all(result);
 	// Return Promise.all(records.map(convertRecord)); //Original line, now replaced with broken code above for file saving
 
 	function convertRecord(record) {
-		// Console.log("---------- Convert record ----------");
 		var control008Structure = [{
 			start: 1,
 			end: 7,
@@ -83,7 +82,6 @@ export default async function (stream) {
 
 		const marcRecord = new MarcRecord();
 		var marcJSON = [];
-		var marc856modifier = '2';
 		var issued = null;
 		var controlJSON = [];
 
@@ -104,7 +102,6 @@ export default async function (stream) {
 			upsertRecord(confMap.get(getDCPath(field)), field); // Recursive function to go generate marcJSON later to be transformed to actual Marc
 		});
 
-		// Console.log("------ Generating ------")
 		generateOnTaso();
 		generateControlFields();
 		generateMarcRecord();
@@ -125,6 +122,8 @@ export default async function (stream) {
 		// }
 		// field: single field got from harvesting
 		function upsertRecord(conf, field) {
+			// Console.log('---------------');
+			// console.log('Conf: ', conf, ' field: ', field);
 			if (typeof (conf) === 'undefined') {
 				return;
 			}
@@ -135,27 +134,21 @@ export default async function (stream) {
 				case 'onTaso': {
 					onTaso[getDCPath(field)] = field.$.value;
 
-					// Primary tag used for generating record 500, secondary for onTaso stuff for 502
+					// Primary tag used for generating record 500, secondary marks onTaso stuff for 502 that is checked later
 					if (conf.marcSecondaryTag) {
 						field.$.value = clipLang(field.$.value, 'fi='); // Clean field with language options
-						generateRecord({marcTag: conf.marcTag, marcSub: conf.marcSub, unique: conf.marcIfUnique, ind1: conf.ind1, ind2: conf.ind2}, field);
+						generateRecord(conf, field);
 					}
-					return;
-				}
 
-				// Save if dc.format.contet sets ind2 and modify all effected 856 fields when generating actual Marc
-				case 'modify': {
-					if (conf.marcTag === '856' && field.$.value === 'else') {
-						marc856modifier = '0';
-					}
 					return;
 				}
 
 				// First to primary tag, if tag already used generate new with secondary tag
 				case 'rest': {
 					var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
+
 					if (foundRec) {
-						upsertRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique, ind1: conf.ind1, ind2: conf.ind2}, field);
+						upsertRecord(conf.secondary, field);
 					} else {
 						generateRecord(conf, field);
 					}
@@ -187,12 +180,15 @@ export default async function (stream) {
 
 			// Secondary tag generation with conf
 			if (conf.marcSecondaryTag) {
-				generateRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSub, ind1: conf.ind1, ind2: conf.ind2}, field);
+				conf.marcTag = conf.marcSecondaryTag;
+				generateRecord(conf, field);
+			} else if (conf.secondary) {
+				generateRecord(conf.secondary, field);
 			}
 		}
 
 		function generateRecord(conf, field) {
-			// Console.log("------");
+			// Console.log('------');
 			// console.log(field);
 
 			if (conf.marcTag === '008') { // Controller fields
@@ -239,10 +235,10 @@ export default async function (stream) {
 				}
 
 				// Set possibly preset value as subfield (describing static type etc)
-				if (conf.marcPresetValue) {
+				if (conf.presetValue) {
 					foundRec.subfields.push({
-						code: conf.marcPresetValue.sub,
-						value: conf.marcPresetValue.value
+						code: conf.presetValue.sub,
+						value: conf.presetValue.value
 					});
 				}
 
@@ -297,7 +293,7 @@ export default async function (stream) {
 					ind2: '',
 					subfields: [{
 						code: 'a',
-						value: clipLang(onTaso['dc.type.ontasot'], 'fi=')
+						value: clipLang(onTaso['dc.type.ontasot'], 'fi=') + ' :'
 					}]
 				};
 
@@ -318,7 +314,7 @@ export default async function (stream) {
 
 					rec.subfields.push({
 						code: 'd',
-						value: issued
+						value: issued + '.'
 					});
 				}
 				marcJSON.push(rec);
@@ -346,10 +342,6 @@ export default async function (stream) {
 		// Generate actual Marc object
 		function generateMarcRecord() {
 			marcJSON.forEach(field => {
-				if (field.tag === '856' && marc856modifier) {
-					field.ind2 = marc856modifier;
-				}
-
 				marcRecord.insertField(field);
 			});
 
@@ -374,7 +366,7 @@ export default async function (stream) {
 			if (text.includes(identifier) && text.includes(' | ')) {
 				return text.substring(text.indexOf(identifier) + 3, text.indexOf(' | '));
 			}
-			console.log('*** Should clip language version, but something went wrong (incomplete implementation)');
+			console.log('*** Should clip language version, but something went wrong, returning original text (incomplete implementation)');
 			console.log(JSON.stringify(onTaso, null, 2));
 			return text;
 		}
