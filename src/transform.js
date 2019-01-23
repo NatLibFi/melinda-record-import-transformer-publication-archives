@@ -39,7 +39,7 @@ export default async function (stream) {
 
 	const records = await JSON.parse(await getStream(stream));
 	var result = records.map(convertRecord);
-	// Console.log('Transformed ' + marcRecords.length + ' of ' + records.length);
+	console.log('Transformed ' + marcRecords.length + ' of ' + records.length);
 	fs.writeFileSync('marcRecords.json', JSON.stringify(marcRecords, undefined, 2));
 	return Promise.all(result);
 	// Return Promise.all(records.map(convertRecord)); //Original line, now replaced with broken code above for file saving
@@ -93,13 +93,13 @@ export default async function (stream) {
 		});
 
 		if (typeof (record.metadata) === 'undefined') {
-			console.log(JSON.stringify(record, null, 2));
+			console.warn(JSON.stringify(record, null, 2));
 			return; // Some records can be '"status": "deleted"' -> no metadata, just header
 		}
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
 
 		fields.forEach(field => {
-			upsertRecord(confMap.get(getDCPath(field)), field); // Recursive function to go generate marcJSON later to be transformed to actual Marc
+			upsertRecord(confMap.get(getDCPath(field)), field, record.header[0].identifier); // Recursive function to go generate marcJSON later to be transformed to actual Marc
 		});
 
 		generateOnTaso();
@@ -121,13 +121,13 @@ export default async function (stream) {
 		//	ind1&ind2: strings of marc indicators
 		// }
 		// field: single field got from harvesting
-		function upsertRecord(conf, field) {
-			// Console.log('---------------');
-			// console.log('Conf: ', conf, ' field: ', field);
+		function upsertRecord(conf, field, recordIdentifier) {
+			// console.log('--- Upsert ---');
+			// console.log('Conf: ', conf);
+			// console.log('Field: ', field);
 			if (typeof (conf) === 'undefined') {
-				return;
+				return false;
 			}
-
 			// Handle special cases by marcIf
 			switch (conf.marcIf) {
 				// Save onTaso fields for end parsing
@@ -148,7 +148,7 @@ export default async function (stream) {
 					var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
 
 					if (foundRec) {
-						upsertRecord(conf.secondary, field);
+						upsertRecord(conf.secondary, field, recordIdentifier);
 					} else {
 						generateRecord(conf, field);
 					}
@@ -167,9 +167,11 @@ export default async function (stream) {
 				// Check if language field should be transformed from 2 chars to 3 chars, then normal handling
 				case 'langField': {
 					// Language code might be already in ISO 639-2b (3 chars)
-					if (field.$.value.length === 2) {
+					if (field.$.value.length === 2 && typeof(langs.where(1, field.$.value)) !== 'undefined') {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
+					}else{
+						console.warn("Record: ", recordIdentifier, " has two char language code that cannot be transformed to three char version, this will break leader: ", field.$.value)
 					}
 					break;
 				}
@@ -188,9 +190,9 @@ export default async function (stream) {
 		}
 
 		function generateRecord(conf, field) {
-			// Console.log('------');
-			// console.log(field);
-
+			// console.log('--- Generate ---');
+			// console.log('Conf: ', conf);
+			// console.log('Field: ', field);
 			if (conf.marcTag === '008') { // Controller fields
 				modifyControlField(field);
 			} else { // Normal fields
@@ -283,9 +285,6 @@ export default async function (stream) {
 
 		// This handles 502 field to be sure that it is generated correctly after all fields are read
 		function generateOnTaso() {
-			// Console.log("--------- Generating onTaso ---------");
-			// console.log(JSON.stringify(onTaso, null, 2));
-
 			if (onTaso['dc.type.ontasot']) {
 				var rec = {
 					tag: '502',
@@ -342,11 +341,21 @@ export default async function (stream) {
 		// Generate actual Marc object
 		function generateMarcRecord() {
 			marcJSON.forEach(field => {
-				marcRecord.insertField(field);
+				try{
+					marcRecord.insertField(field);
+				}catch(error){
+					console.error("Record: ", record.header[0].identifier, " something went wrong with field: ", field)
+					console.error("Error message: '", error.message, "' (likely empty value)")
+				}
 			});
 
 			controlJSON.forEach(field => {
-				marcRecord.insertField(field);
+				try{
+					marcRecord.insertField(field);
+				}catch(error){
+					console.error("Record: ", record.header[0].identifier, " something went wrong with field: ", field)
+					console.error("Error message: '", error.message, "'")
+				}
 			});
 
 			marcRecords.push(marcRecord); // Save all records to array for debug saving
@@ -366,8 +375,8 @@ export default async function (stream) {
 			if (text.includes(identifier) && text.includes(' | ')) {
 				return text.substring(text.indexOf(identifier) + 3, text.indexOf(' | '));
 			}
-			console.log('*** Should clip language version, but something went wrong, returning original text (incomplete implementation)');
-			console.log(JSON.stringify(onTaso, null, 2));
+			console.warn('*** Should clip language version, but something went wrong, returning original text (incomplete implementation)');
+			console.warn(JSON.stringify(onTaso, null, 2));
 			return text;
 		}
 		// End of supporting functions

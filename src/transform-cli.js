@@ -73,6 +73,7 @@ async function run() {
 
 		process.exit();
 	} catch (err) {
+		console.log("Err: ", err)
 		console.error(err);
 		process.exit(-1);
 	}
