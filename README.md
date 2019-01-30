@@ -7,3 +7,13 @@ Publication archives record transformer for the Melinda record batch import syst
 Copyright (c) 2018 **University Of Helsinki (The National Library Of Finland)**
 
 This project's source code is licensed under the terms of **GNU Affero General Public License Version 3** or any later version.
+
+## Environment variables
+* **API_URL**=ToDo 
+* **API_USERNAME**=ToDo 
+* **API_PASSWORD**=ToDo 
+* **BLOB_ID**=ToDo 
+* **AMQP_URL**=ToDo 
+* **PROFILE_ID**=ToDo 
+
+Mandatory variables are bolded.
