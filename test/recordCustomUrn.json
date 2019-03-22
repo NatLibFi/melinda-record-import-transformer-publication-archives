@@ -1,0 +1,76 @@
+[
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/73840"
+        ],
+        "datestamp": [
+          "2018-09-26T07:34:53Z"
+        ],
+        "setSpec": [
+          "com_10024_70745",
+          "com_10024_5956",
+          "com_10024_3809",
+          "col_10024_70751"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/73840"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/73840"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {  
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://randomurl.com/url"
+                }
+              },
+              {
+                "$": {  
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "-",
+                  "value": "http://randomurl.com/uri"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

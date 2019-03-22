@@ -47,6 +47,22 @@ const orderMap = new Map([
 	]
 ]);
 
+const conditionalCases = new Map([
+	[
+		'dc.identifier.urn',
+		{
+			ignore: ['dc.identifier.url', 'dc.identifier.uri']
+		}
+	]
+]);
+
+// Const conditionalCases = [
+// 	{
+// 		condition: 'dc.identifier.urn',
+// 		remove: ['dc.identifier.url', 'dc.identifier.uri' ]
+// 	}
+// ];
+
 const confMap = new Map([
 	// Teoksen julkaisumaa	Oletuksena aina 'fi'	dc.publisher.country	008 (katso tarkempi ohje)
 	[
@@ -92,7 +108,11 @@ const confMap = new Map([
 			marcTag: '020',
 			marcSub: 'a',
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			presetFields: [{
+				sub: 'q',
+				value: 'PDF'
+			}]
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0
@@ -138,7 +158,8 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '1',
-			unique: true
+			unique: true,
+			suffix: ':'
 		}
 	],
 	// Julkaisija (kustantaja)	Julkaisijan nimi	dc.publisher	264$b	tyhjä	1 (Valitaan julkaisun kielen mukaan)	264 _1 $b Turun yliopisto
@@ -163,7 +184,8 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '',
-			suffix: ' sivua'
+			prefix: '1 verkkoaineisto (',
+			suffix: ' sivua)'
 		}
 	],
 	// Sarjatieto, nimeke	 	dc.relation.ispartofseries	490$a	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -233,8 +255,8 @@ const confMap = new Map([
 		'dc.type.ontasot',
 		{
 			label: 'Opinnäytteen taso',
-			marcTag: '500',
-			marcSecondaryTag: '502',
+			marcTag: '502',
+			marcSecondaryTag: '500', // 502 for onTaso handling, this for stand alone field
 			marcSub: 'a',
 			marcIf: 'onTaso',
 			ind1: '',
@@ -304,9 +326,22 @@ const confMap = new Map([
 		{
 			label: '',
 			marcTag: '506',
+			marcIf: 'replace',
+			marcReplace: {
+				phrase: 'openAccess',
+				replace: 'Aineisto on vapaasti saatavissa.',
+				removePresetIfNotMatch: true
+			},
 			marcSub: 'a',
-			ind1: '',
-			ind2: ''
+			ind1: '0',
+			ind2: '',
+			presetFields: [{
+				sub: 'f',
+				value: 'Unrestricted online access'
+			}, {
+				sub: '2',
+				value: 'star'
+			}]
 		}
 	],
 	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	 	dc.rights.uri	540$u	tyhjä	tyhjä
@@ -373,12 +408,12 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '7',
-			secondary: {
+			secondary: [{
 				marcTag: '650',
 				marcSub: '2',
 				ind1: '',
 				ind2: '7'
-			}
+			}]
 		}
 	],
 	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
@@ -411,7 +446,11 @@ const confMap = new Map([
 			marcTag: '700',
 			marcSub: 'a',
 			ind1: '1',
-			ind2: ''
+			ind2: '',
+			presetFields: [{
+				sub: 'e',
+				value: 'toimittaja.'
+			}]
 		}
 	],
 	// Painetun monografian ISBN-numero	 	dc.relation.isversionof	776$z (vakiofraasi i osakenttään)	0	8	 	776 08 $i Painettu: $z 9518826536
@@ -434,17 +473,17 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0',
-			secondary: {
+			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
 				unique: false,
 				ind1: '7',
 				ind2: '',
-				presetValue: {
+				presetFields: [{
 					sub: '2',
 					value: 'doi'
-				}
-			}
+				}]
+			}]
 		}
 	],
 	// Julkaisun URI	 	dc.identifier.uri	856$u	4	0
@@ -478,17 +517,22 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0',
-			secondary: {
+			prefix: 'http://urn.fi/',
+			presetFields: [{
+				sub: 'y',
+				value: 'Linkki verkkoaineistoon'
+			}],
+			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
 				unique: false,
 				ind1: '7',
 				ind2: '',
-				presetValue: {
-					sub: 'u',
-					value: 'rn'
-				}
-			}
+				presetFields: [{
+					sub: '2',
+					value: 'urn'
+				}]
+			}]
 		}
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
@@ -533,14 +577,22 @@ const confMap = new Map([
 			marcIf: 'rest',
 			ind1: '1',
 			ind2: '',
-			suffix: '.',
-			secondary: {
+			suffix: ',',
+			presetFields: [{
+				sub: 'e',
+				value: 'kirjoittaja.'
+			}],
+			marcRest: {
 				marcTag: '700',
 				marcSub: 'a',
 				unique: false,
 				ind1: '1',
 				ind2: '',
-				suffix: '.'
+				suffix: ',',
+				presetFields: [{
+					sub: 'e',
+					value: 'kirjoittaja.'
+				}]
 			}
 		}
 	],
@@ -554,9 +606,25 @@ const confMap = new Map([
 			marcIf: 'rest',
 			ind1: '1',
 			ind2: '',
-			suffix: '.'
+			suffix: ',',
+			presetFields: [{
+				sub: 'e',
+				value: 'kirjoittaja.'
+			}],
+			marcRest: {
+				marcTag: '700',
+				marcSub: 'a',
+				unique: false,
+				ind1: '1',
+				ind2: '',
+				suffix: ',',
+				presetFields: [{
+					sub: 'e',
+					value: 'kirjoittaja.'
+				}]
+			}
 		}
 	]
 ]);
 
-export {orderMap, confMap};
+export {orderMap, conditionalCases, confMap};

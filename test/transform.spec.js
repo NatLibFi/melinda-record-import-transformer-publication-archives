@@ -33,13 +33,19 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import transform from '../src/transform';
-import {utaChecked, utaSingle, utaComplex, doriaSingle} from './validResponses'
+import {custom, utaChecked, utaSingle, utaComplex, doriaSingle} from './validResponses'
 import fs from 'fs';
 
 const {expect} = chai;
 chai.use(chaiAsPromised);
 
 describe('Check different transformation cases', () => {
+	describe('#Custom', () => {
+		it('Testing all new changes', async () => {
+			const result = await transform(fs.createReadStream('./test/recordCustom.json', 'utf8'));
+			expect(result).to.eql(custom);
+		});
+	});
 
 	describe('#UTA', () => {
 		it('Single checked record', async () => {
@@ -65,4 +71,6 @@ describe('Check different transformation cases', () => {
 		});
 	});
 });
-// console.log(JSON.stringify(result, null, 2));
+// console.log("--------------------")
+// console.log(JSON.stringify(result, null, 2))
+// console.log("--------------------")

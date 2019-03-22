@@ -28,7 +28,7 @@
 
 /* eslint-disable default-case */
 
-import {orderMap, confMap} from './config';
+import {orderMap, conditionalCases, confMap} from './config';
 import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
 import langs from 'langs';
@@ -66,7 +66,7 @@ export default async function (stream) {
 		}, {
 			start: 18,
 			end: 35,
-			value: ' |||||s|||||||| |b'
+			value: ' |||||o|||||||| ||'
 		}, {
 			start: 36,
 			end: 38,
@@ -84,12 +84,13 @@ export default async function (stream) {
 		var marcJSON = [];
 		var issued = null;
 		var controlJSON = [];
+		var ignoredFields = []; // Fields to ignore
 
 		// Standard fields
 		marcRecord.leader = '01704nam a  002653i   00';
 		controlJSON.push({ // Standard control field
 			tag: '007',
-			value: 'cr ||||||||||p'
+			value: 'cr |||||||||||'
 		});
 
 		if (typeof (record.metadata) === 'undefined') {
@@ -98,11 +99,14 @@ export default async function (stream) {
 		}
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
 
+		// Check condition fields before actual cycle
+		conditionalFields();
+
 		fields.forEach(field => {
 			upsertRecord(confMap.get(getDCPath(field)), field, record.header[0].identifier); // Recursive function to go generate marcJSON later to be transformed to actual Marc
 		});
 
-		generateOnTaso();
+		generateOnTaso(); // OpinnayteTaso
 		generateControlFields();
 		generateMarcRecord();
 
@@ -111,7 +115,16 @@ export default async function (stream) {
 		/// /////////////////////////////////////////////////
 		// Start of supporting functions
 
-		// conf: configuration object: {
+		function conditionalFields() {
+			fields.forEach(field => {
+				// Check if conditional case exists and it has ingnored fields
+				if (conditionalCases.get(getDCPath(field)) && conditionalCases.get(getDCPath(field)).ignore) {
+					ignoredFields = ignoredFields.concat(conditionalCases.get(getDCPath(field)).ignore);
+				}
+			});
+		}
+
+		// Conf: configuration object: {
 		// 	marcIf: enum string of cases,
 		//	marcIfUnique: boolean if unique marc instance of tag
 		// 	marcTag: string for marc tag,
@@ -122,24 +135,31 @@ export default async function (stream) {
 		// }
 		// field: single field got from harvesting
 		function upsertRecord(conf, field, recordIdentifier) {
-			// console.log('--- Upsert ---');
+			// Console.log('--- Upsert ---');
 			// console.log('Conf: ', conf);
 			// console.log('Field: ', field);
 			if (typeof (conf) === 'undefined') {
 				return false;
 			}
+
+			if (ignoredFields.includes(getDCPath(field))) { // Ignored field
+				return false;
+			}
+			var tempConf = null;
+
 			// Handle special cases by marcIf
 			switch (conf.marcIf) {
 				// Save onTaso fields for end parsing
 				case 'onTaso': {
 					onTaso[getDCPath(field)] = field.$.value;
-
-					// Primary tag used for generating record 500, secondary marks onTaso stuff for 502 that is checked later
-					if (conf.marcSecondaryTag) {
+					if (conf.marcSecondaryTag) { // Primary tag used for generating record 500, onTasoTag is checked later
 						field.$.value = clipLang(field.$.value, 'fi='); // Clean field with language options
-						generateRecord(conf, field);
-					}
 
+						tempConf = Object.assign({}, conf);
+						tempConf.marcTag = tempConf.marcSecondaryTag; // Primary tag is used to onTaso, secondary for stand alone generation
+						delete tempConf.marcSecondaryTag;
+						generateRecord(tempConf, field);
+					}
 					return;
 				}
 
@@ -148,7 +168,7 @@ export default async function (stream) {
 					var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
 
 					if (foundRec) {
-						upsertRecord(conf.secondary, field, recordIdentifier);
+						upsertRecord(conf.marcRest, field, recordIdentifier);
 					} else {
 						generateRecord(conf, field);
 					}
@@ -164,14 +184,31 @@ export default async function (stream) {
 					break;
 				}
 
+				// Detect subfield replacing
+				case 'replace': {
+					if (conf.marcReplace && conf.marcReplace.phrase === field.$.value) { // Matches replace phrase, replace
+						field.$.value = conf.marcReplace.replace;
+						break;
+					} else { // Does not match, use original values
+						if (conf.marcReplace && conf.marcReplace.removePresetIfNotMatch) {
+							tempConf = Object.assign({}, conf);
+							delete tempConf.presetFields; // Remove possible preset fields
+							generateRecord(tempConf, field);
+						} else {
+							generateRecord(conf, field);
+						}
+						return;
+					}
+				}
+
 				// Check if language field should be transformed from 2 chars to 3 chars, then normal handling
 				case 'langField': {
 					// Language code might be already in ISO 639-2b (3 chars)
-					if (field.$.value.length === 2 && typeof(langs.where(1, field.$.value)) !== 'undefined') {
+					if (field.$.value.length === 2 && typeof (langs.where(1, field.$.value)) !== 'undefined') {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
-					}else{
-						console.warn("Record: ", recordIdentifier, " has two char language code that cannot be transformed to three char version, this will break leader: ", field.$.value)
+					} else {
+						console.warn('Record: ', recordIdentifier, ' has two char language code that cannot be transformed to three char version, this will break leader: ', field.$.value);
 					}
 					break;
 				}
@@ -182,15 +219,19 @@ export default async function (stream) {
 
 			// Secondary tag generation with conf
 			if (conf.marcSecondaryTag) {
-				conf.marcTag = conf.marcSecondaryTag;
-				generateRecord(conf, field);
-			} else if (conf.secondary) {
-				generateRecord(conf.secondary, field);
+				tempConf = Object.assign({}, conf);
+				tempConf.marcTag = tempConf.marcSecondaryTag;
+				delete tempConf.marcSecondaryTag;
+				generateRecord(tempConf, field);
+			} else if (conf.secondary) { // Different specification
+				conf.secondary.forEach(secondary => {
+					generateRecord(secondary, field);
+				});
 			}
 		}
 
 		function generateRecord(conf, field) {
-			// console.log('--- Generate ---');
+			// Console.log('--- Generate ---');
 			// console.log('Conf: ', conf);
 			// console.log('Field: ', field);
 			if (conf.marcTag === '008') { // Controller fields
@@ -236,18 +277,20 @@ export default async function (stream) {
 					marcJSON.push(foundRec);
 				}
 
-				// Set possibly preset value as subfield (describing static type etc)
-				if (conf.presetValue) {
-					foundRec.subfields.push({
-						code: conf.presetValue.sub,
-						value: conf.presetValue.value
+				// Set possibly preset subfield (describing static type etc)
+				if (conf.presetFields) {
+					conf.presetFields.forEach(presetField => {
+						foundRec.subfields.push({
+							code: presetField.sub,
+							value: presetField.value
+						});
 					});
 				}
 
-				// If secondary tag exist, field is suppose to be also saved to secondary location: generate config file with secondary fields as primary keys
-				// Exception: conf.marcIf === 'rest' -> secondary values describe values for 2nd, 3th ... values (handled in upsertRecord())
-				if (conf.marcSecondaryTag && (!conf.marcIf === 'rest')) {
-					generateRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique, ind1: conf.marcSecondaryInd1 || conf.ind1, ind2: conf.marcSecondaryInd2 || conf.ind2, marcPresetValue: conf.marcSecondaryPresetValue}, field);
+				// If secondary tag exist, field is suppose to be also saved to secondary location:
+				// generate config file with secondary fields as primary keys
+				if (conf.marcSecondaryTag) {
+					generateRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique, ind1: conf.marcSecondaryInd1 || conf.ind1, ind2: conf.marcSecondaryInd2 || conf.ind2, marcpresetFields: conf.marcSecondarypresetFields}, field);
 				}
 			}
 
@@ -341,20 +384,20 @@ export default async function (stream) {
 		// Generate actual Marc object
 		function generateMarcRecord() {
 			marcJSON.forEach(field => {
-				try{
+				try {
 					marcRecord.insertField(field);
-				}catch(error){
-					console.error("Record: ", record.header[0].identifier, " something went wrong with field: ", field)
-					console.error("Error message: '", error.message, "' (likely empty value)")
+				} catch (error) {
+					console.error('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
+					console.error('Error message: \'', error.message, '\' (likely empty value)');
 				}
 			});
 
 			controlJSON.forEach(field => {
-				try{
+				try {
 					marcRecord.insertField(field);
-				}catch(error){
-					console.error("Record: ", record.header[0].identifier, " something went wrong with field: ", field)
-					console.error("Error message: '", error.message, "'")
+				} catch (error) {
+					console.error('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
+					console.error('Error message: \'', error.message, '\'');
 				}
 			});
 

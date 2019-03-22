@@ -27,17 +27,202 @@
 */
 
 'use strict';
+const custom = [
+  {
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr |||||||||||"
+      },
+      {
+        "tag": "008",
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+      },
+      {
+        "tag": "024",
+        "ind1": "7",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "URN:ISBN:111-222-33-4444-5"
+          },
+          {
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Tampere:"
+          },
+          {
+            "code": "b",
+            "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "506",
+        "ind1": "0",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "http://urn.fi/URN:ISBN:111-222-33-4444-5"
+          },
+          {
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
+          }
+        ]
+      }
+    ]
+  },
+  { //This dummy object tests if dc.publisher.place is placed correctly to 264 and custom access level is used in 506. (not "openAccess")
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr |||||||||||"
+      },
+      {
+        "tag": "008",
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Tampere:"
+          },
+          {
+            "code": "b",
+            "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "506",
+        "ind1": "0",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Osittain rajattu"
+          }
+        ]
+      }
+
+    ]
+  },
+  { //This dummy object should get two 856 fields trough since there is no dc.identifier.urn
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr |||||||||||"
+      },
+      {
+        "tag": "008",
+        "value": "000000snull    fi |||||o|||||||| ||null  "
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "http://randomurl.com/url"
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "http://randomurl.com/uri"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 const utaChecked = [
   {
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -47,6 +232,10 @@ const utaChecked = [
           {
             "code": "a",
             "value": "978-952-03-0864-3"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
           }
         ]
       },
@@ -60,8 +249,8 @@ const utaChecked = [
             "value": "URN:ISBN: 978-952-03-0864-3"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
           }
         ]
       },
@@ -83,7 +272,11 @@ const utaChecked = [
         "subfields": [
           {
             "code": "a",
-            "value": "von Essen, Magdaléna."
+            "value": "von Essen, Magdaléna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -175,12 +368,20 @@ const utaChecked = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -323,18 +524,11 @@ const utaChecked = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/104531"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:ISBN: 978-952-03-0864-3"
+          },
           {
-            "code": "u",
-            "value": "URN:ISBN: 978-952-03-0864-3"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -348,11 +542,11 @@ const utaSingle = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2011    fi |||||s|||||||| |beng  "
+        "value": "000000s2011    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -362,6 +556,21 @@ const utaSingle = [
           {
             "code": "a",
             "value": "9783905404579"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -372,7 +581,11 @@ const utaSingle = [
         "subfields": [
           {
             "code": "a",
-            "value": "Grönroos, Mauri."
+            "value": "Grönroos, Mauri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -395,6 +608,10 @@ const utaSingle = [
           {
             "code": "b",
             "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
+          },
+          {
+            "code": "c",
+            "value": "2011."
           }
         ]
       },
@@ -405,7 +622,7 @@ const utaSingle = [
         "subfields": [
           {
             "code": "a",
-            "value": "54-66 sivua"
+            "value": "1 verkkoaineisto (54-66 sivua)"
           }
         ]
       },
@@ -449,7 +666,11 @@ const utaSingle = [
         "subfields": [
           {
             "code": "a",
-            "value": "Seppänen, Ann."
+            "value": "Seppänen, Ann,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -476,11 +697,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2011    fi |||||s|||||||| |beng  "
+        "value": "000000s2011    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -490,6 +711,21 @@ const utaComplex = [
           {
             "code": "a",
             "value": "978-951-44-8464-3"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -500,7 +736,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Paavolainen, Teemu."
+            "value": "Paavolainen, Teemu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -523,6 +763,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2011."
           }
         ]
       },
@@ -573,12 +817,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -732,11 +984,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2012    fi |||||s|||||||| |beng  "
+        "value": "000000s2012    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -746,6 +998,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "978-951-44-8963-1"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
           }
         ]
       },
@@ -759,8 +1015,19 @@ const utaComplex = [
             "value": "URN:ISBN:978-951-44-8963-1"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -783,6 +1050,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2012."
           }
         ]
       },
@@ -793,18 +1064,26 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "304 s. sivua"
+            "value": "1 verkkoaineisto (304 s. sivua)"
           }
         ]
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -838,6 +1117,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Herkman, Juha"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -849,6 +1132,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Hujanen, Taisto"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -860,6 +1147,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Oinonen, Paavo"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -870,18 +1161,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/67998"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:ISBN:978-951-44-8963-1"
+          },
           {
-            "code": "u",
-            "value": "URN:ISBN:978-951-44-8963-1"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -892,11 +1176,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2012    fi |||||s|||||||| |bfin  "
+        "value": "000000s2012    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -908,8 +1192,19 @@ const utaComplex = [
             "value": "urn:nbn:fi:uta-1-23087"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -920,7 +1215,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "HAAPALA, RITVA."
+            "value": "HAAPALA, RITVA,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -936,13 +1235,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2012."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "139 +7 sivua"
+            "value": "1 verkkoaineisto (139 +7 sivua)"
           }
         ]
       },
@@ -978,12 +1288,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -1016,18 +1334,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/76579"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/urn:nbn:fi:uta-1-23087"
+          },
           {
-            "code": "u",
-            "value": "urn:nbn:fi:uta-1-23087"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -1038,11 +1349,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2015    fi |||||s|||||||| |bfin  "
+        "value": "000000s2015    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -1054,8 +1365,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201503021156"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -1066,7 +1388,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mettälä, Marika."
+            "value": "Mettälä, Marika,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -1082,13 +1408,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2015."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "46 s. + 2 liitettä sivua"
+            "value": "1 verkkoaineisto (46 s. + 2 liitettä sivua)"
           }
         ]
       },
@@ -1124,12 +1461,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -1184,18 +1529,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/96761"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201503021156"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201503021156"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -1206,11 +1544,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2015    fi |||||s|||||||| |bfin  "
+        "value": "000000s2015    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -1222,8 +1560,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201507282171"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -1234,7 +1583,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Åkerman, Christa."
+            "value": "Åkerman, Christa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -1250,13 +1603,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2015."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "83 sivua sivua"
+            "value": "1 verkkoaineisto (83 sivua sivua)"
           }
         ]
       },
@@ -1292,7 +1656,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -1341,18 +1705,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/97836"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201507282171"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201507282171"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -1363,11 +1720,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |beng  "
+        "value": "000000s2016    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -1377,6 +1734,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "978-952-03-0038-8"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
           }
         ]
       },
@@ -1390,8 +1751,19 @@ const utaComplex = [
             "value": "URN:ISBN:978-952-03-0038-8"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -1402,7 +1774,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pokkinen, Satu."
+            "value": "Pokkinen, Satu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -1436,6 +1812,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -1490,12 +1870,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -1605,18 +1993,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/98651"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:ISBN:978-952-03-0038-8"
+          },
           {
-            "code": "u",
-            "value": "URN:ISBN:978-952-03-0038-8"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -1627,11 +2008,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2015    fi |||||s|||||||| |bfin  "
+        "value": "000000s2015    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -1643,8 +2024,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201603071283"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -1655,7 +2047,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Koskela, Minja."
+            "value": "Koskela, Minja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -1671,13 +2067,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2015."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "103 s. sivua"
+            "value": "1 verkkoaineisto (103 s. sivua)"
           }
         ]
       },
@@ -1713,7 +2120,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -1773,18 +2180,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/98654"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201603071283"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201603071283"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -1795,11 +2195,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |beng  "
+        "value": "000000s2016    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -1811,8 +2211,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201611142566"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -1823,7 +2234,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkinen, Ilkka."
+            "value": "Mäkinen, Ilkka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -1835,6 +2250,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "From library and information science through information studies to information studies and interactive media: emergence, expansion and integration of information studies at the University of Tampere illustrated in word clouds."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -1862,12 +2288,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -1999,7 +2433,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Järvelin, Kalervo."
+            "value": "Järvelin, Kalervo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2010,7 +2448,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Savolainen, Reijo."
+            "value": "Savolainen, Reijo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2021,7 +2463,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sormunen, Eero."
+            "value": "Sormunen, Eero,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2032,18 +2478,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/100045"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201611142566"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201611142566"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       },
@@ -2065,11 +2504,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |bfin  "
+        "value": "000000s2016    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -2081,8 +2520,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201612162852"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -2093,7 +2543,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lindfors, Pirjo."
+            "value": "Lindfors, Pirjo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2116,6 +2570,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Helsingin yliopisto,"
+          },
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -2136,12 +2594,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -2163,7 +2629,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Karvonen, Sakari."
+            "value": "Karvonen, Sakari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2174,7 +2644,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Minkkinen, Jaana."
+            "value": "Minkkinen, Jaana,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2185,7 +2659,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rimpelä, Arja."
+            "value": "Rimpelä, Arja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2197,6 +2675,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Hotulainen, Risto"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2208,6 +2690,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Rimpelä, Arja"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2219,6 +2705,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Hautamäki, Jarkko"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2230,6 +2720,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Karvonen, Sakari"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2241,6 +2735,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Kinnunen, Jaana M"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2252,6 +2750,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Kupiainen, Sirkku"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2263,6 +2765,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Lindfors, Pirjo"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2274,6 +2780,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Minkkinen, Jaana"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2285,6 +2795,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Pere, Lasse"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2296,6 +2810,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Thuneberg, Helena"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2307,6 +2825,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Vainikainen, Mari-Pauliina"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2318,6 +2840,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Wallenius, Tommi"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2328,18 +2854,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/100348"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201612162852"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201612162852"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -2350,11 +2869,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2012    fi |||||s|||||||| |beng  "
+        "value": "000000s2012    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -2366,8 +2885,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201612212892"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -2378,7 +2908,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hakkarainen, Jani."
+            "value": "Hakkarainen, Jani,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2401,6 +2935,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Societas philosophica Fennica,"
+          },
+          {
+            "code": "c",
+            "value": "2012."
           }
         ]
       },
@@ -2425,12 +2963,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -2453,6 +2999,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Niiniluoto, Ilkka"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2464,6 +3014,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Pihlström, Sami"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -2474,18 +3028,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/100392"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201612212892"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201612212892"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -2496,11 +3043,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -2512,8 +3059,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201703291375"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -2524,7 +3082,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Millei, Zsuzsa."
+            "value": "Millei, Zsuzsa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2536,6 +3098,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Ad-hoc numbers forming provision and policy: round and round of universal access in an Australian preschool."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -2552,7 +3125,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -2579,18 +3152,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/100856"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201703291375"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201703291375"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -2601,11 +3167,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -2617,8 +3183,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201703301377"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -2629,7 +3206,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oulasvirta, Lasse."
+            "value": "Oulasvirta, Lasse,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2641,6 +3222,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Adoption of comprehensive risk management in local government."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -2657,7 +3249,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -2684,7 +3276,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Anttiroiko, Ari-Veikko."
+            "value": "Anttiroiko, Ari-Veikko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2695,18 +3291,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/100877"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201703301377"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201703301377"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -2717,11 +3306,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -2733,8 +3322,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201705021493"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -2745,7 +3345,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kudo, Saki."
+            "value": "Kudo, Saki,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2761,13 +3365,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "64pp sivua"
+            "value": "1 verkkoaineisto (64pp sivua)"
           }
         ]
       },
@@ -2803,12 +3418,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -2907,18 +3530,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/100994"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201705021493"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705021493"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -2929,11 +3545,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |beng  "
+        "value": "000000s2016    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -2945,8 +3561,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201705081535"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -2957,7 +3584,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ulmanen, Sanna."
+            "value": "Ulmanen, Sanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -2969,6 +3600,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Students’ experiences of the development of emotional engagement."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -2985,7 +3627,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -3100,7 +3742,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Soini, Tiina."
+            "value": "Soini, Tiina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3111,7 +3757,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pietarinen, Janne."
+            "value": "Pietarinen, Janne,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3122,7 +3772,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pyhältö, Kirsi."
+            "value": "Pyhältö, Kirsi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3133,18 +3787,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101038"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201705081535"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705081535"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -3155,11 +3802,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |beng  "
+        "value": "000000s2016    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -3171,8 +3818,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201705101549"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -3183,7 +3841,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kallio, Kirsi Pauliina."
+            "value": "Kallio, Kirsi Pauliina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3195,6 +3857,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Children's caring agencies."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -3211,7 +3884,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -3326,7 +3999,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Bartos, Ann E.."
+            "value": "Bartos, Ann E.,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3337,18 +4014,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101058"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201705101549"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705101549"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -3359,11 +4029,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -3375,8 +4045,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201705161571"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -3387,7 +4068,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sianoja, Marjaana."
+            "value": "Sianoja, Marjaana,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3399,6 +4084,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Enhancing daily well-being at work through lunchtime park walks and relaxation exercises : Recovery experiences as mediators."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -3426,12 +4122,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -3508,7 +4212,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Syrek, Christine."
+            "value": "Syrek, Christine,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3519,7 +4227,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "de Bloom, Jessica."
+            "value": "de Bloom, Jessica,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3530,7 +4242,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korpela, Kalevi."
+            "value": "Korpela, Kalevi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3541,7 +4257,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kinnunen, Ulla."
+            "value": "Kinnunen, Ulla,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3552,18 +4272,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101081"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201705161571"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705161571"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -3574,11 +4287,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |beng  "
+        "value": "000000s2016    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -3590,8 +4303,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201705301737"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -3602,7 +4326,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kuusela, Hanna."
+            "value": "Kuusela, Hanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3614,6 +4342,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The Material Trajectories of Cultural Texts : The Bookseller of Kabul and the Ahistoric Women of Afghanistan."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -3630,7 +4369,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -3657,18 +4396,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101258"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201705301737"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201705301737"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -3679,11 +4411,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -3695,8 +4427,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706011774"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -3707,7 +4450,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pascucci, Elisa."
+            "value": "Pascucci, Elisa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3719,6 +4466,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Community infrastructures: shelter, self-reliance and polymorphic borders in urban refugee governance."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -3735,7 +4493,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -3762,18 +4520,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101298"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706011774"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706011774"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -3784,11 +4535,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -3800,8 +4551,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706192048"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -3812,7 +4574,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lobanovskiy, Arseniy."
+            "value": "Lobanovskiy, Arseniy,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -3828,13 +4594,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "73 + bibliorgaphy + appendices sivua"
+            "value": "1 verkkoaineisto (73 + bibliorgaphy + appendices sivua)"
           }
         ]
       },
@@ -3870,12 +4647,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -3974,18 +4759,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101582"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706192048"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706192048"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -3996,11 +4774,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -4012,8 +4790,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706262090"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -4024,7 +4813,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heba Sigurðardóttir."
+            "value": "Heba Sigurðardóttir,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -4040,13 +4833,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "70 sivua"
+            "value": "1 verkkoaineisto (70 sivua)"
           }
         ]
       },
@@ -4082,12 +4886,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -4186,18 +4998,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101625"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706262090"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262090"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -4208,11 +5013,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -4224,8 +5029,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706262093"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -4236,7 +5052,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hietala, Verneri."
+            "value": "Hietala, Verneri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -4252,13 +5072,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "59 sivua"
+            "value": "1 verkkoaineisto (59 sivua)"
           }
         ]
       },
@@ -4294,12 +5125,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -4387,18 +5226,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101628"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706262093"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262093"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -4409,11 +5241,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -4425,8 +5257,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706262098"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -4437,7 +5280,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kalchev, Daniel."
+            "value": "Kalchev, Daniel,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -4453,13 +5300,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "66 pp + appendices + figures sivua"
+            "value": "1 verkkoaineisto (66 pp + appendices + figures sivua)"
           }
         ]
       },
@@ -4495,12 +5353,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -4599,18 +5465,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101633"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706262098"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262098"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -4621,11 +5480,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -4637,8 +5496,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706262101"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -4649,7 +5519,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kuivalainen, Tuomo."
+            "value": "Kuivalainen, Tuomo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -4665,13 +5539,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "57 sivua"
+            "value": "1 verkkoaineisto (57 sivua)"
           }
         ]
       },
@@ -4707,12 +5592,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -4789,18 +5682,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101636"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706262101"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262101"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -4811,11 +5697,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -4827,8 +5713,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706262112"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -4839,7 +5736,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Qureshi, Mohammad Ahsan."
+            "value": "Qureshi, Mohammad Ahsan,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -4855,13 +5756,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "74 pp +7 appendix pages sivua"
+            "value": "1 verkkoaineisto (74 pp +7 appendix pages sivua)"
           }
         ]
       },
@@ -4897,12 +5809,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -4968,18 +5888,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101647"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706262112"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706262112"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -4990,11 +5903,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5006,8 +5919,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706272121"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -5018,7 +5942,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hänninen, Timo."
+            "value": "Hänninen, Timo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5030,6 +5958,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Interpreting change on the SCAT3 in professional ice hockey players."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -5057,7 +5996,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -5128,7 +6067,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Parkkari, Jari."
+            "value": "Parkkari, Jari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5139,7 +6082,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tuominen, Markku."
+            "value": "Tuominen, Markku,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5150,7 +6097,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Iverson, Grant L."
+            "value": "Iverson, Grant L,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5161,7 +6112,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Öhman, Juha."
+            "value": "Öhman, Juha,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5172,7 +6127,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vartiainen, Matti."
+            "value": "Vartiainen, Matti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5183,7 +6142,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luoto, Teemu M."
+            "value": "Luoto, Teemu M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5194,18 +6157,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101659"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706272121"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706272121"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -5216,11 +6172,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5232,8 +6188,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201706292160"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -5244,7 +6211,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harjunpää, Ielyzaveta."
+            "value": "Harjunpää, Ielyzaveta,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5260,13 +6231,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "43 pages + 1 appendix sivua"
+            "value": "1 verkkoaineisto (43 pages + 1 appendix sivua)"
           }
         ]
       },
@@ -5302,12 +6284,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -5406,18 +6396,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101699"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201706292160"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201706292160"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -5428,11 +6411,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5444,8 +6427,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201708292341"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -5456,7 +6450,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Koski, Kaisu."
+            "value": "Koski, Kaisu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5468,6 +6466,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Exploring Vaccine Hesitancy Through an Artist–Scientist Collaboration: Visualizing Vaccine-Critical Parents’ Health Beliefs."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -5484,7 +6493,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -5511,7 +6520,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Holst, Johan."
+            "value": "Holst, Johan,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5522,18 +6535,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101899"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201708292341"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201708292341"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -5544,11 +6550,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5560,8 +6566,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709122420"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -5572,7 +6589,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Serlachius, Anna."
+            "value": "Serlachius, Anna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5584,6 +6605,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Does high optimism protect against the inter-generational transmission of high BMI? The Cardiovascular Risk in Young Finns Study."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -5611,7 +6643,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -5638,7 +6670,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pulkki-Råback, Laura."
+            "value": "Pulkki-Råback, Laura,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5649,7 +6685,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Juonala, Markus."
+            "value": "Juonala, Markus,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5660,7 +6700,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sabin, Matthew."
+            "value": "Sabin, Matthew,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5671,7 +6715,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Terho."
+            "value": "Lehtimäki, Terho,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5682,7 +6730,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raitakari, Olli."
+            "value": "Raitakari, Olli,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5693,7 +6745,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Elovainio, Marko."
+            "value": "Elovainio, Marko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5704,18 +6760,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101986"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709122420"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709122420"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -5726,11 +6775,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5742,8 +6791,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709122421"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -5754,7 +6814,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mauno, Saija."
+            "value": "Mauno, Saija,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5766,6 +6830,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Does recovery buffer against emotional labor outcomes at work? Analyzing age differences care professionals."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -5793,7 +6868,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -5820,7 +6895,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ruokolainen, Mervi."
+            "value": "Ruokolainen, Mervi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5831,7 +6910,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "de Bloom, Jessica."
+            "value": "de Bloom, Jessica,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5842,7 +6925,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kinnunen, Ulla."
+            "value": "Kinnunen, Ulla,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5853,18 +6940,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/101987"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709122421"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709122421"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -5875,11 +6955,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5891,8 +6971,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709192448"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -5903,7 +6994,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Helve, Helena."
+            "value": "Helve, Helena,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5915,6 +7010,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Identity Horizons Among Finnish Postsecondary Students : A Comparative Analysis."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -5931,7 +7037,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -5958,7 +7064,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Côté, James."
+            "value": "Côté, James,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5969,7 +7079,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Svynarenko, Arseniy."
+            "value": "Svynarenko, Arseniy,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5980,7 +7094,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sinisalo-Juha, Eeva."
+            "value": "Sinisalo-Juha, Eeva,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -5991,7 +7109,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mizokami, Shinichi."
+            "value": "Mizokami, Shinichi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6002,7 +7124,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Roberts, Sharon E."
+            "value": "Roberts, Sharon E,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6013,7 +7139,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nakama, Reiko."
+            "value": "Nakama, Reiko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6024,18 +7154,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102016"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709192448"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709192448"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -6046,11 +7169,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -6062,8 +7185,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709222465"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -6074,7 +7208,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Soini, Tuuli."
+            "value": "Soini, Tuuli,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6086,6 +7224,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Long-term Follow-up After Endometrial Ablation in Finland : Cancer Risks and Later Hysterectomies."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -6102,7 +7251,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -6129,7 +7278,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rantanen, Matti."
+            "value": "Rantanen, Matti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6140,7 +7293,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Paavonen, Jorma."
+            "value": "Paavonen, Jorma,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6151,7 +7308,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Grénman, Seija."
+            "value": "Grénman, Seija,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6162,7 +7323,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Johanna."
+            "value": "Mäenpää, Johanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6173,7 +7338,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pukkala, Eero."
+            "value": "Pukkala, Eero,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6184,7 +7353,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Gissler, Mika."
+            "value": "Gissler, Mika,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6195,7 +7368,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hurskainen, Ritva."
+            "value": "Hurskainen, Ritva,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6206,18 +7383,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102036"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709222465"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709222465"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -6228,11 +7398,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -6244,8 +7414,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709282489"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -6256,7 +7437,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hirvonen, Hanna."
+            "value": "Hirvonen, Hanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6268,6 +7453,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The effect of cryotherapy on total antioxidative capacity in patients with active seropositive rheumatoid arthritis."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -6284,7 +7480,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -6366,7 +7562,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kautiainen, Hannu."
+            "value": "Kautiainen, Hannu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6377,7 +7577,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Moilanen, Eeva."
+            "value": "Moilanen, Eeva,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6388,7 +7592,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mikkelsson, Marja."
+            "value": "Mikkelsson, Marja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6399,7 +7607,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Leirisalo-Repo, Marjatta."
+            "value": "Leirisalo-Repo, Marjatta,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6410,18 +7622,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102061"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709282489"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282489"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -6432,11 +7637,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |bfin  "
+        "value": "000000s2017    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -6448,8 +7653,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709282488"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -6460,7 +7676,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Härkönen, Saaga."
+            "value": "Härkönen, Saaga,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6476,13 +7696,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "92 s., 3 liites. sivua"
+            "value": "1 verkkoaineisto (92 s., 3 liites. sivua)"
           }
         ]
       },
@@ -6518,12 +7749,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -6655,18 +7894,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102060"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709282488"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282488"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -6677,11 +7909,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -6693,8 +7925,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709282492"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -6705,7 +7948,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lauronen, Sirkka-Liisa."
+            "value": "Lauronen, Sirkka-Liisa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6717,6 +7964,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Thermal suit in preventing unintentional intraoperative hypothermia during general anaesthesia: a randomized controlled trial."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -6733,7 +7991,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -6760,7 +8018,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kalliomäki, Maija-Liisa."
+            "value": "Kalliomäki, Maija-Liisa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6771,7 +8033,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aho, Antti."
+            "value": "Aho, Antti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6782,7 +8048,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kalliovalkama, Jarkko."
+            "value": "Kalliovalkama, Jarkko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6793,7 +8063,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Riikonen, Jarno."
+            "value": "Riikonen, Jarno,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6804,7 +8078,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkinen, Marja-Tellervo."
+            "value": "Mäkinen, Marja-Tellervo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6815,7 +8093,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Leppikangas, Heli."
+            "value": "Leppikangas, Heli,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6826,7 +8108,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Yli-Hankala, Arvi."
+            "value": "Yli-Hankala, Arvi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6837,18 +8123,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102064"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709282492"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282492"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -6859,11 +8138,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -6875,8 +8154,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201709282494"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -6887,7 +8177,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Marttila, Saara."
+            "value": "Marttila, Saara,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -6899,6 +8193,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Human endogenous retrovirus HERV-K(HML-2) env expression is not associated with markers of immunosenescence."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -6926,7 +8231,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -7008,7 +8313,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nevalainen, Tapio."
+            "value": "Nevalainen, Tapio,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7019,7 +8328,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhävä, Juulia."
+            "value": "Jylhävä, Juulia,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7030,7 +8343,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kananen, Laura."
+            "value": "Kananen, Laura,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7041,7 +8358,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhä, Marja."
+            "value": "Jylhä, Marja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7052,7 +8373,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hervonen, Antti."
+            "value": "Hervonen, Antti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7063,7 +8388,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hurme, Mikko."
+            "value": "Hurme, Mikko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7074,18 +8403,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102066"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201709282494"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201709282494"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -7096,11 +8418,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -7112,8 +8434,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710042514"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -7124,7 +8457,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ikonen, Hanna-Mari."
+            "value": "Ikonen, Hanna-Mari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7136,6 +8473,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "'I <3 my high-performance dog’ : love for the sport in agility coach representations in social media."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -7152,7 +8500,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -7311,7 +8659,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pehkonen, Samu."
+            "value": "Pehkonen, Samu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7322,18 +8674,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102089"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710042514"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710042514"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -7344,11 +8689,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -7360,8 +8705,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710042520"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -7372,7 +8728,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raittio, Lauri."
+            "value": "Raittio, Lauri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7384,6 +8744,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Comparison of volar-flexion, ulnar-deviation and functional position cast immobilization in the non-operative treatment of distal radius fracture in elderly patients : a pragmatic randomized controlled trial study protocol."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -7411,12 +8782,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -7438,7 +8817,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Launonen, Antti."
+            "value": "Launonen, Antti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7449,7 +8832,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hevonkorpi, Teemu."
+            "value": "Hevonkorpi, Teemu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7460,7 +8847,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luokkala, Toni."
+            "value": "Luokkala, Toni,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7471,7 +8862,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kukkonen, Juha."
+            "value": "Kukkonen, Juha,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7482,7 +8877,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Reito, Aleksi."
+            "value": "Reito, Aleksi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7493,7 +8892,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sumrein, Bakir."
+            "value": "Sumrein, Bakir,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7504,7 +8907,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Laitinen, Minna."
+            "value": "Laitinen, Minna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7515,7 +8922,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mattila, Ville M."
+            "value": "Mattila, Ville M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7526,18 +8937,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102094"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710042520"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710042520"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -7548,11 +8952,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -7564,8 +8968,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710042526"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -7576,7 +8991,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niemi, Riikka."
+            "value": "Niemi, Riikka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7588,6 +9007,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Urinary polyamines as biomarkers for ovarian cancer."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -7604,7 +9034,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -7631,7 +9061,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Roine, Antti."
+            "value": "Roine, Antti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7642,7 +9076,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Häkkinen, Merja."
+            "value": "Häkkinen, Merja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7653,7 +9091,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kumpulainen, Pekka."
+            "value": "Kumpulainen, Pekka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7664,7 +9106,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Keinänen, Tuomo."
+            "value": "Keinänen, Tuomo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7675,7 +9121,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vepsäläinen, Jouko."
+            "value": "Vepsäläinen, Jouko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7686,7 +9136,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Terho."
+            "value": "Lehtimäki, Terho,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7697,7 +9151,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oksala, Niku."
+            "value": "Oksala, Niku,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7708,7 +9166,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Johanna."
+            "value": "Mäenpää, Johanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7719,18 +9181,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102100"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710042526"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710042526"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -7741,11 +9196,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |beng  "
+        "value": "000000s2016    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -7757,8 +9212,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710102578"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -7769,7 +9235,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Enroth, Linda."
+            "value": "Enroth, Linda,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7781,6 +9251,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cardiometabolic and Inflammatory Biomarkers as Mediators Between Educational Attainment and Functioning at the Age of 90 Years."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -7797,12 +9278,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -7835,7 +9324,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raitanen, Jani."
+            "value": "Raitanen, Jani,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7846,7 +9339,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hervonen, Antti."
+            "value": "Hervonen, Antti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7857,7 +9354,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Terho."
+            "value": "Lehtimäki, Terho,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7868,7 +9369,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhävä, Juulia."
+            "value": "Jylhävä, Juulia,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7879,7 +9384,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hurme, Mikko."
+            "value": "Hurme, Mikko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7890,7 +9399,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhä, Marja."
+            "value": "Jylhä, Marja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7901,18 +9414,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102153"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710102578"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710102578"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -7923,11 +9429,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -7939,8 +9445,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710102580"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -7951,7 +9468,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Karvonen, Tuomas."
+            "value": "Karvonen, Tuomas,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -7963,6 +9484,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Comparison of feasibility and estimates of central and peripheral nitric oxide parameters by different mathematical models."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -7979,7 +9511,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -8006,7 +9538,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kankaanranta, Hannu."
+            "value": "Kankaanranta, Hannu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8017,7 +9553,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Saarelainen, Seppo."
+            "value": "Saarelainen, Seppo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8028,7 +9568,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Moilanen, Eeva."
+            "value": "Moilanen, Eeva,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8039,7 +9583,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtimäki, Lauri."
+            "value": "Lehtimäki, Lauri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8050,18 +9598,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102155"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710102580"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710102580"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -8072,11 +9613,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -8088,8 +9629,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710112598"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -8100,7 +9652,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ikonen, Hanna-Mari."
+            "value": "Ikonen, Hanna-Mari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8112,6 +9668,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Passionately yours : Managing emotional and spatial boundaries in lifestyle-based hospitality businesses."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -8128,7 +9695,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -8287,18 +9854,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102173"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710112598"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710112598"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -8309,11 +9869,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -8325,8 +9885,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710262635"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -8337,7 +9908,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harju, Eeva."
+            "value": "Harju, Eeva,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8349,6 +9924,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The Health-Related Quality of Life of Patients with Prostate Cancer and Their Spouses before Treatment Compared with the General Population."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -8365,7 +9951,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -8458,7 +10044,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rantanen, Anja."
+            "value": "Rantanen, Anja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8469,7 +10059,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaunonen, Marja."
+            "value": "Kaunonen, Marja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8480,7 +10074,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Helminen, Mika."
+            "value": "Helminen, Mika,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8491,7 +10089,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Isotalo, Taina."
+            "value": "Isotalo, Taina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8502,7 +10104,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Åstedt-Kurki, Päivi."
+            "value": "Åstedt-Kurki, Päivi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8513,18 +10119,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102217"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710262635"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710262635"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -8535,11 +10134,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -8549,6 +10148,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "978-952-03-0557-4"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
           }
         ]
       },
@@ -8562,8 +10165,19 @@ const utaComplex = [
             "value": "URN:ISBN:978-952-03-0557-4"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -8574,7 +10188,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jalkanen, Ville."
+            "value": "Jalkanen, Ville,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8608,6 +10226,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -8662,12 +10284,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -8788,18 +10418,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102237"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:ISBN:978-952-03-0557-4"
+          },
           {
-            "code": "u",
-            "value": "URN:ISBN:978-952-03-0557-4"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -8810,11 +10433,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -8826,8 +10449,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710312652"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -8838,7 +10472,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Haukka, Jari."
+            "value": "Haukka, Jari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8850,6 +10488,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Risk of Cause-Specific Death in Individuals with Cancer — Modifying Role Diabetes, Statins and Metformin."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -8866,7 +10515,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -8937,7 +10586,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niskanen, Leo."
+            "value": "Niskanen, Leo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8948,7 +10601,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Auvinen, Anssi."
+            "value": "Auvinen, Anssi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -8959,18 +10616,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102239"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710312652"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710312652"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -8981,11 +10631,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -8997,8 +10647,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201710312653"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -9009,7 +10670,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Halonen, Mia."
+            "value": "Halonen, Mia,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9021,6 +10686,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Tracing the indexicalization of the notion \"Helsinki s\"."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -9037,7 +10713,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -9064,7 +10740,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vaattovaara, Johanna."
+            "value": "Vaattovaara, Johanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9075,18 +10755,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102240"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201710312653"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201710312653"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -9097,11 +10770,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -9113,8 +10786,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711022671"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -9125,7 +10809,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Liehu-Martiskainen, Milla."
+            "value": "Liehu-Martiskainen, Milla,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9137,6 +10825,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Interleukin 17A gene polymorphism rs2275913 is associated with osteitis after the Bacillus Calmette-Guérin vaccination."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -9153,7 +10852,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -9235,7 +10934,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korppi, Matti."
+            "value": "Korppi, Matti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9246,7 +10949,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Teräsjärvi, Johanna."
+            "value": "Teräsjärvi, Johanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9257,7 +10964,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vuononvirta, Juho."
+            "value": "Vuononvirta, Juho,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9268,7 +10979,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini."
+            "value": "Huhtala, Heini,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9279,7 +10994,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nuolivirta, Kirsi."
+            "value": "Nuolivirta, Kirsi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9290,7 +11009,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kröger, Liisa."
+            "value": "Kröger, Liisa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9301,7 +11024,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltola, Ville."
+            "value": "Peltola, Ville,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9312,7 +11039,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pöyhönen, Laura."
+            "value": "Pöyhönen, Laura,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9323,7 +11054,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "He, Quishui."
+            "value": "He, Quishui,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9334,18 +11069,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102258"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711022671"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711022671"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -9356,11 +11084,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -9372,8 +11100,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711202725"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -9384,7 +11123,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tirkkonen, Maria T.."
+            "value": "Tirkkonen, Maria T.,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9400,13 +11143,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "62 sivua"
+            "value": "1 verkkoaineisto (62 sivua)"
           }
         ]
       },
@@ -9442,7 +11196,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -9469,18 +11223,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102333"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711202725"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711202725"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -9491,11 +11238,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -9507,8 +11254,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711202735"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -9519,7 +11277,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Härkönen, Kati."
+            "value": "Härkönen, Kati,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9531,6 +11293,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Hybrid cochlear implantation : quality of life, quality of hearing, and working performance compared to patients with conventional unilateral or bilateral cochlear implantation."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -9547,7 +11320,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -9574,7 +11347,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kivekäs, Ilkka."
+            "value": "Kivekäs, Ilkka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9585,7 +11362,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kotti, Voitto."
+            "value": "Kotti, Voitto,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9596,7 +11377,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sivonen, Ville."
+            "value": "Sivonen, Ville,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9607,7 +11392,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vasama, Juha-Pekka."
+            "value": "Vasama, Juha-Pekka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9618,18 +11407,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102343"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711202735"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711202735"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -9640,11 +11422,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -9656,8 +11438,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711212747"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -9668,7 +11461,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Honkaniemi, Noora."
+            "value": "Honkaniemi, Noora,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9684,13 +11481,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "70 sivua"
+            "value": "1 verkkoaineisto (70 sivua)"
           }
         ]
       },
@@ -9726,12 +11534,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -9830,18 +11646,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102355"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711212747"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711212747"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -9852,11 +11661,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -9868,8 +11677,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711212750"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -9880,7 +11700,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tötterman, Kristian."
+            "value": "Tötterman, Kristian,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -9896,13 +11720,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "79 sivua"
+            "value": "1 verkkoaineisto (79 sivua)"
           }
         ]
       },
@@ -9938,12 +11773,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -10075,18 +11918,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102358"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711212750"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711212750"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -10097,11 +11933,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -10113,8 +11949,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711222760"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -10125,7 +11972,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Chen, Tingji."
+            "value": "Chen, Tingji,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10137,6 +11988,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Modulation of the eyeblink and cardiac startle reflexes by genuine eye contact."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -10153,7 +12015,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -10235,7 +12097,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltola, Mikko."
+            "value": "Peltola, Mikko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10246,7 +12112,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Dunn, Richard."
+            "value": "Dunn, Richard,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10257,7 +12127,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pajunen, Sanna."
+            "value": "Pajunen, Sanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10268,7 +12142,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hietanen, Jari."
+            "value": "Hietanen, Jari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10279,18 +12157,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102368"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711222760"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222760"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -10301,11 +12172,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -10317,8 +12188,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711222761"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -10329,7 +12211,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sohail, Hasan."
+            "value": "Sohail, Hasan,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10345,13 +12231,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "75 sivua"
+            "value": "1 verkkoaineisto (75 sivua)"
           }
         ]
       },
@@ -10387,12 +12284,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -10480,18 +12385,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102369"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711222761"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222761"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -10502,11 +12400,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -10518,8 +12416,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711222774"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -10530,7 +12439,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Agbebi, Motolani."
+            "value": "Agbebi, Motolani,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10542,6 +12455,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Dependency Theory : A Conceptual lens to Understand China’s presence in Africa."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -10558,7 +12482,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -10640,7 +12564,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virtanen, Petri."
+            "value": "Virtanen, Petri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10651,18 +12579,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102382"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711222774"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222774"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -10673,11 +12594,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -10689,8 +12610,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711222782"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -10701,7 +12633,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sokuri, Paula."
+            "value": "Sokuri, Paula,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10713,6 +12649,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "National high-flow nasal cannula and bronchiolitis survey highlights need for further research and evidence-based guidelines."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -10729,7 +12676,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -10811,7 +12758,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heikkilä, Paula."
+            "value": "Heikkilä, Paula,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10822,7 +12773,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korppi, Matti."
+            "value": "Korppi, Matti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10833,18 +12788,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102390"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711222782"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222782"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -10855,11 +12803,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -10871,8 +12819,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711222783"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -10883,7 +12842,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtonen, Arttu O."
+            "value": "Lehtonen, Arttu O,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -10895,6 +12858,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Incidence rates, correlates, and prognosis of electrocardiographic P-wave abnormalities : a nationwide population-based study."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -10911,7 +12885,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -10993,7 +12967,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Langén, Ville L."
+            "value": "Langén, Ville L,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11004,7 +12982,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Puukka, Pauli J."
+            "value": "Puukka, Pauli J,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11015,7 +12997,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kähönen, Mika."
+            "value": "Kähönen, Mika,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11026,7 +13012,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nieminen, Markku S."
+            "value": "Nieminen, Markku S,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11037,7 +13027,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jula, Antti M."
+            "value": "Jula, Antti M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11048,7 +13042,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niiranen, Teemu J."
+            "value": "Niiranen, Teemu J,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11059,18 +13057,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102391"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711222783"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711222783"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -11081,11 +13072,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11097,8 +13088,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711232792"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -11109,7 +13111,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hännikäinen, Jari."
+            "value": "Hännikäinen, Jari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11121,6 +13127,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "When does the yield curve contain predictive power? Evidence from a data-rich environment."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -11137,7 +13154,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -11230,18 +13247,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102401"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711232792"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711232792"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -11252,11 +13262,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11268,8 +13278,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711242796"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -11280,7 +13301,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hietanen, Jari K."
+            "value": "Hietanen, Jari K,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11292,6 +13317,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Your attention makes me smile : Direct gaze elicits affiliative facial expressions."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -11308,7 +13344,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -11390,7 +13426,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Helminen, Terhi M."
+            "value": "Helminen, Terhi M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11401,7 +13441,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kiilavuori, Helena."
+            "value": "Kiilavuori, Helena,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11412,7 +13456,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kylliäinen, Anneli."
+            "value": "Kylliäinen, Anneli,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11423,7 +13471,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lehtonen, Heidi."
+            "value": "Lehtonen, Heidi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11434,7 +13486,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltola, Mikko J."
+            "value": "Peltola, Mikko J,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11445,18 +13501,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102404"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711242796"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711242796"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -11467,11 +13516,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11483,8 +13532,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711292821"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -11495,7 +13555,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Islam, Zahedul."
+            "value": "Islam, Zahedul,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11511,13 +13575,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "94 sivua"
+            "value": "1 verkkoaineisto (94 sivua)"
           }
         ]
       },
@@ -11553,12 +13628,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -11657,18 +13740,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102428"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711292821"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711292821"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -11679,11 +13755,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11695,8 +13771,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711302833"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -11707,7 +13794,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vuorinen, Riikka-Liisa K."
+            "value": "Vuorinen, Riikka-Liisa K,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11719,6 +13810,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Costs of Robotic-Assisted Versus Traditional Laparoscopy in Endometrial Cancer."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -11735,7 +13837,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -11762,7 +13864,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Minna M."
+            "value": "Mäenpää, Minna M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11773,7 +13879,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nieminen, Kari."
+            "value": "Nieminen, Kari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11784,7 +13894,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tomas, Eija."
+            "value": "Tomas, Eija,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11795,7 +13909,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luukkaala, Tiina."
+            "value": "Luukkaala, Tiina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11806,7 +13924,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Auvinen, Anssi."
+            "value": "Auvinen, Anssi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11817,7 +13939,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäenpää, Johanna."
+            "value": "Mäenpää, Johanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11828,18 +13954,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102441"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711302833"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711302833"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -11850,11 +13969,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11866,8 +13985,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711302834"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -11878,7 +14008,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Malmelin, Nando."
+            "value": "Malmelin, Nando,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11890,6 +14024,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Managing for Serendipity: Exploring the Organizational Prerequisites for Emergent Creativity."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -11906,7 +14051,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -11933,7 +14078,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virta, Sari."
+            "value": "Virta, Sari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -11944,18 +14093,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102442"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711302834"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711302834"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -11966,11 +14108,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11982,8 +14124,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201711302841"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -11994,7 +14147,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ihalainen, Johanna K."
+            "value": "Ihalainen, Johanna K,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12006,6 +14163,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Resistance training status modifies inflammatory response to explosive and hypertrophic resistance exercise bouts."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -12022,12 +14190,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -12049,7 +14225,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ahtiainen, Juha P."
+            "value": "Ahtiainen, Juha P,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12060,7 +14240,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Walker, Simon."
+            "value": "Walker, Simon,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12071,7 +14255,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Paulsen, Goran."
+            "value": "Paulsen, Goran,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12082,7 +14270,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Selänne, Harri."
+            "value": "Selänne, Harri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12093,7 +14285,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hämäläinen, Mari."
+            "value": "Hämäläinen, Mari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12104,7 +14300,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Moilanen, Eeva."
+            "value": "Moilanen, Eeva,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12115,7 +14315,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Peltonen, Heikki."
+            "value": "Peltonen, Heikki,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12126,7 +14330,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mero, Antti A."
+            "value": "Mero, Antti A,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12137,18 +14345,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102448"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201711302841"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201711302841"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -12159,11 +14360,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -12175,8 +14376,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712072878"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -12187,7 +14399,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Teh, Soo Yee."
+            "value": "Teh, Soo Yee,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12203,13 +14419,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "78 sivua"
+            "value": "1 verkkoaineisto (78 sivua)"
           }
         ]
       },
@@ -12245,12 +14472,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -12316,18 +14551,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102490"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712072878"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712072878"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -12338,11 +14566,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -12354,8 +14582,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712112904"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -12366,7 +14605,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Van der Velde, Anna."
+            "value": "Van der Velde, Anna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12382,13 +14625,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "122 sivua"
+            "value": "1 verkkoaineisto (122 sivua)"
           }
         ]
       },
@@ -12424,7 +14678,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -12517,18 +14771,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102515"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712112904"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712112904"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -12539,11 +14786,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -12555,8 +14802,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712112911"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -12567,7 +14825,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hintikka, Marianna."
+            "value": "Hintikka, Marianna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12579,6 +14841,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Representations of prostitutes and prostitution as a metaphor in nineteenth-century English newspapers."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -12595,7 +14868,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -12666,7 +14939,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nevala, Minna."
+            "value": "Nevala, Minna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12677,18 +14954,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102522"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712112911"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712112911"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -12699,11 +14969,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -12715,8 +14985,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712122916"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -12727,7 +15008,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Becerra Zamora, Yuritzi G.."
+            "value": "Becerra Zamora, Yuritzi G.,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12743,13 +15028,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "97 sivua"
+            "value": "1 verkkoaineisto (97 sivua)"
           }
         ]
       },
@@ -12785,12 +15081,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -12878,18 +15182,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102526"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712122916"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712122916"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -12900,11 +15197,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -12916,8 +15213,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712142930"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -12928,7 +15236,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Forsman, Jan."
+            "value": "Forsman, Jan,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -12951,17 +15263,29 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Eötvös University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -13149,6 +15473,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Boros, Gábor"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -13160,6 +15488,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Szalai, Judit"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -13171,6 +15503,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Tóth, Olivér István"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -13192,18 +15528,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102538"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712142930"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712142930"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -13214,11 +15543,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -13230,8 +15559,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712182939"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -13242,7 +15582,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vänskä, Mervi."
+            "value": "Vänskä, Mervi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13254,6 +15598,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Parental pre- and postpartum mental health predicts child mental health and development."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -13270,7 +15625,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -13363,7 +15718,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Punamäki, Raija-Leena."
+            "value": "Punamäki, Raija-Leena,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13374,7 +15733,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lindblom, Jallu."
+            "value": "Lindblom, Jallu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13385,7 +15748,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Flykt, Marjo."
+            "value": "Flykt, Marjo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13396,7 +15763,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tolvanen, Asko."
+            "value": "Tolvanen, Asko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13407,7 +15778,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Unkila-Kallio, Leila."
+            "value": "Unkila-Kallio, Leila,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13418,7 +15793,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tulppala, Maija."
+            "value": "Tulppala, Maija,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13429,7 +15808,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tiitinen, Aila."
+            "value": "Tiitinen, Aila,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13440,18 +15823,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102547"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712182939"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712182939"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -13462,11 +15838,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -13478,8 +15854,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712182942"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -13490,7 +15877,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mustonen, Anni."
+            "value": "Mustonen, Anni,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13506,13 +15897,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "97 sivua"
+            "value": "1 verkkoaineisto (97 sivua)"
           }
         ]
       },
@@ -13548,12 +15950,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -13641,18 +16051,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102549"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712182942"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712182942"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -13663,11 +16066,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -13679,8 +16082,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712182947"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -13691,7 +16105,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Duy."
+            "value": "Nguyen, Duy,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13707,13 +16125,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "92 sivua"
+            "value": "1 verkkoaineisto (92 sivua)"
           }
         ]
       },
@@ -13749,12 +16178,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -13831,18 +16268,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102554"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712182947"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712182947"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -13853,11 +16283,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -13869,8 +16299,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712192973"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -13881,7 +16322,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Thao."
+            "value": "Nguyen, Thao,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -13897,13 +16342,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "66 sivua"
+            "value": "1 verkkoaineisto (66 sivua)"
           }
         ]
       },
@@ -13939,12 +16395,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -14043,18 +16507,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102580"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712192973"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712192973"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -14065,11 +16522,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -14081,8 +16538,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712192975"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -14093,7 +16561,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Park, Woojung."
+            "value": "Park, Woojung,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14109,13 +16581,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "82 pages sivua"
+            "value": "1 verkkoaineisto (82 pages sivua)"
           }
         ]
       },
@@ -14151,12 +16634,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -14266,18 +16757,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102582"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712192975"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712192975"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -14288,11 +16772,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -14304,8 +16788,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712192977"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -14316,7 +16811,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Thi Bich Tram."
+            "value": "Nguyen, Thi Bich Tram,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14332,13 +16831,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "57 pages sivua"
+            "value": "1 verkkoaineisto (57 pages sivua)"
           }
         ]
       },
@@ -14374,12 +16884,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -14445,18 +16963,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102584"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712192977"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712192977"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -14467,11 +16978,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -14483,8 +16994,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712202990"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -14495,7 +17017,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Palmu, Sauli."
+            "value": "Palmu, Sauli,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14507,6 +17033,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "National allergy programme had little impact on parent-reported food allergies in children aged 6-7 years."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -14523,7 +17060,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -14594,7 +17131,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heikkilä, Paula."
+            "value": "Heikkilä, Paula,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14605,7 +17146,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Uski, Virpi."
+            "value": "Uski, Virpi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14616,7 +17161,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niitty, Siina."
+            "value": "Niitty, Siina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14627,7 +17176,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kurikka, Sari."
+            "value": "Kurikka, Sari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14638,7 +17191,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korppi, Matti."
+            "value": "Korppi, Matti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14649,18 +17206,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102595"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712202990"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712202990"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -14671,11 +17221,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -14687,8 +17237,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201712293022"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -14699,7 +17260,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Penttilä, Janne."
+            "value": "Penttilä, Janne,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14715,13 +17280,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "73 sivua"
+            "value": "1 verkkoaineisto (73 sivua)"
           }
         ]
       },
@@ -14757,12 +17333,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -14872,18 +17456,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102630"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201712293022"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201712293022"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -14894,11 +17471,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -14910,8 +17487,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801021004"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -14922,7 +17510,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aleburu, Omoikhefe Lynda."
+            "value": "Aleburu, Omoikhefe Lynda,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -14938,13 +17530,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "83 pp sivua"
+            "value": "1 verkkoaineisto (83 pp sivua)"
           }
         ]
       },
@@ -14980,12 +17583,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -15062,18 +17673,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102645"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801021004"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801021004"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -15084,11 +17688,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -15100,8 +17704,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801041011"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -15112,7 +17727,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Partanen, Essi."
+            "value": "Partanen, Essi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15128,13 +17747,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "101 (+ 6 pages of unpublished appendices) sivua"
+            "value": "1 verkkoaineisto (101 (+ 6 pages of unpublished appendices) sivua)"
           }
         ]
       },
@@ -15170,7 +17800,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -15186,18 +17816,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102655"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801041011"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801041011"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -15208,11 +17831,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -15224,8 +17847,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801081028"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -15236,7 +17870,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Minkkinen, Jaana."
+            "value": "Minkkinen, Jaana,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15248,6 +17886,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Health as a predictor of students’ academic achievement: a 3-level longitudinal study of Finnish adolescents."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -15264,7 +17913,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -15401,7 +18050,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lindfors, Pirjo."
+            "value": "Lindfors, Pirjo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15412,7 +18065,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kinnunen, Jaana."
+            "value": "Kinnunen, Jaana,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15423,7 +18080,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Finell, Eerika."
+            "value": "Finell, Eerika,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15434,7 +18095,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vainikainen, Mari-Pauliina."
+            "value": "Vainikainen, Mari-Pauliina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15445,7 +18110,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Karvonen, Sakari."
+            "value": "Karvonen, Sakari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15456,7 +18125,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rimpelä, Arja."
+            "value": "Rimpelä, Arja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15467,18 +18140,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102676"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801081028"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801081028"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -15489,11 +18155,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -15505,8 +18171,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801081030"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -15517,7 +18194,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zheng, Gaoming."
+            "value": "Zheng, Gaoming,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15529,6 +18210,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Towards an analytical framework for understanding the development of a quality assurance system in an international joint programme."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -15545,7 +18237,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -15660,7 +18352,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Cai, Yuzhuo."
+            "value": "Cai, Yuzhuo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15671,7 +18367,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ma, Shaozhuang."
+            "value": "Ma, Shaozhuang,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15682,18 +18382,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102678"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801081030"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801081030"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -15704,11 +18397,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -15720,8 +18413,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801121047"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -15732,7 +18436,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Malkamäki, Maarit."
+            "value": "Malkamäki, Maarit,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15748,13 +18456,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "vii + 125 sivua"
+            "value": "1 verkkoaineisto (vii + 125 sivua)"
           }
         ]
       },
@@ -15790,12 +18509,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -15894,18 +18621,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102697"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801121047"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801121047"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -15916,11 +18636,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -15932,8 +18652,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801161057"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -15944,7 +18675,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zhang, Yitian."
+            "value": "Zhang, Yitian,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -15960,13 +18695,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "57 sivua"
+            "value": "1 verkkoaineisto (57 sivua)"
           }
         ]
       },
@@ -16002,12 +18748,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -16073,18 +18827,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102710"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801161057"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801161057"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -16095,11 +18842,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16111,8 +18858,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801161060"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -16123,7 +18881,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Wang, Haoxue."
+            "value": "Wang, Haoxue,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16139,13 +18901,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "80 pp sivua"
+            "value": "1 verkkoaineisto (80 pp sivua)"
           }
         ]
       },
@@ -16181,12 +18954,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -16252,18 +19033,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102713"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801161060"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801161060"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -16274,11 +19048,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16290,8 +19064,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801291146"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -16302,7 +19087,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ilikbaev, Aleksandr."
+            "value": "Ilikbaev, Aleksandr,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16318,13 +19107,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "81 pp + Appendix sivua"
+            "value": "1 verkkoaineisto (81 pp + Appendix sivua)"
           }
         ]
       },
@@ -16360,12 +19160,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -16486,18 +19294,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102801"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801291146"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801291146"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -16508,11 +19309,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16524,8 +19325,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201801311169"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -16536,7 +19348,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sabia, Taha."
+            "value": "Sabia, Taha,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16552,13 +19368,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "107 sivua"
+            "value": "1 verkkoaineisto (107 sivua)"
           }
         ]
       },
@@ -16594,12 +19421,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -16709,18 +19544,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102824"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201801311169"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201801311169"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -16731,11 +19559,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16747,8 +19575,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201802131216"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -16759,7 +19598,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaakinen, Markus."
+            "value": "Kaakinen, Markus,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16771,6 +19614,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cybercrime victimization and subjective well-being: An examination of buffering effect hypothesis among adolescents and young adults."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -16787,7 +19641,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -16814,7 +19668,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Keipi, Teo."
+            "value": "Keipi, Teo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16825,7 +19683,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Räsänen, Pekka."
+            "value": "Räsänen, Pekka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16836,7 +19698,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oksanen, Atte."
+            "value": "Oksanen, Atte,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16847,18 +19713,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102875"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201802131216"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802131216"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -16869,11 +19728,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||s|||||||| |beng  "
+        "value": "000000s2017    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16885,8 +19744,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201802141221"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -16897,7 +19767,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Norri, Juhani."
+            "value": "Norri, Juhani,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -16909,6 +19783,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The Mystery of Mould 'Top of the Head' in Middle English Remedybooks."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2017."
           }
         ]
       },
@@ -16925,7 +19810,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -17040,18 +19925,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102881"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201802141221"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802141221"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       },
@@ -17073,11 +19951,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17089,8 +19967,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201802141224"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -17101,7 +19990,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virtanen, Pekka."
+            "value": "Virtanen, Pekka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17113,6 +20006,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Self-rated Health of the Temporary Employees in a Nordic Welfare State : Findings from the Finnish Public Sector Study."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -17129,7 +20033,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -17211,7 +20115,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pentti, Jaana."
+            "value": "Pentti, Jaana,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17222,7 +20130,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vahtera, Jussi."
+            "value": "Vahtera, Jussi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17233,7 +20145,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kivimäki, Mika."
+            "value": "Kivimäki, Mika,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17244,7 +20160,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Virtanen, Marianna."
+            "value": "Virtanen, Marianna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17255,18 +20175,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102884"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201802141224"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802141224"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -17277,11 +20190,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17293,8 +20206,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201802191267"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -17305,7 +20229,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Li, Cai."
+            "value": "Li, Cai,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17321,13 +20249,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "76 pp sivua"
+            "value": "1 verkkoaineisto (76 pp sivua)"
           }
         ]
       },
@@ -17363,12 +20302,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -17434,18 +20381,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102932"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201802191267"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802191267"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -17456,11 +20396,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17472,8 +20412,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201802221295"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -17484,7 +20435,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kyrönlahti, Saila."
+            "value": "Kyrönlahti, Saila,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17500,13 +20455,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "48 sivua"
+            "value": "1 verkkoaineisto (48 sivua)"
           }
         ]
       },
@@ -17542,7 +20508,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -17558,18 +20524,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/102961"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201802221295"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201802221295"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -17580,11 +20539,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17596,8 +20555,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803051326"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -17608,7 +20578,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zhu, Yijun."
+            "value": "Zhu, Yijun,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17624,13 +20598,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "78 pp + 5 pp appendices sivua"
+            "value": "1 verkkoaineisto (78 pp + 5 pp appendices sivua)"
           }
         ]
       },
@@ -17666,12 +20651,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -17748,18 +20741,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103000"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803051326"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803051326"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -17770,11 +20756,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17786,8 +20772,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803071345"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -17798,7 +20795,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Riabova, Ksenia."
+            "value": "Riabova, Ksenia,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -17814,13 +20815,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "78 pp sivua"
+            "value": "1 verkkoaineisto (78 pp sivua)"
           }
         ]
       },
@@ -17856,12 +20868,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -17971,18 +20991,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103022"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803071345"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803071345"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -17993,11 +21006,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||s|||||||| |beng  "
+        "value": "000000s2016    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18009,8 +21022,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803131377"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -18021,7 +21045,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Geneid, Ahmed."
+            "value": "Geneid, Ahmed,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18044,6 +21072,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "ISCA,"
+          },
+          {
+            "code": "c",
+            "value": "2016."
           }
         ]
       },
@@ -18060,12 +21092,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -18087,7 +21127,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Laukkanen, Anne-Maria."
+            "value": "Laukkanen, Anne-Maria,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18098,7 +21142,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "McAllister, Anita."
+            "value": "McAllister, Anita,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18109,7 +21157,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Eklund, Robert."
+            "value": "Eklund, Robert,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18121,6 +21173,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Nelson, Morgan"
+          },
+          {
+            "code": "e",
+            "value": "toimittaja."
           }
         ]
       },
@@ -18131,18 +21187,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103045"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803131377"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803131377"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -18153,11 +21202,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18169,8 +21218,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803191425"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -18181,7 +21241,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pellinen, Tapio."
+            "value": "Pellinen, Tapio,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18197,13 +21261,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "68 sivua"
+            "value": "1 verkkoaineisto (68 sivua)"
           }
         ]
       },
@@ -18239,12 +21314,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -18343,18 +21426,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103092"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803191425"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803191425"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -18365,11 +21441,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18381,8 +21457,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803201429"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -18393,7 +21480,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Satomaa, Anna-Liisa."
+            "value": "Satomaa, Anna-Liisa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18405,6 +21496,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Local changes in computational non-rapid eye movement sleep depth in infants."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -18421,7 +21523,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -18448,7 +21550,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Saarenpää-Heikkilä, Outi."
+            "value": "Saarenpää-Heikkilä, Outi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18459,7 +21565,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huupponen, Eero."
+            "value": "Huupponen, Eero,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18470,7 +21580,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kirjavainen, Turkka."
+            "value": "Kirjavainen, Turkka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18481,7 +21595,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heinonen, Juhani."
+            "value": "Heinonen, Juhani,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18492,7 +21610,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Himanen, Sari-Leena."
+            "value": "Himanen, Sari-Leena,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18503,18 +21625,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103096"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803201429"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803201429"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -18525,11 +21640,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18541,8 +21656,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803221443"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -18553,7 +21679,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hevonkorpi, Teemu."
+            "value": "Hevonkorpi, Teemu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18565,6 +21695,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Incidence of distal radius fracture surgery in Finns aged 50 years or more between 1998 and 2016 : too many patients are yet operated on?."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -18581,12 +21722,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -18663,7 +21812,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Launonen, Antti."
+            "value": "Launonen, Antti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18674,7 +21827,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huttunen, Tuomas."
+            "value": "Huttunen, Tuomas,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18685,7 +21842,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kannus, Pekka."
+            "value": "Kannus, Pekka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18696,7 +21857,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niemi, Seppo."
+            "value": "Niemi, Seppo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18707,7 +21872,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mattila, Ville M."
+            "value": "Mattila, Ville M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18718,18 +21887,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103111"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803221443"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803221443"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -18740,11 +21902,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18756,8 +21918,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803221445"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -18768,7 +21941,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pham, Thao."
+            "value": "Pham, Thao,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -18784,13 +21961,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "59 pages+ 3 appendices sivua"
+            "value": "1 verkkoaineisto (59 pages+ 3 appendices sivua)"
           }
         ]
       },
@@ -18826,12 +22014,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -18941,18 +22137,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103113"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803221445"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803221445"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -18963,11 +22152,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18979,8 +22168,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803261452"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -18991,7 +22191,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harju, Teemu."
+            "value": "Harju, Teemu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19003,6 +22207,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The effect of inferior turbinate surgery on ear symptoms."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -19019,7 +22234,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -19112,7 +22327,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kivekäs, Ilkka."
+            "value": "Kivekäs, Ilkka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19123,7 +22342,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Numminen, Jura."
+            "value": "Numminen, Jura,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19134,7 +22357,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rautiainen, Markus."
+            "value": "Rautiainen, Markus,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19145,18 +22372,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103120"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803261452"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803261452"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -19167,11 +22387,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -19183,8 +22403,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201803291472"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -19195,7 +22426,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Makkonen, Teemu."
+            "value": "Makkonen, Teemu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19207,6 +22442,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cross-border knowledge transfer and innovation in the European neighbourhood : Tourism cooperation at the Finnish-Russian border."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -19223,7 +22469,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -19250,7 +22496,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Williams, Allan M."
+            "value": "Williams, Allan M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19261,7 +22511,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Weidenfeld, Adi."
+            "value": "Weidenfeld, Adi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19272,7 +22526,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaisto, Virpi."
+            "value": "Kaisto, Virpi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19283,18 +22541,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103144"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201803291472"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201803291472"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -19305,11 +22556,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -19321,8 +22572,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201804031480"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -19333,7 +22595,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jegede, Kolawole."
+            "value": "Jegede, Kolawole,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19349,13 +22615,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "58 pages + 8 pages of appendices sivua"
+            "value": "1 verkkoaineisto (58 pages + 8 pages of appendices sivua)"
           }
         ]
       },
@@ -19391,12 +22668,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -19517,18 +22802,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103153"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201804031480"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804031480"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -19539,11 +22817,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -19555,8 +22833,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201804051501"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -19567,7 +22856,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Linna, Malla."
+            "value": "Linna, Malla,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19583,13 +22876,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "63 sivua"
+            "value": "1 verkkoaineisto (63 sivua)"
           }
         ]
       },
@@ -19625,7 +22929,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -19707,18 +23011,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103188"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201804051501"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804051501"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -19729,11 +23026,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -19745,8 +23042,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201804051502"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -19757,7 +23065,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pasternack, Camilla."
+            "value": "Pasternack, Camilla,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19769,6 +23081,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Self-reported fractures in dermatitis herpetiformis compared to coeliac disease."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -19785,12 +23108,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -19812,7 +23143,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mansikka, Eriika."
+            "value": "Mansikka, Eriika,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19823,7 +23158,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaukinen, Katri."
+            "value": "Kaukinen, Katri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19834,7 +23173,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hervonen, Kaisa."
+            "value": "Hervonen, Kaisa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19845,7 +23188,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Reunala, Timo."
+            "value": "Reunala, Timo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19856,7 +23203,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Collin, Pekka."
+            "value": "Collin, Pekka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19867,7 +23218,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini."
+            "value": "Huhtala, Heini,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19878,7 +23233,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mattila, Ville M."
+            "value": "Mattila, Ville M,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19889,7 +23248,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Salmi, Teea."
+            "value": "Salmi, Teea,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19900,18 +23263,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103190"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201804051502"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804051502"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -19922,11 +23278,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -19938,8 +23294,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201804191552"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -19950,7 +23317,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkelä, Ville."
+            "value": "Mäkelä, Ville,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -19962,6 +23333,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Semi-Automated, Large-Scale Evaluation of Public Displays."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -19978,7 +23360,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -20082,7 +23464,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Heimonen, Tomi."
+            "value": "Heimonen, Tomi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -20093,7 +23479,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Turunen, Markku."
+            "value": "Turunen, Markku,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -20104,18 +23494,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103243"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201804191552"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804191552"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -20126,11 +23509,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20142,8 +23525,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201804231565"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -20154,7 +23548,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Molz, Erich."
+            "value": "Molz, Erich,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -20170,13 +23568,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "96 sivua"
+            "value": "1 verkkoaineisto (96 sivua)"
           }
         ]
       },
@@ -20212,12 +23621,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -20338,18 +23755,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103263"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201804231565"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201804231565"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -20360,11 +23770,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20376,8 +23786,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805041634"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -20388,7 +23809,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pham, Thi Thu Hang."
+            "value": "Pham, Thi Thu Hang,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -20404,13 +23829,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "66 pages + 10 tables + 6 figures + references + appendix sivua"
+            "value": "1 verkkoaineisto (66 pages + 10 tables + 6 figures + references + appendix sivua)"
           }
         ]
       },
@@ -20446,12 +23882,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -20539,18 +23983,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103337"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805041634"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805041634"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -20561,11 +23998,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20577,8 +24014,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805041636"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -20589,7 +24037,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Alfaro Viquez, Helen."
+            "value": "Alfaro Viquez, Helen,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -20605,13 +24057,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "62 pp + 23 appendices sivua"
+            "value": "1 verkkoaineisto (62 pp + 23 appendices sivua)"
           }
         ]
       },
@@ -20647,12 +24110,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -20729,18 +24200,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103339"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805041636"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805041636"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -20751,11 +24215,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20767,8 +24231,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805041637"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -20779,7 +24254,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mikhuta, Maryna."
+            "value": "Mikhuta, Maryna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -20795,13 +24274,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "75 sivua"
+            "value": "1 verkkoaineisto (75 sivua)"
           }
         ]
       },
@@ -20837,12 +24327,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -20930,18 +24428,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103340"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805041637"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805041637"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -20952,11 +24443,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20968,8 +24459,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805141663"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -20980,7 +24482,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Suuronen, Aleksi."
+            "value": "Suuronen, Aleksi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -20996,13 +24502,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "112 pp sivua"
+            "value": "1 verkkoaineisto (112 pp sivua)"
           }
         ]
       },
@@ -21038,12 +24555,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -21120,18 +24645,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103373"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805141663"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805141663"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -21142,11 +24660,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -21158,8 +24676,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805151697"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -21170,7 +24699,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nurmi, Rakel."
+            "value": "Nurmi, Rakel,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21182,6 +24715,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Celiac disease or positive tissue transglutaminase antibodies in patients undergoing renal biopsies."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -21198,7 +24742,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -21225,7 +24769,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Metso, Martti."
+            "value": "Metso, Martti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21236,7 +24784,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pörsti, Ilkka."
+            "value": "Pörsti, Ilkka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21247,7 +24799,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Niemelä, Onni."
+            "value": "Niemelä, Onni,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21258,7 +24814,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini."
+            "value": "Huhtala, Heini,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21269,7 +24829,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mustonen, Jukka."
+            "value": "Mustonen, Jukka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21280,7 +24844,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaukinen, Katri."
+            "value": "Kaukinen, Katri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21291,7 +24859,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkelä, Satu."
+            "value": "Mäkelä, Satu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21302,18 +24874,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103407"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805151697"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805151697"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -21324,11 +24889,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -21340,8 +24905,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805211726"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -21352,7 +24928,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Sommerova, Lucie."
+            "value": "Sommerova, Lucie,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21368,13 +24948,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "103 sivua"
+            "value": "1 verkkoaineisto (103 sivua)"
           }
         ]
       },
@@ -21410,12 +25001,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -21525,18 +25124,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103437"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805211726"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805211726"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -21547,11 +25139,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -21563,8 +25155,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805251775"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -21575,7 +25178,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Murtola, Teemu."
+            "value": "Murtola, Teemu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21587,6 +25194,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Fasting blood glucose, glycaemic control and prostate cancer risk in the Finnish Randomized Study of Screening for Prostate Cancer."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -21603,7 +25221,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -21630,7 +25248,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vihervuori, Ville."
+            "value": "Vihervuori, Ville,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21641,7 +25263,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Lahtela, Jorma."
+            "value": "Lahtela, Jorma,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21652,7 +25278,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Talala, Kirsi."
+            "value": "Talala, Kirsi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21663,7 +25293,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Taari, Kimmo."
+            "value": "Taari, Kimmo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21674,7 +25308,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Tammela, Teuvo LJ."
+            "value": "Tammela, Teuvo LJ,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21685,7 +25323,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Auvinen, Anssi."
+            "value": "Auvinen, Anssi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21696,18 +25338,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103491"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805251775"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805251775"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -21718,11 +25353,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |bfin  "
+        "value": "000000s2018    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -21734,8 +25369,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805291804"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -21746,7 +25392,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oinonen, Inka."
+            "value": "Oinonen, Inka,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21762,13 +25412,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "20 sivua"
+            "value": "1 verkkoaineisto (20 sivua)"
           }
         ]
       },
@@ -21804,12 +25465,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -21886,18 +25555,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103522"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805291804"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805291804"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -21908,11 +25570,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -21924,8 +25586,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805301834"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -21936,7 +25609,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nguyen, Hoang."
+            "value": "Nguyen, Hoang,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -21952,13 +25629,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "86 pp + appendices sivua"
+            "value": "1 verkkoaineisto (86 pp + appendices sivua)"
           }
         ]
       },
@@ -21994,12 +25682,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -22065,18 +25761,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103552"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805301834"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805301834"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -22087,11 +25776,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -22103,8 +25792,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201805311873"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -22115,7 +25815,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Limani, Keti."
+            "value": "Limani, Keti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22131,13 +25835,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "126pp + 8pp appendices + 2pp figures sivua"
+            "value": "1 verkkoaineisto (126pp + 8pp appendices + 2pp figures sivua)"
           }
         ]
       },
@@ -22173,12 +25888,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -22288,18 +26011,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103592"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201805311873"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201805311873"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -22310,11 +26026,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -22326,8 +26042,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806111975"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -22338,7 +26065,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Saari, Antti."
+            "value": "Saari, Antti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22350,6 +26081,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "The rhetoric of the ‘digital leap’ in Finnish educational policy documents."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -22366,7 +26108,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -22393,7 +26135,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Säntti, Janne."
+            "value": "Säntti, Janne,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22404,18 +26150,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103704"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806111975"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806111975"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -22426,11 +26165,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -22442,8 +26181,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806121982"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -22454,7 +26204,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Enroth, Linda."
+            "value": "Enroth, Linda,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22466,6 +26220,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Does use of long-term care differ between occupational classes among the oldest old? Vitality 90+ Study."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -22482,7 +26247,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -22553,7 +26318,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aaltonen, Mari."
+            "value": "Aaltonen, Mari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22564,7 +26333,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Raitanen, Jani."
+            "value": "Raitanen, Jani,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22575,7 +26348,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nosraty, Lily."
+            "value": "Nosraty, Lily,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22586,7 +26363,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jylhä, Marja."
+            "value": "Jylhä, Marja,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22597,18 +26378,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103708"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806121982"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806121982"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -22619,11 +26393,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -22635,8 +26409,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806121985"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -22647,7 +26432,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Viskari, Hanna."
+            "value": "Viskari, Hanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22670,6 +26459,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Diabetologia,"
+          },
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -22686,7 +26479,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -22768,7 +26561,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Oikarinen, Sami."
+            "value": "Oikarinen, Sami,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22779,7 +26576,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hoppu, Sanna."
+            "value": "Hoppu, Sanna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22790,7 +26591,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vuorinen, Tytti."
+            "value": "Vuorinen, Tytti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22801,7 +26606,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Huhtala, Heini."
+            "value": "Huhtala, Heini,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22812,7 +26621,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Toppari, Jorma."
+            "value": "Toppari, Jorma,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22823,7 +26636,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Veijola, Riitta."
+            "value": "Veijola, Riitta,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22834,7 +26651,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ilonen, Jorma."
+            "value": "Ilonen, Jorma,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22845,7 +26666,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Knip, Mikael."
+            "value": "Knip, Mikael,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22856,7 +26681,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Hyöty, Heikki."
+            "value": "Hyöty, Heikki,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22867,18 +26696,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103712"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806121985"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806121985"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -22889,11 +26711,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -22905,8 +26727,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806121995"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -22917,7 +26750,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kuoppa, Arttu."
+            "value": "Kuoppa, Arttu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -22933,13 +26770,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "106 sivua"
+            "value": "1 verkkoaineisto (106 sivua)"
           }
         ]
       },
@@ -22975,12 +26823,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -23079,18 +26935,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103721"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806121995"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806121995"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -23101,11 +26950,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |bfin  "
+        "value": "000000s2018    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -23117,8 +26966,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806192036"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -23129,7 +26989,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Nurminen, Minna."
+            "value": "Nurminen, Minna,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23145,13 +27009,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "104 sivua"
+            "value": "1 verkkoaineisto (104 sivua)"
           }
         ]
       },
@@ -23187,12 +27062,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -23302,18 +27185,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103764"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806192036"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806192036"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -23324,11 +27200,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -23340,8 +27216,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806252080"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -23352,7 +27239,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Panula-Ontto, Juha."
+            "value": "Panula-Ontto, Juha,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23364,6 +27255,17 @@ const utaComplex = [
           {
             "code": "a",
             "value": "Cross-impact analysis of Finnish electricity system with increased renewables : Long-run energy policy challenges in balancing supply and consumption."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -23380,12 +27282,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -23462,7 +27372,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Luukkanen, Jyrki."
+            "value": "Luukkanen, Jyrki,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23473,7 +27387,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kaivo-oja, Jari."
+            "value": "Kaivo-oja, Jari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23484,7 +27402,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "O'Mahony, Tadhg."
+            "value": "O'Mahony, Tadhg,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23495,7 +27417,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Vehmas, Jarmo."
+            "value": "Vehmas, Jarmo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23506,7 +27432,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Valkealahti, Seppo."
+            "value": "Valkealahti, Seppo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23517,7 +27447,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Björkqvist, Tomas."
+            "value": "Björkqvist, Tomas,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23528,7 +27462,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Korpela, Timo."
+            "value": "Korpela, Timo,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23539,7 +27477,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Järventausta, Pertti."
+            "value": "Järventausta, Pertti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23550,7 +27492,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Majanne, Yrjö."
+            "value": "Majanne, Yrjö,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23561,7 +27507,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kojo, Matti."
+            "value": "Kojo, Matti,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23572,7 +27522,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Aalto, Pami."
+            "value": "Aalto, Pami,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23583,7 +27537,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Harsia, Pirkko."
+            "value": "Harsia, Pirkko,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23594,7 +27552,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kallioharju, Kari."
+            "value": "Kallioharju, Kari,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23605,7 +27567,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Holttinen, Hannele."
+            "value": "Holttinen, Hannele,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23616,7 +27582,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Repo, Sami."
+            "value": "Repo, Sami,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23627,18 +27597,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103805"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806252080"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806252080"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -23649,11 +27612,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -23665,8 +27628,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282102"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -23677,7 +27651,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Walt, Charlene van der."
+            "value": "Walt, Charlene van der,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23693,13 +27671,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "73 pp + 2 appendices + 10 figures sivua"
+            "value": "1 verkkoaineisto (73 pp + 2 appendices + 10 figures sivua)"
           }
         ]
       },
@@ -23735,12 +27724,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -23817,18 +27814,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103828"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282102"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282102"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -23839,11 +27829,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -23855,8 +27845,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282107"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -23867,7 +27868,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Diez Uriarte, Maria."
+            "value": "Diez Uriarte, Maria,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -23883,13 +27888,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "154 sivua"
+            "value": "1 verkkoaineisto (154 sivua)"
           }
         ]
       },
@@ -23925,12 +27941,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -24029,18 +28053,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103832"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282107"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282107"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -24051,11 +28068,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24067,8 +28084,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282111"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -24079,7 +28107,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Rautela, Devashish."
+            "value": "Rautela, Devashish,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -24095,13 +28127,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "86 pp + appendices sivua"
+            "value": "1 verkkoaineisto (86 pp + appendices sivua)"
           }
         ]
       },
@@ -24137,12 +28180,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -24219,18 +28270,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103837"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282111"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282111"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -24241,11 +28285,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24257,8 +28301,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282122"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -24269,7 +28324,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zuev, Roman."
+            "value": "Zuev, Roman,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -24285,13 +28344,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "86 pp sivua"
+            "value": "1 verkkoaineisto (86 pp sivua)"
           }
         ]
       },
@@ -24327,12 +28397,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -24354,18 +28432,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103848"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282122"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282122"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -24376,11 +28447,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24392,8 +28463,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282125"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -24404,7 +28486,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Githieya, Njoki."
+            "value": "Githieya, Njoki,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -24420,13 +28506,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "72 sivua"
+            "value": "1 verkkoaineisto (72 sivua)"
           }
         ]
       },
@@ -24462,7 +28559,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -24478,18 +28575,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103851"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282125"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282125"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -24500,11 +28590,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24516,8 +28606,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282136"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -24528,7 +28629,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Zhou, Hui."
+            "value": "Zhou, Hui,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -24544,13 +28649,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "83 pp sivua"
+            "value": "1 verkkoaineisto (83 pp sivua)"
           }
         ]
       },
@@ -24586,12 +28702,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -24679,18 +28803,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103861"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282136"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282136"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -24701,11 +28818,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24717,8 +28834,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282143"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -24729,7 +28857,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ke, Da."
+            "value": "Ke, Da,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -24745,13 +28877,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "54 pages + 3 reference pages + 6 index and appendix pages + 23 figures sivua"
+            "value": "1 verkkoaineisto (54 pages + 3 reference pages + 6 index and appendix pages + 23 figures sivua)"
           }
         ]
       },
@@ -24787,12 +28930,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -24869,18 +29020,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103868"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282143"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282143"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -24891,11 +29035,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24907,8 +29051,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282144"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -24919,7 +29074,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Trubachyova, Yuliya."
+            "value": "Trubachyova, Yuliya,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -24935,13 +29094,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "111 pp + 3 pages of Appendix sivua"
+            "value": "1 verkkoaineisto (111 pp + 3 pages of Appendix sivua)"
           }
         ]
       },
@@ -24977,12 +29147,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -25015,18 +29193,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103869"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282144"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282144"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -25037,11 +29208,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -25053,8 +29224,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282148"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -25065,7 +29247,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Pankakoski, Iiro."
+            "value": "Pankakoski, Iiro,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -25081,13 +29267,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "109 sivua"
+            "value": "1 verkkoaineisto (109 sivua)"
           }
         ]
       },
@@ -25123,12 +29320,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -25227,18 +29432,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103873"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282148"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282148"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -25249,11 +29447,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -25265,8 +29463,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282149"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -25277,7 +29486,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Durante, Francesco."
+            "value": "Durante, Francesco,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -25293,13 +29506,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "103 pp sivua"
+            "value": "1 verkkoaineisto (103 pp sivua)"
           }
         ]
       },
@@ -25335,12 +29559,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -25439,18 +29671,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103874"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282149"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282149"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -25461,11 +29686,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -25477,8 +29702,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806282157"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -25489,7 +29725,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mochizuki Pelaez, Elisa."
+            "value": "Mochizuki Pelaez, Elisa,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -25505,13 +29745,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "iii, 65 pp + appendix sivua"
+            "value": "1 verkkoaineisto (iii, 65 pp + appendix sivua)"
           }
         ]
       },
@@ -25547,7 +29798,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -25563,18 +29814,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103882"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806282157"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806282157"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -25585,11 +29829,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -25601,8 +29845,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201806292186"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -25613,7 +29868,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ambrose Gregory, Charlotte."
+            "value": "Ambrose Gregory, Charlotte,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -25629,13 +29888,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "57 pp sivua"
+            "value": "1 verkkoaineisto (57 pp sivua)"
           }
         ]
       },
@@ -25671,12 +29941,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -25753,18 +30031,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103911"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201806292186"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201806292186"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -25775,11 +30046,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |bfin  "
+        "value": "000000s2018    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -25791,8 +30062,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022190"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -25803,7 +30085,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Drufva, Satu."
+            "value": "Drufva, Satu,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -25819,13 +30105,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "74 sivua, 10 liitesivua sivua"
+            "value": "1 verkkoaineisto (74 sivua, 10 liitesivua sivua)"
           }
         ]
       },
@@ -25861,12 +30158,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -25954,18 +30259,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103914"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022190"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022190"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -25976,11 +30274,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -25992,8 +30290,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022191"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -26004,7 +30313,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Väänänen, Tiina."
+            "value": "Väänänen, Tiina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -26020,13 +30333,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "95 sivua"
+            "value": "1 verkkoaineisto (95 sivua)"
           }
         ]
       },
@@ -26062,12 +30386,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -26166,18 +30498,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103915"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022191"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022191"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -26188,11 +30513,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -26204,8 +30529,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022192"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -26216,7 +30552,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Gräschke, Lucia."
+            "value": "Gräschke, Lucia,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -26232,13 +30572,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "61 pages + 2 appendixes sivua"
+            "value": "1 verkkoaineisto (61 pages + 2 appendixes sivua)"
           }
         ]
       },
@@ -26274,12 +30625,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -26400,18 +30759,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103916"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022192"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022192"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -26422,11 +30774,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -26438,8 +30790,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022193"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -26450,7 +30813,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Kim, You Kyung."
+            "value": "Kim, You Kyung,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -26466,13 +30833,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "70 sivua"
+            "value": "1 verkkoaineisto (70 sivua)"
           }
         ]
       },
@@ -26508,12 +30886,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -26623,18 +31009,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103917"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022193"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022193"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -26645,11 +31024,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -26661,8 +31040,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022205"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -26673,7 +31063,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Furs, Volha."
+            "value": "Furs, Volha,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -26689,13 +31083,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "90 pp + 30 pp sivua"
+            "value": "1 verkkoaineisto (90 pp + 30 pp sivua)"
           }
         ]
       },
@@ -26731,12 +31136,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -26835,18 +31248,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103929"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022205"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022205"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -26857,11 +31263,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -26873,8 +31279,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022206"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -26885,7 +31302,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "An, Zihua."
+            "value": "An, Zihua,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -26901,13 +31322,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "54 pages + 4 pages of appendices sivua"
+            "value": "1 verkkoaineisto (54 pages + 4 pages of appendices sivua)"
           }
         ]
       },
@@ -26943,12 +31375,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -27025,18 +31465,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103930"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022206"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022206"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -27047,11 +31480,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -27063,8 +31496,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022207"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -27075,7 +31519,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Glotov, Sergei."
+            "value": "Glotov, Sergei,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -27091,13 +31539,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "57 pages + 2 pages of appendix sivua"
+            "value": "1 verkkoaineisto (57 pages + 2 pages of appendix sivua)"
           }
         ]
       },
@@ -27133,12 +31592,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -27237,18 +31704,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103931"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022207"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022207"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -27259,11 +31719,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |bfin  "
+        "value": "000000s2018    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -27275,8 +31735,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022208"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -27287,7 +31758,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Autiosaari, Suvi."
+            "value": "Autiosaari, Suvi,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -27303,13 +31778,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "102 sivua"
+            "value": "1 verkkoaineisto (102 sivua)"
           }
         ]
       },
@@ -27345,12 +31831,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -27460,18 +31954,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103932"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022208"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022208"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -27482,11 +31969,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -27498,8 +31985,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022210"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -27510,7 +32008,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Alasalmi, Juho."
+            "value": "Alasalmi, Juho,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -27526,13 +32028,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "81 sivua"
+            "value": "1 verkkoaineisto (81 sivua)"
           }
         ]
       },
@@ -27568,12 +32081,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -27694,18 +32215,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103934"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022210"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022210"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -27716,11 +32230,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -27730,6 +32244,10 @@ const utaComplex = [
           {
             "code": "a",
             "value": "978-952-03-0777-6"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
           }
         ]
       },
@@ -27743,8 +32261,19 @@ const utaComplex = [
             "value": "URN:ISBN:978-952-03-0777-6"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -27755,7 +32284,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Mäkinen, Meeri."
+            "value": "Mäkinen, Meeri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -27789,6 +32322,10 @@ const utaComplex = [
           {
             "code": "b",
             "value": "Tampere University Press,"
+          },
+          {
+            "code": "c",
+            "value": "2018."
           }
         ]
       },
@@ -27843,12 +32380,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -28002,18 +32547,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103935"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:ISBN:978-952-03-0777-6"
+          },
           {
-            "code": "u",
-            "value": "URN:ISBN:978-952-03-0777-6"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -28024,11 +32562,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -28040,8 +32578,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022216"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -28052,7 +32601,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Järvi, Theodora."
+            "value": "Järvi, Theodora,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -28068,13 +32621,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "91 sivua"
+            "value": "1 verkkoaineisto (91 sivua)"
           }
         ]
       },
@@ -28110,12 +32674,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -28225,18 +32797,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103941"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022216"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022216"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -28247,11 +32812,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |beng  "
+        "value": "000000s2018    fi |||||o|||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -28263,8 +32828,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022218"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
           }
         ]
       },
@@ -28275,7 +32851,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Jokipalo, Veera."
+            "value": "Jokipalo, Veera,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -28291,13 +32871,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "69 sivua"
+            "value": "1 verkkoaineisto (69 sivua)"
           }
         ]
       },
@@ -28333,7 +32924,7 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
@@ -28349,18 +32940,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103943"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022218"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022218"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -28371,11 +32955,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |bfin  "
+        "value": "000000s2018    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -28387,8 +32971,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807022220"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -28399,7 +32994,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Grönholm, Pauliina."
+            "value": "Grönholm, Pauliina,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -28415,13 +33014,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "110 sivua"
+            "value": "1 verkkoaineisto (110 sivua)"
           }
         ]
       },
@@ -28457,12 +33067,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -28572,18 +33190,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103944"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807022220"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807022220"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -28594,11 +33205,11 @@ const utaComplex = [
     "fields": [
       {
         "tag": "007",
-        "value": "cr ||||||||||p"
+        "value": "cr |||||||||||"
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||s|||||||| |bfin  "
+        "value": "000000s2018    fi |||||o|||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -28610,8 +33221,19 @@ const utaComplex = [
             "value": "URN:NBN:fi:uta-201807032226"
           },
           {
-            "code": "u",
-            "value": "rn"
+            "code": "2",
+            "value": "urn"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "fin"
           }
         ]
       },
@@ -28622,7 +33244,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "a",
-            "value": "Ranne, Tiia."
+            "value": "Ranne, Tiia,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
           }
         ]
       },
@@ -28638,13 +33264,24 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "c",
+            "value": "2018."
+          }
+        ]
+      },
+      {
         "tag": "300",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "72 sivua"
+            "value": "1 verkkoaineisto (72 sivua)"
           }
         ]
       },
@@ -28680,12 +33317,20 @@ const utaComplex = [
       },
       {
         "tag": "506",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "openAccess"
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
           }
         ]
       },
@@ -28828,18 +33473,11 @@ const utaComplex = [
         "subfields": [
           {
             "code": "u",
-            "value": "http://tampub.uta.fi/handle/10024/103951"
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
+            "value": "http://urn.fi/URN:NBN:fi:uta-201807032226"
+          },
           {
-            "code": "u",
-            "value": "URN:NBN:fi:uta-201807032226"
+            "code": "y",
+            "value": "Linkki verkkoaineistoon"
           }
         ]
       }
@@ -28849,160 +33487,185 @@ const utaComplex = [
 
 /*******************************************/
 
-const doriaSingle = [
-  {
-    "leader": "01704nam a  002653i   00",
-    "fields": [
-      {
-        "tag": "007",
-        "value": "cr ||||||||||p"
-      },
-      {
-        "tag": "008",
-        "value": "000000s2011    fi |||||s|||||||| |beng  "
-      },
-      {
-        "tag": "020",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "9783905404579"
-          }
-        ]
-      },
-      {
-        "tag": "100",
-        "ind1": "1",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "Grönroos, Mauri."
-          }
-        ]
-      },
-      {
-        "tag": "245",
-        "ind1": "1",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "Cultural and intercultural negotiating aspects."
-          }
-        ]
-      },
-      {
-        "tag": "264",
-        "ind1": " ",
-        "ind2": "1",
-        "subfields": [
-          {
-            "code": "b",
-            "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
-          }
-        ]
-      },
-      {
-        "tag": "300",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "54-66 sivua"
-          }
-        ]
-      },
-      {
-        "tag": "500",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "Pro gradu -tutkielma"
-          }
-        ]
-      },
-      {
-        "tag": "502",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "Pro gradu -tutkielma :"
-          },
-          {
-            "code": "c",
-            "value": "University of Tampere, Yhteiskuntatieteiden tiedekunta, "
-          },
-          {
-            "code": "d",
-            "value": "2011."
-          }
-        ]
-      },
-      {
-        "tag": "653",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "globalization"
-          }
-        ]
-      },
-      {
-        "tag": "653",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "culture"
-          }
-        ]
-      },
-      {
-        "tag": "653",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "negotiations"
-          }
-        ]
-      },
-      {
-        "tag": "700",
-        "ind1": "1",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "Seppänen, Ann."
-          }
-        ]
-      },
-      {
-        "tag": "856",
-        "ind1": "4",
-        "ind2": "0",
-        "subfields": [
-          {
-            "code": "u",
-            "value": "http://www.doria.fi/handle/10024/73840"
-          }
-        ]
-      }
-    ]
-  }
-];
+const doriaSingle = [{
+  "leader": "01704nam a  002653i   00",
+  "fields": [
+    {
+      "tag": "007",
+      "value": "cr |||||||||||"
+    },
+    {
+      "tag": "008",
+      "value": "000000s2011    fi |||||o|||||||| ||eng  "
+    },
+    {
+      "tag": "020",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "9783905404579"
+        },
+        {
+          "code": "q",
+          "value": "PDF"
+        }
+      ]
+    },
+    {
+      "tag": "041",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "eng"
+        }
+      ]
+    },
+    {
+      "tag": "100",
+      "ind1": "1",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Grönroos, Mauri,"
+        },
+        {
+          "code": "e",
+          "value": "kirjoittaja."
+        }
+      ]
+    },
+    {
+      "tag": "245",
+      "ind1": "1",
+      "ind2": "0",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Cultural and intercultural negotiating aspects."
+        }
+      ]
+    },
+    {
+      "tag": "264",
+      "ind1": " ",
+      "ind2": "1",
+      "subfields": [
+        {
+          "code": "b",
+          "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
+        },
+        {
+          "code": "c",
+          "value": "2011."
+        }
+      ]
+    },
+    {
+      "tag": "300",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "1 verkkoaineisto (54-66 sivua)"
+        }
+      ]
+    },
+    {
+      "tag": "500",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Pro gradu -tutkielma"
+        }
+      ]
+    },
+    {
+      "tag": "502",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Pro gradu -tutkielma :"
+        },
+        {
+          "code": "c",
+          "value": "University of Tampere, Yhteiskuntatieteiden tiedekunta, "
+        },
+        {
+          "code": "d",
+          "value": "2011."
+        }
+      ]
+    },
+    {
+      "tag": "653",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "globalization"
+        }
+      ]
+    },
+    {
+      "tag": "653",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "culture"
+        }
+      ]
+    },
+    {
+      "tag": "653",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "negotiations"
+        }
+      ]
+    },
+    {
+      "tag": "700",
+      "ind1": "1",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Seppänen, Ann,"
+        },
+        {
+          "code": "e",
+          "value": "kirjoittaja."
+        }
+      ]
+    },
+    {
+      "tag": "856",
+      "ind1": "4",
+      "ind2": "0",
+      "subfields": [
+        {
+          "code": "u",
+          "value": "http://www.doria.fi/handle/10024/73840"
+        }
+      ]
+    }
+  ]
+}];
 
-export {utaChecked, utaSingle, utaComplex, doriaSingle};
+export {custom, utaChecked, utaSingle, utaComplex, doriaSingle};
