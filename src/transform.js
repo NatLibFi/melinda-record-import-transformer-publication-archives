@@ -387,8 +387,12 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					console.error('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
-					console.error('Error message: \'', error.message, '\' (likely empty value)');
+					console.warn('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
+					if(field.subfields[0].value === ''){
+						console.warn('Error message: \'', error.message, '\' (empty value)');
+					}else{
+						console.error('Error message: \'', error.message);
+					}
 				}
 			});
 
