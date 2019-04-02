@@ -32,7 +32,10 @@
 // marcIf: enumeration of sort for special cases (rest, dc.type.ontasot, array)
 // marcIfUnique: if if-statement is fulfilled (rest) should following record be unique
 // All unclear ind* are marked as null/ToDo tag
-const orderMap = new Map([
+
+// export {orderMap, conditionalCases, confMap};
+
+export const orderMap = new Map([
 	[
 		'264',
 		{
@@ -47,23 +50,106 @@ const orderMap = new Map([
 	]
 ]);
 
-const conditionalCases = new Map([
+export const conditionalCases = new Map([
 	[
 		'dc.identifier.urn',
 		{
 			ignore: ['dc.identifier.url', 'dc.identifier.uri']
 		}
+	],
+	[
+		'dc.subject.ysa', // If field is found, ysaPresent set to true -> use marcIf rule "ysaPresent"
+		{
+			ysaPresent: true
+		}
 	]
 ]);
 
-// Const conditionalCases = [
-// 	{
-// 		condition: 'dc.identifier.urn',
-// 		remove: ['dc.identifier.url', 'dc.identifier.uri' ]
-// 	}
-// ];
+export const control007 = {
+	tag: '007',
+	value: 'cr |||||||||||'
+};
 
-const confMap = new Map([
+export const control008Strc = [{
+	start: 1,
+	end: 7,
+	value: '000000s'
+}, {
+	start: 8,
+	end: 11,
+	value: null,
+	from: 'dc.date.issued'
+}, {
+	start: 12,
+	end: 15,
+	value: '    '
+}, {
+	start: 16,
+	end: 17,
+	value: 'fi',
+	from: 'dc.publisher.country'
+}, {
+	start: 18,
+	end: 35,
+	value: ' |||||o|||||||| ||'
+}, {
+	start: 36,
+	end: 38,
+	value: null,
+	from: 'dc.language.iso'
+}, {
+	start: 39,
+	to: 40,
+	value: '  '
+}];
+
+export const standardFields = [{
+	tag: '336',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'teksti'
+	}, {
+		code: 'b',
+		value: 'txt'
+	}, {
+		code: '2',
+		value: 'rdacontent'
+	}]
+}, {
+	tag: '337',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'tietokonekäyttöinen'
+	}, {
+		code: 'b',
+		value: 'c'
+	}, {
+		code: '2',
+		value: 'rdamedia'
+	}]
+}, {
+	tag: '338',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'verkkoaineisto'
+	}, {
+		code: 'b',
+		value: 'cr'
+	}, {
+		code: '2',
+		value: 'rdacarrier'
+	}]
+}];
+
+export const ldr = '01704nam a  002653i   00';
+
+export const confMap = new Map([
 	// Teoksen julkaisumaa	Oletuksena aina 'fi'	dc.publisher.country	008 (katso tarkempi ohje)
 	[
 		'dc.publisher.country',
@@ -405,17 +491,13 @@ const confMap = new Map([
 		{
 			label: 'Asiasanat',
 			marcTag: '650',
-			marcSub: 'a',
+			marcSub: '2',
 			ind1: '',
 			ind2: '7',
-			secondary: [{
-				marcTag: '650',
-				marcSub: '2',
-				ind1: '',
-				ind2: '7'
-			}]
+			unique: true
 		}
 	],
+
 	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
 	[
 		'dc.coverage.spatial',
@@ -428,6 +510,8 @@ const confMap = new Map([
 		}
 	],
 	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä
+	// If only dc.subject -> 653$a
+	// If dc.subject.ysa -> both 650, dc.subject subfield a, dc.subject.ysa subfield 2
 	[
 		'dc.subject',
 		{
@@ -435,7 +519,15 @@ const confMap = new Map([
 			marcTag: '653',
 			marcSub: 'a',
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			marcIf: 'ysaPresent', // Use marcIfConfig if ysaPresent
+			marcIfConfig: {
+				marcTag: '650',
+				marcSub: 'a',
+				ind1: '',
+				ind2: '7',
+				unique: true
+			}
 		}
 	],
 	// Toimittaja	 	dc.contributor.editor	700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e toimittaja.
@@ -627,4 +719,3 @@ const confMap = new Map([
 	]
 ]);
 
-export {orderMap, conditionalCases, confMap};

@@ -28,56 +28,25 @@
 
 /* eslint-disable default-case */
 
-import {orderMap, conditionalCases, confMap} from './config';
+import {orderMap, conditionalCases, control007, control008Strc, standardFields, ldr, confMap} from './config';
 import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
+import {Utils} from '@natlibfi/melinda-commons';
 import langs from 'langs';
-import fs from 'fs';
+
+const {createLogger} = Utils;
 
 export default async function (stream) {
-	var marcRecords = [];
+	// Var marcRecords = []; //Debug/Saving array
 
+	const Logger = createLogger();
 	const records = await JSON.parse(await getStream(stream));
-	var result = records.map(convertRecord);
-	console.log('Transformed ' + marcRecords.length + ' of ' + records.length);
-	fs.writeFileSync('marcRecords.json', JSON.stringify(marcRecords, undefined, 2));
-	return Promise.all(result);
-	// Return Promise.all(records.map(convertRecord)); //Original line, now replaced with broken code above for file saving
+
+	Logger.log('debug', `Starting conversion of ${records.length} records...`);
+	return Promise.all(records.map(convertRecord));
 
 	function convertRecord(record) {
-		var control008Structure = [{
-			start: 1,
-			end: 7,
-			value: '000000s'
-		}, {
-			start: 8,
-			end: 11,
-			value: null,
-			from: 'dc.date.issued'
-		}, {
-			start: 12,
-			end: 15,
-			value: '    '
-		}, {
-			start: 16,
-			end: 17,
-			value: 'fi',
-			from: 'dc.publisher.country'
-		}, {
-			start: 18,
-			end: 35,
-			value: ' |||||o|||||||| ||'
-		}, {
-			start: 36,
-			end: 38,
-			value: null,
-			from: 'dc.language.iso'
-		}, {
-			start: 39,
-			to: 40,
-			value: '  '
-		}];
-
+		var control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
 		var onTaso = {};
 
 		const marcRecord = new MarcRecord();
@@ -85,13 +54,11 @@ export default async function (stream) {
 		var issued = null;
 		var controlJSON = [];
 		var ignoredFields = []; // Fields to ignore
+		var ysaPresent = null;
 
 		// Standard fields
-		marcRecord.leader = '01704nam a  002653i   00';
-		controlJSON.push({ // Standard control field
-			tag: '007',
-			value: 'cr |||||||||||'
-		});
+		marcRecord.leader = ldr;
+		controlJSON.push(control007);
 
 		if (typeof (record.metadata) === 'undefined') {
 			console.warn(JSON.stringify(record, null, 2));
@@ -118,8 +85,13 @@ export default async function (stream) {
 		function conditionalFields() {
 			fields.forEach(field => {
 				// Check if conditional case exists and it has ingnored fields
-				if (conditionalCases.get(getDCPath(field)) && conditionalCases.get(getDCPath(field)).ignore) {
-					ignoredFields = ignoredFields.concat(conditionalCases.get(getDCPath(field)).ignore);
+				let conditionalCase = conditionalCases.get(getDCPath(field));
+				if (conditionalCase) {
+					if (conditionalCase.ignore) {
+						ignoredFields = ignoredFields.concat(conditionalCases.get(getDCPath(field)).ignore);
+					} else if (conditionalCase.ysaPresent) {
+						ysaPresent = conditionalCase.ysaPresent;
+					}
 				}
 			});
 		}
@@ -135,9 +107,6 @@ export default async function (stream) {
 		// }
 		// field: single field got from harvesting
 		function upsertRecord(conf, field, recordIdentifier) {
-			// Console.log('--- Upsert ---');
-			// console.log('Conf: ', conf);
-			// console.log('Field: ', field);
 			if (typeof (conf) === 'undefined') {
 				return false;
 			}
@@ -211,6 +180,15 @@ export default async function (stream) {
 						console.warn('Record: ', recordIdentifier, ' has two char language code that cannot be transformed to three char version, this will break leader: ', field.$.value);
 					}
 					break;
+				}
+
+				// Conditional field are checked before parsing, if dc.subject.ysa
+				case 'ysaPresent': {
+					if (ysaPresent) { // Conditional field found
+						generateRecord(conf.marcIfConfig, field); // Use ifConfig
+						return; // Ignore normal functionality
+					}
+					break; // Normal functionality
 				}
 			}
 
@@ -329,6 +307,8 @@ export default async function (stream) {
 		// This handles 502 field to be sure that it is generated correctly after all fields are read
 		function generateOnTaso() {
 			if (onTaso['dc.type.ontasot']) {
+				modify008OnTaso(); // Modify 008 leader
+
 				var rec = {
 					tag: '502',
 					ind1: '',
@@ -383,14 +363,23 @@ export default async function (stream) {
 
 		// Generate actual Marc object
 		function generateMarcRecord() {
+			standardFields.forEach(field => {
+				try {
+					marcRecord.insertField(field);
+				} catch (error) {
+					console.warn('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
+					console.error('Error message: \'', error.message);
+				}
+			});
+
 			marcJSON.forEach(field => {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
 					console.warn('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
-					if(field.subfields[0].value === ''){
+					if (field.subfields[0].value === '') {
 						console.warn('Error message: \'', error.message, '\' (empty value)');
-					}else{
+					} else {
 						console.error('Error message: \'', error.message);
 					}
 				}
@@ -405,7 +394,19 @@ export default async function (stream) {
 				}
 			});
 
-			marcRecords.push(marcRecord); // Save all records to array for debug saving
+			// MarcRecords.push(marcRecord); // Save all records to array for debug saving
+		}
+
+		function modify008OnTaso() { // Dc.type.ontaso exists, modify control field
+			control008Structure[4].value = replaceAt(control008Structure[4].value, 7, 'm');
+
+			// Replace single char at string
+			function replaceAt(str, index, chr) {
+				if (index > str.length - 1) {
+					return str;
+				}
+				return str.substr(0, index) + chr + str.substr(index + 1);
+			}
 		}
 
 		// Function to get DC path from field

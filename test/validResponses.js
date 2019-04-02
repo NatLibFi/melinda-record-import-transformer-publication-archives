@@ -29,6 +29,7 @@
 'use strict';
 const custom = [
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -38,6 +39,21 @@ const custom = [
       {
         "tag": "008",
         "value": "000000s2017    fi |||||o|||||||| ||eng  "
+      },   
+      {
+        "tag": "020",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "URN:ISBN:111-111-33-4444-5"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
+          }
+        ]
       },
       {
         "tag": "024",
@@ -85,6 +101,63 @@ const custom = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "506",
         "ind1": "0",
         "ind2": " ",
@@ -104,6 +177,22 @@ const custom = [
         ]
       },
       {
+        "tag": "650",
+        "ind1": " ",
+        "ind2": "7",
+        "subfields": [
+          {
+            "code": "2",
+            "value": "detail"
+          },
+          {
+            "code": "a",
+            "value": "general"
+          }
+        ]
+        
+      },  
+      {
         "tag": "856",
         "ind1": "4",
         "ind2": "0",
@@ -121,6 +210,7 @@ const custom = [
     ]
   },
   { //This dummy object tests if dc.publisher.place is placed correctly to 264 and custom access level is used in 506. (not "openAccess")
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -162,6 +252,63 @@ const custom = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "506",
         "ind1": "0",
         "ind2": " ",
@@ -176,6 +323,7 @@ const custom = [
     ]
   },
   { //This dummy object should get two 856 fields trough since there is no dc.identifier.urn
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -185,6 +333,63 @@ const custom = [
       {
         "tag": "008",
         "value": "000000snull    fi |||||o|||||||| ||null  "
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
       },
       {
         "tag": "856",
@@ -209,11 +414,9 @@ const custom = [
         ]
       }
     ]
-  }
-];
-
-const utaChecked = [
-  {
+  },
+  { //This dummy object should map dc.subject to 653$a since dc.subject.ysa is not present AND modify 008 char 25 from | -> m because of dc.type.ontasot
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -222,7 +425,114 @@ const utaChecked = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000snull    fi |||||om||||||| ||null  "
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
+        "tag": "500",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Artikkeliväitöskirja"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Artikkeliväitöskirja :"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "general"
+          }
+        ]
+      }
+    ]
+  }
+];
+
+const utaChecked = [
+  {
+    "_validationOptions": {},
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr |||||||||||"
+      },
+      {
+        "tag": "008",
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -314,6 +624,63 @@ const utaChecked = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -538,6 +905,7 @@ const utaChecked = [
 
 const utaSingle = [
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -627,6 +995,63 @@ const utaSingle = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "653",
         "ind1": " ",
         "ind2": " ",
@@ -693,6 +1118,7 @@ const utaSingle = [
 
 const utaComplex = [
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -701,7 +1127,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2011    fi |||||o|||||||| ||eng  "
+        "value": "000000s2011    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -767,6 +1193,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2011."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -980,6 +1463,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -1065,6 +1549,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (304 s. sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -1172,6 +1713,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -1180,7 +1722,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2012    fi |||||o|||||||| ||fin  "
+        "value": "000000s2012    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -1253,6 +1795,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (139 +7 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -1345,6 +1944,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -1353,7 +1953,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2015    fi |||||o|||||||| ||fin  "
+        "value": "000000s2015    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -1426,6 +2026,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (46 s. + 2 liitettä sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -1540,6 +2197,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -1548,7 +2206,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2015    fi |||||o|||||||| ||fin  "
+        "value": "000000s2015    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -1621,6 +2279,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (83 sivua sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -1716,6 +2431,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -1724,7 +2440,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2016    fi |||||o|||||||| ||eng  "
+        "value": "000000s2016    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -1816,6 +2532,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2016."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -2004,6 +2777,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -2012,7 +2786,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2015    fi |||||o|||||||| ||fin  "
+        "value": "000000s2015    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -2085,6 +2859,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (103 s. sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -2191,6 +3022,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -2261,6 +3093,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2016."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -2500,6 +3389,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -2574,6 +3464,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2016."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -2865,6 +3812,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -2939,6 +3887,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2012."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -3039,6 +4044,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -3113,6 +4119,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -3163,6 +4226,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -3237,6 +4301,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -3302,6 +4423,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -3310,7 +4432,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -3383,6 +4505,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (64pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -3541,6 +4720,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -3611,6 +4791,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2016."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -3798,6 +5035,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -3868,6 +5106,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2016."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -4025,6 +5320,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -4095,6 +5391,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -4283,6 +5636,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -4357,6 +5711,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -4407,6 +5818,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -4481,6 +5893,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -4531,6 +6000,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -4539,7 +6009,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -4612,6 +6082,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (73 + bibliorgaphy + appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -4770,6 +6297,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -4778,7 +6306,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -4851,6 +6379,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (70 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -5009,6 +6594,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -5017,7 +6603,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5090,6 +6676,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (59 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -5237,6 +6880,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -5245,7 +6889,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5318,6 +6962,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (66 pp + appendices + figures sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -5476,6 +7177,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -5484,7 +7186,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5557,6 +7259,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (57 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -5693,6 +7452,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -5701,7 +7461,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -5774,6 +7534,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (74 pp +7 appendix pages sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -5899,6 +7716,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -5969,6 +7787,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -6168,6 +8043,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -6176,7 +8052,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -6249,6 +8125,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (43 pages + 1 appendix sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -6407,6 +8340,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -6481,6 +8415,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -6546,6 +8537,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -6616,6 +8608,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -6771,6 +8820,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -6841,6 +8891,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -6951,6 +9058,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -7021,6 +9129,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -7165,6 +9330,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -7235,6 +9401,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -7394,6 +9617,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -7464,6 +9688,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -7633,6 +9914,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -7641,7 +9923,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||fin  "
+        "value": "000000s2017    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -7714,6 +9996,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (92 s., 3 liites. sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -7905,6 +10244,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -7975,6 +10315,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -8134,6 +10531,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -8204,6 +10602,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -8414,6 +10869,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -8484,6 +10940,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -8685,6 +11198,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -8755,6 +11269,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -8948,6 +11519,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -9018,6 +11590,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -9192,6 +11821,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -9262,6 +11892,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2016."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -9425,6 +12112,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -9495,6 +12183,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -9609,6 +12354,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -9679,6 +12425,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -9865,6 +12668,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -9935,6 +12739,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -10130,6 +12991,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -10138,7 +13000,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -10230,6 +13092,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -10429,6 +13348,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -10499,6 +13419,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -10627,6 +13604,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -10701,6 +13679,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -10766,6 +13801,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -10836,6 +13872,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -11080,6 +14173,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -11088,7 +14182,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11165,6 +14259,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "500",
         "ind1": " ",
         "ind2": " ",
@@ -11234,6 +14385,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -11304,6 +14456,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -11418,6 +14627,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -11426,7 +14636,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11499,6 +14709,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (70 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -11657,6 +14924,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -11665,7 +14933,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -11738,6 +15006,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (79 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -11929,6 +15254,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -11999,6 +15325,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -12168,6 +15551,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -12176,7 +15560,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -12249,6 +15633,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (75 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -12396,6 +15837,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -12466,6 +15908,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -12590,6 +16089,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -12660,6 +16160,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -12799,6 +16356,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -12869,6 +16427,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -13068,6 +16683,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -13138,6 +16754,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -13258,6 +16931,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -13328,6 +17002,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -13512,6 +17243,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -13520,7 +17252,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -13593,6 +17325,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (94 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -13751,6 +17540,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -13821,6 +17611,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -13965,6 +17812,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -14039,6 +17887,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -14104,6 +18009,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -14174,6 +18080,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -14356,6 +18319,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -14364,7 +18328,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -14437,6 +18401,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (78 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -14562,6 +18583,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -14570,7 +18592,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -14643,6 +18665,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (122 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -14782,6 +18861,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -14852,6 +18932,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -14965,6 +19102,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -14973,7 +19111,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -15046,6 +19184,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (97 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -15193,6 +19388,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -15267,6 +19463,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -15539,6 +19792,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -15609,6 +19863,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -15834,6 +20145,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -15842,7 +20154,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -15915,6 +20227,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (97 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -16062,6 +20431,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -16070,7 +20440,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16143,6 +20513,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (92 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -16279,6 +20706,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -16287,7 +20715,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16360,6 +20788,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (66 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -16518,6 +21003,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -16526,7 +21012,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16599,6 +21085,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (82 pages sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -16768,6 +21311,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -16776,7 +21320,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -16849,6 +21393,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (57 pages sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -16974,6 +21575,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -17044,6 +21646,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -17217,6 +21876,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -17225,7 +21885,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17298,6 +21958,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (73 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -17467,6 +22184,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -17475,7 +22193,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17548,6 +22266,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (83 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -17684,6 +22459,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -17692,7 +22468,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -17769,6 +22545,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "500",
         "ind1": " ",
         "ind2": " ",
@@ -17827,6 +22660,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -17897,6 +22731,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -18151,6 +23042,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -18221,6 +23113,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -18393,6 +23342,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -18401,7 +23351,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18474,6 +23424,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (vii + 125 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -18632,6 +23639,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -18640,7 +23648,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18713,6 +23721,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (57 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -18838,6 +23903,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -18846,7 +23912,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -18919,6 +23985,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (80 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -19044,6 +24167,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -19052,7 +24176,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2017    fi |||||o|||||||| ||eng  "
+        "value": "000000s2017    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -19125,6 +24249,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (81 pp + Appendix sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -19305,6 +24486,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -19313,7 +24495,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -19386,6 +24568,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (107 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -19555,6 +24794,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -19625,6 +24865,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -19724,6 +25021,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -19794,6 +25092,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2017."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -19947,6 +25302,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -20017,6 +25373,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -20186,6 +25599,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -20194,7 +25608,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20267,6 +25681,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (76 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -20392,6 +25863,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -20400,7 +25872,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20477,6 +25949,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "500",
         "ind1": " ",
         "ind2": " ",
@@ -20535,6 +26064,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -20543,7 +26073,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20616,6 +26146,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (78 pp + 5 pp appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -20752,6 +26339,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -20760,7 +26348,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -20833,6 +26421,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (78 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -21002,6 +26647,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -21076,6 +26722,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2016."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -21198,6 +26901,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -21206,7 +26910,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -21279,6 +26983,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (68 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -21437,6 +27198,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -21507,6 +27269,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -21636,6 +27455,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -21706,6 +27526,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -21898,6 +27775,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -21906,7 +27784,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -21979,6 +27857,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (59 pages+ 3 appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -22148,6 +28083,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -22218,6 +28154,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -22383,6 +28376,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -22453,6 +28447,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -22552,6 +28603,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -22560,7 +28612,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -22633,6 +28685,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (58 pages + 8 pages of appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -22813,6 +28922,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -22821,7 +28931,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -22894,6 +29004,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (63 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -23022,6 +29189,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -23092,6 +29260,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -23274,6 +29499,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -23344,6 +29570,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -23505,6 +29788,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -23513,7 +29797,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -23586,6 +29870,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (96 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -23766,6 +30107,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -23774,7 +30116,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -23847,6 +30189,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (66 pages + 10 tables + 6 figures + references + appendix sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -23994,6 +30393,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -24002,7 +30402,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24075,6 +30475,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (62 pp + 23 appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -24211,6 +30668,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -24219,7 +30677,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24292,6 +30750,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (75 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -24439,6 +30954,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -24447,7 +30963,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24520,6 +31036,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (112 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -24656,6 +31229,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -24726,6 +31300,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -24885,6 +31516,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -24893,7 +31525,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -24966,6 +31598,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (103 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -25135,6 +31824,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -25205,6 +31895,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -25349,6 +32096,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -25357,7 +32105,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||fin  "
+        "value": "000000s2018    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -25430,6 +32178,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (20 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -25566,6 +32371,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -25574,7 +32380,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -25647,6 +32453,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (86 pp + appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -25772,6 +32635,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -25780,7 +32644,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -25853,6 +32717,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (126pp + 8pp appendices + 2pp figures sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -26022,6 +32943,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -26096,6 +33018,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "490",
         "ind1": "1",
         "ind2": " ",
@@ -26161,6 +33140,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -26231,6 +33211,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -26389,6 +33426,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -26463,6 +33501,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -26707,6 +33802,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -26715,7 +33811,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -26788,6 +33884,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (106 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -26946,6 +34099,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -26954,7 +34108,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||fin  "
+        "value": "000000s2018    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -27027,6 +34181,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (104 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -27196,6 +34407,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -27266,6 +34478,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -27608,6 +34877,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -27616,7 +34886,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -27689,6 +34959,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (73 pp + 2 appendices + 10 figures sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -27825,6 +35152,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -27833,7 +35161,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -27906,6 +35234,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (154 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -28064,6 +35449,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -28072,7 +35458,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -28145,6 +35531,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (86 pp + appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -28281,6 +35724,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -28289,7 +35733,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -28362,6 +35806,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (86 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -28443,6 +35944,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -28451,7 +35953,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -28528,6 +36030,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "500",
         "ind1": " ",
         "ind2": " ",
@@ -28586,6 +36145,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -28594,7 +36154,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -28667,6 +36227,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (83 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -28814,6 +36431,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -28822,7 +36440,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -28895,6 +36513,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (54 pages + 3 reference pages + 6 index and appendix pages + 23 figures sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -29031,6 +36706,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -29039,7 +36715,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -29112,6 +36788,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (111 pp + 3 pages of Appendix sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -29204,6 +36937,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -29212,7 +36946,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -29285,6 +37019,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (109 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -29443,6 +37234,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -29451,7 +37243,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -29524,6 +37316,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (103 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -29682,6 +37531,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -29690,7 +37540,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -29767,6 +37617,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "500",
         "ind1": " ",
         "ind2": " ",
@@ -29825,6 +37732,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -29833,7 +37741,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -29906,6 +37814,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (57 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -30042,6 +38007,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -30050,7 +38016,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||fin  "
+        "value": "000000s2018    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -30123,6 +38089,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (74 sivua, 10 liitesivua sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -30270,6 +38293,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -30278,7 +38302,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -30351,6 +38375,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (95 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -30509,6 +38590,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -30517,7 +38599,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -30590,6 +38672,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (61 pages + 2 appendixes sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -30770,6 +38909,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -30778,7 +38918,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -30851,6 +38991,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (70 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -31020,6 +39217,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -31028,7 +39226,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -31101,6 +39299,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (90 pp + 30 pp sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -31259,6 +39514,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -31267,7 +39523,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -31340,6 +39596,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (54 pages + 4 pages of appendices sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -31476,6 +39789,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -31484,7 +39798,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -31557,6 +39871,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (57 pages + 2 pages of appendix sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -31715,6 +40086,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -31723,7 +40095,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||fin  "
+        "value": "000000s2018    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -31796,6 +40168,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (102 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -31965,6 +40394,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -31973,7 +40403,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -32046,6 +40476,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (81 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -32226,6 +40713,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -32234,7 +40722,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "020",
@@ -32326,6 +40814,63 @@ const utaComplex = [
           {
             "code": "c",
             "value": "2018."
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -32558,6 +41103,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -32566,7 +41112,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -32639,6 +41185,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (91 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -32808,6 +41411,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -32816,7 +41420,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||eng  "
+        "value": "000000s2018    fi |||||om||||||| ||eng  "
       },
       {
         "tag": "024",
@@ -32893,6 +41497,63 @@ const utaComplex = [
         ]
       },
       {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
         "tag": "500",
         "ind1": " ",
         "ind2": " ",
@@ -32951,6 +41612,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -32959,7 +41621,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||fin  "
+        "value": "000000s2018    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -33032,6 +41694,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (110 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -33201,6 +41920,7 @@ const utaComplex = [
     ]
   },
   {
+    "_validationOptions": {},
     "leader": "01704nam a  002653i   00",
     "fields": [
       {
@@ -33209,7 +41929,7 @@ const utaComplex = [
       },
       {
         "tag": "008",
-        "value": "000000s2018    fi |||||o|||||||| ||fin  "
+        "value": "000000s2018    fi |||||om||||||| ||fin  "
       },
       {
         "tag": "024",
@@ -33282,6 +42002,63 @@ const utaComplex = [
           {
             "code": "a",
             "value": "1 verkkoaineisto (72 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
           }
         ]
       },
@@ -33487,185 +42264,245 @@ const utaComplex = [
 
 /*******************************************/
 
-const doriaSingle = [{
-  "leader": "01704nam a  002653i   00",
-  "fields": [
-    {
-      "tag": "007",
-      "value": "cr |||||||||||"
-    },
-    {
-      "tag": "008",
-      "value": "000000s2011    fi |||||o|||||||| ||eng  "
-    },
-    {
-      "tag": "020",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "9783905404579"
-        },
-        {
-          "code": "q",
-          "value": "PDF"
-        }
-      ]
-    },
-    {
-      "tag": "041",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "eng"
-        }
-      ]
-    },
-    {
-      "tag": "100",
-      "ind1": "1",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Grönroos, Mauri,"
-        },
-        {
-          "code": "e",
-          "value": "kirjoittaja."
-        }
-      ]
-    },
-    {
-      "tag": "245",
-      "ind1": "1",
-      "ind2": "0",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Cultural and intercultural negotiating aspects."
-        }
-      ]
-    },
-    {
-      "tag": "264",
-      "ind1": " ",
-      "ind2": "1",
-      "subfields": [
-        {
-          "code": "b",
-          "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
-        },
-        {
-          "code": "c",
-          "value": "2011."
-        }
-      ]
-    },
-    {
-      "tag": "300",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "1 verkkoaineisto (54-66 sivua)"
-        }
-      ]
-    },
-    {
-      "tag": "500",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Pro gradu -tutkielma"
-        }
-      ]
-    },
-    {
-      "tag": "502",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Pro gradu -tutkielma :"
-        },
-        {
-          "code": "c",
-          "value": "University of Tampere, Yhteiskuntatieteiden tiedekunta, "
-        },
-        {
-          "code": "d",
-          "value": "2011."
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "globalization"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "culture"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "negotiations"
-        }
-      ]
-    },
-    {
-      "tag": "700",
-      "ind1": "1",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Seppänen, Ann,"
-        },
-        {
-          "code": "e",
-          "value": "kirjoittaja."
-        }
-      ]
-    },
-    {
-      "tag": "856",
-      "ind1": "4",
-      "ind2": "0",
-      "subfields": [
-        {
-          "code": "u",
-          "value": "http://www.doria.fi/handle/10024/73840"
-        }
-      ]
-    }
-  ]
-}];
+const doriaSingle = [
+  {
+    "_validationOptions": {},
+    "leader": "01704nam a  002653i   00",
+    "fields": [
+      {
+        "tag": "007",
+        "value": "cr |||||||||||"
+      },
+      {
+        "tag": "008",
+        "value": "000000s2011    fi |||||om||||||| ||eng  "
+      },
+      {
+        "tag": "020",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "9783905404579"
+          },
+          {
+            "code": "q",
+            "value": "PDF"
+          }
+        ]
+      },
+      {
+        "tag": "041",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "eng"
+          }
+        ]
+      },
+      {
+        "tag": "100",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Grönroos, Mauri,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
+          }
+        ]
+      },
+      {
+        "tag": "245",
+        "ind1": "1",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Cultural and intercultural negotiating aspects."
+          }
+        ]
+      },
+      {
+        "tag": "264",
+        "ind1": " ",
+        "ind2": "1",
+        "subfields": [
+          {
+            "code": "b",
+            "value": "Olten, Switzerland : University of Applied Sciences of Northwestern Switzerland, School of Business,"
+          },
+          {
+            "code": "c",
+            "value": "2011."
+          }
+        ]
+      },
+      {
+        "tag": "300",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "1 verkkoaineisto (54-66 sivua)"
+          }
+        ]
+      },
+      {
+        "tag": "336",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "teksti"
+          },
+          {
+            "code": "b",
+            "value": "txt"
+          },
+          {
+            "code": "2",
+            "value": "rdacontent"
+          }
+        ]
+      },
+      {
+        "tag": "337",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "tietokonekäyttöinen"
+          },
+          {
+            "code": "b",
+            "value": "c"
+          },
+          {
+            "code": "2",
+            "value": "rdamedia"
+          }
+        ]
+      },
+      {
+        "tag": "338",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "verkkoaineisto"
+          },
+          {
+            "code": "b",
+            "value": "cr"
+          },
+          {
+            "code": "2",
+            "value": "rdacarrier"
+          }
+        ]
+      },
+      {
+        "tag": "500",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Pro gradu -tutkielma"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Pro gradu -tutkielma :"
+          },
+          {
+            "code": "c",
+            "value": "University of Tampere, Yhteiskuntatieteiden tiedekunta, "
+          },
+          {
+            "code": "d",
+            "value": "2011."
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "globalization"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "culture"
+          }
+        ]
+      },
+      {
+        "tag": "653",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "negotiations"
+          }
+        ]
+      },
+      {
+        "tag": "700",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Seppänen, Ann,"
+          },
+          {
+            "code": "e",
+            "value": "kirjoittaja."
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "http://www.doria.fi/handle/10024/73840"
+          }
+        ]
+      }
+    ]
+  }
+];
 
 export {custom, utaChecked, utaSingle, utaComplex, doriaSingle};

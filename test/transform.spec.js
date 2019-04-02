@@ -60,7 +60,7 @@ describe('Check different transformation cases', () => {
 
 		it('Multiple records', async () => {
 			const result = await transform(fs.createReadStream('./test/recordsUtaMultiple.json', 'utf8'));
-			expect(result).to.eql(utaComplex);
+			expect(result).to.eql(utaComplex); //Give some extra time as this is loooong test
 		}).timeout(10000);
 	});
 	  
