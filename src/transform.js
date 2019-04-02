@@ -61,7 +61,7 @@ export default async function (stream) {
 		controlJSON.push(control007);
 
 		if (typeof (record.metadata) === 'undefined') {
-			console.warn(JSON.stringify(record, null, 2));
+			Logger.log('warn', 'Metadata deteletd for record: ' + JSON.stringify(record, null, 2));
 			return; // Some records can be '"status": "deleted"' -> no metadata, just header
 		}
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
@@ -177,7 +177,7 @@ export default async function (stream) {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
 					} else {
-						console.warn('Record: ', recordIdentifier, ' has two char language code that cannot be transformed to three char version, this will break leader: ', field.$.value);
+						Logger.log('warn', 'Record: ' + recordIdentifier + ' has two char language code that cannot be transformed to three char version, this will break leader: ' + field.$.value);
 					}
 					break;
 				}
@@ -209,9 +209,6 @@ export default async function (stream) {
 		}
 
 		function generateRecord(conf, field) {
-			// Console.log('--- Generate ---');
-			// console.log('Conf: ', conf);
-			// console.log('Field: ', field);
 			if (conf.marcTag === '008') { // Controller fields
 				modifyControlField(field);
 			} else { // Normal fields
@@ -348,7 +345,7 @@ export default async function (stream) {
 			var controlValue008 = '';
 			control008Structure.forEach(element => {
 				if (typeof (element.value) === 'undefined') {
-					console.error('Broken record, with missing control field element: ', element.from);
+					Logger.log('warn', `Broken record, with missing control field element: ${element.from}`);
 				}
 				controlValue008 += element.value;
 			});
@@ -367,8 +364,8 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					console.warn('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
-					console.error('Error message: \'', error.message);
+					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${field}`);
+					Logger.log('error', `Error message: ${error.message}`);
 				}
 			});
 
@@ -376,11 +373,11 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					console.warn('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
+					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${field}`);
 					if (field.subfields[0].value === '') {
-						console.warn('Error message: \'', error.message, '\' (empty value)');
+						Logger.log('warn', `Error message: ${error.message} (Empty value)`);
 					} else {
-						console.error('Error message: \'', error.message);
+						Logger.log('error', `Error message: ${error.message}`);
 					}
 				}
 			});
@@ -389,8 +386,8 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					console.error('Record: ', record.header[0].identifier, ' something went wrong with field: ', field);
-					console.error('Error message: \'', error.message, '\'');
+					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${field}`);
+					Logger.log('error', `Error message: ${error.message}`);
 				}
 			});
 
@@ -423,8 +420,7 @@ export default async function (stream) {
 			if (text.includes(identifier) && text.includes(' | ')) {
 				return text.substring(text.indexOf(identifier) + 3, text.indexOf(' | '));
 			}
-			console.warn('*** Should clip language version, but something went wrong, returning original text (incomplete implementation)');
-			console.warn(JSON.stringify(onTaso, null, 2));
+			Logger.log('warn', `Should clip language version, but something went wrong, returning original: ${JSON.stringify(onTaso, null, 2)}`);
 			return text;
 		}
 		// End of supporting functions
