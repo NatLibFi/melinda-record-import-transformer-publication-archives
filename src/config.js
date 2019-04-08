@@ -27,13 +27,17 @@
 */
 
 /* eslint-disable no-warning-comments */
-// Some configuration settings:
-// unique: should new subfields be inserted previous record (unique record) or not
-// marcIf: enumeration of sort for special cases (rest, dc.type.ontasot, array)
-// marcIfUnique: if if-statement is fulfilled (rest) should following record be unique
-// All unclear ind* are marked as null/ToDo tag
 
 // export {orderMap, conditionalCases, confMap};
+
+export const enums = {
+	onTaso: 'onTaso',
+	rest: 'rest',
+	issued: 'issued',
+	replace: 'replace',
+	langField: 'langField',
+	ysaPresent: 'ysaPresent'
+};
 
 export const orderMap = new Map([
 	[
@@ -61,6 +65,16 @@ export const conditionalCases = new Map([
 		'dc.subject.ysa', // If field is found, ysaPresent set to true -> use marcIf rule "ysaPresent"
 		{
 			ysaPresent: true
+		}
+	],
+	[
+		'dc.type.ontasot',
+		{
+			set008Strc: {
+				indObj: 4,
+				indStr: 7,
+				to: 'm'
+			}
 		}
 	]
 ]);
@@ -164,8 +178,8 @@ export const confMap = new Map([
 		{
 			label: 'Teoksen kieli',
 			marcTag: '041',
-			marcSecondaryTag: '008',
-			marcIf: 'langField',
+			marcSecondaryTags: ['008'],
+			marcIf: enums.langField,
 			marcSub: 'a',
 			ind1: '',
 			ind2: ''
@@ -177,8 +191,8 @@ export const confMap = new Map([
 		{
 			label: 'Julkaisuaika',
 			marcTag: '264',
-			marcSecondaryTag: '008',
-			marcIf: 'issued', // This saves year for multiple purposes
+			marcSecondaryTags: ['008'],
+			marcIf: enums.issued, // This saves year for multiple purposes
 			marcSub: 'c',
 			ind1: '',
 			ind2: '1',
@@ -341,10 +355,9 @@ export const confMap = new Map([
 		'dc.type.ontasot',
 		{
 			label: 'Opinnäytteen taso',
-			marcTag: '502',
-			marcSecondaryTag: '500', // 502 for onTaso handling, this for stand alone field
+			marcTag: '500',
 			marcSub: 'a',
-			marcIf: 'onTaso',
+			marcIf: enums.onTaso,
 			ind1: '',
 			ind2: ''
 		}
@@ -354,9 +367,8 @@ export const confMap = new Map([
 		'dc.contributor.organization',
 		{
 			label: '',
-			marcTag: '502',
 			marcSub: 'c',
-			marcIf: 'onTaso',
+			marcIf: enums.onTaso,
 			ind1: null,
 			ind2: null
 		}
@@ -366,9 +378,8 @@ export const confMap = new Map([
 		'dc.contributor.faculty',
 		{
 			label: '',
-			marcTag: '502',
 			marcSub: 'c',
-			marcIf: 'onTaso',
+			marcIf: enums.onTaso,
 			ind1: null,
 			ind2: null
 		}
@@ -412,7 +423,7 @@ export const confMap = new Map([
 		{
 			label: '',
 			marcTag: '506',
-			marcIf: 'replace',
+			marcIf: enums.replace,
 			marcReplace: {
 				phrase: 'openAccess',
 				replace: 'Aineisto on vapaasti saatavissa.',
@@ -520,7 +531,7 @@ export const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '',
-			marcIf: 'ysaPresent', // Use marcIfConfig if ysaPresent
+			marcIf: enums.ysaPresent, // Use marcIfConfig if ysaPresent
 			marcIfConfig: {
 				marcTag: '650',
 				marcSub: 'a',
@@ -568,7 +579,6 @@ export const confMap = new Map([
 			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
-				unique: false,
 				ind1: '7',
 				ind2: '',
 				presetFields: [{
@@ -617,7 +627,6 @@ export const confMap = new Map([
 			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
-				unique: false,
 				ind1: '7',
 				ind2: '',
 				presetFields: [{
@@ -666,7 +675,7 @@ export const confMap = new Map([
 			label: 'Tekijä',
 			marcTag: '100',
 			marcSub: 'a',
-			marcIf: 'rest',
+			marcIf: enums.rest,
 			ind1: '1',
 			ind2: '',
 			suffix: ',',
@@ -674,10 +683,9 @@ export const confMap = new Map([
 				sub: 'e',
 				value: 'kirjoittaja.'
 			}],
-			marcRest: {
+			marcIfConfig: {
 				marcTag: '700',
 				marcSub: 'a',
-				unique: false,
 				ind1: '1',
 				ind2: '',
 				suffix: ',',
@@ -695,7 +703,7 @@ export const confMap = new Map([
 			label: 'Tekijä',
 			marcTag: '100',
 			marcSub: 'a',
-			marcIf: 'rest',
+			marcIf: enums.rest,
 			ind1: '1',
 			ind2: '',
 			suffix: ',',
@@ -703,10 +711,9 @@ export const confMap = new Map([
 				sub: 'e',
 				value: 'kirjoittaja.'
 			}],
-			marcRest: {
+			marcIfConfig: {
 				marcTag: '700',
 				marcSub: 'a',
-				unique: false,
 				ind1: '1',
 				ind2: '',
 				suffix: ',',

@@ -26,9 +26,9 @@
 *
 */
 
-/* eslint-disable default-case */
+/* eslint-disable default-case, complexity */
 
-import {orderMap, conditionalCases, control007, control008Strc, standardFields, ldr, confMap} from './config';
+import {orderMap, conditionalCases, control007, control008Strc, standardFields, ldr, confMap, enums} from './config';
 import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
 import {Utils} from '@natlibfi/melinda-commons';
@@ -37,8 +37,6 @@ import langs from 'langs';
 const {createLogger} = Utils;
 
 export default async function (stream) {
-	// Var marcRecords = []; //Debug/Saving array
-
 	const Logger = createLogger();
 	const records = await JSON.parse(await getStream(stream));
 
@@ -56,9 +54,10 @@ export default async function (stream) {
 		var ignoredFields = []; // Fields to ignore
 		var ysaPresent = null;
 
-		// Standard fields
+		// Standard fields: leader, control and 336-338
 		marcRecord.leader = ldr;
 		controlJSON.push(control007);
+		controlJSON = controlJSON.concat(standardFields);
 
 		if (typeof (record.metadata) === 'undefined') {
 			Logger.log('warn', 'Metadata deteletd for record: ' + JSON.stringify(record, null, 2));
@@ -66,8 +65,7 @@ export default async function (stream) {
 		}
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
 
-		// Check condition fields before actual cycle
-		conditionalFields();
+		conditionalFields(); // Check condition fields before actual cycle
 
 		fields.forEach(field => {
 			upsertRecord(confMap.get(getDCPath(field)), field, record.header[0].identifier); // Recursive function to go generate marcJSON later to be transformed to actual Marc
@@ -81,7 +79,6 @@ export default async function (stream) {
 
 		/// /////////////////////////////////////////////////
 		// Start of supporting functions
-
 		function conditionalFields() {
 			fields.forEach(field => {
 				// Check if conditional case exists and it has ingnored fields
@@ -89,119 +86,117 @@ export default async function (stream) {
 				if (conditionalCase) {
 					if (conditionalCase.ignore) {
 						ignoredFields = ignoredFields.concat(conditionalCases.get(getDCPath(field)).ignore);
-					} else if (conditionalCase.ysaPresent) {
+					}
+					if (conditionalCase.ysaPresent) {
 						ysaPresent = conditionalCase.ysaPresent;
+					}
+					if (conditionalCase.set008Strc) {
+						var conf = conditionalCase.set008Strc;
+
+						// Validate that configuration does not result out-of-bounds error
+						if (conf.indObj < control008Structure.length && conf.indStr < control008Structure[conf.indObj].value.length && typeof (conf.to) === 'string' && conf.to.length === 1) {
+							control008Structure[conf.indObj].value = replaceAt(control008Structure[conf.indObj].value, conf.indStr, conf.to);
+						} else {
+							Logger.log('error', `008 configuration out of bounds: ${conf}`);
+						}
 					}
 				}
 			});
+
+			// Replace single char at string
+			function replaceAt(str, index, chr) {
+				if (index > str.length - 1) {
+					return str;
+				}
+				return str.substr(0, index) + chr + str.substr(index + 1);
+			}
 		}
 
-		// Conf: configuration object: {
-		// 	marcIf: enum string of cases,
-		//	marcIfUnique: boolean if unique marc instance of tag
-		// 	marcTag: string for marc tag,
-		// 	marcSecondaryTag: string of secondary tag to use
-		//	marcSub: string of marc subfield tag
-		//	marcSecondarySub: string of secondary marc subfield tags
-		//	ind1&ind2: strings of marc indicators
-		// }
-		// field: single field got from harvesting
 		function upsertRecord(conf, field, recordIdentifier) {
-			if (typeof (conf) === 'undefined') {
+			if (typeof (conf) === 'undefined' || ignoredFields.includes(getDCPath(field))) { // Undefined config or ignored field
 				return false;
 			}
 
-			if (ignoredFields.includes(getDCPath(field))) { // Ignored field
-				return false;
-			}
 			var tempConf = null;
 
 			// Handle special cases by marcIf
 			switch (conf.marcIf) {
-				// Save onTaso fields for end parsing
-				case 'onTaso': {
+				// Save marked onTaso fields for end parsing in generateOnTaso()
+				case enums.onTaso: {
 					onTaso[getDCPath(field)] = field.$.value;
-					if (conf.marcSecondaryTag) { // Primary tag used for generating record 500, onTasoTag is checked later
+					if (conf.marcTag) { // If marcTag is specified, generate normal marc field
 						field.$.value = clipLang(field.$.value, 'fi='); // Clean field with language options
-
-						tempConf = Object.assign({}, conf);
-						tempConf.marcTag = tempConf.marcSecondaryTag; // Primary tag is used to onTaso, secondary for stand alone generation
-						delete tempConf.marcSecondaryTag;
-						generateRecord(tempConf, field);
+						break; // Otherwise normal
 					}
 					return;
 				}
 
-				// First to primary tag, if tag already used generate new with secondary tag
-				case 'rest': {
+				// First with primary configuration, if tag is used -> with marcIfConfig object
+				case enums.rest: {
 					var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
-
 					if (foundRec) {
-						upsertRecord(conf.marcRest, field, recordIdentifier);
-					} else {
-						generateRecord(conf, field);
+						upsertRecord(conf.marcIfConfig, field, recordIdentifier);
+						return;
 					}
-					return;
+					break; // First normally
 				}
 
 				// Save for later use
-				case 'issued': {
+				case enums.issued: {
 					var fieldVal = field.$.value;
-					if (fieldVal > 4) {
-						issued = fieldVal.substring(0, 4);
+					if (fieldVal.length > 4) {
+						fieldVal = fieldVal.substring(0, 4);
 					}
-					break;
+					issued = fieldVal;
+					break; // Otherwise normally
 				}
 
 				// Detect subfield replacing
-				case 'replace': {
-					if (conf.marcReplace && conf.marcReplace.phrase === field.$.value) { // Matches replace phrase, replace
+				case enums.replace: {
+					if (conf.marcReplace && conf.marcReplace.phrase === field.$.value) { // Matches replace phrase, replace phrase
 						field.$.value = conf.marcReplace.replace;
-						break;
-					} else { // Does not match, use original values
-						if (conf.marcReplace && conf.marcReplace.removePresetIfNotMatch) {
-							tempConf = Object.assign({}, conf);
-							delete tempConf.presetFields; // Remove possible preset fields
-							generateRecord(tempConf, field);
-						} else {
-							generateRecord(conf, field);
-						}
+					} else if (conf.marcReplace && conf.marcReplace.removePresetIfNotMatch) { // If rule exists to remove preset.
+						tempConf = Object.assign({}, conf);
+						delete tempConf.presetFields; // Remove possible preset fields
+						generateRecord(tempConf, field); // Generate with edited config
 						return;
 					}
+					break; // Otherwise normally
 				}
 
 				// Check if language field should be transformed from 2 chars to 3 chars, then normal handling
-				case 'langField': {
+				case enums.langField: {
 					// Language code might be already in ISO 639-2b (3 chars)
 					if (field.$.value.length === 2 && typeof (langs.where(1, field.$.value)) !== 'undefined') {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
 					} else {
-						Logger.log('warn', 'Record: ' + recordIdentifier + ' has two char language code that cannot be transformed to three char version, this will break leader: ' + field.$.value);
+						Logger.log('warn', 'Record: ' + recordIdentifier + ' has two char language code that cannot be transformed to three char version, this will possibly break leader: ' + field.$.value);
 					}
-					break;
+					break; // Otherwise normally
 				}
 
 				// Conditional field are checked before parsing, if dc.subject.ysa
-				case 'ysaPresent': {
+				case enums.ysaPresent: {
 					if (ysaPresent) { // Conditional field found
 						generateRecord(conf.marcIfConfig, field); // Use ifConfig
 						return; // Ignore normal functionality
 					}
-					break; // Normal functionality
+					break; // Otherwise normally
 				}
 			}
 
-			// Normal case
-			generateRecord(conf, field);
+			generateRecord(conf, field); // Normal case
 
 			// Secondary tag generation with conf
-			if (conf.marcSecondaryTag) {
-				tempConf = Object.assign({}, conf);
-				tempConf.marcTag = tempConf.marcSecondaryTag;
-				delete tempConf.marcSecondaryTag;
-				generateRecord(tempConf, field);
-			} else if (conf.secondary) { // Different specification
+			if (conf.marcSecondaryTags) {
+				conf.marcSecondaryTags.forEach(secondaryTag => {
+					tempConf = Object.assign({}, conf);
+					tempConf.marcTag = secondaryTag;
+					delete tempConf.marcSecondaryTags;
+					generateRecord(tempConf, field);
+				});
+			} else if (conf.secondary) { // Secondary configuration, generate 0->n with different configuration
 				conf.secondary.forEach(secondary => {
 					generateRecord(secondary, field);
 				});
@@ -261,12 +256,6 @@ export default async function (stream) {
 						});
 					});
 				}
-
-				// If secondary tag exist, field is suppose to be also saved to secondary location:
-				// generate config file with secondary fields as primary keys
-				if (conf.marcSecondaryTag) {
-					generateRecord({marcTag: conf.marcSecondaryTag, marcSub: conf.marcSecondarySub, unique: conf.marcIfUnique, ind1: conf.marcSecondaryInd1 || conf.ind1, ind2: conf.marcSecondaryInd2 || conf.ind2, marcpresetFields: conf.marcSecondarypresetFields}, field);
-				}
 			}
 
 			// Adds prefix and suffix
@@ -286,7 +275,7 @@ export default async function (stream) {
 			var fieldVal = field.$.value;
 			switch (fieldToEdit.from) {
 				case 'dc.date.issued': {
-					if (fieldVal > 4) {
+					if (fieldVal.length > 4) {
 						fieldVal = fieldVal.substring(0, 4);
 					}
 					break;
@@ -304,8 +293,6 @@ export default async function (stream) {
 		// This handles 502 field to be sure that it is generated correctly after all fields are read
 		function generateOnTaso() {
 			if (onTaso['dc.type.ontasot']) {
-				modify008OnTaso(); // Modify 008 leader
-
 				var rec = {
 					tag: '502',
 					ind1: '',
@@ -360,15 +347,6 @@ export default async function (stream) {
 
 		// Generate actual Marc object
 		function generateMarcRecord() {
-			standardFields.forEach(field => {
-				try {
-					marcRecord.insertField(field);
-				} catch (error) {
-					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${field}`);
-					Logger.log('error', `Error message: ${error.message}`);
-				}
-			});
-
 			marcJSON.forEach(field => {
 				try {
 					marcRecord.insertField(field);
@@ -390,20 +368,6 @@ export default async function (stream) {
 					Logger.log('error', `Error message: ${error.message}`);
 				}
 			});
-
-			// MarcRecords.push(marcRecord); // Save all records to array for debug saving
-		}
-
-		function modify008OnTaso() { // Dc.type.ontaso exists, modify control field
-			control008Structure[4].value = replaceAt(control008Structure[4].value, 7, 'm');
-
-			// Replace single char at string
-			function replaceAt(str, index, chr) {
-				if (index > str.length - 1) {
-					return str;
-				}
-				return str.substr(0, index) + chr + str.substr(index + 1);
-			}
 		}
 
 		// Function to get DC path from field
