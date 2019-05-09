@@ -33,6 +33,7 @@ import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
 import {Utils} from '@natlibfi/melinda-commons';
 import langs from 'langs';
+//import fs from 'fs'
 
 const {createLogger} = Utils;
 
@@ -41,8 +42,13 @@ export default async function (stream) {
 	const records = await JSON.parse(await getStream(stream));
 
 	Logger.log('debug', `Starting conversion of ${records.length} records...`);
+
 	return Promise.all(records.map(convertRecord));
 
+	// const recordsTransformed = await Promise.all(records.map(convertRecord));
+	// fs.writeFileSync('marcRecords.json', JSON.stringify(recordsTransformed, undefined, 2));
+	// return recordsTransformed;
+	
 	function convertRecord(record) {
 		var control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
 		var onTaso = {};
@@ -60,7 +66,7 @@ export default async function (stream) {
 		controlJSON = controlJSON.concat(standardFields);
 
 		if (typeof (record.metadata) === 'undefined') {
-			Logger.log('warn', 'Metadata deteletd for record: ' + JSON.stringify(record, null, 2));
+			Logger.log('warn', 'Metadata deteleted for record: ' + JSON.stringify(record, null, 2));
 			return; // Some records can be '"status": "deleted"' -> no metadata, just header
 		}
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
@@ -166,12 +172,13 @@ export default async function (stream) {
 
 				// Check if language field should be transformed from 2 chars to 3 chars, then normal handling
 				case enums.langField: {
-					// Language code might be already in ISO 639-2b (3 chars)
-					if (field.$.value.length === 2 && typeof (langs.where(1, field.$.value)) !== 'undefined') {
+					if (field.$.value.length === 3){ // Language code might be already in ISO 639-2b (3 chars)
+						break;
+					}else if(field.$.value.length === 2 && typeof (langs.where(1, field.$.value)) !== 'undefined') {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
 					} else {
-						Logger.log('warn', 'Record: ' + recordIdentifier + ' has two char language code that cannot be transformed to three char version, this will possibly break leader: ' + field.$.value);
+						Logger.log('warn', 'Record: ' + recordIdentifier + '  has language code that cannot be transformed to three char version, this will possibly break leader: "' + field.$.value + '"');
 					}
 					break; // Otherwise normally
 				}
@@ -384,7 +391,7 @@ export default async function (stream) {
 			if (text.includes(identifier) && text.includes(' | ')) {
 				return text.substring(text.indexOf(identifier) + 3, text.indexOf(' | '));
 			}
-			Logger.log('warn', `Should clip language version, but something went wrong, returning original: ${JSON.stringify(onTaso, null, 2)}`);
+			Logger.log('info', `Should clip language version, but something went wrong, returning original: ${JSON.stringify(onTaso, null, 2)}`);
 			return text;
 		}
 		// End of supporting functions

@@ -30,12 +30,14 @@
 import validateFactory from '@natlibfi/marc-record-validate';
 import {
 	FieldsPresent,
-	EmptyFields
+	EmptyFields,
+	IsbnIssn
 } from '@natlibfi/marc-record-validators-melinda';
 
 export default async () => {
 	return validateFactory([
 		await FieldsPresent([/^(007|008)$/]),
-		await EmptyFields()
+		await EmptyFields(),
+		await IsbnIssn({hyphenateISBN: true})
 	]);
 };
