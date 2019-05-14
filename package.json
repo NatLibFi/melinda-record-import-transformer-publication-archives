@@ -40,7 +40,7 @@
 		"@natlibfi/marc-record-validate": "^4.0.0",
 		"@natlibfi/marc-record-validators-melinda": "^6.0.0",
 		"@natlibfi/melinda-commons": "^4.0.4",
-		"@natlibfi/melinda-record-import-commons": "^3.1.1",
+		"@natlibfi/melinda-record-import-commons": "^4.1.0",
 		"langs": "^2.0.0",
 		"metadata-parser": "^1.0.1",
 		"moment": "^2.22.2",

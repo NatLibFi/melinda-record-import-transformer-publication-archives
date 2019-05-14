@@ -48,7 +48,7 @@ export default async function (stream) {
 	// const recordsTransformed = await Promise.all(records.map(convertRecord));
 	// fs.writeFileSync('marcRecords.json', JSON.stringify(recordsTransformed, undefined, 2));
 	// return recordsTransformed;
-	
+
 	function convertRecord(record) {
 		var control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
 		var onTaso = {};
@@ -172,9 +172,9 @@ export default async function (stream) {
 
 				// Check if language field should be transformed from 2 chars to 3 chars, then normal handling
 				case enums.langField: {
-					if (field.$.value.length === 3){ // Language code might be already in ISO 639-2b (3 chars)
+					if (field.$.value.length === 3) { // Language code might be already in ISO 639-2b (3 chars)
 						break;
-					}else if(field.$.value.length === 2 && typeof (langs.where(1, field.$.value)) !== 'undefined') {
+					} else if (field.$.value.length === 2 && typeof (langs.where(1, field.$.value)) !== 'undefined') {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
 					} else {
