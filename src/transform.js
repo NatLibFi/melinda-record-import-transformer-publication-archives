@@ -33,7 +33,7 @@ import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
 import {Utils} from '@natlibfi/melinda-commons';
 import langs from 'langs';
-//import fs from 'fs'
+// Import fs from 'fs'
 
 const {createLogger} = Utils;
 
@@ -45,7 +45,7 @@ export default async function (stream) {
 
 	return Promise.all(records.map(convertRecord));
 
-	// const recordsTransformed = await Promise.all(records.map(convertRecord));
+	// Const recordsTransformed = await Promise.all(records.map(convertRecord));
 	// fs.writeFileSync('marcRecords.json', JSON.stringify(recordsTransformed, undefined, 2));
 	// return recordsTransformed;
 
@@ -375,6 +375,8 @@ export default async function (stream) {
 					Logger.log('error', `Error message: ${error.message}`);
 				}
 			});
+
+			// Console.log(JSON.stringify(marcRecord, null, 2));
 		}
 
 		// Function to get DC path from field
