@@ -73,6 +73,9 @@ describe('Check different transformation cases', () => {
 	describe('#Doria18-19', () => {
 		it('18-19 records from Doria', async () => {
 			const result = await transform(fs.createReadStream('./test/recordsDoria2018-19.json', 'utf8'));
+			// console.log("--------------------")
+			// console.log(JSON.stringify(result, null, 2))
+			// console.log("--------------------")
 			expect(result).to.eql(doria1819);
 		}).timeout(10000);
 	});

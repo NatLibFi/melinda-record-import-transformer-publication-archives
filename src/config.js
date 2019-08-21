@@ -212,7 +212,11 @@ export const confMap = new Map([
 			presetFields: [{
 				sub: 'q',
 				value: 'PDF'
-			}]
+			}]// ,
+			// marcReplace: {
+			// 	phrase: 'ISBN:',
+			// 	replace: ''
+			// }
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0
@@ -317,6 +321,18 @@ export const confMap = new Map([
 	// Sarjatieto, järjestysnumero	 	dc.relation.numberinseries	490$v	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
 	[
 		'dc.relation.numberinseries',
+		{
+			label: 'Sarjatieto, järjestysnumero',
+			marcTag: '490',
+			marcSub: 'v',
+			ind1: '1',
+			ind2: '',
+			unique: true
+		}
+	],
+	// Lassi: käsitellään samalla tavalla [numberinseries <-> numberinseries]
+	[
+		'dc.relation.numberofseries',
 		{
 			label: 'Sarjatieto, järjestysnumero',
 			marcTag: '490',
