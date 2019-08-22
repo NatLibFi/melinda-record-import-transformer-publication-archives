@@ -91,7 +91,7 @@ export const control008Strc = [{
 }, {
 	start: 8,
 	end: 11,
-	value: null,
+	value: '----',
 	from: 'dc.date.issued'
 }, {
 	start: 12,
@@ -105,16 +105,17 @@ export const control008Strc = [{
 }, {
 	start: 18,
 	end: 35,
-	value: ' |||||o|||||||| ||'
+	value: ' |||||o|||||||| ||',
+	from: 'onTaso'
 }, {
 	start: 36,
 	end: 38,
-	value: null,
+	value: '---',
 	from: 'dc.language.iso'
 }, {
 	start: 39,
 	to: 40,
-	value: '  '
+	value: ' c'
 }];
 
 export const standardFields = [{
