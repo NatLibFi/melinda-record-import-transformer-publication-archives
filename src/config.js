@@ -209,14 +209,11 @@ export const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '',
+			regexRemove: /(^ISBN:)|(\s)|(\(print\))/g,
 			presetFields: [{
 				sub: 'q',
 				value: 'PDF'
-			}]// ,
-			// marcReplace: {
-			// 	phrase: 'ISBN:',
-			// 	replace: ''
-			// }
+			}]
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0

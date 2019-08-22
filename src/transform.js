@@ -215,6 +215,9 @@ export default async function (stream) {
 				modifyControlField(field);
 			} else { // Normal fields
 				var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
+				if (conf.regexRemove) {
+					field.$.value = field.$.value.replace(conf.regexRemove, '');
+				}
 				// Earlier existing record and should be unique -> push new subfield
 				if (foundRec && conf.unique) {
 					// Find out if tag is suppose to be in specific order
