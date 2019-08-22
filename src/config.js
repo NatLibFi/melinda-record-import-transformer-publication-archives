@@ -509,19 +509,37 @@ export const confMap = new Map([
 			ind2: '7'
 		}
 	],
-	// Asiasanat	tarkenne	dc.subject.ysa (esim.)	650$a, mahd. tarkenne: 650$2	tyhjä	7	 	650 _7  $a historia  $2 ysa
+	// Previously yso rule was ysa
+	// Asiasanat	tarkenne	dc.subject.ys0 (esim.)	650$a, mahd. tarkenne: 650$2	tyhjä	7	 	650 _7  $a historia  $2 ysa
 	[
-		'dc.subject.ysa',
+		'dc.subject.yso',
 		{
 			label: 'Asiasanat',
 			marcTag: '650',
-			marcSub: '2',
+			marcSub: 'a',
 			ind1: '',
 			ind2: '7',
-			unique: true
+			presetFields: [{
+				sub: '2',
+				value: 'ysa'
+			}]
 		}
 	],
-
+	// (Muut tarkenteet, kuten ysa: 653-kenttään )
+	[
+		'dc.subject.yso',
+		{
+			label: 'Asiasanat',
+			marcTag: '653',
+			marcSub: 'a',
+			ind1: '',
+			ind2: '7',
+			presetFields: [{
+				sub: '2',
+				value: 'ysa'
+			}]
+		}
+	],
 	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
 	[
 		'dc.coverage.spatial',

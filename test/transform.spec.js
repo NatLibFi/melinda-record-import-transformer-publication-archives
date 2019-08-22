@@ -32,7 +32,7 @@ import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import transform from '../src/transform';
 import {custom, utaChecked, utaSingle, utaComplex, doriaSingle} from './validResponses'
-import {doria1819} from './validDoria1819'
+import {doria1819} from './validDoria1819Small'
 import fs from 'fs';
 
 const {expect} = chai;
@@ -72,12 +72,14 @@ describe('Check different transformation cases', () => {
 	
 	describe('#Doria18-19', () => {
 		it('18-19 records from Doria', async () => {
-			const result = await transform(fs.createReadStream('./test/recordsDoria2018-19.json', 'utf8'));
-			// console.log("--------------------")
-			// console.log(JSON.stringify(result, null, 2))
+			const result = await transform(fs.createReadStream('./test/recordsDoria2018-19Small.json', 'utf8'));
+			console.log("--------------------")
+			console.log(JSON.stringify(result, null, 2))
+			console.log("--------------------")
+			// console.log(result)
 			// console.log("--------------------")
 			expect(result).to.eql(doria1819);
-		}).timeout(10000);
+		}).timeout(100000);
 	});
 });
 // console.log("--------------------")
