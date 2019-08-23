@@ -409,17 +409,17 @@ export const confMap = new Map([
 			ind2: ''
 		}
 	],
-	// Tiivistelmä	 	dc.description.abstract	520$a	tyhjä	tyhjä	 	520  __ $a Tiivistelmä.
-	[
-		'dc.description.abstract',
-		{
-			label: 'Tiivistelmä',
-			marcTag: '520',
-			marcSub: 'a',
-			ind1: '',
-			ind2: ''
-		}
-	],
+	// // Tiivistelmä	 	dc.description.abstract	520$a	tyhjä	tyhjä	 	520  __ $a Tiivistelmä.
+	// [
+	// 	'dc.description.abstract',
+	// 	{
+	// 		label: 'Tiivistelmä',
+	// 		marcTag: '520',
+	// 		marcSub: 'a',
+	// 		ind1: '',
+	// 		ind2: ''
+	// 	}
+	// ],
 	// Tekijänoikeus-/käyttöoikeustiedot	 	dc.rights	540$c	tyhjä	tyhjä	 	540  __ $c FinELib-lisenssi $u https://www.kiwi.fi/display/finelib/Ellibs
 	[
 		'dc.rights',
