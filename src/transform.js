@@ -303,8 +303,18 @@ export default async function (stream) {
 		// This handles 502 field to be sure that it is generated correctly after all fields are read
 		function generateOnTaso() {
 			if (onTaso['dc.type.ontasot']) {
-				var rec = {
+				marcJSON.push({
 					tag: '502',
+					ind1: '',
+					ind2: '',
+					subfields: [{
+						code: 'a',
+						value: 'Väitöskirja'
+					}]
+				});
+
+				var rec = {
+					tag: '500',
 					ind1: '',
 					ind2: '',
 					subfields: [{

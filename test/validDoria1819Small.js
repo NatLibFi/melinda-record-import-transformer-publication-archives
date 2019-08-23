@@ -623,13 +623,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -886,13 +897,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -1431,13 +1453,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -1855,13 +1888,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -2969,13 +3013,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -3404,13 +3459,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -3645,13 +3711,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -3908,13 +3985,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -4149,13 +4237,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -4895,13 +4994,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -5147,13 +5257,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -5414,13 +5535,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -5677,13 +5809,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -6082,13 +6225,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -6334,13 +6488,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -6641,13 +6806,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -6893,13 +7069,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -7123,13 +7310,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -7375,13 +7573,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -7627,13 +7836,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -12543,13 +12763,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -23538,13 +23769,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -23790,13 +24032,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -25014,13 +25267,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -25639,13 +25903,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -25939,13 +26214,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -26202,13 +26488,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -35230,13 +35527,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -40558,13 +40866,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -40902,13 +41221,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -41843,13 +42173,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -42077,13 +42418,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -42609,13 +42961,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -42832,13 +43195,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -43073,13 +43447,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -43318,13 +43703,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -43750,13 +44146,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -43973,13 +44380,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -44345,13 +44763,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -44579,13 +45008,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -44798,13 +45238,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -45028,13 +45479,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -45280,13 +45742,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -45514,13 +45987,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -45737,13 +46221,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -45956,13 +46451,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -46190,13 +46696,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -46387,13 +46904,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Avhandling pro gradu :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -49135,13 +49663,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -49380,13 +49919,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -55128,13 +55678,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Artikkeliväitöskirja :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -57719,13 +58280,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doctoral dissertation (article-based) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -60047,13 +60619,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (artikelavhandling) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -60259,13 +60842,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doctoral dissertation (article-based) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -61823,13 +62417,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doctoral dissertation (article-based) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -62276,13 +62881,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -62477,13 +63093,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doktorsavhandling (monografi) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -62700,13 +63327,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doctoral dissertation (article-based) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -62901,13 +63539,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doctoral dissertation (article-based) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -63102,13 +63751,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doctoral dissertation (article-based) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
@@ -63782,13 +64442,24 @@ export const doria1819 = [
         ]
       },
       {
-        "tag": "502",
+        "tag": "500",
         "ind1": " ",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
             "value": "Doctoral dissertation (article-based) :"
+          }
+        ]
+      },
+      {
+        "tag": "502",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Väitöskirja"
           }
         ]
       },
