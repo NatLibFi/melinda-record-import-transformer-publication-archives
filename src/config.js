@@ -110,7 +110,7 @@ export const control008Strc = [{
 }, {
 	start: 36,
 	end: 38,
-	value: '---',
+	value: 'und',
 	from: 'dc.language.iso'
 }, {
 	start: 39,
@@ -210,7 +210,7 @@ export const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '',
-			regexRemove: /(^ISBN:)|(\s)|(\(print\))/g,
+			regexRemove: /(^ISBN)|(^ISBN:)|(\s)|(\(print\))/g,
 			presetFields: [{
 				sub: 'q',
 				value: 'PDF'
@@ -526,9 +526,24 @@ export const confMap = new Map([
 			}]
 		}
 	],
-	// (Muut tarkenteet, kuten ysa: 653-kenttään )
+	// Lisätty Lassin kanssa
 	[
-		'dc.subject.yso',
+		'dc.subject.afo',
+		{
+			label: 'Asiasanat',
+			marcTag: '650',
+			marcSub: 'a',
+			ind1: '',
+			ind2: '7',
+			presetFields: [{
+				sub: '2',
+				value: 'afo'
+			}]
+		}
+	],
+	// Ysa: 653-kenttään
+	[
+		'dc.subject.ysa',
 		{
 			label: 'Asiasanat',
 			marcTag: '653',
@@ -541,17 +556,6 @@ export const confMap = new Map([
 			}]
 		}
 	],
-	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
-	[
-		'dc.coverage.spatial',
-		{
-			label: 'Julkaisun kattavuus (paikka)',
-			marcTag: '651',
-			marcSub: 'a',
-			ind1: '',
-			ind2: '7'
-		}
-	],
 	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä
 	// If only dc.subject -> 653$a
 	// If dc.subject.ysa -> both 650, dc.subject subfield a, dc.subject.ysa subfield 2
@@ -562,15 +566,18 @@ export const confMap = new Map([
 			marcTag: '653',
 			marcSub: 'a',
 			ind1: '',
-			ind2: '',
-			marcIf: enums.ysaPresent, // Use marcIfConfig if ysaPresent
-			marcIfConfig: {
-				marcTag: '650',
-				marcSub: 'a',
-				ind1: '',
-				ind2: '7',
-				unique: true
-			}
+			ind2: ''
+		}
+	],
+	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
+	[
+		'dc.coverage.spatial',
+		{
+			label: 'Julkaisun kattavuus (paikka)',
+			marcTag: '651',
+			marcSub: 'a',
+			ind1: '',
+			ind2: '7'
 		}
 	],
 	// Toimittaja	 	dc.contributor.editor	700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e toimittaja.
