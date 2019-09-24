@@ -4,16 +4,16 @@
 *
 * Helmet record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2018 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019 University Of Helsinki (The National Library Of Finland)
 *
-* This file is part of melinda-record-import-transformer-helmet
+* This file is part of melinda-record-import-transformer-publication-archives
 *
-* melinda-record-import-transformer-helmet program is free software: you can redistribute it and/or modify
+* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License as
 * published by the Free Software Foundation, either version 3 of the
 * License, or (at your option) any later version.
 *
-* melinda-record-import-transformer-helmet is distributed in the hope that it will be useful,
+* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU Affero General Public License for more details.
@@ -33,7 +33,6 @@ import getStream from 'get-stream';
 import {MarcRecord} from '@natlibfi/marc-record';
 import {Utils} from '@natlibfi/melinda-commons';
 import langs from 'langs';
-// Import fs from 'fs'
 
 const {createLogger} = Utils;
 
@@ -44,10 +43,6 @@ export default async function (stream) {
 	Logger.log('debug', `Starting conversion of ${records.length} records...`);
 
 	return Promise.all(records.map(convertRecord));
-
-	// Const recordsTransformed = await Promise.all(records.map(convertRecord));
-	// fs.writeFileSync('marcRecords.json', JSON.stringify(recordsTransformed, undefined, 2));
-	// return recordsTransformed;
 
 	function convertRecord(record) {
 		var control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
@@ -69,6 +64,7 @@ export default async function (stream) {
 			Logger.log('warn', 'Metadata deteleted for record: ' + JSON.stringify(record, null, 2));
 			return; // Some records can be '"status": "deleted"' -> no metadata, just header
 		}
+
 		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
 
 		conditionalFields(); // Check condition fields before actual cycle
@@ -83,7 +79,6 @@ export default async function (stream) {
 
 		return marcRecord;
 
-		/// /////////////////////////////////////////////////
 		// Start of supporting functions
 		function conditionalFields() {
 			fields.forEach(field => {
@@ -93,9 +88,11 @@ export default async function (stream) {
 					if (conditionalCase.ignore) {
 						ignoredFields = ignoredFields.concat(conditionalCases.get(getDCPath(field)).ignore);
 					}
+
 					if (conditionalCase.ysaPresent) {
 						ysaPresent = conditionalCase.ysaPresent;
 					}
+
 					if (conditionalCase.set008Strc) {
 						var conf = conditionalCase.set008Strc;
 
@@ -114,6 +111,7 @@ export default async function (stream) {
 				if (index > str.length - 1) {
 					return str;
 				}
+
 				return str.substr(0, index) + chr + str.substr(index + 1);
 			}
 		}
@@ -134,6 +132,7 @@ export default async function (stream) {
 						field.$.value = clipLang(field.$.value, 'fi='); // Clean field with language options
 						break; // Otherwise normal
 					}
+
 					return;
 				}
 
@@ -144,6 +143,7 @@ export default async function (stream) {
 						upsertRecord(conf.marcIfConfig, field, recordIdentifier);
 						return;
 					}
+
 					break; // First normally
 				}
 
@@ -153,6 +153,7 @@ export default async function (stream) {
 					if (fieldVal.length > 4) {
 						fieldVal = fieldVal.substring(0, 4);
 					}
+
 					issued = fieldVal;
 					break; // Otherwise normally
 				}
@@ -167,6 +168,7 @@ export default async function (stream) {
 						generateRecord(tempConf, field); // Generate with edited config
 						return;
 					}
+
 					break; // Otherwise normally
 				}
 
@@ -180,6 +182,7 @@ export default async function (stream) {
 					} else {
 						Logger.log('warn', 'Record: ' + recordIdentifier + '  has language code that cannot be transformed to three char version, this will possibly break leader: "' + field.$.value + '"');
 					}
+
 					break; // Otherwise normally
 				}
 
@@ -189,6 +192,7 @@ export default async function (stream) {
 						generateRecord(conf.marcIfConfig, field); // Use ifConfig
 						return; // Ignore normal functionality
 					}
+
 					break; // Otherwise normally
 				}
 			}
@@ -218,6 +222,7 @@ export default async function (stream) {
 				if (conf.regexRemove) {
 					field.$.value = field.$.value.replace(conf.regexRemove, '');
 				}
+
 				// Earlier existing record and should be unique -> push new subfield
 				if (foundRec && conf.unique) {
 					// Find out if tag is suppose to be in specific order
@@ -288,15 +293,19 @@ export default async function (stream) {
 					if (fieldVal.length > 4) {
 						fieldVal = fieldVal.substring(0, 4);
 					}
+
 					break;
 				}
+
 				case 'dc.publisher.country': {
 					if (fieldVal.length > 2) {
 						fieldVal = fieldVal.substring(0, 2);
 					}
+
 					break;
 				}
 			}
+
 			fieldToEdit.value = fieldVal;
 		}
 
@@ -343,6 +352,7 @@ export default async function (stream) {
 						value: issued + '.'
 					});
 				}
+
 				marcJSON.push(rec);
 			}
 		}
@@ -354,6 +364,7 @@ export default async function (stream) {
 				if (typeof (element.value) === 'undefined') {
 					Logger.log('warn', `Broken record, with missing control field element: ${element.from}`);
 				}
+
 				controlValue008 += element.value;
 			});
 
@@ -371,7 +382,7 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${field}`);
+					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
 					if (field.subfields[0].value === '') {
 						Logger.log('warn', `Error message: ${error.message} (Empty value)`);
 					} else {
@@ -384,12 +395,10 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${field}`);
+					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
 					Logger.log('error', `Error message: ${error.message}`);
 				}
 			});
-
-			// Console.log(JSON.stringify(marcRecord, null, 2));
 		}
 
 		// Function to get DC path from field
@@ -398,18 +407,21 @@ export default async function (stream) {
 			if (typeof (field.$.qualifier) !== 'undefined') {
 				dcPath = dcPath + '.' + field.$.qualifier;
 			}
+
 			return dcPath;
 		}
 
 		// Faculty can be like: 'fi=Yhteiskuntatieteiden tiedekunta | en=Faculty of Social Sciences|'
 		function clipLang(text, identifier) {
-			if (text.includes(identifier) && text.includes(' | ')) {
-				return text.substring(text.indexOf(identifier) + 3, text.indexOf(' | '));
+			let match = text.match(new RegExp('(?<=' + identifier + ').+?(?=\\|)', 'i'));
+			if (typeof (match) !== 'undefined' && match !== null) {
+				return match[0].trim();
 			}
-			Logger.log('info', `Should clip language version, but something went wrong, returning original: ${JSON.stringify(onTaso, null, 2)}`);
+
+			Logger.log('info', `Should clip language version, but something went wrong, returning original: "${text}"`);
+
 			return text;
 		}
 		// End of supporting functions
-		/// /////////////////////////////////////////////////
 	}
 }

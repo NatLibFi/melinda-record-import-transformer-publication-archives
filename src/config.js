@@ -4,16 +4,16 @@
 *
 * Helmet record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2018 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019 University Of Helsinki (The National Library Of Finland)
 *
-* This file is part of melinda-record-import-transformer-helmet
+* This file is part of melinda-record-import-transformer-publication-archives
 *
-* melinda-record-import-transformer-helmet program is free software: you can redistribute it and/or modify
+* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License as
 * published by the Free Software Foundation, either version 3 of the
 * License, or (at your option) any later version.
 *
-* melinda-record-import-transformer-helmet is distributed in the hope that it will be useful,
+* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU Affero General Public License for more details.
@@ -210,7 +210,7 @@ export const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '',
-			regexRemove: /(^ISBN)|(^ISBN:)|(\s)|(\(print\))/g,
+			regexRemove: /(^ISBN:)|(^ISBN)|(\s)|(\(print\))/g,
 			presetFields: [{
 				sub: 'q',
 				value: 'PDF'
@@ -686,16 +686,17 @@ export const confMap = new Map([
 			ind2: '2' // ToDo: If previous #4#0 should we create new record or update to #4#2
 		}
 	],
-	// Muu verkko-osoite	 	dc.relation.uri
-	[
-		'dc.relation.uri',
-		{
-			label: 'Muu verkko-osoite',
-			marcTag: '', // ToDo
-			ind1: null, // ToDo
-			ind2: null // ToDo
-		}
-	],
+	// // Muu verkko-osoite	 	dc.relation.uri
+	// [
+	// 	'dc.relation.uri',
+	// 	{
+	// 		label: 'Muu verkko-osoite', // Same as dc.relation.url from Lassi
+	// 		marcTag: '856',
+	// 		marcSub: 'u',
+	// 		ind1: 4,
+	// 		ind2: 2
+	// 	}
+	// ],
 	// Muu URN-tunnus	 	dc.relation.urn	856$u	4	2
 	[
 		'dc.relation.urn',
