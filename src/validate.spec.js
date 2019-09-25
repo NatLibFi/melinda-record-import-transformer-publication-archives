@@ -29,9 +29,9 @@
 import fs from 'fs';
 import path from 'path';
 import {expect} from 'chai';
-import createValidator from '../src/validate';
+import createValidator from './validate';
 
-const FIXTURES_PATH = path.join(__dirname, '');
+const FIXTURES_PATH = path.join(__dirname, '../test-fixtures');
 
 describe('validate 2019', () => {
 	let validate;
@@ -42,11 +42,11 @@ describe('validate 2019', () => {
 
 	fs.readdirSync(path.join(FIXTURES_PATH, '2019Harvests/transformed')).forEach(file => {
 		it(file, async () => {
-			const data = require(path.join(FIXTURES_PATH, '2019Harvests/transformed', file))
+			const data = require(path.join(FIXTURES_PATH, '2019Harvests/transformed', file));
 			const results = await validate(data, true, true);
-			const cleaned = results.map( e =>{
+			const cleaned = results.map(e => {
 				return e.record;
-			})
+			});
 			expect(cleaned).to.eql(require(path.join(FIXTURES_PATH, '2019Harvests/valid', file)));
 		}).timeout(100000);
 	});

@@ -31,7 +31,6 @@ import transform from './transform';
 import createValidator from './validate';
 import {Transformer} from '@natlibfi/melinda-record-import-commons';
 import moment from 'moment';
-import fs from 'fs';
 
 const {runCLI} = Transformer;
 
@@ -50,7 +49,6 @@ async function run() {
 
 	async function startTransform({stream, args: {validate, fix, recordsOnly}, spinner, handleRecordsOutput}) {
 		const records = await transformStream(stream, validate, fix);
-		fs.writeFileSync('logStartTrans.txt', 'validate: ' + validate + '\nfix: ' + fix);
 		if (validate || fix) {
 			spinner.succeed();
 			spinner.start('Validating records');
