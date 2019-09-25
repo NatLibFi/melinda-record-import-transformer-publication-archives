@@ -16,7 +16,7 @@ steps:
 - name: docker 
   image: plugins/docker
   settings:
-    repo: quay.io/natlibfi/melinda-record-import-transformer-helmet
+    repo: quay.io/natlibfi/melinda-record-import-transformer-publication-archives
     registry: quay.io
     username:
       from_secret: docker_username
