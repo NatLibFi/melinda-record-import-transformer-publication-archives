@@ -1,0 +1,3158 @@
+[
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/7530"
+        ],
+        "datestamp": [
+          "2019-01-02T09:00:14Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/7530"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/7530"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Isohella, Suvi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Markkinoinnin ja viestinnän yksikkö|en=School of Marketing and Communication|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Ei tutkimusalustaa|en=No platform|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2018-06-06T13:50:43Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2018-06-06T13:50:43Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-1-5225-4155-4"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2372-1111"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://osuva.uwasa.fi/handle/10024/7530"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe2018060625427"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "This chapter describes how globalization and rapid technological change are transforming technical communication both in academia and the corporate world. Products and technologies are used by a variety of user groups, and usability has become an important requirement. The transnational pedagogical collaboration, the Trans-Atlantic and Pacific Project, has taken up the gauntlet by providing students with a simulated professional environment and sharing insights into collaborative writing, translation, and usability evaluation. By reflecting on previous studies and the author´s experiences, this article explores issues relevant to teachers when incorporating international collaboration and usability evaluation into a technical communication course. It describes international student collaboration regarding usability practices and discusses the benefits and challenges of usability evaluation as part of international collaboration. It concludes by suggesting guidelines for teachers to facilitate international collaboration and usability evaluation in higher education setting."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "22"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "344-363"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "eng"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Multilingual Writing and Pedagogical Cooperation in Virtual Learning Environments"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "Advances in Linguistics and Communication Studies (ALCS)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-1-5225-4154-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2372-109X"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "doi",
+                  "language": "-",
+                  "value": "10.4018/978-1-5225-4154-7.ch014"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "tekninen viestintä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "technical communication"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "-",
+                  "value": "publishedVersion"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "A3 Kirjan tai muun kokoomateoksen osa"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "IGI Global"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Incorporating International Collaboration and Usability Evaluation Into a Technical Communication Course"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/7530/1/Incorporating-International-Collaboration-and-Usability-Evaluation-Into-a-Technical-Communication-Course.pdf",
+                  "name": "Incorporating-International-Collaboration-and-Usability-Evaluation-Into-a-Technical-Communication-Course.pdf",
+                  "type": "application/pdf",
+                  "size": "335031",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8149"
+        ],
+        "datestamp": [
+          "2019-01-14T12:30:12Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_171"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8149"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8149"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Karppi, Ilari"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Lehti, Kirsi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Mäntylä, Niina"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Johtamisen yksikkö|en=School of Management|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "Innolab"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-14T12:16:30Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-14T12:16:30Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-03-0702-8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8149"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-952-03-0702-8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Ilpo Luoto, Niina Mäntylä, Laura Perttola & Kristian Siikavirta: Julkisen hallintotoiminnan oikeudelliset erityispiirteet\r\n\r\nJukka Viljanen & Heta Heiskanen: Suomalaisen ihmisoikeusarkkitehtuurin ja ihmisoikeuskulttuurin nykytila ja tulevaisuus\r\n\r\nJarmo Vakkuri, Lasse Oulasvirta, Jan-Erik Johanson, Pentti Meklin, Lotta-Maria Sinervo, Tuija Rajala & Jaakko Rönkkö: Talouden hallinta ja johtaminen julkisessa toiminnassa\r\n\r\nMarkku Sotarauta: Aluekehittämisen kehityskaari Suomessa ja peruskäsitteet\r\n\r\nIlkka Luoto & Seija Virkkala: Paikkaperustaisen aluekehittämisen neljä kulmakiveä\r\n\r\nJouni Häkli, Yrjö Haila, Tanja Helle, Ari Jokinen, Pekka Jokinen, Markus Laine, Helena Leino & Nina Tynkkynen: Ympäristöpolitiikka ja aluetiede – oivaltavaa ongelmanratkaisua\r\n\r\nJuha Lindell, Seija Ollila & Pirkko Vartiainen: Kompleksisuuden johtaminen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "notification",
+                  "language": "-",
+                  "value": "Hallintotieteiden valintakoeteos 2018: Tampereen yliopisto ja Vaasan yliopisto"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "118"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fin"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "hallintotieteet"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "johtaminen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "julkinen hallinto"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "aluekehitys"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "ympäristöpolitiikka"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "discipline",
+                  "language": "-",
+                  "value": "fi=Julkisjohtaminen|en=Public Management|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "book"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "-",
+                  "value": "publishedVersion"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=D6 Toimitettu ammatillinen teos|en=D6 Edited book for professional community|sv=D6 Redigerat yrkesinriktat verk|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "https://www.hallintotieteet.fi/wp-content/uploads/2018/02/Governance-III-Hallintaa-ja-yhteisty%C3%B6t%C3%A4.pdf"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Tampereen yliopisto, johtamiskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Governance III : Hallintaa ja yhteistyötä"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8149/1/978-952-03-0702-8.pdf",
+                  "name": "978-952-03-0702-8.pdf",
+                  "type": "application/pdf",
+                  "size": "1245650",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8150"
+        ],
+        "datestamp": [
+          "2019-01-15T09:00:13Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8150"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8150"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Lehtonen, Tommi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "orcid",
+                  "language": "-",
+                  "value": "https://orcid.org/0000-0002-0286-3059"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Johtamisen yksikkö|en=School of Management|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Ei tutkimusalustaa|en=No platform|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T08:48:47Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T08:48:47Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-68538-5-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8150"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201901152144"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Tässä artikkelissa tehdään selkoa vaihtoehtoisen totuuden käsitteestä. Tulokseksi saadaan vaihtoehtoisen totuuden 18 merkitystä, jotka eivät ole toisiaan poissulkevia vaan osittain päällekkäisiä. Tarkastelu perustuu uutisointeihin, jotka koskevat presidentti Donald Trumpin hallinnon synnyttämää mediakeskustelua vaihtoehtoisista totuuksista, totuuden jälkeisestä ajasta ja valeuutisista. Lisäksi hyödynnetään esimerkkejä kaunokirjallisuudesta (mm. George Orwellin kirja ”Vuonna 1984” sekä ”Sokeat ja norsu” -kertomus) ja filosofisesta keskustelusta (mm. klassinen tiedon määritelmä, tieto-opillinen relativismi sekä dekonstruktionistinen käsitys kielestä ja totuudesta). Johtopäätöksenä esitetään, että ongelmattomin tapa ymmärtää ”vaihtoehtoinen totuus” on liittää se inhimillisen tiedonkyvyn ja -hankinnan näkökulmasidonnaisuuteen. Sen mukaan perusteet jonkin väitteen esittämiselle ovat usein valikoivia ja rajoittavia. Lisäksi sama ilmiö voi näyttäytyä erilaisena riippuen siitä, mikä on tarkastelun fokus ja mitkä ovat tarkastelun välineet. Erilaiset mutta yhteensopivat käsitykset voivat siksi olla toisiaan täydentäviä osatotuuksia pikemmin kuin vaihtoehtoisia totuuksia."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "13"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "213-224"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "eng"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Työelämän viestintä : VAKKI-symposiumi XXXVIII. Vaasa 8.-9.2.2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "VAKKI publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2242-685X"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "conference",
+                  "language": "-",
+                  "value": "VAKKI-symposiumi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://www.vakki.net/publications/no9_fin.html"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "valeuutiset"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "näkökulma"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "olddiscipline",
+                  "language": "-",
+                  "value": "Filosofia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "-",
+                  "value": "publishedVersion"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=A4 Artikkeli konferenssijulkaisussa|en=A4 Peer-reviewed article in conference proceeding|sv=A4 Artikel i en konferenspublikation|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "VAKKI ry"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "alternative facts"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "partial truths"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "post-truth"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "The Concept of Alternative Facts"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8150/1/VAKKI2018_Lehtonen.pdf",
+                  "name": "VAKKI2018_Lehtonen.pdf",
+                  "type": "application/pdf",
+                  "size": "425290",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8151"
+        ],
+        "datestamp": [
+          "2019-01-15T10:00:11Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8151"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8151"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Soronen, Anne"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Koivunen, Niina"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Johtamisen yksikkö|en=School of Management|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Ei tutkimusalustaa|en=No platform|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T09:30:03Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T09:30:03Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-68538-5-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8151"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201901152148"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Visuaalisten tutkimusmenetelmien käyttö on levinnyt 2000-luvulla yhteiskuntatieteellisestä etnografisesta tutkimuksesta monille muille tieteenaloille, joissa ollaan kiinnostuneita yksilöiden kokemuksista, tunteista ja muistoista tai organisaatiotason prosesseista ja käytänteistä. Tässä artikkelissa keskustellaan visuaalisten tutkimusmenetelmien soveltuvuudesta ajallisuuden ja ajan tutkimiseen organisaatiokontekstissa. Artikkelissa kehitetään dialogisen valokuvahaastattelun menetelmää tarkastelemalla suomalaisen pelistudion pelinkehittäjien tapoja hahmottaa työaikaa. Lisäksi artikkelissa vastataan siihen, millaista tietoa dialogisella valokuvahaastattelulla voidaan saada ja miten se menetelmänä ohjaa tutkijan ja haastateltavan välistä vuorovaikutusta. Menetelmän kehittämisessä selvisi, että valokuvat mahdollistavat dialogisen ja haastateltavia osallistavan haastattelukeskustelun, toimivat muistamisen ja reflektoinnin tukena sekä tekevät näkyväksi ajan jäsentämistä."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "15"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "132-146"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "eng"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Työelämän viestintä : VAKKI-symposiumi XXXVIII. Vaasa 8.-9.2.2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "VAKKI publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2242-685X"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "conference",
+                  "language": "-",
+                  "value": "VAKKI-symposiumi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://www.vakki.net/publications/no9_fin.html"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "discipline",
+                  "language": "-",
+                  "value": "fi=Johtaminen ja organisaatiot|en=Management and Organization|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=A4 Artikkeli konferenssijulkaisussa|en=A4 Peer-reviewed article in conference proceeding|sv=A4 Artikel i en konferenspublikation|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "VAKKI ry"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "game development"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "organizational research"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "photo elicitation"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "photo interview"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "time"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Studying Time through Visual Research Methods : Development of Dialogical Photo-Interview Method"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8151/1/VAKKI2018_Soronen%26Koivunen.pdf",
+                  "name": "VAKKI2018_Soronen&Koivunen.pdf",
+                  "type": "application/pdf",
+                  "size": "401441",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8152"
+        ],
+        "datestamp": [
+          "2019-01-15T10:30:11Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8152"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8152"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Enell-Nilsson, Mona"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Koskela, Merja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Markkinoinnin ja viestinnän yksikkö|en=School of Marketing and Communication|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T10:06:27Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T10:06:27Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-68538-5-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8152"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201901152153"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "I artikeln granskas tyska och finländska bolags hållbarhetsredovisning och hur EU-direktivet 2014/95/EU har  påverkat  hållbarhetsredovisningen.  Det  nya  direktivet  trädde  i  kraft  från  verksamhetsåret  2017  och gör  redovisningen av  hållbarhetsaspekter  tvingande  för  större  bolag.  Analysen  visar  att en  majoritet  av DAX30- och OMXH25-bolagen för verksamhetsåret 2016 rapporterade hållbarhetsaspekter i en separat rapport, medan en minoritet valde en integrerad rapport där hållbarhetsaspekter kombineras med finansiell information i bolagens årsredovisning. Då bolagen som rapporterade hållbarhetsaspekterna separat år 2016 väljer rapporteringsformat för 2017 förekommer det olika lösningar: Bolag övergår till integrerad rapportering eller fortsätter med en separat rapport. Den separata rapporten förändras i många fall på så sätt att en ny, kompletterande separat rapport introduceras vid sidan av den tidigare rapporten, den tidigare rapporten ersätts av en ny rapport för icke-finansiell information eller den tidigare rapporten förändras mer eller mindre i fråga om titel och/eller innehåll. I vissa fall sker det ingen förändring i hållbarhetsrapporten, utan informationen som det nya direktivet kräver inkluderas i bolagets årsredovisning. I artikeln diskuteras textsorten hållbarhetsredovisning som  medlem  i  textsortskolonier,  och textsortens tendens till förändring  eller  stabilitet  reflekteras  mot  den  neoinstitutionella  organisationsteorins  beskrivningar  av tvingande, imiterande och normativ isomorfism."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "16"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "48-63"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "deu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Työelämän viestintä : VAKKI-symposiumi XXXVIII. Vaasa 8.-9.2.2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "VAKKI publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2242-685X"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "conference",
+                  "language": "-",
+                  "value": "VAKKI-symposiumi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://www.vakki.net/publications/no9_fin.html"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "discipline",
+                  "language": "-",
+                  "value": "fi=Viestintätieteet|en=Communication Studies|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=A4 Artikkeli konferenssijulkaisussa|en=A4 Peer-reviewed article in conference proceeding|sv=A4 Artikel i en konferenspublikation|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Nachhaltigkeitsbericht"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Textsortenkolonie"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Neo-Institutionalismus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Nachhaltigkeitsbericht spraxis in Veränderung : dargestellt an Beispielen deutscher und finnischer Unternehmen"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8152/1/VAKKI2018_Enell-Nilsson%26Koskela.pdf",
+                  "name": "VAKKI2018_Enell-Nilsson&Koskela.pdf",
+                  "type": "application/pdf",
+                  "size": "530898",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8153"
+        ],
+        "datestamp": [
+          "2019-01-15T10:30:09Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8153"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8153"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Holma, Anne-Maria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Koskela, Merja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Rajala, Anni"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Johtamisen yksikkö|en=School of Management|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Ei tutkimusalustaa|en=No platform|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T10:25:42Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T10:25:42Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-68538-5-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8153"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201901152157"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Tässä artikkelissa tarkastelemme käytäntöyhteisön näkökulmasta monivaiheista kurssitehtävää, jossa opiskelijat harjoittelevat liike-elämän vuorovaikutustaitoja asiakas- ja myyjäyrityksen välisessä neuvottelutilanteessa. Tavoitteena oli selvittää, miten käytäntöyhteisö tukee teorioiden oppimista ja viestintätaitoja. Tutkimuksen aineisto koostui kurssiin liittyvistä etnografisista seurantadokumenteista ja opiskelijoiden reflektioteksteistä. Tehtävässä yhdistyivät roolipeli, opiskelijoiden tuottamat videot sekä vertaisarviointi. Tehtävänantoa testattiin kahdella maisterivaiheen opiskelijaryhmällä, jotka suunnittelivat roolipelin ja nauhoittivat sen videolle. Viestintätieteiden opiskelijat tekivät roolipelistä vertaisarvioinnin. Tehtävään sisältyi työpaja, itsenäistä työskentelyä, ja ryhmätapaamisia. Opiskelijat pitivät tehtävää hyödyllisenä teorioiden oppimisen ja niiden käytäntöön soveltamisen kannalta. Lisäksi opiskelijapalautteesta tehdyn analyysin perusteella kurssilla opittiin neuvottelutaitojen lisäksi muita työelämätaitoja kuten ajanhallintaa, projektinhallintaa, kulttuurienvälistä ymmärrystä ja vuorovaikutteista viestintää. Erityisesti yksityiskohtaisten ja selkeiden ohjeiden, pääkäsitteiden selittämisen ja vertaisarvioinnin käytänteiden tärkeys korostui Kannustamme opettajia soveltamaan käytäntöyhteisöjen hyödyntämiseen perustuvia tehtäviä kursseilla, joihin sisältyy liike-elämän vuorovaikutustaitojen opettamista. Tällaisten tehtävien avulla voidaan opettaa tehokkaasti teorioita ja työelämäntaitoja, ja saadaan vaihtelua luentoihin ja kirjallisiin tehtäviin."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "14"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "64-77"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "eng"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Työelämän viestintä : VAKKI-symposiumi XXXVIII. Vaasa 8.-9.2.2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "VAKKI publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "conference",
+                  "language": "-",
+                  "value": "VAKKI-symposiumi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://www.vakki.net/publications/no9_fin.html"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "roolileikit"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "opiskelijat"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "vertaisryhmät"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "discipline",
+                  "language": "-",
+                  "value": "fi=Viestintätieteet|en=Communication Studies|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "-",
+                  "value": "publishedVersion"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=A4 Artikkeli konferenssijulkaisussa|en=A4 Peer-reviewed article in conference proceeding|sv=A4 Artikel i en konferenspublikation|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "VAKKI ry"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "communities of practice"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "student-produced video"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "peer-assessment"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Communities of Practice in Teaching Business Interaction : a Video-Based Role-Play Assignment"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8153/1/VAKKI2018_Holma%26Rajala%26Koskela.pdf",
+                  "name": "VAKKI2018_Holma&Rajala&Koskela.pdf",
+                  "type": "application/pdf",
+                  "size": "339555",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8154"
+        ],
+        "datestamp": [
+          "2019-01-15T11:00:11Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8154"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8154"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Porter, Gerald"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Markkinoinnin ja viestinnän yksikkö|en=School of Marketing and Communication|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Ei tutkimusalustaa|en=No platform|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T10:43:16Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T10:43:16Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-68538-5-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8154"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201901152160"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Naisten populaarikulttuuri on usein liitetty kulutukseen, ei niinkään tuottamiseen. Lukuisat tutkimukset ovat kuitenkin osoittaneet, että työskennellessään yhdessä sekä pienissä työpajoissa, että tehdasteollisuudessa naiset todennäköisesti laulavat miehiä useammin ja he myös laulavat yhdessä eivätkä ainoastaan yksinään. Juuri nämä naisryhmät ovat jääneet vaille työlaulujen kerääjien huomiota, eivätkä kerääjät ole myöskään olleet kiinnostuneita yhdessä laulamisesta. Tässä artikkelissa haluankin tarkastella juuri yhteislaulamisen dynamiikan kehittymistä työpaikoilla. On jossain määrin paradoksaalista, että tähän dynamiikkaan usein liittyy jopa niinkin henkilökohtaisia asioita kuin sopivan puolison valinta. Nauhoitetun musiikin toistamisella työpaikoilla on tietty funktio, kun taas Belfastissa tehty tutkimus osoitti, että naisten oma laulaminen ei ole ainoastaan voimaannuttavaa vaan myöskin vastavuoroista. Naisten työlaulujen on todettu palvelevan kolmea tarkoitusta, jotka ovat aikajärjestyksessä: rytmin luominen työprosessiin, yhteisöllisyyden rakentaminen ja ryhmäidentiteetin aikaan saaminen. Laulut loivat usein diskursiivisen kontekstin, jossa naiset itse puhuivat eivätkä tarvinneet ketään puhumaan puolestaan. He itse toimivat symbolisen minuutensa siirtämisessä puhujaan. Artikkelissa esitän, että työlaulujen kaltaiset sosiaaliset käytänteet voivat syntyä ja elää ainoastaan kiinteässä yhteisössä, jonka jäsenet viettävät yhdessä tuntikausia työnsä ääressä tai toimiessaan yhdessä työn ulkopuolella mielenosoituksessa tai karnevaaleissa."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "225-232"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "eng"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Työelämän viestintä : VAKKI-symposiumi XXXVIII. Vaasa 8.-9.2.2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "VAKKI publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2242-685X"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "conference",
+                  "language": "-",
+                  "value": "VAKKI-symposiumi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://www.vakki.net/publications/no9_fin.html"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "populaarikulttuuri"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "discipline",
+                  "language": "-",
+                  "value": "fi=Viestintätieteet|en=Communication Studies|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "-",
+                  "value": "publishedVersion"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=A4 Artikkeli konferenssijulkaisussa|en=A4 Peer-reviewed article in conference proceeding|sv=A4 Artikel i en konferenspublikation|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "VAKKI ry"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "singing as resistance"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "women’s song culture"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "work songs"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "The Role of Singing in Places of Work as an Aspect of Women's Popular Culture"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8154/1/VAKKI2018_Porter.pdf",
+                  "name": "VAKKI2018_Porter.pdf",
+                  "type": "application/pdf",
+                  "size": "337034",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8155"
+        ],
+        "datestamp": [
+          "2019-01-15T12:00:10Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8155"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8155"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Nissilä, Niina"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Nuopponen, Anita"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Markkinoinnin ja viestinnän yksikkö|en=School of Marketing and Communication|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Ei tutkimusalustaa|en=No platform|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T11:42:55Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T11:42:55Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-68538-5-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8155"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201901152170"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Yrkesbilden för teknikinformatör (eng. technical writer, technical documentation specialist) är tämligen ny i Finland och uppgifterna kring teknisk kommunikation har ofta skötts vid sidan av till exempel planerings- och programmeringsuppgifter. I vår artikel granskar vi yrkesbilden för teknikinformatörer och diskuterar vilka arbetsuppgifter som innehåller teknisk kommunikation. Vi närmar oss temat genom att reda ut hurdana krav det ställs för teknikinformatörer och hur arbetsuppgifter inom teknisk kommunikation beskrivs i finska arbetsplatsannonser som har publicerats i Internet och i tidningar år en 2016 och 2017. De mest önskvärda egenskaper och kunskaper hos teknikinformatörer som nämndes i annonserna var bland annat initiativrikedom, noggrannhet, kunskaper i engelska och finska, tekniskt kunnande samt goda samarbetsfärdigheter. Den mest centrala arbetsuppgiften är att planera och bearbeta olika typer av dokument som är avsedda för användare av tekniska apparater eller dataprogram. Därtill förekommer det i de finska annonserna en tudelning av begreppet dokumentation: å ena sidan handlar det om att skriva användardokument, å andra sidan att registrera arbetsfaser och dylikt i det egna arbetet eller i andras arbete. Här kom det  fram  en  gränsdragning  mellan  teknikinformatörer  och  andra  yrkesspecialister  (t.ex.  planerare,  programmerare) som i sitt eget arbete utför också uppgifter i teknisk kommunikation. Gränsdragningen verkar dock ändå vara flytande."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "13"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "174-186"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fin"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "VAKKI publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "conference",
+                  "language": "-",
+                  "value": "VAKKI-symposiumi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://www.vakki.net/publications/no9_fin.html"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "tekninen viestintä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "ammattinimikkeet"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "dokumentointi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "työpaikkailmoitukset"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "discipline",
+                  "language": "-",
+                  "value": "fi=Viestintätieteet|en=Communication Studies|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "-",
+                  "value": "publishedVersion"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=A4 Artikkeli konferenssijulkaisussa|en=A4 Peer-reviewed article in conference proceeding|sv=A4 Artikel i en konferenspublikation|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "VAKKI ry"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "tekninen dokumentoija"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "tekninen kirjoittaja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "työelämän vaatimukset"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Teknisen viestinnän taidot ja tehtävät työpaikkailmoituksissa"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8155/1/VAKKI2018_Nissila%26Nuopponen.pdf",
+                  "name": "VAKKI2018_Nissila&Nuopponen.pdf",
+                  "type": "application/pdf",
+                  "size": "617522",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:osuva.uwasa.fi:10024/8156"
+        ],
+        "datestamp": [
+          "2019-01-15T15:00:10Z"
+        ],
+        "setSpec": [
+          "com_123456789_2",
+          "col_10024_172"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/8156"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://osuva.uwasa.fi/handle/10024/8156"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Koskela, Merja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "fi=Vaasan yliopisto|en=University of Vaasa|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Markkinoinnin ja viestinnän yksikkö|en=School of Marketing and Communication|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Ei tutkimusalustaa|en=No platform|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T14:45:10Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T14:45:10Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://osuva.uwasa.fi/handle/10024/8156"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201901152194"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Inspired by the development of digital communication, listed companies are constantly  developing new ways to serve and attract interested audiences on their Investor Relations websites. This paper focuses on the types and variety of multimodal semiotic resources employed on Investor Relations websites of Finnish listed companies with specific focus on the use of videos. The aim of the paper is to explore how videos are used, what form they take and which affordances they offer as a presentation form from the perspective of financial communication. The data is derived from the IR websites of three Finnish industrial companies. The results of the study show that the three companies have somewhat different numbers of videos on their IR websites, but the most common type of video, a webcast announcing periodic results of the companies is the same for all companies. The webcasts seem to have an  established format combining audio, still pictures or video with PowerPoint slides embedded on the websites, indicating that a hybrid genre is developing. Video is used as part of the webcasts because it allows a rhetorical use of nonverbal cues, such as tone of voice, gestures and facial expressions, targeted focus and clarity of language. These are features of a rich communication medium generating affect, delivering an image of openness and creating trust and thus potentially influencing decisions. However, two central features of rich media, the degree of interaction and possibility of feedback are limited because they cannot easily be controlled by the company."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "reviewstatus",
+                  "language": "-",
+                  "value": "fi=vertaisarvioitu|en=peerReviewed|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "14"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fi=kokoteksti|en=fulltext|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "pagerange",
+                  "language": "-",
+                  "value": "78-91"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fin"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Työelämän viestintä : VAKKI-symposiumi XXXVIII. Vaasa 8.-9.2.2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "VAKKI publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-3-319-94708-2"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2242-685X"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "conference",
+                  "language": "-",
+                  "value": "VAKKI-symposiumi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "url",
+                  "language": "-",
+                  "value": "http://www.vakki.net/publications/no9_fin.html"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "sijoittajaviestintä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "media"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "WWW-sivut"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "video"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "discipline",
+                  "language": "-",
+                  "value": "fi=Viestintätieteet|en=Communication Studies|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "-",
+                  "value": "article"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "-",
+                  "value": "publishedVersion"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "-",
+                  "value": "fi=A4 Artikkeli konferenssijulkaisussa|en=A4 Peer-reviewed article in conference proceeding|sv=A4 Artikel i en konferenspublikation|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "VAKKI ry"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "median ilmaisuvoimaisuus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "verkkosivut"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Median ilmaisuvoimaisuus pörssiyhtiöiden sijoittajille suunnatussa viestinnässä"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://osuva.uwasa.fi/bitstream/10024/8156/1/VAKKI2018_Koskela.pdf",
+                  "name": "VAKKI2018_Koskela.pdf",
+                  "type": "application/pdf",
+                  "size": "723548",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

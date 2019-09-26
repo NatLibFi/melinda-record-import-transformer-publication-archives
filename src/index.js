@@ -5,7 +5,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2018 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -27,38 +27,18 @@
 *
 */
 
-'use strict';
-
 import transform from './transform';
-import createValidateFunction from './validate';
-import {TransformerUtils as Utils} from '@natlibfi/melinda-record-import-commons';
+import createValidator from './validate';
+import {Transformer} from '@natlibfi/melinda-record-import-commons';
 
-start();
+const {startTransformer} = Transformer;
 
-async function start() {
-	const logger = Utils.createLogger();
+run();
 
-	Utils.registerSignalHandlers();
-	Utils.checkEnv();
-
-	const stopHealthCheckService = Utils.startHealthCheckService(process.env.HEALTH_CHECK_PORT);
-
-	try {
-		logger.log('info', 'Starting melinda-record-import-transformer-helmet');
-		await Utils.startTransformation(transformCallback);
-		stopHealthCheckService();
-		process.exit();
-	} catch (err) {
-		stopHealthCheckService();
-		logger.error(err);
-		process.exit(-1);
-	}
-
-	async function transformCallback(response) {
-		logger.log('debug', 'Transforming records');
-		const records = await transform(response.body);
-		const validate = await createValidateFunction();
-		logger.log('debug', 'Validating records');
-		return validate(records, true);
-	}
+async function run() {
+	startTransformer(async stream => {
+		const validator = await createValidator();
+		const records = await transform(stream);
+		return validator(records, true, true);
+	});
 }

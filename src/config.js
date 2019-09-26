@@ -4,16 +4,16 @@
 *
 * Helmet record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2018 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019 University Of Helsinki (The National Library Of Finland)
 *
-* This file is part of melinda-record-import-transformer-helmet
+* This file is part of melinda-record-import-transformer-publication-archives
 *
-* melinda-record-import-transformer-helmet program is free software: you can redistribute it and/or modify
+* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License as
 * published by the Free Software Foundation, either version 3 of the
 * License, or (at your option) any later version.
 *
-* melinda-record-import-transformer-helmet is distributed in the hope that it will be useful,
+* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU Affero General Public License for more details.
@@ -27,12 +27,19 @@
 */
 
 /* eslint-disable no-warning-comments */
-// Some configuration settings:
-// unique: should new subfields be inserted previous record (unique record) or not
-// marcIf: enumeration of sort for special cases (rest, dc.type.ontasot, array)
-// marcIfUnique: if if-statement is fulfilled (rest) should following record be unique
-// All unclear ind* are marked as null/ToDo tag
-const orderMap = new Map([
+
+// export {orderMap, conditionalCases, confMap};
+
+export const enums = {
+	onTaso: 'onTaso',
+	rest: 'rest',
+	issued: 'issued',
+	replace: 'replace',
+	langField: 'langField',
+	ysaPresent: 'ysaPresent'
+};
+
+export const orderMap = new Map([
 	[
 		'264',
 		{
@@ -47,7 +54,117 @@ const orderMap = new Map([
 	]
 ]);
 
-const confMap = new Map([
+export const conditionalCases = new Map([
+	[
+		'dc.identifier.urn',
+		{
+			ignore: ['dc.identifier.url', 'dc.identifier.uri']
+		}
+	],
+	[
+		'dc.subject.ysa', // If field is found, ysaPresent set to true -> use marcIf rule "ysaPresent"
+		{
+			ysaPresent: true
+		}
+	],
+	[
+		'dc.type.ontasot',
+		{
+			set008Strc: {
+				indObj: 4,
+				indStr: 7,
+				to: 'm'
+			}
+		}
+	]
+]);
+
+export const control007 = {
+	tag: '007',
+	value: 'cr |||||||||||'
+};
+
+export const control008Strc = [{
+	start: 1,
+	end: 7,
+	value: '000000s'
+}, {
+	start: 8,
+	end: 11,
+	value: '----',
+	from: 'dc.date.issued'
+}, {
+	start: 12,
+	end: 15,
+	value: '    '
+}, {
+	start: 16,
+	end: 17,
+	value: 'fi',
+	from: 'dc.publisher.country'
+}, {
+	start: 18,
+	end: 35,
+	value: ' |||||o|||||||| ||',
+	from: 'onTaso'
+}, {
+	start: 36,
+	end: 38,
+	value: 'und',
+	from: 'dc.language.iso'
+}, {
+	start: 39,
+	to: 40,
+	value: ' c'
+}];
+
+export const standardFields = [{
+	tag: '336',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'teksti'
+	}, {
+		code: 'b',
+		value: 'txt'
+	}, {
+		code: '2',
+		value: 'rdacontent'
+	}]
+}, {
+	tag: '337',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'tietokonekäyttöinen'
+	}, {
+		code: 'b',
+		value: 'c'
+	}, {
+		code: '2',
+		value: 'rdamedia'
+	}]
+}, {
+	tag: '338',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'verkkoaineisto'
+	}, {
+		code: 'b',
+		value: 'cr'
+	}, {
+		code: '2',
+		value: 'rdacarrier'
+	}]
+}];
+
+export const ldr = '01704nam a  002653i   00';
+
+export const confMap = new Map([
 	// Teoksen julkaisumaa	Oletuksena aina 'fi'	dc.publisher.country	008 (katso tarkempi ohje)
 	[
 		'dc.publisher.country',
@@ -62,8 +179,8 @@ const confMap = new Map([
 		{
 			label: 'Teoksen kieli',
 			marcTag: '041',
-			marcSecondaryTag: '008',
-			marcIf: 'langField',
+			marcSecondaryTags: ['008'],
+			marcIf: enums.langField,
 			marcSub: 'a',
 			ind1: '',
 			ind2: ''
@@ -75,8 +192,8 @@ const confMap = new Map([
 		{
 			label: 'Julkaisuaika',
 			marcTag: '264',
-			marcSecondaryTag: '008',
-			marcIf: 'issued', // This saves year for multiple purposes
+			marcSecondaryTags: ['008'],
+			marcIf: enums.issued, // This saves year for multiple purposes
 			marcSub: 'c',
 			ind1: '',
 			ind2: '1',
@@ -92,7 +209,12 @@ const confMap = new Map([
 			marcTag: '020',
 			marcSub: 'a',
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			regexRemove: /(^ISBN:)|(^ISBN)|(\s)|(\(print\))/g,
+			presetFields: [{
+				sub: 'q',
+				value: 'PDF'
+			}]
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0
@@ -138,7 +260,8 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '1',
-			unique: true
+			unique: true,
+			suffix: ':'
 		}
 	],
 	// Julkaisija (kustantaja)	Julkaisijan nimi	dc.publisher	264$b	tyhjä	1 (Valitaan julkaisun kielen mukaan)	264 _1 $b Turun yliopisto
@@ -163,7 +286,8 @@ const confMap = new Map([
 			marcSub: 'a',
 			ind1: '',
 			ind2: '',
-			suffix: ' sivua'
+			prefix: '1 verkkoaineisto (',
+			suffix: ' sivua)'
 		}
 	],
 	// Sarjatieto, nimeke	 	dc.relation.ispartofseries	490$a	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -204,6 +328,18 @@ const confMap = new Map([
 			unique: true
 		}
 	],
+	// Lassi: käsitellään samalla tavalla [numberinseries <-> numberinseries]
+	[
+		'dc.relation.numberofseries',
+		{
+			label: 'Sarjatieto, järjestysnumero',
+			marcTag: '490',
+			marcSub: 'v',
+			ind1: '1',
+			ind2: '',
+			unique: true
+		}
+	],
 	// Lyhyt kuvaus	 	dc.description	500$a	tyhjä	tyhjä	 	500  __ $a Joku huomautus.
 	[
 		'dc.description',
@@ -234,9 +370,8 @@ const confMap = new Map([
 		{
 			label: 'Opinnäytteen taso',
 			marcTag: '500',
-			marcSecondaryTag: '502',
 			marcSub: 'a',
-			marcIf: 'onTaso',
+			marcIf: enums.onTaso,
 			ind1: '',
 			ind2: ''
 		}
@@ -246,9 +381,8 @@ const confMap = new Map([
 		'dc.contributor.organization',
 		{
 			label: '',
-			marcTag: '502',
 			marcSub: 'c',
-			marcIf: 'onTaso',
+			marcIf: enums.onTaso,
 			ind1: null,
 			ind2: null
 		}
@@ -258,9 +392,8 @@ const confMap = new Map([
 		'dc.contributor.faculty',
 		{
 			label: '',
-			marcTag: '502',
 			marcSub: 'c',
-			marcIf: 'onTaso',
+			marcIf: enums.onTaso,
 			ind1: null,
 			ind2: null
 		}
@@ -276,17 +409,17 @@ const confMap = new Map([
 			ind2: ''
 		}
 	],
-	// Tiivistelmä	 	dc.description.abstract	520$a	tyhjä	tyhjä	 	520  __ $a Tiivistelmä.
-	[
-		'dc.description.abstract',
-		{
-			label: 'Tiivistelmä',
-			marcTag: '520',
-			marcSub: 'a',
-			ind1: '',
-			ind2: ''
-		}
-	],
+	// // Tiivistelmä	 	dc.description.abstract	520$a	tyhjä	tyhjä	 	520  __ $a Tiivistelmä.
+	// [
+	// 	'dc.description.abstract',
+	// 	{
+	// 		label: 'Tiivistelmä',
+	// 		marcTag: '520',
+	// 		marcSub: 'a',
+	// 		ind1: '',
+	// 		ind2: ''
+	// 	}
+	// ],
 	// Tekijänoikeus-/käyttöoikeustiedot	 	dc.rights	540$c	tyhjä	tyhjä	 	540  __ $c FinELib-lisenssi $u https://www.kiwi.fi/display/finelib/Ellibs
 	[
 		'dc.rights',
@@ -304,9 +437,22 @@ const confMap = new Map([
 		{
 			label: '',
 			marcTag: '506',
+			marcIf: enums.replace,
+			marcReplace: {
+				phrase: 'openAccess',
+				replace: 'Aineisto on vapaasti saatavissa.',
+				removePresetIfNotMatch: true
+			},
 			marcSub: 'a',
-			ind1: '',
-			ind2: ''
+			ind1: '0',
+			ind2: '',
+			presetFields: [{
+				sub: 'f',
+				value: 'Unrestricted online access'
+			}, {
+				sub: '2',
+				value: 'star'
+			}]
 		}
 	],
 	// Tekijänoikeus-/käyttöoikeussivun verkko-osoite	 	dc.rights.uri	540$u	tyhjä	tyhjä
@@ -364,21 +510,63 @@ const confMap = new Map([
 			ind2: '7'
 		}
 	],
-	// Asiasanat	tarkenne	dc.subject.ysa (esim.)	650$a, mahd. tarkenne: 650$2	tyhjä	7	 	650 _7  $a historia  $2 ysa
+	// Previously yso rule was ysa
+	// Asiasanat	tarkenne	dc.subject.ys0 (esim.)	650$a, mahd. tarkenne: 650$2	tyhjä	7	 	650 _7  $a historia  $2 ysa
 	[
-		'dc.subject.ysa',
+		'dc.subject.yso',
 		{
 			label: 'Asiasanat',
 			marcTag: '650',
 			marcSub: 'a',
 			ind1: '',
 			ind2: '7',
-			secondary: {
-				marcTag: '650',
-				marcSub: '2',
-				ind1: '',
-				ind2: '7'
-			}
+			presetFields: [{
+				sub: '2',
+				value: 'ysa'
+			}]
+		}
+	],
+	// Lisätty Lassin kanssa
+	[
+		'dc.subject.afo',
+		{
+			label: 'Asiasanat',
+			marcTag: '650',
+			marcSub: 'a',
+			ind1: '',
+			ind2: '7',
+			presetFields: [{
+				sub: '2',
+				value: 'afo'
+			}]
+		}
+	],
+	// Ysa: 653-kenttään
+	[
+		'dc.subject.ysa',
+		{
+			label: 'Asiasanat',
+			marcTag: '653',
+			marcSub: 'a',
+			ind1: '',
+			ind2: '7',
+			presetFields: [{
+				sub: '2',
+				value: 'ysa'
+			}]
+		}
+	],
+	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä
+	// If only dc.subject -> 653$a
+	// If dc.subject.ysa -> both 650, dc.subject subfield a, dc.subject.ysa subfield 2
+	[
+		'dc.subject',
+		{
+			label: 'Avainsanat',
+			marcTag: '653',
+			marcSub: 'a',
+			ind1: '',
+			ind2: ''
 		}
 	],
 	// Julkaisun kattavuus (paikka)	 	dc.coverage.spatial	651$a	tyhjä	7	 	651 _7  $a Helsinki  $2 ysa
@@ -392,17 +580,6 @@ const confMap = new Map([
 			ind2: '7'
 		}
 	],
-	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä
-	[
-		'dc.subject',
-		{
-			label: 'Avainsanat',
-			marcTag: '653',
-			marcSub: 'a',
-			ind1: '',
-			ind2: ''
-		}
-	],
 	// Toimittaja	 	dc.contributor.editor	700$a	1	tyhjä	 	700 1_ $a Ahola, Johanna, $e toimittaja.
 	[
 		'dc.contributor.editor',
@@ -411,7 +588,11 @@ const confMap = new Map([
 			marcTag: '700',
 			marcSub: 'a',
 			ind1: '1',
-			ind2: ''
+			ind2: '',
+			presetFields: [{
+				sub: 'e',
+				value: 'toimittaja.'
+			}]
 		}
 	],
 	// Painetun monografian ISBN-numero	 	dc.relation.isversionof	776$z (vakiofraasi i osakenttään)	0	8	 	776 08 $i Painettu: $z 9518826536
@@ -434,17 +615,16 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0',
-			secondary: {
+			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
-				unique: false,
 				ind1: '7',
 				ind2: '',
-				presetValue: {
+				presetFields: [{
 					sub: '2',
 					value: 'doi'
-				}
-			}
+				}]
+			}]
 		}
 	],
 	// Julkaisun URI	 	dc.identifier.uri	856$u	4	0
@@ -478,17 +658,21 @@ const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0',
-			secondary: {
+			prefix: 'http://urn.fi/',
+			presetFields: [{
+				sub: 'y',
+				value: 'Linkki verkkoaineistoon'
+			}],
+			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
-				unique: false,
 				ind1: '7',
 				ind2: '',
-				presetValue: {
-					sub: 'u',
-					value: 'rn'
-				}
-			}
+				presetFields: [{
+					sub: '2',
+					value: 'urn'
+				}]
+			}]
 		}
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
@@ -502,16 +686,17 @@ const confMap = new Map([
 			ind2: '2' // ToDo: If previous #4#0 should we create new record or update to #4#2
 		}
 	],
-	// Muu verkko-osoite	 	dc.relation.uri
-	[
-		'dc.relation.uri',
-		{
-			label: 'Muu verkko-osoite',
-			marcTag: '', // ToDo
-			ind1: null, // ToDo
-			ind2: null // ToDo
-		}
-	],
+	// // Muu verkko-osoite	 	dc.relation.uri
+	// [
+	// 	'dc.relation.uri',
+	// 	{
+	// 		label: 'Muu verkko-osoite', // Same as dc.relation.url from Lassi
+	// 		marcTag: '856',
+	// 		marcSub: 'u',
+	// 		ind1: 4,
+	// 		ind2: 2
+	// 	}
+	// ],
 	// Muu URN-tunnus	 	dc.relation.urn	856$u	4	2
 	[
 		'dc.relation.urn',
@@ -530,17 +715,24 @@ const confMap = new Map([
 			label: 'Tekijä',
 			marcTag: '100',
 			marcSub: 'a',
-			marcIf: 'rest',
+			marcIf: enums.rest,
 			ind1: '1',
 			ind2: '',
-			suffix: '.',
-			secondary: {
+			suffix: ',',
+			presetFields: [{
+				sub: 'e',
+				value: 'kirjoittaja.'
+			}],
+			marcIfConfig: {
 				marcTag: '700',
 				marcSub: 'a',
-				unique: false,
 				ind1: '1',
 				ind2: '',
-				suffix: '.'
+				suffix: ',',
+				presetFields: [{
+					sub: 'e',
+					value: 'kirjoittaja.'
+				}]
 			}
 		}
 	],
@@ -551,12 +743,26 @@ const confMap = new Map([
 			label: 'Tekijä',
 			marcTag: '100',
 			marcSub: 'a',
-			marcIf: 'rest',
+			marcIf: enums.rest,
 			ind1: '1',
 			ind2: '',
-			suffix: '.'
+			suffix: ',',
+			presetFields: [{
+				sub: 'e',
+				value: 'kirjoittaja.'
+			}],
+			marcIfConfig: {
+				marcTag: '700',
+				marcSub: 'a',
+				ind1: '1',
+				ind2: '',
+				suffix: ',',
+				presetFields: [{
+					sub: 'e',
+					value: 'kirjoittaja.'
+				}]
+			}
 		}
 	]
 ]);
 
-export {orderMap, confMap};

@@ -1,0 +1,750 @@
+[
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.utupub.fi:10024/144448"
+        ],
+        "datestamp": [
+          "2019-01-07T08:29:50Z"
+        ],
+        "setSpec": [
+          "com_10024_5788",
+          "col_10024_143702"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/144448"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.utupub.fi/handle/10024/144448"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Maalismaa, Oona"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Yhteiskuntatieteellinen tiedekunta|en=Faculty of Social Sciences|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "studysubject",
+                  "language": "-",
+                  "value": "fi=Psykologia|en=Psychology|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Psykologian ja logopedian laitos|en=Department of Psychology and Speech-Language Pathology|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2018-01-16T13:58:45Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2018-01-16T13:58:45Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018-01-16"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.utupub.fi/handle/10024/144448"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:NBN:fi-fe201801162076"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fin"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "ontasot",
+                  "language": "-",
+                  "value": "fi=Pro gradu –tutkielma|en=Master's thesis|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fulltext"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "fi=Turun yliopisto|en=University of Turku|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Äidin syömishäiriötaustan yhteys lapsen ruokailuun liittyviin asenteisiin, ruokailukäytäntöihin ja vanhemmuuden stressiin"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.utupub.fi/bitstream/10024/144448/1/Maalismaa%20Oona.pdf",
+                  "name": "Maalismaa Oona.pdf",
+                  "type": "application/pdf",
+                  "size": "616633",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.utupub.fi:10024/146588"
+        ],
+        "datestamp": [
+          "2019-01-09T07:54:11Z"
+        ],
+        "setSpec": [
+          "com_10024_5788",
+          "col_10024_143702"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/146588"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.utupub.fi/handle/10024/146588"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "test, test"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-09T07:54:11Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-09T07:54:11Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.utupub.fi/handle/10024/146588"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "ontasot",
+                  "language": "-",
+                  "value": "fi=Pro gradu -tutkielma|en=Master's thesis|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fulltext"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "fi=Turun yliopisto|en=University of Turku|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "testi"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.utupub.fi:10024/146798"
+        ],
+        "datestamp": [
+          "2019-03-13T11:35:04Z"
+        ],
+        "setSpec": [
+          "com_10024_146795",
+          "col_10024_146796"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/146798"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.utupub.fi/handle/10024/146798"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-02-21T08:44:59Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-02-21T08:44:59Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.utupub.fi/handle/10024/146798"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "none",
+                  "value": "URN:NBN:fi-fe201903138734"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "none",
+                  "value": "Thematic issue: Nord, South, East, West\r\n\r\nGabriele Altana, L’Italia e il riconoscimento dell'indipendenza finlandese, 1917-1919\r\n\r\nGiuseppe Nencioni, Tra Chamberlain e Hitler. I tentativi svedesi di salvare la pace nel 1939\r\n\r\nMiklós Radnóti, Alla sposa\r\n\r\nNicola Neri, L’Unione Sovietica e la guerra delle Falkland\r\n\r\nMarcello Ganassini, August Nordenskiöld - Un utopista finlandese\r\n\r\nMihály Babits, Questione della sera\r\n\r\nAlessandra Orlandini Carcreff, Il Capo Nord, il sole di mezzanotte e altri cliché nordici nelle illustrazioni dei resoconti di viaggio\r\n\r\nStefano Andres, Lo stereotipo della donna nordica attraverso la letteratura italiana. Problemi di metodo e tematiche principali nelle fonti tra Otto e Novecento\r\n\r\nFelice Pozzo, Emilio Salgari: l'esotismo e il romanzo d'avventura\r\n\r\nLászló Pete, Tecniche e pratiche atipiche nella repressione del brigantaggio. Il caso della Legione Ungherese\r\n\r\nLuigi G. de Anna, Herman Liikanen e la Legione Ungherese. Storia un po’ falsata di un garibaldino finlandese\r\n\r\nPiero Gualtierotti, Dall’Accademia degli Invaghiti all’Accademia Nazionale Virgiliana di Scienze Lettere e Arti\r\n\r\nMarco Barsacchi, Vite parallele di Giacomo Leopardi e Friedrich Nietzsche\r\n\r\nAndrea Manganaro, Verità effettuale e ferinità umana: la Mandragola di Machiavelli e la Caccia al lupo di Verga\r\n\r\nAntonio Sciacovelli, Petrarca e Boccaccio in viaggio nella Mitteleuropa\r\nTre liriche di Alessandro Lunare\r\n\r\nFrancesco Surdich, Le annotazioni di natura antropologica e geografica nel Reisebuch di Johannes Schiltberger\r\n\r\nFrancesca De Caprio, L’entrata in incognito di Cristina di Svezia in Vaticano: cerimoniali e simboli\r\nZoltán Jékely, Addio a Roma\r\n\r\nAdolfo Morganti, Le bevande degli dèi. Birra e idromele: mistica e tradizione dell’uso rituale delle bevande fermentate nelle civiltà celto-germaniche\r\n\r\nDue liriche di Alessandro Lunare\r\n\r\nJaakko Suominen, Muistojen universumit\r\n\r\nOliver Friggieri, Jasmine Blossoms for all Time\r\n\r\nStefano Andres, Frammenti di Algeri\r\n\r\nLászló Nagy, Chi porta l’amore\r\n\r\nLuigi G. de Anna, I fantasmi del Nana Hotel"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "none",
+                  "value": "ita"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "none",
+                  "value": "Settentrione : rivista di studi italo-finlandesi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "1237-9964"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "none",
+                  "value": "30"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Humanistinen tiedekunta|en=Faculty of Humanities|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "studysubject",
+                  "language": "-",
+                  "value": "fi=Italia|en=Italian|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Kieli- ja käännöstieteiden laitos|en=School of Languages and Translation Studies|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fulltext"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "fi=Turun yliopisto|en=University of Turku|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Settentrione : rivista di studi italo-finlandesi. Numero 30 (2018)"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.utupub.fi/bitstream/10024/146798/3/Settentrione%2030.pdf",
+                  "name": "Settentrione 30.pdf",
+                  "type": "application/pdf",
+                  "size": "5837033",
+                  "sequence": "3"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.utupub.fi:10024/146888"
+        ],
+        "datestamp": [
+          "2019-03-13T11:37:21Z"
+        ],
+        "setSpec": [
+          "com_10024_146795",
+          "col_10024_146796"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/146888"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.utupub.fi/handle/10024/146888"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-02-20T07:03:48Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-03-13T07:03:48Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2017"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.utupub.fi/handle/10024/146888"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "none",
+                  "value": "URN:NBN:fi-fe201903138733"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Special issue: Proceedings of the Conference Cento anni di relazioni tra Finlandia e Italia\r\n\r\nLectori salutem. Significato di un Centenario \r\n\r\nJaakko Suomisen puhe Suomi‒Italia-seminaarissa 26.10.2017 \r\n\r\nProgramma del convegno Cento anni di relazioni tra Finlandia e Italia \r\n\r\nRoberto Pinton e Giorgio Alberti, L’importanza delle relazioni internazionali nella cooperazione accademica\r\n\r\nLuigi de Anna, La vecchia Accademia di Turku, come la videro i viaggiatori \r\n\r\nNicola Neri, Italy and the recognition of Finland’s Indipendence \r\n\r\nAndrea Rizzi, Un irredentista nel Nord Europa: la Finlandia negli scritti diplomatici e privati di Attilio Tamaro\r\n\r\nPirkko Kanervo, L’Italia e la Guerra d’Inverno \r\n\r\nMassimo Longo Adorno, La Finlandia del Novecento nel racconto di Indro Montanelli: la Guerra degli Eroi\r\n\r\nKirsi Murros, Una missione archeologica finlandese a \r\nPompei \r\n\r\nAnna Pichetto Fratin, Carlo Bassi fra storia e storiografia \r\n\r\nHeidi Limnell, Tra Finlandia e Italia: Eila Hiltunen e la svolta della scultura finlandese\r\n\r\nMarja Härmänmaa, La Finlandia di Diego Marani nella Nuova Grammatica Finlandese \r\n\r\nMaurizio Viezzi, Toponimi, traduzione e il caso Westö \r\n\r\nNicola Rainò, Romanzi finlandesi tradotti in italiano: selezione e ricerca \r\n\r\nRosella Perugi, Ambasciatrici di cultura: sguardi di italiane sulla Finlandia \r\n\r\nDelfina Sessa, Paola Faggioli, Paolo Emilio Pavolini e le traduzioni di Aino Kallas in Italia\r\n\r\nStefano Andres, Donne guerriere nella Roma d’Oriente. Le Amazzoni nell’immaginario bizantino. Alcune note\r\n\r\nMarco Duichin, Lupi, orsi, sciamani: alle origini nordiche della figura di Odisseo\r\n\r\nCecilia Cimmino, Esordi di una ricerca sul bilinguismo infantile italofinlandese e sulle politiche linguistiche familiari\r\n\r\nMikael de Anna, L’integrazione dei migranti e dei rifugiati. Problemi e soluzioni tra Italia e Finlandia\r\n\r\nEmmi Laurila, I discorsi attuali sull’immigrazione in tre quotidiani italiani: descrizione del progetto di ricerca\r\n\r\nCecilia Cimmino, Trent’anni di ricerca nelle tesi svolte dal Dipartimento di italianistica di Turku: un bilancio\r\n\r\nGabriele Federici, Genesi e storia dell’edizione foscoliana della Commedia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "none",
+                  "value": "ita"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "Settentrione : rivista di studi italo-finlandesi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "1237-9964"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "29"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "fi=Humanistinen tiedekunta|en=Faculty of Humanities|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "studysubject",
+                  "language": "-",
+                  "value": "fi=Italia|en=Italian|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "department",
+                  "language": "-",
+                  "value": "fi=Kieli- ja käännöstieteiden laitos|en=School of Languages and Translation Studies|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fulltext"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "fi=Turun yliopisto|en=University of Turku|"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Settentrione : rivista di studi italo-finlandesi. Numero 29 (2017)"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.utupub.fi/bitstream/10024/146888/1/Settentrione%2029.pdf",
+                  "name": "Settentrione 29.pdf",
+                  "type": "application/pdf",
+                  "size": "5606892",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

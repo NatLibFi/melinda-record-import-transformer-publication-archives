@@ -1,0 +1,3978 @@
+[
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/136176"
+        ],
+        "datestamp": [
+          "2019-06-25T12:19:30Z"
+        ],
+        "setSpec": [
+          "com_10024_120884",
+          "col_10024_120885"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/136176"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/136176"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2017-05-29T05:29:34Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2017-05-29T05:29:34Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2017"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "ISBN:978-952-317-376-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/136176"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:978-952-317-376-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "notification",
+                  "language": "-",
+                  "value": "Voimassa 1.6.2017-30.3.2019. Korvattu Traficomin ohjeella 130785/03.04.01.01/2019. Korvasi Yleisten kulkuväylien ylläpito-ohjeen (19.10.2005, Merenkulkulaitos)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Liikenneviraston ohjeita"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberofseries",
+                  "language": "-",
+                  "value": "10/2017"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "1798-6648"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "size",
+                  "language": "-",
+                  "value": "16"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Liikennevirasto"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "MERENKULKU"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "VESIVÄYLÄT"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "KULKUVÄYLÄT"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "YLLÄPITO"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "OHJEET"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Yleisten kulkuväylien ylläpito: Ohjeita väylänpitäjille"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "language": "none",
+                  "value": "julkaisu"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/136176/2/lo_2017-10_yleisten_kulkuvaylien_web.pdf",
+                  "name": "lo_2017-10_yleisten_kulkuvaylien_web.pdf",
+                  "type": "application/pdf",
+                  "size": "1687919",
+                  "sequence": "2"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/143718"
+        ],
+        "datestamp": [
+          "2019-06-25T12:20:57Z"
+        ],
+        "setSpec": [
+          "com_10024_120884",
+          "col_10024_120885"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/143718"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/143718"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2017-08-22T12:19:36Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2017-08-22T12:19:36Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2017"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "ISBN:978-952-317-272-2"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/143718"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:978-952-317-272-2"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "notification",
+                  "language": "-",
+                  "value": "Käännös ohjeesta Yleisten kulkuväylien ylläpito - Ohjeita väylänpitäjille. Voimassa 1.6.2017-30.3.2019. Korvattu Traficomin ohjeella 130785/03.04.01.01/2019. Korvasi Yleisten kulkuväylien ylläpito-ohjeen (19.10.2005)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "sv"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Liikenneviraston ohjeita"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberofseries",
+                  "language": "-",
+                  "value": "10swe/2017"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "1798-6648"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "qualifier": "alternative",
+                  "language": "-",
+                  "value": "Yleisten kulkuväylien ylläpito - Ohjeita väylänpitäjille"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "size",
+                  "language": "-",
+                  "value": "15"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Liikennevirasto"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "SJÖFART"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "VATTENVÄGAR"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "FARLEDER"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "UNDERHÅLL"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ANVISNINGAR"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Underhåll av allmänna farleder: Anvisning för farledshållare"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "language": "none",
+                  "value": "julkaisu"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/143718/4/lo_2017-10swe_978-952-317-272-2.pdf",
+                  "name": "lo_2017-10swe_978-952-317-272-2.pdf",
+                  "type": "application/pdf",
+                  "size": "1312163",
+                  "sequence": "4"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/144135"
+        ],
+        "datestamp": [
+          "2019-03-06T12:41:24Z"
+        ],
+        "setSpec": [
+          "com_10024_120884",
+          "col_10024_120885"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/144135"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/144135"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2017-10-31T10:36:43Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2017-10-31T10:36:43Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2017"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "ISBN:978-952-317-472-6"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/144135"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:978-952-317-472-6"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "notification",
+                  "language": "-",
+                  "value": "Ohje on siirretty Traficomiin 1.1.2019. Voimassa 31.10.2017 alkaen. Korvaa: Suositukset vesistösiltojen aukkomitoista (Merenkulkulaitoksen julkaisuja 12/2005)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Liikenneviraston ohjeita"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberofseries",
+                  "language": "-",
+                  "value": "42/2017"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "1798-6648"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "size",
+                  "language": "-",
+                  "value": "30"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Liikennevirasto"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "VESILIIKENNE"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "VESIVÄYLÄT"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "VESISTÖT"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "SILLAT"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ALIKULUT"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "OHJEET"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Ohjeet vesistön ylittävien siltojen aukkomitoista"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "language": "none",
+                  "value": "julkaisu"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/144135/1/lo_2017-42_ohjeet_vesiston_web.pdf",
+                  "name": "lo_2017-42_ohjeet_vesiston_web.pdf",
+                  "type": "application/pdf",
+                  "size": "5514716",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/157326"
+        ],
+        "datestamp": [
+          "2019-03-06T07:38:01Z"
+        ],
+        "setSpec": [
+          "com_10024_109240",
+          "com_10024_4194",
+          "col_10024_27199"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/157326"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/157326"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "von Bagh, Peter"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Alanen, Antti"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Laurinen, Sampsa"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2018-05-29T09:15:31Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2018-05-29T09:15:31Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "none",
+                  "value": "978-951-51-4165-1"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/157326"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-51-4165-1"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "uri",
+                  "language": "fi",
+                  "value": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "coar",
+                  "language": "en",
+                  "value": "book"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "fi",
+                  "value": "elokuvahistoria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "fi",
+                  "value": "elokuva"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "fi",
+                  "value": "draamaelokuvat"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "language": "-",
+                  "value": "Peter von Bagh (1943–2014) oli kirjoittajana parhaimmillaan elämänsä loppuvuosina. Kuollessaan hänellä oli ainakin 20 kirjaprojektia työn alla, niistä tärkeimpänä 12-osainen Elokuvan historia. Sen monista esitöistä oli vireillä Elokuvan almanakka, jonka hän sai suurimmaksi osaksi valmiiksi.\r\n\r\nSiinä missä vuonna 2007 julkaistu Vuosisadan tarina: dokumenttielokuvan historia kartoitti elokuvan aikakautta ei-fiktiivisen elokuvan kautta, on Elokuvan almanakan teemana näytelmäelokuvan todistus maailmanhistoriasta.\r\n\r\nEnsimmäinen maailmansota, Venäjän vallankumous, New Yorkin pörssiromahdus, New Dealin optimismi, Stalinin terrori, Ranskan kansanrintama, toinen maailmansota, atomipommi, jälleenrakennus, kylmä sota, Vietnamin sota, Euroopan yhdentyminen, kulutusyhteiskunta ja 11.9.2001 – kaikki tämä on heijastunut näytelmäelokuvissa. Peter von Bagh peilaa historian todellisuutta koko ristiriitaisuudessaan, unohtamatta hirtehistä fantasiaa ja mahtavaa naurua."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "language": "fi",
+                  "value": "<br/>\r\n<b>Tutustu myös:</b> <br/>\r\nAntti Alanen (toim.). <a href=\"http://urn.fi/URN:ISBN:978-951-51-4338-9\">Peter von Bagh: elokuvan muisti</a>. 2018.<br/> \r\n<a href=\"http://urn.fi/URN:NBN:fi-fe2018091235466\">Peter von Baghin elokuvakirjasto</a> - luettelo Peter von Baghin Kansalliskirjastolle lahjoittamasta elokuvakirjallisuuden kokoelmasta."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "language": "-",
+                  "value": "EPUB"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Kansalliskirjasto"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "language": "-",
+                  "value": "Nimeä-EiKaupallinen-EiMuutoksia 4.0 Kansainvälinen (CC BY-NC-ND)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Elokuvan almanakka: 69 katsetta vuosisadan historiaan"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "language": "-",
+                  "value": "book"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/157326/4/Elokuvan_almanakka_vonBagh.epub",
+                  "name": "Elokuvan_almanakka_vonBagh.epub",
+                  "type": "application/epub+zip",
+                  "size": "471787",
+                  "sequence": "4"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/166749"
+        ],
+        "datestamp": [
+          "2019-01-10T15:00:59Z"
+        ],
+        "setSpec": [
+          "com_10024_67151",
+          "com_10024_67150",
+          "col_10024_67152"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/166749"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/166749"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "coverage",
+                  "qualifier": "spatial",
+                  "language": "-",
+                  "value": "Suomi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "coverage",
+                  "qualifier": "spatial",
+                  "language": "-",
+                  "value": "ulkomaat"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "coverage",
+                  "qualifier": "temporal",
+                  "language": "-",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-10T14:37:57Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-10T14:37:57Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-244-609-1 (print)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-244-610-7 (print)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/166749"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "svtstatus",
+                  "language": "-",
+                  "value": "Suomen virallinen tilasto (SVT)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "601"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fulltext"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "sv"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "en"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "qualifier": "alternative",
+                  "language": "-",
+                  "value": "Statistisk årsbok för Finland 2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "qualifier": "alternative",
+                  "language": "-",
+                  "value": "Statistical Yearbook of Finland 2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "tilastokeskus",
+                  "language": "-",
+                  "value": "YLE"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "tilastot"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "0081-5063 (print)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "1798-5250 (pdf)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Tilastokeskus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "language": "-",
+                  "value": "cc by 4.0"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Suomen tilastollinen vuosikirja 2018"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/166749/1/yyti_stv_201800_2018_net.pdf",
+                  "name": "yyti_stv_201800_2018_net.pdf",
+                  "type": "application/pdf",
+                  "size": "29611238",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/166779"
+        ],
+        "datestamp": [
+          "2019-01-14T07:27:24Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/166779"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/166779"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Nordgren, Valter"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Karjalainen, Mikko"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Ahtinen, Hannu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-11T10:58:23Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-11T10:58:23Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3056-4"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/166779"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3056-4"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "fi",
+                  "value": "Talvisodan aikana itsenäisen Suomen puolustusvoimat joutuivat todelliseen tulikokeeseen. Neuvostoliiton aloittama hyökkäys onnistuttiin pysäyttämään kansakunnan voimavarat äärimmilleen ponnistaen. Aselevon astuessa voimaan 13. maaliskuuta 1940 oli Suomen armeija edelleen puolustuskykyinen, joskin kestokykynsä äärirajoilla. \r\n\r\nJo sodan aikana Päämajan taktillinen toimisto oli kerännyt sodan kokemuksia ja jakanut niitä taisteleville joukoille ohjeina ja oppaina. Sodan jälkeen kokemusten keräystyötä jatkettiin, sillä puolustuskyvyn kehittämistä piti jatkaa varauduttaessa Neuvostoliiton mahdolliseen uuteen hyökkäykseen.\r\n\r\nEverstiluutnantti (eversti) Valter Nordgrenin virkatyönä keväällä 1941 laatima aikaisemmin julkaisematon 66-sivuinen teksti ”Vihollisen taktiikasta ja omista vastatoimenpiteistä” muodostaa perustan Suomalaisen sotataidon klassikot sarjan seitsemännelle osalle. Nordgrenin teksti on yksi ensimmäisistä talvisodan taktillisia kokemuksia käsittelevistä koonnoksista. \r\n\r\nNordgrenin tekstiä täydentävät kirjan alussa olevat kolme erillisartikkelia. Apulaisprofessori Mikko Karjalainen valottaa Valter Nordgrenin henkilökuvaa. Eversti evp Hannu Liimatta, jonka sotatieteiden väitöskirja on tätä kirjoitettaessa juuri tarkastettu, maalaa kuvan päämajan taktillisesta toimistosta, jossa sotakokemusten keräämistä toteutettiin. Kapteeni, SM Erik Stenström puolestaan arvioi Valter Nordgrenin ja Y.A. Järvisen henkilöiden kautta taktiikan kehitystyötä 1930-luvulta talvisotaan."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isformatof",
+                  "language": "-",
+                  "value": "978-951-25-3055-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Suomalaisen sotataidon klassikot"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "oppiaine",
+                  "language": "-",
+                  "value": "Sotahistoria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "E2 Yleistajuinen monografia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotataito"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotahistoria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "taktiikka (menetelmät)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "talvisota"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Vihollisen taktiikasta ja omista vastatoimenpiteistä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/166779/1/Nordgren_verkkoversio.pdf",
+                  "name": "Nordgren_verkkoversio.pdf",
+                  "type": "application/pdf",
+                  "size": "18093555",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/166830"
+        ],
+        "datestamp": [
+          "2019-01-15T12:30:13Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/166830"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/166830"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Panschin, Vladimir"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-15T12:06:45Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-15T12:06:45Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3065-6"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2343-0753"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/166830"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3065-6"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "55"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Julkaisusarja 3: Työpapereita nro 10"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "oppiaine",
+                  "language": "-",
+                  "value": "Strategia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "C1 Kustannettu tieteellinen erillisteos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Sotataidon laitos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Venäjä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotaharjoitukset"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "“Niin sotii kuin harjoittelee” : Tulkintoja Zapad-2017 sotaharjoitustapahtumista sekä arvio Venäjän asevoimien joukkojen käytöstä ja toimintatavoista Zapad-2017-harjoitukseen peilaten"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/166830/1/181231_J_Raportti%20Zapad_verkko.pdf",
+                  "name": "181231_J_Raportti Zapad_verkko.pdf",
+                  "type": "application/pdf",
+                  "size": "1703450",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/166870"
+        ],
+        "datestamp": [
+          "2019-01-17T11:30:13Z"
+        ],
+        "setSpec": [
+          "com_10024_73908",
+          "col_10024_73913"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/166870"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/166870"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Sarjanoja, Erkki"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Herranen, Anne"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Kinnunen, Teemu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-17T11:17:05Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-17T11:17:05Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-314-748-5"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "none",
+                  "value": "ISSN 2242-2854"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/166870"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-952-314-748-5"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn-l",
+                  "language": "none",
+                  "value": "ISSN-L 2242-2846"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Inarin ja Utsjoen liikenneturvallisuussuunnitelma on laadittu kuntien ja ELY-keskuksen yhteistyönä. Hankkeessa on ollut mukana edustajia kustakin organisaatiosta sekä Liikenneturvasta. Suunnitelmaa on käsitelty Inarin ja Utsjoen kuntien liikenneturvallisuusryhmissä. Lisäksi suunnitelmaa on esitelty kunnissa järjestetyissä yleisötilaisuuksissa syyskuussa 2018. Työ on laadittu vuoden 2018 aikana. \r\nSuunnitelman lähtötiedoiksi on koottu onnettomuustiedot sekä tie- ja liikennetiedot Liikenneviraston palveluista. Lisäksi on käyty läpi kuntien ja ELY-keskuksen viime aikaiset suunnitelmat sekä saadut aloitteet. Keväällä 2018 järjestettiin kysely, jossa asukkailta pyydettiin palautetta liikenneturvallisuuteen liittyen. Useat palautteet koskivat teiden kunnossapitoa ja laatua sekä liikennekäyttäytymistä. Koululaisille toteutettiin erillinen kysely. \r\nLiikenneturvallisuussuunnitelmassa linjataan tavoitteet liikenneturvallisuudelle ja sen eteen tehtävälle työlle. Liikenneturvallisuustyön keskeisiä tavoitteita Inarin ja Utsjoen kunnissa ovat liikenneosaamisen ja -tietouden lisääminen kaikissa ikäryhmissä sekä liikenneympäristön turvallisuuden ja viihtyisyyden lisääminen. Tavoitteiden pohjalta lähivuosina keskitytään erityisesti valta- ja kantateiden turvallisuuden parantamiseen taajamien ja kylien kohdalla. Muita painopistealueita ovat huomion kiinnittäminen ajonopeuksiin ja turvallisuuden parantaminen liittymissä erityisesti taajama-alueella sekä koulumatkojen turvallisuuden ja koululaisten turvavälineiden käyttämisen parantaminen.  \r\nLiikenneympäristöön liittyvät toimenpiteet ovat laaja kokonaisuus aina maankäytön suunnitteluun liittyvistä ratkaisuista liikennemerkkien pystyttämiseen. Maankäytön suunnittelu ja toteutus ovat erittäin merkittävässä roolissa, sillä se määrittää liikkumisen tarpeen ja liikenneväylien tilavaraukset. Tässä suunnitelmassa on esitetty nopeusrajoituksiin, väistämisvelvollisuuksiin, liittymien parantamiseen, teiden leveyksiin sekä jalankulku- ja pyöräilyväylien rakentamiseen liittyviä toimenpiteitä. Tavoite on ollut löytää kohtuullisen edullisia, mutta tehokkaita ratkaisuja liikenneturvallisuuden parantamiseksi. Kuntien toimenpiteet on priorisoitu kiireellisyysluokkiin ja lisäksi on valittu ns. kärkihankkeet, joiden toteuttamiseen pyritään mahdollisimman nopeasti.  \r\nSuunnitelma hyväksytään jatkosuunnittelun ohjeelliseksi pohjaksi. ELY-keskuksen vastuulla olevien toimenpiteiden osalta myös kuntien on oltava aktiivisia."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "53+liitteet"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isformatof",
+                  "language": "-",
+                  "value": "978-952-314-747-8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "Raportteja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "brief",
+                  "language": "-",
+                  "value": "Liikenne ja infrastruktuuri"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberofseries",
+                  "language": "-",
+                  "value": "64/2018"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issnprinted",
+                  "language": "none",
+                  "value": "ISSN 2242-2846"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Lapin ELY-keskus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Liikenneturvallisuus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Inarin ja Utsjoen seutukunnan liikenneturvallisuussuunnitelma"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisherplace",
+                  "language": "-",
+                  "value": "Rovaniemi"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/166870/3/Raportteja_64_2018.pdf",
+                  "name": "Raportteja_64_2018.pdf",
+                  "type": "application/pdf",
+                  "size": "11622493",
+                  "sequence": "3"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/167146"
+        ],
+        "datestamp": [
+          "2019-01-29T14:00:24Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/167146"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/167146"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Varsio, Kai"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-01-29T13:48:16Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-01-29T13:48:16Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3040-3"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2343-0753"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/167146"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3040-3"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Sukellusveneen noin 400-vuotista historiaa ja sukellusveneluokkien levinneisyyttä kattavasti käsittelevä teos on ensimmäistä kertaa tehty.\r\n\r\nMaailmassa on valmistettu viimeisen 120 vuoden aikana noin 5 000 yli 400 luokkaan kuuluvaa sukellusvenettä. Se on kiehtova tarina alivoimaisen puolustajan kehittämän aseen kehittymisestä suurvaltojen voimatasapainon takaajaksi ja ydinasepelotteeksi.\r\n\r\nAltavastaajasta tuhovoimaksi kertoo maittain ja aikakausittain sukellusveneaseen leviämisen. Tutkimuksessa tarkastellaan myös sukellusveneiden koneistoja, tärkeimpiä laitteita ja aseita siinä laajuudessa, että lukija saa käsityksen niiden merkityksestä kehityskaaren eri vaiheissa.\r\n\r\nKirjasta selviää 2010-luvulla lisääntynyt sukellusveneitä omistavien maiden määrä ja uusi rakentamisen painopistealue Kaakkois-Aasiassa. Teoksessa on käytetty postimerkeissä kuvattuja sukellusveneitä kertomaan, kuinka ja missä sukellusveneet ovat vuosisatojen aikana kehittyneet. Kommodori evp, sotatieteiden tohtori Kai Varsio on väitöskirjassaan ensimmäisenä tutkijana osoittanut postimerkkien käyttökelpoisuuden dokumentoitaessa merisotataidon kehittymistä."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "231"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isformatof",
+                  "language": "-",
+                  "value": "978-951-37-7443-1"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Julkaisusarja 3: Työpapereita nro 8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "E2 Yleistajuinen monografia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Sotataidon laitos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sukellusveneet"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "kehitys"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotahistoria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Altavastaajasta tuhovoimaksi : sukellusveneaseen käyttöönotto ja kehitys"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/167146/1/Altavastaajasta_tuhovoimaksi.pdf",
+                  "name": "Altavastaajasta_tuhovoimaksi.pdf",
+                  "type": "application/pdf",
+                  "size": "9047553",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/167420"
+        ],
+        "datestamp": [
+          "2019-02-04T14:00:17Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/167420"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/167420"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Levomaa, Virpi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Dumur-Laanila, Hanne"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-02-04T13:48:27Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-02-04T13:48:27Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3062-5"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/167420"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3062-5"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "en",
+                  "value": "The Finnish Defence Forces International Centre, with partners from the United States Army Peacekeeping and Stability Operations Institute, North Atlantic Treaty Organization, United Nations, CIMIC Centre of Excellence and the International Committee of the Red Cross, has developed a unique course on the Protection of Civilians for NATO- and UN-Led Operations. \r\n\r\nPast examples of our ability to protect civilians in armed conflicts demonstrate a greater need to foster education and cooperation within and between key international organisations. The creation of a Protection of Civilians course for NATO- and UN-Led Operations arose from this need. \r\n\r\nFINCENT’s role as a long-term crisis management training provider and Department Head for Military Contribution to Peace Support has not merely offered a great opportunity to enhance cooperation but has also strengthened the individual’s faculty by providing a holistic and comprehensive understanding of the different skills and competences needed in protecting civilians. This was the first course in which these stakeholders actively worked together to provide education and training for both NATO and UN staff.\r\n\r\nThis report is the outcome of the pilot course. It provides a brief history of the FINCENT MC2PS Department Head role and how the Protection of Civilians for NATO- and UN-Led Operations course was created, conducted, evaluated and further developed after the pilot course. It is hoped the report reflects the collaborative spirit of the international organisations with a mutual interest in PoC."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "57"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "en"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isformatof",
+                  "language": "-",
+                  "value": "978-951-25-3061-8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "FINCENT Publication Series 1/2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "C2 Toimitettu kirja, kokoomateos, konferenssijulkaisu tai lehden erikoisnumero"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Finnish Defence Forces\r\nInternational Centre"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "National Defence University"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "From Operational Requirements to Training Solution : Protection of Civilians for NATO and UN led Operations Pilot Course"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/167420/1/From%20Operational%20Requirements%20to%20Training%20Solution_web1.pdf",
+                  "name": "From Operational Requirements to Training Solution_web1.pdf",
+                  "type": "application/pdf",
+                  "size": "1143295",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/168141"
+        ],
+        "datestamp": [
+          "2019-03-26T13:30:17Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/168141"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/168141"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Liikola, Jani"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-03-26T13:16:07Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-03-26T13:16:07Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3073-1"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2343-0001"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/168141"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3073-1"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "fi",
+                  "value": "Luovuus on läsnä organisaation, ryhmän ja yksilön toiminnassa, mutta sen ominaisuudet ovat usein  vaikeasti havaittavissa. Stereotyyppisesti luovuus käsitetään uuden rakentamiseksi jopa tyhjästä. Tämä ei tietenkään pidä paikkaansa. Luovuus on lähempänä tavallista kuin epänormaalia. Luovuus voi johtaa osaavissa käsissä taloudelliseen menestykseen, kun taas pahimmillaan väärissä käsissä inhimilliseen tragediaan. Käytännössä se tuottaa ryhmässä vastauksia, uusia ideoita ja ratkaisuja, mutta se voi myös tukahduttaa niiden luomista. Juuri luovuuden mystiikka ja vastakkain asettelu on vaikuttanut tämän tutkimuksen tarkoituksen muodostumiseen. Luovuus tulee tehdä näkyväksi, jotta sitä voidaan ymmärtää. Tämän tutkimuksen tavoitteena on löytää ja kuvailla kokonaisvaltaisesti luovuutta ryhmässä. Erityisesti ymmärtää toiminnan kautta luovuuden toimimista ryhmässä ja sitä, miten ja millaisena luovuus näyttäytyy tilanteessa ja toiminnassa. Luovuutta tehdään näkyväksi eri tasojen ja luokkien kautta, jotka sisältävät luovuuden rakentavien tekijöiden lisäksi sitä estävät tekijät. Johtoajatuksena toimii oletus, että luovuuden rakenteen rikkomisen osiin tekee sen selvemmäksi ymmärtää. Teoria kulkee tutkimuksen vaiheiden mukana antamalla käsitteellisen viitekehyksen luovuuden kuvaamiselle ja selittämiselle.\r\n\r\nTutkimus rakentuu teoreettiseen viitekehykseen, joka luodaan laajasta laadullisesta aineistosta oletuksiksi ja kysymyksiksi. Nämä toimivat kahden empiirisen vaiheen runkona muodostaen aineiston keräämiselle perusteet. Empiirisissä vaiheissa testataan oletuksia kahdessa eri ryhmässä, jotka poikkeavat toisistaan tavoitteeltaan ja ajan suhteen. Tässä periaatteena on luovuuden kokonaisvaltainen kuvailu ryhmässä. Ryhmän luovuus rakentuu tekijöistä, tasoista ja luokista. Menetelminä käytetään haastattelun eri muotoja ja osallistuvaa havainnointia. Tuloksena muodostuu näkemys luovuuden rakenteesta ryhmässä sekä tilanteiden ja toiminnan vaikutuksesta luovuuden eri tekijöihin.\r\n\r\nLuovuus ryhmässä nähdään arkipäiväisenä ilmiönä. Luovuutta esiintyy ryhmätyöskentelyn kaikissa vaiheissa. Näkyvin osa on yleensä luovin hetki, jossa kollektiivisesti ratkaistaan ongelmaa ja löydetään siihen uusi ratkaisu. Tässä tutkimuksessa erityinen mielenkiinto oli keskittyminen kokonaisvaltaisesti luovuuteen, mikä tarkoitti vaatimattomankin luovuuden tutkimista. Ryhmässä tehdään paljon toimintoja erilaisissa ympäristöissä ennen ja jälkeen luovinta hetkeä. Tämä tutkimus väittää, että näissä hetkissä on myös luovuutta, mutta se esiintyy eri tavalla riippuen tilanteesta ja toiminnasta. Ryhmätyöskentelyn kaikissa vaiheissa on luovuutta rakentavia ja estäviä tekijöitä. Näiden välille muodostuu jännitteinen suhde.\r\n\r\n\r\n\r\nKeskeisinä tuloksina voidaan nostaa luovuuden rakentuvan monista eri tekijöistä ryhmässä. Nämä tekijät ovat käsitelty tasoittain, jotka kaikki vaikuttavat ryhmään. Luovuus on ryhmässä monitasoista, muuttuvaa ja jännitteistä. On saavutettu kokonaisvaltainen näkemys luovuudesta, mikä sisältää rakentavien tekijöiden lisäksi näkökulman luovuutta estäviin tekijöihin. Tässä tutkimuksessa on myös hyödynnetty luovuutta mahdollistavaa luokkaa kuvailemaan tilanteissa ja toiminnoissa luovuuden muuntautumista ja vaikeaselkoisuutta. Lopputuloksena on rakennettu käsitteellinen viitekehys ja vastattu kysymykseen ”millaisena” luovuus ryhmässä rakentuu tekijöistä, tasoista ja luokista. Tämän johtopäätöksenä on laadittu kokoava malli, joka selittää uudella tavalla ”miten” luovuus rakentuu ryhmässä."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "en",
+                  "value": "Creativity is present in the actions of an organization, group and individual but these characteristics are usually difficult to observe. Stereotypically, creativity is understood as creating something new. Of course, this is not true. Creativity is more akin to normal than abnormal. In a broader sense, creativity can lead to economic success in capable hands or at worst, to human tragedy if in the wrong hands. On a practical level, it produces answers, new ideas and solutions in a group, but it can also suppress its creation. It is precisely this polarity and the mysticism of creativity that has shaped the purpose of this research. \r\n\r\nCreativity should be made observable so that it can be understood. The aim is to find and comprehensively describe the creativity of a group. In particular, to try and understand through actions the way in which creativity works in a group and how it is presented in situations and actions. Creativity is made observable through different levels and categories, which contain constructive factors of creativity as well as factors that constrain it. The guiding principle is the assumption that the division of the structure of creativity makes it clearer to understand. In addition, the theory follows hand in hand with each section of the study and provides a conceptual framework to describe and explain creativity. \r\n\r\nThe research is based on the theoretical framework that is constructed from extensive qualitative data to form experimental assumptions and questions. These act as a basis to justify the gathering of material for two empirical stages. In empirical phases, the assumptions are tested in two different groups that differ from each other in terms of their goals and duration. In this the principle is a comprehensive description of creativity in a group that consists of factors, levels, and categories. The methods used in this paper include different forms of interviews and participatory observation. The result is an analysis of the structure of creativity in a group and the impact of situations and activities on the various factors of creativity.\r\n\r\nCreativity in a group is seen as a day-to-day phenomenon. Creativity occurs in all stages of teamwork. The most distinct part of creativity occurs when a group engages in problem solving and comes up with a resolution. In this study, special attention was given to holistic creativity, which meant the exploration of even modest creativity. The group performed a lot of activities in different environments before and after the creative moment. This research claims that there is creativity in these moments, but it is exhibited differently depending on the situation and the activity. Creativity is constructive and constraining in all stages of teamwork. A relationship with tension is formed between these two.\r\n\r\nKey results are that creativity is formed by many factors in the group. These factors are arranged by levels that all affect the group. A holistic view of creativity has been achieved, which includes not only constructive factors, but also a perspective on the constraints of creativity. This study has also taken advantage of a creativity enabling category to describe the transformation and complexity of creativity in situations and processes. As the end result, conceptual framework is constructed and the question of ’how’ creativity in the group is created of factors, levels and categories is answered. As a result, a compilation model has been drawn up that explains in a new way ’what kind of’ form creativity takes in a group."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "322"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isformatof",
+                  "language": "-",
+                  "value": "978-951-25-3072-4"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Julkaisusarja 1: Tutkimuksia nro 31"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "oppiaine",
+                  "language": "-",
+                  "value": "Johtaminen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "mpkktaso",
+                  "language": "-",
+                  "value": "Tohtoriopiskelijan väitöskirja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "G4 Monografiaväitöskirja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "luovuus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ryhmät (organisaatiot (järjestelmät), yhteiskunnalliset järjestelmät)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "yksilö"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ympäristö (järjestelmät)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "johtaminen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "toiminta"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "organisaatiot (järjestelmät)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Rajavartiolaitos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "creativity"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "group"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "individual"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "environment"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "leadership"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "process"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "organization"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "military organization"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Border Guard"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Luovuus arkipäiväisenä jännitteenä – tutkimus kokonaisvaltaisesta ryhmän luovuudesta"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "opn",
+                  "language": "-",
+                  "value": "Virpi Sorsa, Jouni Virtaharju"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "ths",
+                  "language": "-",
+                  "value": "Huhtinen, Aki-Mauri"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/168141/1/Liikola_V%c3%a4it%c3%b6s_2019_verkko.pdf",
+                  "name": "Liikola_Väitös_2019_verkko.pdf",
+                  "type": "application/pdf",
+                  "size": "2043027",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/169572"
+        ],
+        "datestamp": [
+          "2019-06-26T08:30:18Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/169572"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/169572"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Kanniainen, Vesa"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-06-26T08:00:27Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-06-26T08:00:27Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3086-1"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2343-2365"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/169572"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3086-1"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Raportin tarkoitus on kysyä, missä määrin modernia peliteoriaa voidaan hyödyntää konflikteihin ja sotiin liittyvien säännönmukaisuuksien analyysissa. Raportissa esitellään peliteorian peruskäsitteet konflikteja ja sotia koskevien reaalimaailman tapahtumien avulla. Monet käytetyistä esimerkeistä on työstetty tätä raporttia varten, eivätkä ne ole aikaisemmin olleet tällä tavalla formuloituina esillä. Markkinoilla olevat peliteorian kirjat ovat varsin teknisiä. Erityisesti peleihin liittyvät informaatiorajoitteet voivat tehdä analyyseista hyvinkin monimutkaisia. Käsillä olevassa raportissa on kuitenkin pyrkimys yleistajuiseen esitykseen, ja esille tulevat tapaukset pyritään käsittelemään riittävän seikkaperäisesti."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "44"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Julkaisusarja 3: Työpapereita nro 2"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "oppiaine",
+                  "language": "-",
+                  "value": "Sotatekniikka"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "C1 Kustannettu tieteellinen erillisteos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Sotatekniikan laitos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "peliteoria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "konfliktit"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sodat (tapahtumat)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "rauha (olosuhteet, yhteiskunnalliset ajanjaksot, yhteiskunnan tilaan liittyvä ajanjakso)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "kylmä sota"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "kilpavarustelu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "tasapaino"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "kauhun tasapaino"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "maximin-kriteeri"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sitoutuminen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "epäsymmetrinen informaatio"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "neuvottelupelit"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "kybersota"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Peliteorian käyttö konfliktien ja sotien analyysissa"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/169572/1/Peliteorian%20k%c3%a4ytt%c3%b6n%20konfliktien%20ja%20sotien%20analyysiss%c3%a4_Kanniainen%20%28verkkoversio1%29.pdf",
+                  "name": "Peliteorian käyttön konfliktien ja sotien analyysissä_Kanniainen (verkkoversio1).pdf",
+                  "type": "application/pdf",
+                  "size": "1077957",
+                  "sequence": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/169586"
+        ],
+        "datestamp": [
+          "2019-07-22T11:23:36Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/169586"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/169586"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Forsström, Pentti"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-07-18T07:33:07Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-07-18T07:33:07Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3083-0"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2343-0001"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.doria.fi/handle/10024/169586"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3083-0"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Tämän tutkimuksen pääongelmana on, miten Venäjän sotilasstrategian perusteet ovat muuttuneet Neuvostoliiton hajoamisen jälkeen. Tutkimusongelma on redusoitu neljään tutkimuskysymykseen: sodan paradigman kehitys, sodan ennaltaehkäisyn kehitys, sotilaallisen voiman käytön perusteiden kehitys ja sotilaallisen voiman kehitys. Tutkimus rajataan ajallisesti Neuvostoliiton hajoamisesta loppusyksyyn 2016.\r\n\r\nVenäjän sotilasstrategia määritellään osana sotilaspolitiikkaa tapahtuvaksi Venäjän ylimmän sotilaallisen johdon toiminnaksi ja sotilaallisen voiman avulla tapahtuvaksi vaikuttamiseksi, joka kohdistuu Venäjän sotilaallisiin vaaroihin ja uhkiin ja jonka tavoitteena on Venäjän sotilaallisen turvallisuuden ylläpitäminen.\r\n\r\nTutkimusstrategian primäärisenä vaikuttimena oli pyrkimys tutkimuksen avulla lisätä suomalaista tulkintaa ja ymmärrystä Venäjän sotilasstrategiasta ja sen komponenteista. Teoreettisena perustana tutkimuksessa oli venäläinen sotatieteellinen teoria sotilaallisesta toiminnasta dualistisena ja symmetrisenä järjestelmänä sekä sen kehittymisen kolmesta lainalaisuudesta. Sotilaallisen toiminnan välineen vaikutus kohdistetaan tavoitteeseen, jolloin määrittyy välineen vaikutuksen diskrepanssi tavoitetilan suhteen. Tämä ero ilmentää tiedostettuna välineen kehittämistarpeita.\r\n\r\nKehittämistä tarkasteltiin näkökulmasta, jonka mukaan sotilaallinen toiminta muuttuu kolmen lainalaisuuden - rakenteen, suuntauksen ja luonteen muutoksen mukaisesti. Tutkimus on luonteeltaan laadullinen ja osin kvantitatiivinen, missä tavoitteena on ymmärrys ja sen lisääminen tutkimuskohteesta. Hermeneuttisia tulkintoja muodostetaan sotilaallisen toiminnan mallin, sen osatekijöiden ja niiden kehittymisen lainalaisuuksien muodostaman taustan pohjalta tehdyllä päättelyllä.\r\n\r\nVenäjän sotilasstrategian ja sen perusteiden kehitys on johtanut siihen, että Venäjän sotilasstrategian perusluonne on ambivalentti sekä puolustuksellinen että hyökkäyksellinen riippuen päätöksestä tilanteen edellyttämällä tavalla. Pidäke toimintana on laaja-alaistunut, monimuotoistunut ja tullut joustavammaksi. Venäjän sotilasstrategiassa on tapahtunut muutos, jossa sotilaallisen voiman pidäkkeellinen funktio pystytään muuttamaan viiveettömästi asevoimien suoraksi ennakoivaksi käytöksi. Pidäkkeen ja sotilaallisen voiman käytön välinen raja on siten hävinnyt. Teoreettisesti se ilmentää nopeaa kykyä siirtyä välillisestä vaikuttamisesta välittömään vaikuttamiseen. Tutkimuksen tulokset osoittavat, että Venäjän asevoimat kehittyvät pääosin esitetyn teorian lähtökohtien mukaisesti. Ongelmia kehittämisessä esiintyy."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "The research problem of this study is how the fundamentals of Russian military strategy have changed after the collapse of the Soviet Union. The research problem has been reduced to four questions: the development of the war paradigm, the development of deterrence, the development of the fundamentals for use of military power, and the development of military force (i.e. might). The research covers the time from the collapse of the Soviet Union to late autumn of the year 2016. \r\n\r\nThe Russian military strategy has been defined as activity being a part of the military politics of the Russian high military command, and as influence by means of military might, which is targeted to the dangers and threats in order to maintain Russian military security. The primary motive for the research strategy was the intention to give a Finnish interpretation, achieved by means of scientific research, and to increase the amount of knowledge of Russian military strategy and its components. \r\n\r\nThe research theory consists of an approach used in Russian military science. This theoretical approach comprises the military activity as a dualistic and symmetric system and its development according to three laws. The impact of the instrument of the subject in military activity is targeted towards the objective, and thus the disrepancy between the impact and the objective can be defined. This discrepancy, when recognized, creates a necessity to develop the instrument. \r\n\r\nThe development of the instrument is examined by using this theoretical approach. The three laws comprise the development of the structure, orientation and nature of military activity. This examination is conducted by means of qualitative and partly quantitative research, where the main objective is the understanding and its enhancement concerning the research subject. The hermeneutical interpretations are reached by reasoning. \r\n\r\nThe development of Russian military strategy and its foundations has led to the point where the basic nature of Russian military strategy is ambivalent - both defensive and offensive, depending on the decision required in the actual situation. Deterrence as a form of action has become more comprehensive, more manifold and more flexible. Russian military strategy has seen a change, which means that the function of deterrence can be transformed without delay into direct and preemptive use of the Armed Forces. Theoretically, this change represents the capability to rapidly convert indirect influence into direct influence. The borderline between deterrence and use of military force has disappeared. The results of this research show that the Russian Armed Forces are developing according to the outlined theoretical approach. Problems, however, also exist."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "542"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isformatof",
+                  "language": "-",
+                  "value": "978-951-25-3082-3"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Julkaisusarja 1: Tutkimuksia nro 32"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "oppiaine",
+                  "language": "-",
+                  "value": "Strategia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "mpkktaso",
+                  "language": "-",
+                  "value": "Tohtoriopiskelijan väitöskirja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "G4 Monografiaväitöskirja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Venäjä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotilasstrategia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotilaallinen toiminta"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sodan paradigma"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotilaallinen voima"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "asevoimat"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "reformi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotilaspolitiikka"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotilasdoktriini"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "pidäke"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotilaallisen voiman käyttö"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotilaallisen voiman käytön muodot"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "henkilöstö"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "henkilöstö"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "teoria sotilaallisen voiman kehittymisestä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Venäjän sotilasstrategia muutoksessa : tulkintoja Venäjän sotilasstrategian perusteiden kehityksestä Neuvostoliiton hajoamisen jälkeen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "opn",
+                  "language": "-",
+                  "value": "Pynnöniemi, Katri"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "ths",
+                  "language": "-",
+                  "value": "Sivonen, Pekka"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/169586/10/Ven%c3%a4j%c3%a4n%20sotilasstrategia%20muutoksessa_Forsstr%c3%b6m%20%28verkkoversio%29.pdf",
+                  "name": "Venäjän sotilasstrategia muutoksessa_Forsström (verkkoversio).pdf",
+                  "type": "application/pdf",
+                  "size": "11946238",
+                  "sequence": "10"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.doria.fi:10024/169970"
+        ],
+        "datestamp": [
+          "2019-08-26T08:00:19Z"
+        ],
+        "setSpec": [
+          "com_10024_72633",
+          "col_10024_73990"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/169970"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.doria.fi/handle/10024/169970"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Karjalainen, Mikko"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Piirainen, Lassi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Ruokonen, Raimo"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-08-26T07:02:31Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-08-26T07:02:31Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-951-25-3090-8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2343-5283"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://www.doria.fi/handle/10024/169970"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-951-25-3090-8"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "fi",
+                  "value": "Verdunin taistelu on yksi laajimmin tutkituista ensimmäisen maailmansodan tapahtumaketjuista. Niin aikalaiset kuin myöhemmät tutkijat ovat kuvanneet ja analysoineet taistelussa tehtyjä sotaliikkeitä, kärsittyjä tappioita ja epäonnistumisia. Sama pätee toisen maailmansodan aikaisiin taisteluihin Ardenneilla loppuvuodesta 1944. Molemmat taistelukokonaisuudet heijastelevat yleisemminkin maailmansotien sotataidollista kehityskulkua. Neljännesvuosisadan kuluessa tapahtunut muutos kulutussodankäynnistä liikesodankäyntiin oli todentunut Verdunista Ardenneille vääjäämättä. Ensimmäisen maailmansodan mutaisten taisteluhautojen reunoilla karmivan suuria miestappioita aiheuttaneiden konekiväärien sijaan taistelukenttää hallitsivat toisessa maailmansodassa ennennäkemättömällä nopeudella edenneet dieselinkatkuiset panssarijoukot. Miten edellä kuvattu liittyy Maanpuolustuskorkeakoulun Sotataidon laitoksen sotahistorian tohtoriopiskelijoihin? Maanpuolustuskorkeakoululla valmisteltavat sotahistorian väitöskirjat käsittelevät muutamia poikkeuksia lukuun ottamatta Suomen sotahistoriaa ja suomalaisen sotataidon historiaa itsenäisyyden ajan kontekstiin sidottuna. Suomen kansallisen puolustusjärjestelmän historialliset juuret ja järjestelmän kehittyminen ovat tutkimuksen keskiössä. Tätä taustaa vasten Verdunin taisteluhaudat ja Ardennien panssarihyökkäykset tutkimus- ja opintomatkakohteena voi aiheellisesti kyseenalaistaa. Kysymykseen löytyy kuitenkin looginen vastaus. Yhtymäkohdat Verdunin, Ardennien ja Suomen sotahistorian välillä tulevat todeksi, kun tarkastelemme asiaa konkreettisesti sodankäynnin historiallisen kehityksen ja periaatteiden kautta. Ranskasta – ensimmäisen maailmansodan voittajavaltiosta – haetut ja saadut mallit vaikuttivat itsenäisen Suomen puolustuslaitoksen kehitykseen 1920 -luvulla ja toisaalta Saksan merkitys Suomen sodankäyntikyvyn takaajana vuoden 1940 lopulta jatkosodan päättymiseen syksyyn 1944 saakka on kiistaton. Suomalaisen sotataidon historiallisia juuria ei pystytä tarkastelemaan irrallaan kansainvälisestä 1900-luvun alkupuoliskon kehityksestä. Tässä teoksessa sotahistorian tohtoriopiskelijat pohtivat Verdunin taisteluhautoja ja Ardennien panssarihyökkäyksiä suomalaisin silmin."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isformatof",
+                  "language": "-",
+                  "value": "978-951-25-3091-5"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartof",
+                  "language": "-",
+                  "value": "Julkaisusarja 2: Tutkimusselosteita nro 6"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "oppiaine",
+                  "language": "-",
+                  "value": "Sotahistoria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okmtaso",
+                  "language": "-",
+                  "value": "C2 Toimitettu kirja, kokoomateos, konferenssijulkaisu tai lehden erikoisnumero"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "suojaustaso",
+                  "language": "-",
+                  "value": "Julkinen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "language": "-",
+                  "value": "Sotataidon laitos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Maanpuolustuskorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotataito"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "liikesodankäynti"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Ardennien taistelu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Verdunin taistelu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ensimmäinen maailmansota"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "toinen maailmansota"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sotahistoria"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Kohti liikesodankäyntiä : Verdunin taisteluhaudat ja Ardennien panssarihyökkäykset suomalaisin silmin"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "onsale",
+                  "language": "-",
+                  "value": "0"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://www.doria.fi/bitstream/10024/169970/5/Kohti%20liikesodank%c3%a4ynti%c3%a4_verkkoversio1.pdf",
+                  "name": "Kohti liikesodankäyntiä_verkkoversio1.pdf",
+                  "type": "application/pdf",
+                  "size": "3684320",
+                  "sequence": "5"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
