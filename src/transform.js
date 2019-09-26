@@ -45,15 +45,15 @@ export default async function (stream) {
 	return Promise.all(records.map(convertRecord));
 
 	function convertRecord(record) {
-		var control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
-		var onTaso = {};
+		let control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
+		let onTaso = {};
 
 		const marcRecord = new MarcRecord();
-		var marcJSON = [];
-		var issued = null;
-		var controlJSON = [];
-		var ignoredFields = []; // Fields to ignore
-		var ysaPresent = null;
+		let marcJSON = [];
+		let issued = null;
+		let controlJSON = [];
+		let ignoredFields = []; // Fields to ignore
+		let ysaPresent = null;
 
 		// Standard fields: leader, control and 336-338
 		marcRecord.leader = ldr;
@@ -65,7 +65,7 @@ export default async function (stream) {
 			return; // Some records can be '"status": "deleted"' -> no metadata, just header
 		}
 
-		var fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
+		const fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
 
 		conditionalFields(); // Check condition fields before actual cycle
 
@@ -83,7 +83,7 @@ export default async function (stream) {
 		function conditionalFields() {
 			fields.forEach(field => {
 				// Check if conditional case exists and it has ingnored fields
-				let conditionalCase = conditionalCases.get(getDCPath(field));
+				const conditionalCase = conditionalCases.get(getDCPath(field));
 				if (conditionalCase) {
 					if (conditionalCase.ignore) {
 						ignoredFields = ignoredFields.concat(conditionalCases.get(getDCPath(field)).ignore);
@@ -94,7 +94,7 @@ export default async function (stream) {
 					}
 
 					if (conditionalCase.set008Strc) {
-						var conf = conditionalCase.set008Strc;
+						const conf = conditionalCase.set008Strc;
 
 						// Validate that configuration does not result out-of-bounds error
 						if (conf.indObj < control008Structure.length && conf.indStr < control008Structure[conf.indObj].value.length && typeof (conf.to) === 'string' && conf.to.length === 1) {
@@ -121,7 +121,7 @@ export default async function (stream) {
 				return false;
 			}
 
-			var tempConf = null;
+			let tempConf = null;
 
 			// Handle special cases by marcIf
 			switch (conf.marcIf) {
@@ -138,7 +138,7 @@ export default async function (stream) {
 
 				// First with primary configuration, if tag is used -> with marcIfConfig object
 				case enums.rest: {
-					var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
+					const foundRec = marcJSON.find(x => x.tag === conf.marcTag);
 					if (foundRec) {
 						upsertRecord(conf.marcIfConfig, field, recordIdentifier);
 						return;
@@ -149,7 +149,7 @@ export default async function (stream) {
 
 				// Save for later use
 				case enums.issued: {
-					var fieldVal = field.$.value;
+					let fieldVal = field.$.value;
 					if (fieldVal.length > 4) {
 						fieldVal = fieldVal.substring(0, 4);
 					}
@@ -218,7 +218,7 @@ export default async function (stream) {
 			if (conf.marcTag === '008') { // Controller fields
 				modifyControlField(field);
 			} else { // Normal fields
-				var foundRec = marcJSON.find(x => x.tag === conf.marcTag);
+				let foundRec = marcJSON.find(x => x.tag === conf.marcTag);
 				if (conf.regexRemove) {
 					field.$.value = field.$.value.replace(conf.regexRemove, '');
 				}
@@ -226,10 +226,10 @@ export default async function (stream) {
 				// Earlier existing record and should be unique -> push new subfield
 				if (foundRec && conf.unique) {
 					// Find out if tag is suppose to be in specific order
-					var orderArr = orderMap.get(conf.marcTag);
+					const orderArr = orderMap.get(conf.marcTag);
 					if (orderArr && foundRec.subfields.length >= 1) {
-						var indexInserted = orderArr.order.indexOf(conf.marcSub);
-						var indexPos = 0;
+						const indexInserted = orderArr.order.indexOf(conf.marcSub);
+						let indexPos = 0;
 
 						foundRec.subfields.forEach(element => {
 							if (orderArr.order.indexOf(element.code) <= indexInserted) {
@@ -282,12 +282,12 @@ export default async function (stream) {
 		// Modify control field structure by field:
 		// find correct sub object by DC path -> shorten/transform if needed -> set value
 		function modifyControlField(field) {
-			var dcPath = getDCPath(field);
-			var fieldToEdit = control008Structure.find(obj => {
+			const dcPath = getDCPath(field);
+			let fieldToEdit = control008Structure.find(obj => {
 				return obj.from === dcPath;
 			});
 
-			var fieldVal = field.$.value;
+			let fieldVal = field.$.value;
 			switch (fieldToEdit.from) {
 				case 'dc.date.issued': {
 					if (fieldVal.length > 4) {
@@ -322,7 +322,7 @@ export default async function (stream) {
 					}]
 				});
 
-				var rec = {
+				let rec = {
 					tag: '500',
 					ind1: '',
 					ind2: '',
@@ -359,7 +359,7 @@ export default async function (stream) {
 
 		// Generate control field after all fields are read and push to records
 		function generateControlFields() {
-			var controlValue008 = '';
+			let controlValue008 = '';
 			control008Structure.forEach(element => {
 				if (typeof (element.value) === 'undefined') {
 					Logger.log('warn', `Broken record, with missing control field element: ${element.from}`);
@@ -368,7 +368,7 @@ export default async function (stream) {
 				controlValue008 += element.value;
 			});
 
-			var controlField008 = {
+			const controlField008 = {
 				tag: '008',
 				value: controlValue008
 			};
@@ -403,7 +403,7 @@ export default async function (stream) {
 
 		// Function to get DC path from field
 		function getDCPath(field) {
-			var dcPath = field.$.schema + '.' + field.$.element;
+			let dcPath = field.$.schema + '.' + field.$.element;
 			if (typeof (field.$.qualifier) !== 'undefined') {
 				dcPath = dcPath + '.' + field.$.qualifier;
 			}
