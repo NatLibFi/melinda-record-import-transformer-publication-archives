@@ -4,16 +4,30 @@ Publication archives record transformer for the Melinda record batch import syst
 
 ## License and copyright
 
-Copyright (c) 2018 **University Of Helsinki (The National Library Of Finland)**
+Copyright (c) 2019 **University Of Helsinki (The National Library Of Finland)**
 
 This project's source code is licensed under the terms of **GNU Affero General Public License Version 3** or any later version.
 
 ## Environment variables
-* **API_URL**=ToDo 
-* **API_USERNAME**=ToDo 
-* **API_PASSWORD**=ToDo 
-* **BLOB_ID**=ToDo 
-* **AMQP_URL**=ToDo 
-* **PROFILE_ID**=ToDo 
+### Mandatory environment values
+Following variables are required for passing harvested records to import system. (API) This behaviour is inherited from [melinda-record-import-commons](https://github.com/NatLibFi/melinda-record-import-commons). 
+* API_URL
+* API_USERNAME
+* API_PASSWORD
+* AMQP_URL
+* BLOB_ID
+* PROFILE_ID
 
-Mandatory variables are bolded.
+### Optional environmental values
+These values have default values in inherited configuration file from [melinda-record-import-commons](https://github.com/NatLibFi/melinda-record-import-commons). Default values may change.
+* ABORT_ON_INVALID_RECORDS
+  - default: false
+* HEALTH_CHECK_PORT
+  - Port to check if transformer is functioning
+  - default: 8080
+* API_CLIENT_USER_AGENT
+  - default: _RECORD-IMPORT-TRANSFORMER
+
+  
+## Configuration
+Transformation is configurated in src/config.js file. [More details.](https://github.com/NatLibFi/melinda-record-import-transformer-publication-archives/wiki/Configuration)
