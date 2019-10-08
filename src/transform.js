@@ -313,22 +313,22 @@ export default async function (stream) {
 		function generateOnTaso() {
 			if (onTaso['dc.type.ontasot']) {
 				marcJSON.push({
-					tag: '502',
-					ind1: '',
-					ind2: '',
-					subfields: [{
-						code: 'a',
-						value: 'Väitöskirja'
-					}]
-				});
-
-				let rec = {
 					tag: '500',
 					ind1: '',
 					ind2: '',
 					subfields: [{
 						code: 'a',
 						value: clipLang(onTaso['dc.type.ontasot'], 'fi=') + ' :'
+					}]
+				});
+
+				let rec = {
+					tag: '502',
+					ind1: '',
+					ind2: '',
+					subfields: [{
+						code: 'a',
+						value: 'Väitöskirja'
 					}]
 				};
 

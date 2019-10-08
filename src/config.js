@@ -494,7 +494,7 @@ export const confMap = new Map([
 		{
 			label: 'Muu tekijänoikeustieto',
 			marcTag: '542',
-			marcSub: '1',
+			marcSub: 'l',
 			ind1: '',
 			ind2: ''
 		}
@@ -546,7 +546,7 @@ export const confMap = new Map([
 		'dc.subject.ysa',
 		{
 			label: 'Asiasanat',
-			marcTag: '653',
+			marcTag: '650',
 			marcSub: 'a',
 			ind1: '',
 			ind2: '7',
