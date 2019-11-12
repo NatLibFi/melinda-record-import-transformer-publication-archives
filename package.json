@@ -35,9 +35,9 @@
 	"dependencies": {
 		"@natlibfi/marc-record": "^4.0.0",
 		"@natlibfi/marc-record-validate": "^5.0.0",
-		"@natlibfi/marc-record-validators-melinda": "^7.0.4",
+		"@natlibfi/marc-record-validators-melinda": "^8.0.0",
 		"@natlibfi/melinda-commons": "^7.0.1",
-		"@natlibfi/melinda-record-import-commons": "^6.0.0",
+		"@natlibfi/melinda-record-import-commons": "^7.0.1",
 		"get-stream": "^5.1.0",
 		"langs": "^2.0.0",
 		"moment": "^2.22.2"

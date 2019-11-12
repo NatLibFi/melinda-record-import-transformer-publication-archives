@@ -29,20 +29,55 @@
 /* eslint-disable default-case, complexity */
 
 import {orderMap, conditionalCases, control007, control008Strc, standardFields, ldr, confMap, enums} from './config';
-import getStream from 'get-stream';
+import {chain} from 'stream-chain';
+import {parser} from 'stream-json';
+import {streamArray} from 'stream-json/streamers/StreamArray';
 import {MarcRecord} from '@natlibfi/marc-record';
+import validator from './validate';
 import {Utils} from '@natlibfi/melinda-commons';
+import {EventEmitter} from 'events';
 import langs from 'langs';
 
+class TransformEmitter extends EventEmitter {}
 const {createLogger} = Utils;
 
-export default async function (stream) {
+export default function (stream, {validate = true, fix = true}) {
+	const Emitter = new TransformEmitter();
 	const Logger = createLogger();
-	const records = await JSON.parse(await getStream(stream));
 
 	Logger.log('debug', `Starting conversion of ${records.length} records...`);
 
 	return Promise.all(records.map(convertRecord));
+
+	readStream(stream);
+	return Emitter;
+
+	async function readStream(stream) {
+		try {
+			const promises = [];
+			const pipeline = chain([
+				stream,
+				parser(),
+				streamArray()
+			]);
+
+			pipeline.on('data', async data => {
+				promises.push(transform(data.value));
+
+				async function transform(value) {
+					const result = await convertRecord(value);
+					Emitter.emit('record', result);
+				}
+			});
+			pipeline.on('end', async () => {
+				logger.log('debug', `Handled ${promises.length} recordEvents`);
+				await Promise.all(promises);
+				Emitter.emit('end', promises.length);
+			});
+		} catch (err) {
+			Emitter.emit('error', err);
+		}
+	}
 
 	function convertRecord(record) {
 		let control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
@@ -77,7 +112,11 @@ export default async function (stream) {
 		generateControlFields();
 		generateMarcRecord();
 
-		return marcRecord;
+		if (validate === true || fix === true) {
+			return validator(marcRecord, validate, fix);
+		}
+
+		return {failed: false, record: marcRecord};
 
 		// Start of supporting functions
 		function conditionalFields() {

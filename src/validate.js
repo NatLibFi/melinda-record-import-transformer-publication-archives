@@ -33,19 +33,17 @@ import {
 	IsbnIssn
 } from '@natlibfi/marc-record-validators-melinda';
 
-export default async () => {
+export default async (record, fix, validateFixes) => {
 	const validate = validateFactory([
 		await EmptyFields(),
 		await IsbnIssn({hyphenateISBN: true})
 	]);
 
-	return async (records, fix, validateFixes) => {
-		const opts = fix ? {fix, validateFixes} : {fix};
-		const results = await Promise.all(records.map(r => validate(r, opts)));
-		return results.map(({record, valid, report}) => ({
-			record,
-			failed: valid === false,
-			messages: report
-		}));
+	const opts = fix ? {fix, validateFixes} : {fix};
+	const result = await validate(record, opts);
+	return {
+		record: result.record,
+		failed: result.valid === false,
+		messages: result.report
 	};
 };
