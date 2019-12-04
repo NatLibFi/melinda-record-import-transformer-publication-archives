@@ -43,11 +43,9 @@ const {createLogger} = Utils;
 
 export default function (stream, {validate = true, fix = true}) {
 	const Emitter = new TransformEmitter();
-	const Logger = createLogger();
+	const logger = createLogger();
 
-	Logger.log('debug', `Starting conversion of ${records.length} records...`);
-
-	return Promise.all(records.map(convertRecord));
+	logger.log('debug', 'Starting to send recordEvents');
 
 	readStream(stream);
 	return Emitter;
@@ -96,7 +94,7 @@ export default function (stream, {validate = true, fix = true}) {
 		controlJSON = controlJSON.concat(standardFields);
 
 		if (typeof (record.metadata) === 'undefined') {
-			Logger.log('warn', 'Metadata deteleted for record: ' + JSON.stringify(record, null, 2));
+			logger.log('warn', 'Metadata deteleted for record: ' + JSON.stringify(record, null, 2));
 			return; // Some records can be '"status": "deleted"' -> no metadata, just header
 		}
 
@@ -139,7 +137,7 @@ export default function (stream, {validate = true, fix = true}) {
 						if (conf.indObj < control008Structure.length && conf.indStr < control008Structure[conf.indObj].value.length && typeof (conf.to) === 'string' && conf.to.length === 1) {
 							control008Structure[conf.indObj].value = replaceAt(control008Structure[conf.indObj].value, conf.indStr, conf.to);
 						} else {
-							Logger.log('error', `008 configuration out of bounds: ${conf}`);
+							logger.log('error', `008 configuration out of bounds: ${conf}`);
 						}
 					}
 				}
@@ -219,7 +217,7 @@ export default function (stream, {validate = true, fix = true}) {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
 					} else {
-						Logger.log('warn', 'Record: ' + recordIdentifier + '  has language code that cannot be transformed to three char version, this will possibly break leader: "' + field.$.value + '"');
+						logger.log('warn', 'Record: ' + recordIdentifier + '  has language code that cannot be transformed to three char version, this will possibly break leader: "' + field.$.value + '"');
 					}
 
 					break; // Otherwise normally
@@ -401,7 +399,7 @@ export default function (stream, {validate = true, fix = true}) {
 			let controlValue008 = '';
 			control008Structure.forEach(element => {
 				if (typeof (element.value) === 'undefined') {
-					Logger.log('warn', `Broken record, with missing control field element: ${element.from}`);
+					logger.log('warn', `Broken record, with missing control field element: ${element.from}`);
 				}
 
 				controlValue008 += element.value;
@@ -421,11 +419,11 @@ export default function (stream, {validate = true, fix = true}) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
+					logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
 					if (field.subfields[0].value === '') {
-						Logger.log('warn', `Error message: ${error.message} (Empty value)`);
+						logger.log('warn', `Error message: ${error.message} (Empty value)`);
 					} else {
-						Logger.log('error', `Error message: ${error.message}`);
+						logger.log('error', `Error message: ${error.message}`);
 					}
 				}
 			});
@@ -434,8 +432,8 @@ export default function (stream, {validate = true, fix = true}) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
-					Logger.log('error', `Error message: ${error.message}`);
+					logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
+					logger.log('error', `Error message: ${error.message}`);
 				}
 			});
 		}
@@ -457,7 +455,7 @@ export default function (stream, {validate = true, fix = true}) {
 				return match[0].trim();
 			}
 
-			Logger.log('info', `Should clip language version, but something went wrong, returning original: "${text}"`);
+			logger.log('info', `Should clip language version, but something went wrong, returning original: "${text}"`);
 
 			return text;
 		}
