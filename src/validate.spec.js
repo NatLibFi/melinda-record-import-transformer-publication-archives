@@ -37,7 +37,6 @@ const FIXTURES_PATH = path.join(__dirname, '../test-fixtures');
 describe('validate 2019', () => {
 	let validator;
 	let recordArray = [];
-	// Let failedRecordsArray = [];
 	MarcRecord.setValidationOptions({subfieldValues: false});
 
 	before(async () => {
@@ -57,8 +56,6 @@ describe('validate 2019', () => {
 				let results = await validator(record, true, true);
 				recordArray.push(results);
 			}
-
-			fs.writeFileSync('out/valid/' + file, JSON.stringify(recordArray));
 
 			expect(recordArray).to.eql(require(path.join(FIXTURES_PATH, '2019Harvests/valid', file)));
 		}).timeout(100000);

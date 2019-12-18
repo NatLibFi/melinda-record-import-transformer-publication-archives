@@ -37,32 +37,31 @@ const {expect} = chai;
 chai.use(chaiAsPromised);
 
 describe('Check different transformation cases', () => {
-	// Describe('#Doria18-19', () => {
-	// 	it('18-19 records from Doria', async () => {
-	// 		let succesRecordArray = [];
-	// 		let failedRecordsArray = [];
+	describe('#Doria18-19', () => {
+		it('18-19 records from Doria', async () => {
+			let succesRecordArray = [];
+			let failedRecordsArray = [];
 
-	// 		const Emitter = await transform(fs.createReadStream('./test-fixtures/recordsDoria2018-19Small.json', 'utf8'), {validate: false, fix: false});
-	// 		await new Promise(resolve => {
-	// 			Emitter
-	// 				.on('end', () => {
-	// 					resolve(true);
-	// 				})
-	// 				.on('record', recordEvent);
-	// 		});
+			const Emitter = await transform(fs.createReadStream('./test-fixtures/fetchedDoria1819Small.json', 'utf8'), {validate: false, fix: false});
+			await new Promise(resolve => {
+				Emitter
+					.on('end', () => {
+						resolve(true);
+					})
+					.on('record', recordEvent);
+			});
 
-	// 		function recordEvent(payload) {
-	// 			// Logger.log('debug', 'Record failed: ' + payload.failed);
-	// 			if (payload.failed) {
-	// 				failedRecordsArray.push(payload);
-	// 			} else {
-	// 				succesRecordArray.push(payload);
-	// 			}
-	// 		}
+			function recordEvent(payload) {
+				if (payload.failed) {
+					failedRecordsArray.push(payload);
+				} else {
+					succesRecordArray.push(payload);
+				}
+			}
 
-	// 		expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/validDoria1819Small.json', 'utf8'));
-	// 	}).timeout(100000);
-	// });
+			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/transformedDoria1819Small.json', 'utf8'));
+		}).timeout(100000);
+	});
 
 	describe('#2019 Harvests, 2016>', () => {
 		let succesRecordArray = [];
@@ -84,7 +83,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Doria.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Doria.json'));
 		}).timeout(10000);
 
@@ -99,7 +97,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Julkari.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Julkari.json'));
 		}).timeout(10000);
 
@@ -114,7 +111,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Lauda.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Lauda.json'));
 		}).timeout(10000);
 
@@ -129,7 +125,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Luke.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Luke.json'));
 		}).timeout(10000);
 
@@ -144,7 +139,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Lutpub.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Lutpub.json'));
 		}).timeout(10000);
 
@@ -159,7 +153,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/UTA.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/UTA.json'));
 		}).timeout(10000);
 
@@ -174,7 +167,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/uWasa.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/uWasa.json'));
 		}).timeout(10000);
 
@@ -189,7 +181,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Valto10.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Valto10.json'));
 		}).timeout(10000);
 
@@ -204,7 +195,6 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Utupub.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Utupub.json'));
 		}).timeout(10000);
 
@@ -219,12 +209,10 @@ describe('Check different transformation cases', () => {
 					.on('record', recordEvent);
 			});
 
-			fs.writeFileSync('out/transform/Theseus.json', JSON.stringify(succesRecordArray.map(r => r.record)));
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Theseus.json'));
 		}).timeout(100000);
 
 		function recordEvent(payload) {
-			// Logger.log('debug', 'Record failed: ' + payload.failed);
 			if (payload.failed) {
 				failedRecordsArray.push(payload);
 			} else {
@@ -233,11 +221,3 @@ describe('Check different transformation cases', () => {
 		}
 	});
 });
-// Console.log("--------------------")
-// console.log(JSON.stringify(result, null, 2))
-// console.log("--------------------")
-// fs.writeFileSync('new/Theseus5.json', JSON.stringify(result));
-
-// console.log('Writing to file');
-// fs.writeFileSync('output.json', JSON.stringify(succesRecordArray));
-// console.log('Done');

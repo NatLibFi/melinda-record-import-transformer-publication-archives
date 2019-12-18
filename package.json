@@ -35,7 +35,7 @@
 	},
 	"dependencies": {
 		"@natlibfi/marc-record": "^4.0.0",
-		"@natlibfi/marc-record-validate": "^5.0.0",
+		"@natlibfi/marc-record-validate": "^5.0.1",
 		"@natlibfi/marc-record-validators-melinda": "^8.0.0",
 		"@natlibfi/melinda-commons": "^7.0.0",
 		"@natlibfi/melinda-record-import-commons": "^7.0.1",
@@ -44,10 +44,10 @@
 		"moment": "^2.22.2"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.2.0",
-		"@babel/core": "^7.2.0",
+		"@babel/cli": "^7.7.5",
+		"@babel/core": "^7.7.5",
 		"@babel/node": "^7.2.0",
-		"@babel/preset-env": "^7.2.0",
+		"@babel/preset-env": "^7.7.6",
 		"@babel/register": "^7.6.2",
 		"babel-eslint": "^10.0.3",
 		"chai": "^4.2.0",
@@ -55,7 +55,7 @@
 		"cross-env": "^6.0.0",
 		"eslint": "^6.4.0",
 		"eslint-config-xo": "<1.0.0",
-		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-import": "^2.19.1",
 		"mocha": "^6.2.0",
 		"nodemon": "^1.19.2",
 		"npm-check": "^5.9.0",

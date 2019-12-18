@@ -355,7 +355,7 @@ export default function (stream, {validate = true, fix = true}) {
 					ind2: '',
 					subfields: [{
 						code: 'a',
-						value: clipLang(onTaso['dc.type.ontasot'], 'fi=') + ' :'
+						value: clipLang(onTaso['dc.type.ontasot'], 'fi=')
 					}]
 				});
 
@@ -365,7 +365,7 @@ export default function (stream, {validate = true, fix = true}) {
 					ind2: '',
 					subfields: [{
 						code: 'a',
-						value: 'Väitöskirja'
+						value: 'Väitöskirja :'
 					}]
 				};
 

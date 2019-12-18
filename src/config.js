@@ -369,11 +369,7 @@ export const confMap = new Map([
 		'dc.type.ontasot',
 		{
 			label: 'Opinnäytteen taso',
-			marcTag: '500',
-			marcSub: 'a',
-			marcIf: enums.onTaso,
-			ind1: '',
-			ind2: ''
+			marcIf: enums.onTaso
 		}
 	],
 	//  	Ks. esimerkki	dc.contributor.organization	JOS dc.type.ontasot, niin 502$c	 	 	 	502 __ $a Väitöskirja : $c Helsingin yliopisto, valtiotieteellinen tiedekunta, $d 2016.
@@ -549,11 +545,7 @@ export const confMap = new Map([
 			marcTag: '650',
 			marcSub: 'a',
 			ind1: '',
-			ind2: '7',
-			presetFields: [{
-				sub: '2',
-				value: 'ysa'
-			}]
+			ind2: '4'
 		}
 	],
 	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä
