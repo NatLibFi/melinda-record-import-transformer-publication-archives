@@ -28,21 +28,29 @@
 
 'use strict';
 
+import fs from 'fs';
+import path from 'path';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import transform from './transform';
-import fs from 'fs';
+
+const FIXTURES_PATH = path.join(__dirname, '../test-fixtures');
 
 const {expect} = chai;
 chai.use(chaiAsPromised);
 
 describe('Check different transformation cases', () => {
+	let succesRecordArray = [];
+	let failedRecordsArray = [];
+
+	beforeEach(async () => {
+		succesRecordArray = [];
+		failedRecordsArray = [];
+	});
+
 	describe('#Doria18-19', () => {
 		it('18-19 records from Doria', async () => {
-			let succesRecordArray = [];
-			let failedRecordsArray = [];
-
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/fetchedDoria1819Small.json', 'utf8'), {validate: false, fix: false});
+			const Emitter = transform(fs.createReadStream(path.join(FIXTURES_PATH, 'fetchedDoria1819Small.json'), 'utf8'), {validate: false, fix: false});
 			await new Promise(resolve => {
 				Emitter
 					.on('end', () => {
@@ -64,153 +72,20 @@ describe('Check different transformation cases', () => {
 	});
 
 	describe('#2019 Harvests, 2016>', () => {
-		let succesRecordArray = [];
-		let failedRecordsArray = [];
+		fs.readdirSync(path.join(FIXTURES_PATH, '2019Harvests/transformed')).forEach(file => {
+			it(file, async () => {
+				const Emitter = transform(fs.createReadStream(path.join(FIXTURES_PATH, '2019Harvests/fetched', file), 'utf8'), {validate: false, fix: false});
+				await new Promise(resolve => {
+					Emitter
+						.on('end', () => {
+							resolve(true);
+						})
+						.on('record', recordEvent);
+				});
 
-		beforeEach(async () => {
-			succesRecordArray = [];
-			failedRecordsArray = [];
+				expect(succesRecordArray.map(r => r.record)).to.eql(require(path.join(FIXTURES_PATH, '2019Harvests/transformed', file)));
+			}).timeout(100000);
 		});
-
-		it('Doria', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Doria.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Doria.json'));
-		}).timeout(10000);
-
-		it('Julkari', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Julkari.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Julkari.json'));
-		}).timeout(10000);
-
-		it('Lauda', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Lauda.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Lauda.json'));
-		}).timeout(10000);
-
-		it('Luke', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Luke.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Luke.json'));
-		}).timeout(10000);
-
-		it('Lutpub', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Lutpub.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Lutpub.json'));
-		}).timeout(10000);
-
-		it('UTA', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/UTA.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/UTA.json'));
-		}).timeout(10000);
-
-		it('uWasa', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/uWasa.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/uWasa.json'));
-		}).timeout(10000);
-
-		it('Valto, with "issued" > 2010', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Valto10.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Valto10.json'));
-		}).timeout(10000);
-
-		it('UTU', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Utupub.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Utupub.json'));
-		}).timeout(10000);
-
-		it('Theseus', async () => {
-			const Emitter = await transform(fs.createReadStream('./test-fixtures/2019Harvests/fetched/Theseus.json', 'utf8'), {validate: false, fix: false});
-
-			await new Promise(resolve => {
-				Emitter
-					.on('end', () => {
-						resolve(true);
-					})
-					.on('record', recordEvent);
-			});
-
-			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/2019Harvests/transformed/Theseus.json'));
-		}).timeout(100000);
 
 		function recordEvent(payload) {
 			if (payload.failed) {

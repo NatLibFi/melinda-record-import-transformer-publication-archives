@@ -50,7 +50,7 @@ export default function (stream, {validate = true, fix = true}) {
 	readStream(stream);
 	return Emitter;
 
-	async function readStream(stream) {
+	function readStream(stream) {
 		try {
 			const promises = [];
 			const pipeline = chain([
