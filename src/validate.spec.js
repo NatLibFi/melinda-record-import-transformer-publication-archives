@@ -29,25 +29,35 @@
 import fs from 'fs';
 import path from 'path';
 import {expect} from 'chai';
+import {MarcRecord} from '@natlibfi/marc-record';
 import createValidator from './validate';
 
 const FIXTURES_PATH = path.join(__dirname, '../test-fixtures');
 
 describe('validate 2019', () => {
-	let validate;
+	let validator;
+	let recordArray = [];
+	MarcRecord.setValidationOptions({subfieldValues: false});
 
 	before(async () => {
-		validate = await createValidator();
+		validator = await createValidator();
+	});
+
+	beforeEach(async () => {
+		recordArray = [];
 	});
 
 	fs.readdirSync(path.join(FIXTURES_PATH, '2019Harvests/transformed')).forEach(file => {
 		it(file, async () => {
-			const data = require(path.join(FIXTURES_PATH, '2019Harvests/transformed', file));
-			const results = await validate(data, true, true);
-			const cleaned = results.map(e => {
-				return e.record;
-			});
-			expect(cleaned).to.eql(require(path.join(FIXTURES_PATH, '2019Harvests/valid', file)));
+			const records = JSON.parse(fs.readFileSync(path.join(FIXTURES_PATH, '2019Harvests/transformed', file), 'utf8'));
+
+			for (const record of records) {
+				// eslint-disable-next-line
+				let results = await validator(record, true, true);
+				recordArray.push(results);
+			}
+
+			expect(recordArray).to.eql(require(path.join(FIXTURES_PATH, '2019Harvests/valid', file)));
 		}).timeout(100000);
 	});
 });

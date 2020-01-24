@@ -39,13 +39,13 @@ export default async () => {
 		await IsbnIssn({hyphenateISBN: true})
 	]);
 
-	return async (records, fix, validateFixes) => {
+	return async (record, fix, validateFixes) => {
 		const opts = fix ? {fix, validateFixes} : {fix};
-		const results = await Promise.all(records.map(r => validate(r, opts)));
-		return results.map(({record, valid, report}) => ({
-			record,
-			failed: valid === false,
-			messages: report
-		}));
+		const result = await validate(record, opts);
+		return {
+			record: result.record,
+			failed: result.valid === false,
+			messages: result.report
+		};
 	};
 };

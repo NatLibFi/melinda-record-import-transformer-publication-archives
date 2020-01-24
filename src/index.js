@@ -28,7 +28,6 @@
 */
 
 import transform from './transform';
-import createValidator from './validate';
 import {Transformer} from '@natlibfi/melinda-record-import-commons';
 
 const {startTransformer} = Transformer;
@@ -36,9 +35,5 @@ const {startTransformer} = Transformer;
 run();
 
 async function run() {
-	startTransformer(async stream => {
-		const validator = await createValidator();
-		const records = await transform(stream);
-		return validator(records, true, true);
-	});
+	startTransformer(transform);
 }

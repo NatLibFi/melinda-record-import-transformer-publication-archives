@@ -29,20 +29,53 @@
 /* eslint-disable default-case, complexity */
 
 import {orderMap, conditionalCases, control007, control008Strc, standardFields, ldr, confMap, enums} from './config';
-import getStream from 'get-stream';
+import {chain} from 'stream-chain';
+import {parser} from 'stream-json';
+import {streamArray} from 'stream-json/streamers/StreamArray';
 import {MarcRecord} from '@natlibfi/marc-record';
+import validator from './validate';
 import {Utils} from '@natlibfi/melinda-commons';
+import {EventEmitter} from 'events';
 import langs from 'langs';
 
+class TransformEmitter extends EventEmitter {}
 const {createLogger} = Utils;
 
-export default async function (stream) {
-	const Logger = createLogger();
-	const records = await JSON.parse(await getStream(stream));
+export default function (stream, {validate = true, fix = true}) {
+	const Emitter = new TransformEmitter();
+	const logger = createLogger();
 
-	Logger.log('debug', `Starting conversion of ${records.length} records...`);
+	logger.log('debug', 'Starting to send recordEvents');
 
-	return Promise.all(records.map(convertRecord));
+	readStream(stream);
+	return Emitter;
+
+	function readStream(stream) {
+		try {
+			const promises = [];
+			const pipeline = chain([
+				stream,
+				parser(),
+				streamArray()
+			]);
+
+			pipeline.on('data', async data => {
+				promises.push(transform(data.value));
+
+				async function transform(value) {
+					const result = await convertRecord(value);
+					Emitter.emit('record', result);
+				}
+			});
+			pipeline.on('end', async () => {
+				logger.log('debug', `Handled ${promises.length} recordEvents`);
+				await Promise.all(promises);
+				Emitter.emit('end', promises.length);
+			});
+		} catch (err) {
+			Emitter.emit('error', err);
+		}
+	}
 
 	function convertRecord(record) {
 		let control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
@@ -61,7 +94,7 @@ export default async function (stream) {
 		controlJSON = controlJSON.concat(standardFields);
 
 		if (typeof (record.metadata) === 'undefined') {
-			Logger.log('warn', 'Metadata deteleted for record: ' + JSON.stringify(record, null, 2));
+			logger.log('warn', 'Metadata deteleted for record: ' + JSON.stringify(record, null, 2));
 			return; // Some records can be '"status": "deleted"' -> no metadata, just header
 		}
 
@@ -77,7 +110,11 @@ export default async function (stream) {
 		generateControlFields();
 		generateMarcRecord();
 
-		return marcRecord;
+		if (validate === true || fix === true) {
+			return validator(marcRecord, validate, fix);
+		}
+
+		return {failed: false, record: marcRecord};
 
 		// Start of supporting functions
 		function conditionalFields() {
@@ -100,7 +137,7 @@ export default async function (stream) {
 						if (conf.indObj < control008Structure.length && conf.indStr < control008Structure[conf.indObj].value.length && typeof (conf.to) === 'string' && conf.to.length === 1) {
 							control008Structure[conf.indObj].value = replaceAt(control008Structure[conf.indObj].value, conf.indStr, conf.to);
 						} else {
-							Logger.log('error', `008 configuration out of bounds: ${conf}`);
+							logger.log('error', `008 configuration out of bounds: ${conf}`);
 						}
 					}
 				}
@@ -180,7 +217,7 @@ export default async function (stream) {
 						field.$.originalValue = field.$.value;
 						field.$.value = langs.where(1, field.$.value)['2B'];
 					} else {
-						Logger.log('warn', 'Record: ' + recordIdentifier + '  has language code that cannot be transformed to three char version, this will possibly break leader: "' + field.$.value + '"');
+						logger.log('warn', 'Record: ' + recordIdentifier + '  has language code that cannot be transformed to three char version, this will possibly break leader: "' + field.$.value + '"');
 					}
 
 					break; // Otherwise normally
@@ -313,22 +350,22 @@ export default async function (stream) {
 		function generateOnTaso() {
 			if (onTaso['dc.type.ontasot']) {
 				marcJSON.push({
-					tag: '502',
-					ind1: '',
-					ind2: '',
-					subfields: [{
-						code: 'a',
-						value: 'Väitöskirja'
-					}]
-				});
-
-				let rec = {
 					tag: '500',
 					ind1: '',
 					ind2: '',
 					subfields: [{
 						code: 'a',
-						value: clipLang(onTaso['dc.type.ontasot'], 'fi=') + ' :'
+						value: clipLang(onTaso['dc.type.ontasot'], 'fi=')
+					}]
+				});
+
+				let rec = {
+					tag: '502',
+					ind1: '',
+					ind2: '',
+					subfields: [{
+						code: 'a',
+						value: 'Väitöskirja :'
 					}]
 				};
 
@@ -362,7 +399,7 @@ export default async function (stream) {
 			let controlValue008 = '';
 			control008Structure.forEach(element => {
 				if (typeof (element.value) === 'undefined') {
-					Logger.log('warn', `Broken record, with missing control field element: ${element.from}`);
+					logger.log('warn', `Broken record, with missing control field element: ${element.from}`);
 				}
 
 				controlValue008 += element.value;
@@ -382,11 +419,11 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
+					logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
 					if (field.subfields[0].value === '') {
-						Logger.log('warn', `Error message: ${error.message} (Empty value)`);
+						logger.log('warn', `Error message: ${error.message} (Empty value)`);
 					} else {
-						Logger.log('error', `Error message: ${error.message}`);
+						logger.log('error', `Error message: ${error.message}`);
 					}
 				}
 			});
@@ -395,8 +432,8 @@ export default async function (stream) {
 				try {
 					marcRecord.insertField(field);
 				} catch (error) {
-					Logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
-					Logger.log('error', `Error message: ${error.message}`);
+					logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
+					logger.log('error', `Error message: ${error.message}`);
 				}
 			});
 		}
@@ -418,7 +455,7 @@ export default async function (stream) {
 				return match[0].trim();
 			}
 
-			Logger.log('info', `Should clip language version, but something went wrong, returning original: "${text}"`);
+			logger.log('info', `Should clip language version, but something went wrong, returning original: "${text}"`);
 
 			return text;
 		}
