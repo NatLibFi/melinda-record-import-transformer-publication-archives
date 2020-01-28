@@ -33,7 +33,7 @@ import {chain} from 'stream-chain';
 import {parser} from 'stream-json';
 import {streamArray} from 'stream-json/streamers/StreamArray';
 import {MarcRecord} from '@natlibfi/marc-record';
-import validator from './validate';
+import createValidator from './validate';
 import {Utils} from '@natlibfi/melinda-commons';
 import {EventEmitter} from 'events';
 import langs from 'langs';
@@ -50,8 +50,9 @@ export default function (stream, {validate = true, fix = true}) {
 	readStream(stream);
 	return Emitter;
 
-	function readStream(stream) {
+	async function readStream(stream) {
 		try {
+			const validator = await createValidator();
 			const promises = [];
 			const pipeline = chain([
 				stream,
@@ -63,7 +64,7 @@ export default function (stream, {validate = true, fix = true}) {
 				promises.push(transform(data.value));
 
 				async function transform(value) {
-					const result = await convertRecord(value);
+					const result = await convertRecord(value, validator);
 					Emitter.emit('record', result);
 				}
 			});
@@ -77,7 +78,7 @@ export default function (stream, {validate = true, fix = true}) {
 		}
 	}
 
-	function convertRecord(record) {
+	function convertRecord(record, validator) {
 		let control008Structure = control008Strc.map(a => Object.assign({}, a)); // Deepcopy configuration array
 		let onTaso = {};
 
