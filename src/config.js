@@ -530,11 +530,7 @@ export const confMap = new Map([
 			marcTag: '650',
 			marcSub: 'a',
 			ind1: '',
-			ind2: '7',
-			presetFields: [{
-				sub: '2',
-				value: 'ysa'
-			}]
+			ind2: '4' // Jos 650/651/655-kentän lopussa on osakenttä ‡2 ysa / allärs / musa / cilla Muutetaan 2. indikaattorin arvo 7 → 4 JA poistetaan osakenttä $2
 		}
 	],
 	// Lisätty Lassin kanssa
