@@ -76,8 +76,20 @@ export const conditionalCases = new Map([
 				to: 'm'
 			}
 		}
+	],
+	[
+		'dc.type.ontasot',
+		{
+			set008Strc: {
+				indObj: 4,
+				indStr: 7,
+				to: 'm'
+			}
+		}
 	]
 ]);
+
+export const ldr = '01704nam a22002653i 4500';
 
 export const control007 = {
 	tag: '007',
@@ -161,8 +173,6 @@ export const standardFields = [{
 		value: 'rdacarrier'
 	}]
 }];
-
-export const ldr = '01704nam a  002653i   00';
 
 export const confMap = new Map([
 	// Teoksen julkaisumaa	Oletuksena aina 'fi'	dc.publisher.country	008 (katso tarkempi ohje)
@@ -297,7 +307,7 @@ export const confMap = new Map([
 			label: 'Sarjatieto, nimeke',
 			marcTag: '490',
 			marcSub: 'a',
-			ind1: '1',
+			ind1: '0', // 490, 1. indikaattori = 1, jos tietueella on myös kenttä 800 TAI 810 TAI 811 TAI 830 (No transformation for any of these)
 			ind2: '',
 			unique: true,
 			suffix: ','
@@ -310,7 +320,7 @@ export const confMap = new Map([
 			label: 'Sarjan/lehden ISSN-numero',
 			marcTag: '490',
 			marcSub: 'x',
-			ind1: '1',
+			ind1: '0',
 			ind2: '',
 			unique: true,
 			suffix: ';'
@@ -323,7 +333,7 @@ export const confMap = new Map([
 			label: 'Sarjatieto, järjestysnumero',
 			marcTag: '490',
 			marcSub: 'v',
-			ind1: '1',
+			ind1: '0',
 			ind2: '',
 			unique: true
 		}
@@ -335,7 +345,7 @@ export const confMap = new Map([
 			label: 'Sarjatieto, järjestysnumero',
 			marcTag: '490',
 			marcSub: 'v',
-			ind1: '1',
+			ind1: '0',
 			ind2: '',
 			unique: true
 		}
@@ -518,7 +528,7 @@ export const confMap = new Map([
 			ind2: '7',
 			presetFields: [{
 				sub: '2',
-				value: 'ysa'
+				value: 'yso'
 			}]
 		}
 	],
