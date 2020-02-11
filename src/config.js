@@ -89,10 +89,7 @@ export const conditionalCases = new Map([
 	]
 ]);
 
-export const control000 = {
-	tag: '000',
-	value: '         22        4500 '
-};
+export const ldr = '01704nam a22002653i 4500';
 
 export const control007 = {
 	tag: '007',
@@ -176,8 +173,6 @@ export const standardFields = [{
 		value: 'rdacarrier'
 	}]
 }];
-
-export const ldr = '01704nam a  002653i   00';
 
 export const confMap = new Map([
 	// Teoksen julkaisumaa	Oletuksena aina 'fi'	dc.publisher.country	008 (katso tarkempi ohje)
@@ -530,7 +525,11 @@ export const confMap = new Map([
 			marcTag: '650',
 			marcSub: 'a',
 			ind1: '',
-			ind2: '4' // Jos 650/651/655-kentän lopussa on osakenttä ‡2 ysa / allärs / musa / cilla Muutetaan 2. indikaattorin arvo 7 → 4 JA poistetaan osakenttä $2
+			ind2: '7',
+			presetFields: [{
+				sub: '2',
+				value: 'yso'
+			}]
 		}
 	],
 	// Lisätty Lassin kanssa

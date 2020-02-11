@@ -28,7 +28,7 @@
 
 /* eslint-disable default-case, complexity */
 
-import {orderMap, conditionalCases, control000, control007, control008Strc, standardFields, ldr, confMap, enums} from './config';
+import {orderMap, conditionalCases, control007, control008Strc, standardFields, ldr, confMap, enums} from './config';
 import {chain} from 'stream-chain';
 import {parser} from 'stream-json';
 import {streamArray} from 'stream-json/streamers/StreamArray';
@@ -91,7 +91,6 @@ export default function (stream, {validate = true, fix = true}) {
 
 		// Standard fields: leader, control and 336-338
 		marcRecord.leader = ldr;
-		controlJSON.push(control000);
 		controlJSON.push(control007);
 		controlJSON = controlJSON.concat(standardFields);
 
