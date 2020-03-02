@@ -36,7 +36,8 @@ export const enums = {
 	issued: 'issued',
 	replace: 'replace',
 	langField: 'langField',
-	ysaPresent: 'ysaPresent'
+	ysaPresent: 'ysaPresent',
+	creatorAuthor: 'creatorAuthor'
 };
 
 export const orderMap = new Map([
@@ -78,13 +79,15 @@ export const conditionalCases = new Map([
 		}
 	],
 	[
-		'dc.type.ontasot',
+		'dc.contributor.author',
 		{
-			set008Strc: {
-				indObj: 4,
-				indStr: 7,
-				to: 'm'
-			}
+			creatorAuthor: true
+		}
+	],
+	[
+		'dc.creator',
+		{
+			creatorAuthor: true
 		}
 	]
 ]);
@@ -228,13 +231,15 @@ export const confMap = new Map([
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0
+	// Jos lähdetietueella ei ole dc.contributor.author- tai dc.creator-kenttää, niin 245 ensimmäisen indikaattorin arvo = 0
 	[
 		'dc.title',
 		{
 			label: 'Nimike',
 			marcTag: '245',
+			marcIf: enums.creatorAuthor, // Change ind1 if creator or author is present to 1.
 			marcSub: 'a',
-			ind1: '1',
+			ind1: '0',
 			ind2: '0',
 			suffix: '.'
 		}

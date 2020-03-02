@@ -87,7 +87,8 @@ export default function (stream, {validate = true, fix = true}) {
 		let issued = null;
 		let controlJSON = [];
 		let ignoredFields = []; // Fields to ignore
-		let ysaPresent = null;
+		let ysaPresent = false;
+		let creatorAuthor = false;
 
 		// Standard fields: leader, control and 336-338
 		marcRecord.leader = ldr;
@@ -140,6 +141,10 @@ export default function (stream, {validate = true, fix = true}) {
 						} else {
 							logger.log('error', `008 configuration out of bounds: ${conf}`);
 						}
+					}
+
+					if (conditionalCase.creatorAuthor) {
+						creatorAuthor = conditionalCase.creatorAuthor;
 					}
 				}
 			});
@@ -228,6 +233,19 @@ export default function (stream, {validate = true, fix = true}) {
 				case enums.ysaPresent: {
 					if (ysaPresent) { // Conditional field found
 						generateRecord(conf.marcIfConfig, field); // Use ifConfig
+						return; // Ignore normal functionality
+					}
+
+					break; // Otherwise normally
+				}
+
+				// Conditional field are checked before parsing
+				case enums.creatorAuthor: {
+					if (creatorAuthor === true) { // Conditional field found in pre-check
+						tempConf = Object.assign({}, conf);
+						tempConf.ind1 = '1'; // Temp configuration with updated ind1
+
+						generateRecord(tempConf, field); // Use ifConfig
 						return; // Ignore normal functionality
 					}
 
