@@ -87,7 +87,10 @@ export default function (stream, {validate = true, fix = true}) {
 		let issued = null;
 		let controlJSON = [];
 		let ignoredFields = []; // Fields to ignore
-		let ysaPresent = null;
+		let ysaPresent = false;
+		let relationPresent = false;
+		let ISSNAmount = 0;
+		let ISSNInd = 0;
 
 		// Standard fields: leader, control and 336-338
 		marcRecord.leader = ldr;
@@ -140,6 +143,14 @@ export default function (stream, {validate = true, fix = true}) {
 						} else {
 							logger.log('error', `008 configuration out of bounds: ${conf}`);
 						}
+					}
+
+					if (conditionalCase.relationPresent) {
+						relationPresent = conditionalCase.relationPresent;
+					}
+
+					if (conditionalCase.ISSNAmount) {
+						ISSNAmount++;
 					}
 				}
 			});
@@ -226,7 +237,7 @@ export default function (stream, {validate = true, fix = true}) {
 
 				// Conditional field are checked before parsing, if dc.subject.ysa
 				case enums.ysaPresent: {
-					if (ysaPresent) { // Conditional field found
+					if (ysaPresent === true) { // Conditional field found
 						generateRecord(conf.marcIfConfig, field); // Use ifConfig
 						return; // Ignore normal functionality
 					}
@@ -259,6 +270,25 @@ export default function (stream, {validate = true, fix = true}) {
 				let foundRec = marcJSON.find(x => x.tag === conf.marcTag);
 				if (conf.regexRemove) {
 					field.$.value = field.$.value.replace(conf.regexRemove, '');
+				}
+
+				if (conf.regexReplace) {
+					if (conf.regexReplace.conditional) { // Spcial case: conditional remove
+						if (relationPresent) { // If other relatio fields are present, do replace
+							field.$.value = field.$.value.replace(conf.regexReplace.regex, conf.regexReplace.replace);
+						}
+					} else if (typeof (conf.regexReplace.last) === 'string') { // Special case: different functionality for last
+						ISSNInd++;
+						if (ISSNAmount === 1) { // Single
+							field.$.value = field.$.value.replace(conf.regexReplace.regex, conf.regexReplace.single);
+						} else if (ISSNInd === ISSNAmount) { // Last
+							field.$.value = field.$.value.replace(conf.regexReplace.regex, conf.regexReplace.last);
+						} else { // Normal
+							field.$.value = field.$.value.replace(conf.regexReplace.regex, conf.regexReplace.replace);
+						}
+					} else { // Normal regex replace
+						field.$.value = field.$.value.replace(conf.regexReplace.regex, conf.regexReplace.replace);
+					}
 				}
 
 				// Earlier existing record and should be unique -> push new subfield

@@ -86,6 +86,24 @@ export const conditionalCases = new Map([
 				to: 'm'
 			}
 		}
+	],
+	[
+		'dc.relation.issn',
+		{
+			relationPresent: true
+		}
+	],
+	[
+		'dc.relation.numbersinseries',
+		{
+			relationPresent: true
+		}
+	],
+	[
+		'dc.relation.issn',
+		{
+			ISSNAmount: true
+		}
 	]
 ]);
 
@@ -310,7 +328,11 @@ export const confMap = new Map([
 			ind1: '0', // 490, 1. indikaattori = 1, jos tietueella on myös kenttä 800 TAI 810 TAI 811 TAI 830 (No transformation for any of these)
 			ind2: '',
 			unique: true,
-			suffix: ','
+			regexReplace: {
+				regex: /(?<=[^,]$)/gm,
+				replace: ',',
+				conditional: true
+			}
 		}
 	],
 	// Sarjan/lehden ISSN-numero	 	dc.relation.issn	490$x	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -323,7 +345,12 @@ export const confMap = new Map([
 			ind1: '0',
 			ind2: '',
 			unique: true,
-			suffix: ';'
+			regexReplace: { // 2 sarjan/lehden ISSN-numeroa	| 2 X dc.relation.issn | ',_' (pilkku välilyönti) toistumien väliin | 490‡x,_‡x
+				regex: /$/gm,
+				replace: ', ',
+				last: '',
+				single: ' ;' // Sarjan/lehden ISSN-numero: | dc.relation.issn | '_;' (välilyönti puolipiste) | 490‡x_;s
+			}
 		}
 	],
 	// Sarjatieto, järjestysnumero	 	dc.relation.numberinseries	490$v	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
