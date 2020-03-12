@@ -134,6 +134,36 @@ export const control008Strc = [{
 }];
 
 export const standardFields = [{
+	tag: 'LOW',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'FIKKA'
+	}]
+}, {
+	tag: '040',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'b',
+		value: 'fin'
+	}, {
+		code: 'e',
+		value: 'rda'
+	}, {
+		code: 'd',
+		value: 'FI-NL'
+	}]
+}, {
+	tag: '042',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'finb'
+	}]
+}, {
 	tag: '336',
 	ind1: '',
 	ind2: '',
@@ -174,6 +204,60 @@ export const standardFields = [{
 	}, {
 		code: '2',
 		value: 'rdacarrier'
+	}]
+}, {
+	tag: '500',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Koneellisesti tuotettu tietue.'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '506',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on käytettävissä vapaakappalekirjastoissa'
+	}, {
+		code: 'f',
+		value: 'Online access with authorization'
+	}, {
+		code: '2',
+		value: 'star'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '540',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;'
+	}, {
+		code: 'b',
+		value: 'Kansalliskirjasto'
+	}, {
+		code: 'c',
+		value: 'Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä'
+	}, {
+		code: 'u',
+		value: 'http://www.finlex.fi/fi/laki/ajantasa/2007/20071433'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
 	}]
 }];
 
@@ -622,6 +706,7 @@ export const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0',
+			unique: true,
 			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
@@ -642,7 +727,8 @@ export const confMap = new Map([
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			unique: true
 		}
 	],
 	// Julkaisun URL	vaihtoehtoinen	dc.identifier.url	856$u	4	0
@@ -653,7 +739,8 @@ export const confMap = new Map([
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			unique: true
 		}
 	],
 	// URN-tunnus	 	dc.identifier.urn	856$u	4	0
@@ -666,9 +753,16 @@ export const confMap = new Map([
 			ind1: '4',
 			ind2: '0',
 			prefix: 'http://urn.fi/',
+			unique: true,
 			presetFields: [{
 				sub: 'y',
 				value: 'Linkki verkkoaineistoon'
+			}, {
+				sub: 'z',
+				value: 'Käytettävissä vapaakappalekirjastoissa'
+			}, {
+				sub: '5',
+				value: 'FI-Vapaa'
 			}],
 			secondary: [{
 				marcTag: '024',
@@ -678,6 +772,24 @@ export const confMap = new Map([
 				presetFields: [{
 					sub: '2',
 					value: 'urn'
+				}]
+			}, { // Jos julkaisu on myös vapaasti verkossa (=toisessa 856 kentässä on osakenttä y Linkki verkkoaineistoon) tarvitaan toinen 506-kenttä
+				marcTag: '506',
+				ind1: '0',
+				ind2: '',
+				removeStandard: true, // Removes preset standard field with same tag
+				presetFields: [{
+					sub: 'a',
+					value: 'Aineisto on vapaasti saatavissa.'
+				}, {
+					sub: 'f',
+					value: 'Unrestricted online access'
+				}, {
+					sub: '2',
+					value: 'star'
+				}, {
+					sub: '9',
+					value: 'FENNI<KEEP>'
 				}]
 			}]
 		}

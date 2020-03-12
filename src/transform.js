@@ -90,7 +90,7 @@ export default function (stream, {validate = true, fix = true}) {
 		let ysaPresent = false;
 		let creatorAuthor = false;
 
-		// Standard fields: leader, control and 336-338
+		// Standard fields: leader, control etc
 		marcRecord.leader = ldr;
 		controlJSON.push(control007);
 		controlJSON = controlJSON.concat(standardFields);
@@ -271,6 +271,10 @@ export default function (stream, {validate = true, fix = true}) {
 		}
 
 		function generateRecord(conf, field) {
+			if (conf.removeStandard) { // Some fields replace standard fields
+				controlJSON = controlJSON.filter(field => field.tag !== conf.marcTag);
+			}
+
 			if (conf.marcTag === '008') { // Controller fields
 				modifyControlField(field);
 			} else { // Normal fields
@@ -279,54 +283,81 @@ export default function (stream, {validate = true, fix = true}) {
 					field.$.value = field.$.value.replace(conf.regexRemove, '');
 				}
 
-				// Earlier existing record and should be unique -> push new subfield
-				if (foundRec && conf.unique) {
-					// Find out if tag is suppose to be in specific order
-					const orderArr = orderMap.get(conf.marcTag);
-					if (orderArr && foundRec.subfields.length >= 1) {
-						const indexInserted = orderArr.order.indexOf(conf.marcSub);
-						let indexPos = 0;
+				// If some data to insert to subfield (Might be only preset fields)
+				if (conf.marcSub) {
+					// Console.log('--------------------');
+					// console.log(conf);
+					// console.log('--------------------');
+					// console.log(field);
+					// console.log('--------------------');
+					// console.log(foundRec);
+					// Earlier existing record and should be unique -> push new subfield
+					if (foundRec && conf.unique) {
+						// Find out if tag is suppose to be in specific order
+						const orderArr = orderMap.get(conf.marcTag);
+						if (orderArr && foundRec.subfields.length >= 1) {
+							const indexInserted = orderArr.order.indexOf(conf.marcSub);
+							let indexPos = 0;
 
-						foundRec.subfields.forEach(element => {
-							if (orderArr.order.indexOf(element.code) <= indexInserted) {
-								indexPos++;
-							}
-						});
+							foundRec.subfields.forEach(element => {
+								if (orderArr.order.indexOf(element.code) <= indexInserted) {
+									indexPos++;
+								}
+							});
 
-						foundRec.subfields.splice(indexPos, 0, {
-							code: conf.marcSub,
-							value: valueFixing(conf, field)
-						});
+							foundRec.subfields.splice(indexPos, 0, {
+								code: conf.marcSub,
+								value: valueFixing(conf, field)
+							});
+						} else {
+							foundRec.subfields.push({
+								code: conf.marcSub,
+								value: valueFixing(conf, field)
+							});
+						}
+
+					// No earlier record or not unique -> generate new record
 					} else {
-						foundRec.subfields.push({
-							code: conf.marcSub,
-							value: valueFixing(conf, field)
-						});
+						foundRec = {
+							tag: conf.marcTag,
+							ind1: conf.ind1 || '',
+							ind2: conf.ind2 || '',
+							subfields: [{
+								code: conf.marcSub,
+								value: valueFixing(conf, field)
+							}]
+						};
+						marcJSON.push(foundRec);
 					}
-
-				// No earlier record or not unique -> generate new record
-				} else {
-					foundRec = {
-						tag: conf.marcTag,
-						ind1: conf.ind1 || '',
-						ind2: conf.ind2 || '',
-						subfields: [{
-							code: conf.marcSub,
-							value: valueFixing(conf, field)
-						}]
-					};
-					marcJSON.push(foundRec);
 				}
 
 				// Set possibly preset subfield (describing static type etc)
 				if (conf.presetFields) {
-					conf.presetFields.forEach(presetField => {
-						foundRec.subfields.push({
-							code: presetField.sub,
-							value: presetField.value
-						});
-					});
+					if (foundRec) {
+						foundRec = pushAllPresetFields(conf, foundRec);
+					} else {
+						foundRec = {
+							tag: conf.marcTag,
+							ind1: conf.ind1 || '',
+							ind2: conf.ind2 || '',
+							subfields: []
+						};
+
+						foundRec = pushAllPresetFields(conf, foundRec);
+						marcJSON.push(foundRec);
+					}
 				}
+			}
+
+			function pushAllPresetFields(conf, foundRec) {
+				conf.presetFields.forEach(presetField => {
+					foundRec.subfields.push({
+						code: presetField.sub,
+						value: presetField.value
+					});
+				});
+
+				return foundRec;
 			}
 
 			// Adds prefix and suffix
