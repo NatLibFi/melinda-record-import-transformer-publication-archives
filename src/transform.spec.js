@@ -67,8 +67,6 @@ describe('Check different transformation cases', () => {
 				}
 			}
 
-			fs.writeFileSync('out/transformedDoria1819Small.json', JSON.stringify(succesRecordArray.map(r => r.record)));
-
 			expect(succesRecordArray.map(r => r.record)).to.eql(require('../test-fixtures/transformedDoria1819Small.json', 'utf8'));
 		}).timeout(100000);
 	});
