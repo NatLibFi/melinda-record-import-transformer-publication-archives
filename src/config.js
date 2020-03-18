@@ -175,6 +175,14 @@ export const standardFields = [{
 		code: '2',
 		value: 'rdacarrier'
 	}]
+}, {
+	tag: '884',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'k',
+		value: process.env.SOURCE || 'Tuntematon lähde'
+	}]
 }];
 
 export const confMap = new Map([
