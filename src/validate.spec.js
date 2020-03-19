@@ -57,8 +57,6 @@ describe('validate 2019', () => {
 				recordArray.push(results);
 			}
 
-			fs.writeFileSync('out/valid/' + file, JSON.stringify(recordArray));
-
 			expect(recordArray).to.eql(require(path.join(FIXTURES_PATH, '2019Harvests/valid', file)));
 		}).timeout(100000);
 	});
