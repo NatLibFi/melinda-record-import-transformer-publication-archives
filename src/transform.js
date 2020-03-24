@@ -251,6 +251,17 @@ export default function (stream, {validate = true, fix = true}) {
 
 					break; // Otherwise normally
 				}
+
+				// Change subfield if regex matches
+				case enums.changeSubfield: {
+					tempConf = Object.assign({}, conf);
+					if (conf.marcIfConfig && field.$.value.match(conf.marcIfConfig.regexSub)) {
+						tempConf.marcSub = tempConf.marcIfConfig.replaceSub;
+					}
+
+					generateRecord(tempConf, field); // Generate with edited config
+					return; // Ignore normal functionality
+				}
 			}
 
 			generateRecord(conf, field); // Normal case
