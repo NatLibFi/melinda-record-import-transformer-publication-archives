@@ -28,7 +28,8 @@
 
 /* eslint-disable no-warning-comments */
 
-// export {orderMap, conditionalCases, confMap};
+import {Utils} from '@natlibfi/melinda-commons';
+const {readEnvironmentVariable} = Utils;
 
 export const enums = {
 	onTaso: 'onTaso',
@@ -175,6 +176,14 @@ export const standardFields = [{
 	}, {
 		code: '2',
 		value: 'rdacarrier'
+	}]
+}, {
+	tag: '884',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'k',
+		value: readEnvironmentVariable('SOURCE', {defaultValue: 'Tuntematon lähde'})
 	}]
 }];
 
