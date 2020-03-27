@@ -28,7 +28,8 @@
 
 /* eslint-disable no-warning-comments */
 
-// export {orderMap, conditionalCases, confMap};
+import {Utils} from '@natlibfi/melinda-commons';
+const {readEnvironmentVariable} = Utils;
 
 export const enums = {
 	onTaso: 'onTaso',
@@ -37,7 +38,8 @@ export const enums = {
 	replace: 'replace',
 	langField: 'langField',
 	ysaPresent: 'ysaPresent',
-	creatorAuthor: 'creatorAuthor'
+	creatorAuthor: 'creatorAuthor',
+	changeSubfield: 'changeSubfield'
 };
 
 export const orderMap = new Map([
@@ -174,6 +176,14 @@ export const standardFields = [{
 	}, {
 		code: '2',
 		value: 'rdacarrier'
+	}]
+}, {
+	tag: '884',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'k',
+		value: readEnvironmentVariable('SOURCE', {defaultValue: 'Tuntematon lähde'})
 	}]
 }];
 
@@ -438,8 +448,13 @@ export const confMap = new Map([
 			label: 'Tekijänoikeus-/käyttöoikeustiedot',
 			marcTag: '540',
 			marcSub: 'c',
+			marcIf: enums.changeSubfield,
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			marcIfConfig: {
+				regexSub: /^(fi= All rights reserved)|(All rights reserved)/,
+				replaceSub: 'a'
+			}
 		}
 	],
 	//  	 	Dc.rights.accesslevel	506$a
