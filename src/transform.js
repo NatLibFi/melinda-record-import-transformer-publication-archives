@@ -91,6 +91,7 @@ export default function (stream, {validate = true, fix = true}) {
 		let relationPresent = false;
 		let ISSNAmount = 0;
 		let ISSNInd = 0;
+		let creatorAuthor = false;
 
 		// Standard fields: leader, control and 336-338
 		marcRecord.leader = ldr;
@@ -151,6 +152,10 @@ export default function (stream, {validate = true, fix = true}) {
 
 					if (conditionalCase.ISSNAmount) {
 						ISSNAmount++;
+					}
+
+					if (conditionalCase.creatorAuthor) {
+						creatorAuthor = conditionalCase.creatorAuthor;
 					}
 				}
 			});
@@ -243,6 +248,30 @@ export default function (stream, {validate = true, fix = true}) {
 					}
 
 					break; // Otherwise normally
+				}
+
+				// Conditional field are checked before parsing
+				case enums.creatorAuthor: {
+					if (creatorAuthor === true) { // Conditional field found in pre-check
+						tempConf = Object.assign({}, conf);
+						tempConf.ind1 = '1'; // Temp configuration with updated ind1
+
+						generateRecord(tempConf, field); // Use ifConfig
+						return; // Ignore normal functionality
+					}
+
+					break; // Otherwise normally
+				}
+
+				// Change subfield if regex matches
+				case enums.changeSubfield: {
+					tempConf = Object.assign({}, conf);
+					if (conf.marcIfConfig && field.$.value.match(conf.marcIfConfig.regexSub)) {
+						tempConf.marcSub = tempConf.marcIfConfig.replaceSub;
+					}
+
+					generateRecord(tempConf, field); // Generate with edited config
+					return; // Ignore normal functionality
 				}
 			}
 

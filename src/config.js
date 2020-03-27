@@ -28,7 +28,8 @@
 
 /* eslint-disable no-warning-comments */
 
-// export {orderMap, conditionalCases, confMap};
+import {Utils} from '@natlibfi/melinda-commons';
+const {readEnvironmentVariable} = Utils;
 
 export const enums = {
 	onTaso: 'onTaso',
@@ -36,7 +37,9 @@ export const enums = {
 	issued: 'issued',
 	replace: 'replace',
 	langField: 'langField',
-	ysaPresent: 'ysaPresent'
+	ysaPresent: 'ysaPresent',
+	creatorAuthor: 'creatorAuthor',
+	changeSubfield: 'changeSubfield'
 };
 
 export const orderMap = new Map([
@@ -78,13 +81,15 @@ export const conditionalCases = new Map([
 		}
 	],
 	[
-		'dc.type.ontasot',
+		'dc.contributor.author',
 		{
-			set008Strc: {
-				indObj: 4,
-				indStr: 7,
-				to: 'm'
-			}
+			creatorAuthor: true
+		}
+	],
+	[
+		'dc.creator',
+		{
+			creatorAuthor: true
 		}
 	],
 	[
@@ -190,6 +195,14 @@ export const standardFields = [{
 		code: '2',
 		value: 'rdacarrier'
 	}]
+}, {
+	tag: '884',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'k',
+		value: readEnvironmentVariable('SOURCE', {defaultValue: 'Tuntematon lähde'})
+	}]
 }];
 
 export const confMap = new Map([
@@ -246,13 +259,15 @@ export const confMap = new Map([
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0
+	// Jos lähdetietueella ei ole dc.contributor.author- tai dc.creator-kenttää, niin 245 ensimmäisen indikaattorin arvo = 0
 	[
 		'dc.title',
 		{
 			label: 'Nimike',
 			marcTag: '245',
+			marcIf: enums.creatorAuthor, // Change ind1 if creator or author is present to 1.
 			marcSub: 'a',
-			ind1: '1',
+			ind1: '0',
 			ind2: '0',
 			suffix: '.'
 		}
@@ -460,8 +475,13 @@ export const confMap = new Map([
 			label: 'Tekijänoikeus-/käyttöoikeustiedot',
 			marcTag: '540',
 			marcSub: 'c',
+			marcIf: enums.changeSubfield,
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			marcIfConfig: {
+				regexSub: /^(fi= All rights reserved)|(All rights reserved)/,
+				replaceSub: 'a'
+			}
 		}
 	],
 	//  	 	Dc.rights.accesslevel	506$a
@@ -705,16 +725,17 @@ export const confMap = new Map([
 		}
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
-	[
-		'dc.relation.url',
-		{
-			label: 'Muu verkko-osoite',
-			marcTag: '856',
-			marcSub: 'u',
-			ind1: '4',
-			ind2: '2' // ToDo: If previous #4#0 should we create new record or update to #4#2
-		}
-	],
+	// Pudotetaan tuonnissa linkkikenttä dc.relation.url
+	// [
+	// 	'dc.relation.url',
+	// 	{
+	// 		label: 'Muu verkko-osoite',
+	// 		marcTag: '856',
+	// 		marcSub: 'u',
+	// 		ind1: '4',
+	// 		ind2: '2'
+	// 	}
+	// ],
 	// // Muu verkko-osoite	 	dc.relation.uri
 	// [
 	// 	'dc.relation.uri',
