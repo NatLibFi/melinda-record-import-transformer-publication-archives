@@ -38,7 +38,8 @@ export const enums = {
 	replace: 'replace',
 	langField: 'langField',
 	ysaPresent: 'ysaPresent',
-	creatorAuthor: 'creatorAuthor'
+	creatorAuthor: 'creatorAuthor',
+	changeSubfield: 'changeSubfield'
 };
 
 export const orderMap = new Map([
@@ -447,8 +448,13 @@ export const confMap = new Map([
 			label: 'Tekijänoikeus-/käyttöoikeustiedot',
 			marcTag: '540',
 			marcSub: 'c',
+			marcIf: enums.changeSubfield,
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			marcIfConfig: {
+				regexSub: /^(fi= All rights reserved)|(All rights reserved)/,
+				replaceSub: 'a'
+			}
 		}
 	],
 	//  	 	Dc.rights.accesslevel	506$a
