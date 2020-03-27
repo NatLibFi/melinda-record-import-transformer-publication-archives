@@ -698,16 +698,17 @@ export const confMap = new Map([
 		}
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
-	[
-		'dc.relation.url',
-		{
-			label: 'Muu verkko-osoite',
-			marcTag: '856',
-			marcSub: 'u',
-			ind1: '4',
-			ind2: '2' // ToDo: If previous #4#0 should we create new record or update to #4#2
-		}
-	],
+	// Pudotetaan tuonnissa linkkikenttä dc.relation.url
+	// [
+	// 	'dc.relation.url',
+	// 	{
+	// 		label: 'Muu verkko-osoite',
+	// 		marcTag: '856',
+	// 		marcSub: 'u',
+	// 		ind1: '4',
+	// 		ind2: '2'
+	// 	}
+	// ],
 	// // Muu verkko-osoite	 	dc.relation.uri
 	// [
 	// 	'dc.relation.uri',
