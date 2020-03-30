@@ -28,7 +28,8 @@
 
 /* eslint-disable no-warning-comments */
 
-// export {orderMap, conditionalCases, confMap};
+import {Utils} from '@natlibfi/melinda-commons';
+const {readEnvironmentVariable} = Utils;
 
 export const enums = {
 	onTaso: 'onTaso',
@@ -37,7 +38,8 @@ export const enums = {
 	replace: 'replace',
 	langField: 'langField',
 	ysaPresent: 'ysaPresent',
-	creatorAuthor: 'creatorAuthor'
+	creatorAuthor: 'creatorAuthor',
+	changeSubfield: 'changeSubfield'
 };
 
 export const orderMap = new Map([
@@ -88,6 +90,24 @@ export const conditionalCases = new Map([
 		'dc.creator',
 		{
 			creatorAuthor: true
+		}
+	],
+	[
+		'dc.relation.issn',
+		{
+			relationPresent: true
+		}
+	],
+	[
+		'dc.relation.numbersinseries',
+		{
+			relationPresent: true
+		}
+	],
+	[
+		'dc.relation.issn',
+		{
+			ISSNAmount: true
 		}
 	]
 ]);
@@ -259,6 +279,14 @@ export const standardFields = [{
 		code: '9',
 		value: 'FENNI<KEEP>'
 	}]
+}, {
+	tag: '884',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'k',
+		value: readEnvironmentVariable('SOURCE', {defaultValue: 'Tuntematon lähde'})
+	}]
 }];
 
 export const confMap = new Map([
@@ -399,7 +427,11 @@ export const confMap = new Map([
 			ind1: '0', // 490, 1. indikaattori = 1, jos tietueella on myös kenttä 800 TAI 810 TAI 811 TAI 830 (No transformation for any of these)
 			ind2: '',
 			unique: true,
-			suffix: ','
+			regexReplace: {
+				regex: /(?<=[^,]$)/gm,
+				replace: ',',
+				conditional: true
+			}
 		}
 	],
 	// Sarjan/lehden ISSN-numero	 	dc.relation.issn	490$x	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -412,7 +444,12 @@ export const confMap = new Map([
 			ind1: '0',
 			ind2: '',
 			unique: true,
-			suffix: ';'
+			regexReplace: { // 2 sarjan/lehden ISSN-numeroa	| 2 X dc.relation.issn | ',_' (pilkku välilyönti) toistumien väliin | 490‡x,_‡x
+				regex: /$/gm,
+				replace: ', ',
+				last: '',
+				single: ' ;' // Sarjan/lehden ISSN-numero: | dc.relation.issn | '_;' (välilyönti puolipiste) | 490‡x_;s
+			}
 		}
 	],
 	// Sarjatieto, järjestysnumero	 	dc.relation.numberinseries	490$v	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -522,8 +559,13 @@ export const confMap = new Map([
 			label: 'Tekijänoikeus-/käyttöoikeustiedot',
 			marcTag: '540',
 			marcSub: 'c',
+			marcIf: enums.changeSubfield,
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			marcIfConfig: {
+				regexSub: /^(fi= All rights reserved)|(All rights reserved)/,
+				replaceSub: 'a'
+			}
 		}
 	],
 	//  	 	Dc.rights.accesslevel	506$a
@@ -795,16 +837,17 @@ export const confMap = new Map([
 		}
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
-	[
-		'dc.relation.url',
-		{
-			label: 'Muu verkko-osoite',
-			marcTag: '856',
-			marcSub: 'u',
-			ind1: '4',
-			ind2: '2' // ToDo: If previous #4#0 should we create new record or update to #4#2
-		}
-	],
+	// Pudotetaan tuonnissa linkkikenttä dc.relation.url
+	// [
+	// 	'dc.relation.url',
+	// 	{
+	// 		label: 'Muu verkko-osoite',
+	// 		marcTag: '856',
+	// 		marcSub: 'u',
+	// 		ind1: '4',
+	// 		ind2: '2'
+	// 	}
+	// ],
 	// // Muu verkko-osoite	 	dc.relation.uri
 	// [
 	// 	'dc.relation.uri',
