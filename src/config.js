@@ -2,7 +2,7 @@
 *
 * @licstart  The following is the entire license notice for the JavaScript code in this file.
 *
-* Helmet record transformer for the Melinda record batch import system
+* Publication archives record transformer for the Melinda record batch import system
 *
 * Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
 *
@@ -28,15 +28,20 @@
 
 /* eslint-disable no-warning-comments */
 
-// export {orderMap, conditionalCases, confMap};
+import {Utils} from '@natlibfi/melinda-commons';
+const {readEnvironmentVariable} = Utils;
 
 export const enums = {
 	onTaso: 'onTaso',
 	rest: 'rest',
+	access: 'access',
 	issued: 'issued',
 	replace: 'replace',
+	accessUrn: 'accessUrn',
 	langField: 'langField',
-	ysaPresent: 'ysaPresent'
+	ysaPresent: 'ysaPresent',
+	creatorAuthor: 'creatorAuthor',
+	changeSubfield: 'changeSubfield'
 };
 
 export const orderMap = new Map([
@@ -58,6 +63,7 @@ export const conditionalCases = new Map([
 	[
 		'dc.identifier.urn',
 		{
+			accessUrn: true, // Save urn
 			ignore: ['dc.identifier.url', 'dc.identifier.uri']
 		}
 	],
@@ -76,8 +82,47 @@ export const conditionalCases = new Map([
 				to: 'm'
 			}
 		}
+	],
+	[
+		'dc.contributor.author',
+		{
+			creatorAuthor: true
+		}
+	],
+	[
+		'dc.creator',
+		{
+			creatorAuthor: true
+		}
+	],
+	[
+		'dc.relation.issn',
+		{
+			relationPresent: true
+		}
+	],
+	[
+		'dc.relation.numbersinseries',
+		{
+			relationPresent: true
+		}
+	],
+	[
+		'dc.relation.issn',
+		{
+			ISSNAmount: true
+		}
+	],
+	[
+		'dc.rights.accesslevel', // If public access
+		{
+			accesslevel: true,
+			openAccess: 'openAccess' // Access not restricted
+		}
 	]
 ]);
+
+export const ldr = '01704nam a22002653i 4500';
 
 export const control007 = {
 	tag: '007',
@@ -118,7 +163,38 @@ export const control008Strc = [{
 	value: ' c'
 }];
 
+// Standard and static fields
 export const standardFields = [{
+	tag: 'LOW',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'FIKKA'
+	}]
+}, {
+	tag: '040',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'b',
+		value: 'fin'
+	}, {
+		code: 'e',
+		value: 'rda'
+	}, {
+		code: 'd',
+		value: 'FI-NL'
+	}]
+}, {
+	tag: '042',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'finb'
+	}]
+}, {
 	tag: '336',
 	ind1: '',
 	ind2: '',
@@ -160,9 +236,109 @@ export const standardFields = [{
 		code: '2',
 		value: 'rdacarrier'
 	}]
+}, {
+	tag: '500',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Koneellisesti tuotettu tietue.'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '506',
+	ind1: '1',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on käytettävissä vapaakappalekirjastoissa'
+	}, {
+		code: 'f',
+		value: 'Online access with authorization'
+	}, {
+		code: '2',
+		value: 'star'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '506',
+	ind1: '0',
+	ind2: '',
+	marcIf: enums.access, // Only added if public access
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on vapaasti saatavissa.'
+	}, {
+		code: 'f',
+		value: 'Unrestricted online access'
+	}, {
+		code: '2',
+		value: 'star'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '540',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;'
+	}, {
+		code: 'b',
+		value: 'Kansalliskirjasto'
+	}, {
+		code: 'c',
+		value: 'Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä'
+	}, {
+		code: 'u',
+		value: 'http://www.finlex.fi/fi/laki/ajantasa/2007/20071433'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '856',
+	ind1: '4',
+	ind2: '0',
+	addUrn: true, // Urn is added to subfield u in logic
+	subfields: [{
+		code: 'z',
+		value: 'Käytettävissä vapaakappalekirjastoissa'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}]
+}, {
+	tag: '856',
+	ind1: '4',
+	ind2: '0',
+	marcIf: enums.access, // Only added if public access
+	addUrn: true, // Urn is added to subfield u in logic
+	subfields: [{
+		code: 'y',
+		value: 'Linkki verkkoaineistoon'
+	}]
+}, {
+	tag: '884',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'k',
+		value: readEnvironmentVariable('SOURCE', {defaultValue: 'Tuntematon lähde'})
+	}]
 }];
-
-export const ldr = '01704nam a  002653i   00';
 
 export const confMap = new Map([
 	// Teoksen julkaisumaa	Oletuksena aina 'fi'	dc.publisher.country	008 (katso tarkempi ohje)
@@ -218,13 +394,15 @@ export const confMap = new Map([
 		}
 	],
 	// Nimeke	 	dc.title	245$a	1	0
+	// Jos lähdetietueella ei ole dc.contributor.author- tai dc.creator-kenttää, niin 245 ensimmäisen indikaattorin arvo = 0
 	[
 		'dc.title',
 		{
 			label: 'Nimike',
 			marcTag: '245',
+			marcIf: enums.creatorAuthor, // Change ind1 if creator or author is present to 1.
 			marcSub: 'a',
-			ind1: '1',
+			ind1: '0',
 			ind2: '0',
 			suffix: '.'
 		}
@@ -297,10 +475,14 @@ export const confMap = new Map([
 			label: 'Sarjatieto, nimeke',
 			marcTag: '490',
 			marcSub: 'a',
-			ind1: '1',
+			ind1: '0', // 490, 1. indikaattori = 1, jos tietueella on myös kenttä 800 TAI 810 TAI 811 TAI 830 (No transformation for any of these)
 			ind2: '',
 			unique: true,
-			suffix: ','
+			regexReplace: {
+				regex: /(?<=[^,]$)/gm,
+				replace: ',',
+				conditional: true
+			}
 		}
 	],
 	// Sarjan/lehden ISSN-numero	 	dc.relation.issn	490$x	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -310,10 +492,15 @@ export const confMap = new Map([
 			label: 'Sarjan/lehden ISSN-numero',
 			marcTag: '490',
 			marcSub: 'x',
-			ind1: '1',
+			ind1: '0',
 			ind2: '',
 			unique: true,
-			suffix: ';'
+			regexReplace: { // 2 sarjan/lehden ISSN-numeroa	| 2 X dc.relation.issn | ',_' (pilkku välilyönti) toistumien väliin | 490‡x,_‡x
+				regex: /$/gm,
+				replace: ', ',
+				last: '',
+				single: ' ;' // Sarjan/lehden ISSN-numero: | dc.relation.issn | '_;' (välilyönti puolipiste) | 490‡x_;s
+			}
 		}
 	],
 	// Sarjatieto, järjestysnumero	 	dc.relation.numberinseries	490$v	1	tyhjä	 	490 1_ $a Turun yliopiston julkaisuja. Sarja B: Humaniora $x 2343-3191 $v 451
@@ -323,7 +510,7 @@ export const confMap = new Map([
 			label: 'Sarjatieto, järjestysnumero',
 			marcTag: '490',
 			marcSub: 'v',
-			ind1: '1',
+			ind1: '0',
 			ind2: '',
 			unique: true
 		}
@@ -335,7 +522,7 @@ export const confMap = new Map([
 			label: 'Sarjatieto, järjestysnumero',
 			marcTag: '490',
 			marcSub: 'v',
-			ind1: '1',
+			ind1: '0',
 			ind2: '',
 			unique: true
 		}
@@ -423,8 +610,13 @@ export const confMap = new Map([
 			label: 'Tekijänoikeus-/käyttöoikeustiedot',
 			marcTag: '540',
 			marcSub: 'c',
+			marcIf: enums.changeSubfield,
 			ind1: '',
-			ind2: ''
+			ind2: '',
+			marcIfConfig: {
+				regexSub: /^(fi= All rights reserved)|(All rights reserved)/,
+				replaceSub: 'a'
+			}
 		}
 	],
 	//  	 	Dc.rights.accesslevel	506$a
@@ -518,7 +710,7 @@ export const confMap = new Map([
 			ind2: '7',
 			presetFields: [{
 				sub: '2',
-				value: 'ysa'
+				value: 'yso'
 			}]
 		}
 	],
@@ -607,6 +799,7 @@ export const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0',
+			unique: true,
 			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
@@ -627,7 +820,8 @@ export const confMap = new Map([
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			unique: true
 		}
 	],
 	// Julkaisun URL	vaihtoehtoinen	dc.identifier.url	856$u	4	0
@@ -638,46 +832,36 @@ export const confMap = new Map([
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			unique: true
 		}
 	],
 	// URN-tunnus	 	dc.identifier.urn	856$u	4	0
 	[
 		'dc.identifier.urn',
 		{
-			label: 'URN-tunnus',
-			marcTag: '856',
-			marcSub: 'u',
-			ind1: '4',
-			ind2: '0',
-			prefix: 'http://urn.fi/',
+			marcTag: '024',
+			marcSub: 'a',
+			ind1: '7',
+			ind2: '',
 			presetFields: [{
-				sub: 'y',
-				value: 'Linkki verkkoaineistoon'
-			}],
-			secondary: [{
-				marcTag: '024',
-				marcSub: 'a',
-				ind1: '7',
-				ind2: '',
-				presetFields: [{
-					sub: '2',
-					value: 'urn'
-				}]
+				sub: '2',
+				value: 'urn'
 			}]
 		}
 	],
 	// Muu verkko-osoite	 	dc.relation.url	856$u	4	2
-	[
-		'dc.relation.url',
-		{
-			label: 'Muu verkko-osoite',
-			marcTag: '856',
-			marcSub: 'u',
-			ind1: '4',
-			ind2: '2' // ToDo: If previous #4#0 should we create new record or update to #4#2
-		}
-	],
+	// Pudotetaan tuonnissa linkkikenttä dc.relation.url
+	// [
+	// 	'dc.relation.url',
+	// 	{
+	// 		label: 'Muu verkko-osoite',
+	// 		marcTag: '856',
+	// 		marcSub: 'u',
+	// 		ind1: '4',
+	// 		ind2: '2'
+	// 	}
+	// ],
 	// // Muu verkko-osoite	 	dc.relation.uri
 	// [
 	// 	'dc.relation.uri',

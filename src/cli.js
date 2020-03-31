@@ -3,7 +3,7 @@
 *
 * @licstart  The following is the entire license notice for the JavaScript code in this file.
 *
-* Helmet record transformer for the Melinda record batch import system
+* Publication archives record transformer for the Melinda record batch import system
 *
 * Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
 *
