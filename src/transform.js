@@ -92,8 +92,10 @@ export default function (stream, {validate = true, fix = true}) {
 		let ISSNAmount = 0;
 		let ISSNInd = 0;
 		let creatorAuthor = false;
+		let accessUrn = ''; // Save access urn for appending to static field
+		let accessRestricted = false; // Accesslevel determined for conditional access fields (506&856)
 
-		// Standard fields: leader, control and 336-338
+		// Standard fields: leader, control etc
 		marcRecord.leader = ldr;
 		controlJSON.push(control007);
 		controlJSON = controlJSON.concat(standardFields);
@@ -156,6 +158,16 @@ export default function (stream, {validate = true, fix = true}) {
 
 					if (conditionalCase.creatorAuthor) {
 						creatorAuthor = conditionalCase.creatorAuthor;
+					}
+
+					if (conditionalCase.accesslevel) { // If public access checks to be done
+						if (field.$.value !== conditionalCase.openAccess) {
+							accessRestricted = true; // Restrict access if accesslevel is defined and not open
+						}
+					}
+
+					if (conditionalCase.accessUrn) { // Catch urn to be inserted later
+						accessUrn = 'http://urn.fi/' + field.$.value;
 					}
 				}
 			});
@@ -320,54 +332,75 @@ export default function (stream, {validate = true, fix = true}) {
 					}
 				}
 
-				// Earlier existing record and should be unique -> push new subfield
-				if (foundRec && conf.unique) {
-					// Find out if tag is suppose to be in specific order
-					const orderArr = orderMap.get(conf.marcTag);
-					if (orderArr && foundRec.subfields.length >= 1) {
-						const indexInserted = orderArr.order.indexOf(conf.marcSub);
-						let indexPos = 0;
+				// If some data to insert to subfield (Might be only preset fields)
+				if (conf.marcSub) {
+					// Earlier existing record and should be unique -> push new subfield
+					if (foundRec && conf.unique) {
+						// Find out if tag is suppose to be in specific order
+						const orderArr = orderMap.get(conf.marcTag);
+						if (orderArr && foundRec.subfields.length >= 1) {
+							const indexInserted = orderArr.order.indexOf(conf.marcSub);
+							let indexPos = 0;
 
-						foundRec.subfields.forEach(element => {
-							if (orderArr.order.indexOf(element.code) <= indexInserted) {
-								indexPos++;
-							}
-						});
+							foundRec.subfields.forEach(element => {
+								if (orderArr.order.indexOf(element.code) <= indexInserted) {
+									indexPos++;
+								}
+							});
 
-						foundRec.subfields.splice(indexPos, 0, {
-							code: conf.marcSub,
-							value: valueFixing(conf, field)
-						});
+							foundRec.subfields.splice(indexPos, 0, {
+								code: conf.marcSub,
+								value: valueFixing(conf, field)
+							});
+						} else {
+							foundRec.subfields.push({
+								code: conf.marcSub,
+								value: valueFixing(conf, field)
+							});
+						}
+
+					// No earlier record or not unique -> generate new record
 					} else {
-						foundRec.subfields.push({
-							code: conf.marcSub,
-							value: valueFixing(conf, field)
-						});
+						foundRec = {
+							tag: conf.marcTag,
+							ind1: conf.ind1 || '',
+							ind2: conf.ind2 || '',
+							subfields: [{
+								code: conf.marcSub,
+								value: valueFixing(conf, field)
+							}]
+						};
+						marcJSON.push(foundRec);
 					}
-
-				// No earlier record or not unique -> generate new record
-				} else {
-					foundRec = {
-						tag: conf.marcTag,
-						ind1: conf.ind1 || '',
-						ind2: conf.ind2 || '',
-						subfields: [{
-							code: conf.marcSub,
-							value: valueFixing(conf, field)
-						}]
-					};
-					marcJSON.push(foundRec);
 				}
 
 				// Set possibly preset subfield (describing static type etc)
 				if (conf.presetFields) {
-					conf.presetFields.forEach(presetField => {
-						foundRec.subfields.push({
-							code: presetField.sub,
-							value: presetField.value
-						});
-					});
+					if (foundRec) {
+						foundRec = pushAllPresetFields(conf, foundRec);
+					} else {
+						foundRec = {
+							tag: conf.marcTag,
+							ind1: conf.ind1 || '',
+							ind2: conf.ind2 || '',
+							subfields: []
+						};
+
+						foundRec = pushAllPresetFields(conf, foundRec);
+						marcJSON.push(foundRec);
+					}
 				}
+			}
+
+			function pushAllPresetFields(conf, foundRec) {
+				conf.presetFields.forEach(presetField => {
+					foundRec.subfields.push({
+						code: presetField.sub,
+						value: presetField.value
+					});
+				});
+
+				return foundRec;
 			}
 
 			// Adds prefix and suffix
@@ -489,8 +522,22 @@ export default function (stream, {validate = true, fix = true}) {
 			});
 
 			controlJSON.forEach(field => {
+				let tempField = JSON.parse(JSON.stringify(field)); // Object.assign does not deepcopy nested elements
+
 				try {
-					marcRecord.insertField(field);
+					if (tempField.addUrn) {
+						delete tempField.addUrn; // Delete extra logic field so that field can be insterted
+						tempField.subfields.push({code: 'u', value: accessUrn});
+					}
+
+					if (tempField.marcIf === enums.access) {
+						delete tempField.marcIf; // Delete extra logic field so that field can be insterted
+						if (!accessRestricted) { // Access is not resticted, access field
+							marcRecord.insertField(tempField);
+						}
+					} else {
+						marcRecord.insertField(tempField);
+					}
 				} catch (error) {
 					logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
 					logger.log('error', `Error message: ${error.message}`);

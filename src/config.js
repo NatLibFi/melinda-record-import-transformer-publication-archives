@@ -34,8 +34,10 @@ const {readEnvironmentVariable} = Utils;
 export const enums = {
 	onTaso: 'onTaso',
 	rest: 'rest',
+	access: 'access',
 	issued: 'issued',
 	replace: 'replace',
+	accessUrn: 'accessUrn',
 	langField: 'langField',
 	ysaPresent: 'ysaPresent',
 	creatorAuthor: 'creatorAuthor',
@@ -61,6 +63,7 @@ export const conditionalCases = new Map([
 	[
 		'dc.identifier.urn',
 		{
+			accessUrn: true, // Save urn
 			ignore: ['dc.identifier.url', 'dc.identifier.uri']
 		}
 	],
@@ -109,6 +112,13 @@ export const conditionalCases = new Map([
 		{
 			ISSNAmount: true
 		}
+	],
+	[
+		'dc.rights.accesslevel', // If public access
+		{
+			accesslevel: true,
+			openAccess: 'openAccess' // Access not restricted
+		}
 	]
 ]);
 
@@ -153,7 +163,38 @@ export const control008Strc = [{
 	value: ' c'
 }];
 
+// Standard and static fields
 export const standardFields = [{
+	tag: 'LOW',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'FIKKA'
+	}]
+}, {
+	tag: '040',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'b',
+		value: 'fin'
+	}, {
+		code: 'e',
+		value: 'rda'
+	}, {
+		code: 'd',
+		value: 'FI-NL'
+	}]
+}, {
+	tag: '042',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'finb'
+	}]
+}, {
 	tag: '336',
 	ind1: '',
 	ind2: '',
@@ -194,6 +235,100 @@ export const standardFields = [{
 	}, {
 		code: '2',
 		value: 'rdacarrier'
+	}]
+}, {
+	tag: '500',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Koneellisesti tuotettu tietue.'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '506',
+	ind1: '1',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on käytettävissä vapaakappalekirjastoissa'
+	}, {
+		code: 'f',
+		value: 'Online access with authorization'
+	}, {
+		code: '2',
+		value: 'star'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '506',
+	ind1: '0',
+	ind2: '',
+	marcIf: enums.access, // Only added if public access
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on vapaasti saatavissa.'
+	}, {
+		code: 'f',
+		value: 'Unrestricted online access'
+	}, {
+		code: '2',
+		value: 'star'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '540',
+	ind1: '',
+	ind2: '',
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;'
+	}, {
+		code: 'b',
+		value: 'Kansalliskirjasto'
+	}, {
+		code: 'c',
+		value: 'Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä'
+	}, {
+		code: 'u',
+		value: 'http://www.finlex.fi/fi/laki/ajantasa/2007/20071433'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '856',
+	ind1: '4',
+	ind2: '0',
+	addUrn: true, // Urn is added to subfield u in logic
+	subfields: [{
+		code: 'z',
+		value: 'Käytettävissä vapaakappalekirjastoissa'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}]
+}, {
+	tag: '856',
+	ind1: '4',
+	ind2: '0',
+	marcIf: enums.access, // Only added if public access
+	addUrn: true, // Urn is added to subfield u in logic
+	subfields: [{
+		code: 'y',
+		value: 'Linkki verkkoaineistoon'
 	}]
 }, {
 	tag: '884',
@@ -664,6 +799,7 @@ export const confMap = new Map([
 			marcSub: 'u',
 			ind1: '4',
 			ind2: '0',
+			unique: true,
 			secondary: [{
 				marcTag: '024',
 				marcSub: 'a',
@@ -684,7 +820,8 @@ export const confMap = new Map([
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			unique: true
 		}
 	],
 	// Julkaisun URL	vaihtoehtoinen	dc.identifier.url	856$u	4	0
@@ -695,32 +832,21 @@ export const confMap = new Map([
 			marcTag: '856',
 			marcSub: 'u',
 			ind1: '4',
-			ind2: '0'
+			ind2: '0',
+			unique: true
 		}
 	],
 	// URN-tunnus	 	dc.identifier.urn	856$u	4	0
 	[
 		'dc.identifier.urn',
 		{
-			label: 'URN-tunnus',
-			marcTag: '856',
-			marcSub: 'u',
-			ind1: '4',
-			ind2: '0',
-			prefix: 'http://urn.fi/',
+			marcTag: '024',
+			marcSub: 'a',
+			ind1: '7',
+			ind2: '',
 			presetFields: [{
-				sub: 'y',
-				value: 'Linkki verkkoaineistoon'
-			}],
-			secondary: [{
-				marcTag: '024',
-				marcSub: 'a',
-				ind1: '7',
-				ind2: '',
-				presetFields: [{
-					sub: '2',
-					value: 'urn'
-				}]
+				sub: '2',
+				value: 'urn'
 			}]
 		}
 	],
