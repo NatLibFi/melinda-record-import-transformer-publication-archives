@@ -92,6 +92,8 @@ export default function (stream, {validate = true, fix = true}) {
 		let ISSNAmount = 0;
 		let ISSNInd = 0;
 		let creatorAuthor = false;
+		let accessUrn = ''; // Save access urn for appending to static field
+		let accessRestricted = false; // Accesslevel determined for conditional access fields (506&856)
 
 		// Standard fields: leader, control etc
 		marcRecord.leader = ldr;
@@ -156,6 +158,16 @@ export default function (stream, {validate = true, fix = true}) {
 
 					if (conditionalCase.creatorAuthor) {
 						creatorAuthor = conditionalCase.creatorAuthor;
+					}
+
+					if (conditionalCase.accesslevel) { // If public access checks to be done
+						if (field.$.value !== conditionalCase.openAccess) {
+							accessRestricted = true; // Restrict access if accesslevel is defined and not open
+						}
+					}
+
+					if (conditionalCase.accessUrn) { // Catch urn to be inserted later
+						accessUrn = 'http://urn.fi/' + field.$.value;
 					}
 				}
 			});
@@ -293,10 +305,6 @@ export default function (stream, {validate = true, fix = true}) {
 		}
 
 		function generateRecord(conf, field) {
-			if (conf.removeStandard) { // Some fields replace standard fields
-				controlJSON = controlJSON.filter(field => field.tag !== conf.marcTag);
-			}
-
 			if (conf.marcTag === '008') { // Controller fields
 				modifyControlField(field);
 			} else { // Normal fields
@@ -514,8 +522,22 @@ export default function (stream, {validate = true, fix = true}) {
 			});
 
 			controlJSON.forEach(field => {
+				let tempField = JSON.parse(JSON.stringify(field)); // Object.assign does not deepcopy nested elements
+
 				try {
-					marcRecord.insertField(field);
+					if (tempField.addUrn) {
+						delete tempField.addUrn; // Delete extra logic field so that field can be insterted
+						tempField.subfields.push({code: 'u', value: accessUrn});
+					}
+
+					if (tempField.marcIf === enums.access) {
+						delete tempField.marcIf; // Delete extra logic field so that field can be insterted
+						if (!accessRestricted) { // Access is not resticted, access field
+							marcRecord.insertField(tempField);
+						}
+					} else {
+						marcRecord.insertField(tempField);
+					}
 				} catch (error) {
 					logger.log('warn', `Record: ${record.header[0].identifier} something went wrong with field: ${JSON.stringify(field, null, 2)}`);
 					logger.log('error', `Error message: ${error.message}`);

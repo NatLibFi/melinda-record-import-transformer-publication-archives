@@ -34,8 +34,10 @@ const {readEnvironmentVariable} = Utils;
 export const enums = {
 	onTaso: 'onTaso',
 	rest: 'rest',
+	access: 'access',
 	issued: 'issued',
 	replace: 'replace',
+	accessUrn: 'accessUrn',
 	langField: 'langField',
 	ysaPresent: 'ysaPresent',
 	creatorAuthor: 'creatorAuthor',
@@ -61,6 +63,7 @@ export const conditionalCases = new Map([
 	[
 		'dc.identifier.urn',
 		{
+			accessUrn: true, // Save urn
 			ignore: ['dc.identifier.url', 'dc.identifier.uri']
 		}
 	],
@@ -109,6 +112,13 @@ export const conditionalCases = new Map([
 		{
 			ISSNAmount: true
 		}
+	],
+	[
+		'dc.rights.accesslevel', // If public access
+		{
+			accesslevel: true,
+			openAccess: 'openAccess' // Access not restricted
+		}
 	]
 ]);
 
@@ -153,6 +163,7 @@ export const control008Strc = [{
 	value: ' c'
 }];
 
+// Standard and static fields
 export const standardFields = [{
 	tag: 'LOW',
 	ind1: '',
@@ -238,7 +249,7 @@ export const standardFields = [{
 	}]
 }, {
 	tag: '506',
-	ind1: '',
+	ind1: '1',
 	ind2: '',
 	subfields: [{
 		code: 'a',
@@ -252,6 +263,24 @@ export const standardFields = [{
 	}, {
 		code: '5',
 		value: 'FI-Vapaa'
+	}, {
+		code: '9',
+		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '506',
+	ind1: '0',
+	ind2: '',
+	marcIf: enums.access, // Only added if public access
+	subfields: [{
+		code: 'a',
+		value: 'Aineisto on vapaasti saatavissa.'
+	}, {
+		code: 'f',
+		value: 'Unrestricted online access'
+	}, {
+		code: '2',
+		value: 'star'
 	}, {
 		code: '9',
 		value: 'FENNI<KEEP>'
@@ -278,6 +307,28 @@ export const standardFields = [{
 	}, {
 		code: '9',
 		value: 'FENNI<KEEP>'
+	}]
+}, {
+	tag: '856',
+	ind1: '4',
+	ind2: '0',
+	addUrn: true, // Urn is added to subfield u in logic
+	subfields: [{
+		code: 'z',
+		value: 'Käytettävissä vapaakappalekirjastoissa'
+	}, {
+		code: '5',
+		value: 'FI-Vapaa'
+	}]
+}, {
+	tag: '856',
+	ind1: '4',
+	ind2: '0',
+	marcIf: enums.access, // Only added if public access
+	addUrn: true, // Urn is added to subfield u in logic
+	subfields: [{
+		code: 'y',
+		value: 'Linkki verkkoaineistoon'
 	}]
 }, {
 	tag: '884',
@@ -789,50 +840,13 @@ export const confMap = new Map([
 	[
 		'dc.identifier.urn',
 		{
-			label: 'URN-tunnus',
-			marcTag: '856',
-			marcSub: 'u',
-			ind1: '4',
-			ind2: '0',
-			prefix: 'http://urn.fi/',
-			unique: true,
+			marcTag: '024',
+			marcSub: 'a',
+			ind1: '7',
+			ind2: '',
 			presetFields: [{
-				sub: 'y',
-				value: 'Linkki verkkoaineistoon'
-			}, {
-				sub: 'z',
-				value: 'Käytettävissä vapaakappalekirjastoissa'
-			}, {
-				sub: '5',
-				value: 'FI-Vapaa'
-			}],
-			secondary: [{
-				marcTag: '024',
-				marcSub: 'a',
-				ind1: '7',
-				ind2: '',
-				presetFields: [{
-					sub: '2',
-					value: 'urn'
-				}]
-			}, { // Jos julkaisu on myös vapaasti verkossa (=toisessa 856 kentässä on osakenttä y Linkki verkkoaineistoon) tarvitaan toinen 506-kenttä
-				marcTag: '506',
-				ind1: '0',
-				ind2: '',
-				removeStandard: true, // Removes preset standard field with same tag
-				presetFields: [{
-					sub: 'a',
-					value: 'Aineisto on vapaasti saatavissa.'
-				}, {
-					sub: 'f',
-					value: 'Unrestricted online access'
-				}, {
-					sub: '2',
-					value: 'star'
-				}, {
-					sub: '9',
-					value: 'FENNI<KEEP>'
-				}]
+				sub: '2',
+				value: 'urn'
 			}]
 		}
 	],
