@@ -734,10 +734,10 @@ export const confMap = new Map([
 		'dc.subject.ysa',
 		{
 			label: 'Asiasanat',
-			marcTag: '650',
+			marcTag: '653',
 			marcSub: 'a',
 			ind1: '',
-			ind2: '4'
+			ind2: ''
 		}
 	],
 	// Avainsanat	 	dc.subject	653$a	tyhjä	tyhjä
