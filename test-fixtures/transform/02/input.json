@@ -1,0 +1,199 @@
+{
+  "header": [
+    {
+      "identifier": [
+        "oai:www.utupub.fi:10024/144448"
+      ],
+      "datestamp": [
+        "2019-01-07T08:29:50Z"
+      ],
+      "setSpec": [
+        "com_10024_5788",
+        "col_10024_143702"
+      ]
+    }
+  ],
+  "metadata": [
+    {
+      "kk:metadata": [
+        {
+          "$": {
+            "xmlns:kk": "http://kk/1.0",
+            "xmlns:doc": "http://www.lyncode.com/xoai",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+          },
+          "kk:identifier": [
+            {
+              "$": {
+                "type": "handle",
+                "value": "10024/144448"
+              }
+            }
+          ],
+          "kk:type": [
+            {
+              "$": {
+                "name": "item"
+              }
+            }
+          ],
+          "kk:link": [
+            {
+              "$": {
+                "href": "http://www.utupub.fi/handle/10024/144448"
+              }
+            }
+          ],
+          "kk:field": [
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "author",
+                "language": "none",
+                "value": "Maalismaa, Oona"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "faculty",
+                "language": "-",
+                "value": "fi=Yhteiskuntatieteellinen tiedekunta|en=Faculty of Social Sciences|"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "studysubject",
+                "language": "-",
+                "value": "fi=Psykologia|en=Psychology|"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "department",
+                "language": "-",
+                "value": "fi=Psykologian ja logopedian laitos|en=Department of Psychology and Speech-Language Pathology|"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "accessioned",
+                "language": "none",
+                "value": "2018-01-16T13:58:45Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "available",
+                "language": "none",
+                "value": "2018-01-16T13:58:45Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "issued",
+                "language": "none",
+                "value": "2018-01-16"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "issued",
+                "language": "none",
+                "value": "2018"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "uri",
+                "language": "none",
+                "value": "http://www.utupub.fi/handle/10024/144448"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "urn",
+                "language": "-",
+                "value": "URN:NBN:fi-fe201801162076"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "language",
+                "qualifier": "iso",
+                "language": "-",
+                "value": "fin"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "type",
+                "qualifier": "ontasot",
+                "language": "-",
+                "value": "fi=Pro gradu –tutkielma|en=Master's thesis|"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "format",
+                "qualifier": "content",
+                "language": "-",
+                "value": "fulltext"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "language": "-",
+                "value": "fi=Turun yliopisto|en=University of Turku|"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "title",
+                "language": "-",
+                "value": "Äidin syömishäiriötaustan yhteys lapsen ruokailuun liittyviin asenteisiin, ruokailukäytäntöihin ja vanhemmuuden stressiin"
+              }
+            }
+          ],
+          "kk:file": [
+            {
+              "$": {
+                "bundle": "ORIGINAL",
+                "href": "https://www.utupub.fi/bitstream/10024/144448/1/Maalismaa%20Oona.pdf",
+                "name": "Maalismaa Oona.pdf",
+                "type": "application/pdf",
+                "size": "616633",
+                "sequence": "1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

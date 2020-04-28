@@ -1,0 +1,292 @@
+{
+  "header": [
+    {
+      "identifier": [
+        "oai:julkaisut.valtioneuvosto.fi:10024/69912"
+      ],
+      "datestamp": [
+        "2019-08-08T10:35:06Z"
+      ],
+      "setSpec": [
+        "com_10024_59365",
+        "col_10024_69908"
+      ]
+    }
+  ],
+  "metadata": [
+    {
+      "kk:metadata": [
+        {
+          "$": {
+            "xmlns:kk": "http://kk/1.0",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xmlns:doc": "http://www.lyncode.com/xoai",
+            "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+          },
+          "kk:identifier": [
+            {
+              "$": {
+                "type": "handle",
+                "value": "10024/69912"
+              }
+            }
+          ],
+          "kk:type": [
+            {
+              "$": {
+                "name": "item"
+              }
+            }
+          ],
+          "kk:link": [
+            {
+              "$": {
+                "href": "http://julkaisut.valtioneuvosto.fi/handle/10024/69912"
+              }
+            }
+          ],
+          "kk:field": [
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "accessioned",
+                "language": "none",
+                "value": "2013-01-30T11:40:04Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "accessioned",
+                "language": "none",
+                "value": "2016-04-05T13:15:03Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "available",
+                "language": "none",
+                "value": "2013-01-30T11:40:04Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "available",
+                "language": "none",
+                "value": "2016-04-05T13:15:03Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "issued",
+                "language": "none",
+                "value": "2012"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "isbn",
+                "language": "none",
+                "value": "9789520033811"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "uri",
+                "language": "none",
+                "value": "http://www.julkari.fi/handle/10024/103109"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "uri",
+                "language": "none",
+                "value": "http://julkaisut.valtioneuvosto.fi/handle/10024/69912"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "urn",
+                "language": "none",
+                "value": "URN:ISBN:978-952-00-3382-8"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "dscollection",
+                "language": "none",
+                "value": "10024/103045"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "proprietary",
+                "language": "none",
+                "value": "JUL2012_24_Mielenterveys"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "abstract",
+                "language": "none",
+                "value": "Sosiaali- ja terveysministeriö asetti vuonna 2007 työryhmän valmistelemaan kansallista mielenterveys- ja päihdesuunnitelmaa. Mielenterveys- ja päihdeongelmilla on suuri kansanterveydellinen merkitys. Vaikka mielenterveyshäiriöiden yleisyys ei ole muuttunut, on niihin liittyvä työkyvyttömyys lisääntynyt voimakkaasti. Alkoholin kulutuksen kasvaessa alkoholisairaudet ja -kuolemat ja muut alkoholiin liittyvät haitat ovat lisääntyneet. Mielenterveys- ja päihdepalvelujärjestelmä on hajanainen ja palvelut toimivat usein erillisinä, vaikka ongelmien samanaikainen esiintyvyys on yleistynyt. Kansallinen mielenterveys- ja päihdesuunnitelma linjaa mielenterveys- ja päihdetyön kehittämisen yhteiset periaatteet ja painotukset vuoteen 2015. Suunnitelmassa painotetaan asiakkaan aseman vahvistamista, mielenterveyden ja päihteettömyyden edistämistä sekä ongelmien ehkäisyä ja kaikkien ikäryhmien mielenterveys- ja päihdepalvelujen järjestämistä painottaen perus- ja avohoitopalveluja. Suunnitelman lopussa esitetään suunnitelman toteuttamiseen tarvittavat ohjauskeinot. Kansallisen mielenterveys- ja päihdesuunnitelman uuteen painokseen vuonna 2012 on sen jokaisen ehdotuksen yhteyteen lisätty osio, jossa tarkastellaan ehdotuksen tähänastista toteutumista, ajankohtaisuutta sekä toimenpiteitä, joilla ehdotuksen mukaista kehittämistyötä voidaan edelleen tehostaa."
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "x-edition",
+                "language": "none",
+                "value": "1"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "language",
+                "qualifier": "iso",
+                "language": "none",
+                "value": "fi"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "qualifier": "x-cityofpublication",
+                "language": "none",
+                "value": "Helsinki"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "qualifier": "x-countryofpublication",
+                "language": "none",
+                "value": "FI"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "relation",
+                "qualifier": "ispartofseries",
+                "language": "none",
+                "value": "Julkaisuja (STM): 2012:24"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "relation",
+                "qualifier": "issn",
+                "language": "none",
+                "value": "1236-2050"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "language": "none",
+                "value": "sosiaali- ja terveysministeriö"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "none",
+                "value": "Mielenterveys"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "none",
+                "value": "avohoito"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "none",
+                "value": "ehkäisevä mielenterveystyö"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "none",
+                "value": "ehkäisevä terveydenhuolto"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "none",
+                "value": "peruspalvelut"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "none",
+                "value": "päihteet"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "title",
+                "language": "none",
+                "value": "Mielenterveys- ja päihdesuunnitelma - Ehdotukset mielenterveys- ja päihdetyön kehittämiseksi vuoteen 2015"
+              }
+            }
+          ],
+          "kk:file": [
+            {
+              "$": {
+                "bundle": "ORIGINAL",
+                "href": "http://julkaisut.valtioneuvosto.fi/bitstream/10024/69912/1/978-952-00-3382-8.pdf",
+                "name": "978-952-00-3382-8.pdf",
+                "type": "application/pdf",
+                "size": "613897",
+                "sequence": "1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  }
