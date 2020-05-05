@@ -40,7 +40,7 @@ export default async () => {
 	]);
 
 	return async (record, fix, validateFixes) => {
-		const opts = fix ? {fix, validateFixes} : {fix};
+		const opts = fix ? {fix, validateFixes} : /* istanbul ignore next: No need to test this */ {fix};
 		const result = await validate(record, opts);
 		return {
 			record: result.record,

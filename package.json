@@ -26,8 +26,8 @@
 		"lint": "eslint src",
 		"lint:dev": "eslint --fix src",		
 		"test:base": "cross-env NODE_ENV=test nyc mocha --require @babel/register",		
-		"test": "npm run lint && npm run test:base -- src/*.spec.js src/**/*.spec.js src/**/**/*.spec.js && npm run coverage",
-		"test:dev": "npm run lint:dev && npm run test:base -- src/*.spec.js src/**/*.spec.js src/**/**/*.spec.js && npm run coverage",		
+		"test": "npm run lint && npm run test:base -- src/*.spec.js src/**/*.spec.js && npm run coverage",
+		"test:dev": "npm run lint:dev && npm run test:base -- src/*.spec.js src/**/*.spec.js && npm run coverage",		
 		"coverage": "nyc check-coverage --per-file",
 		"build": "babel src --source-maps --copy-files --delete-dir-on-start --out-dir=dist --minified",
 		"watch:test": "cross-env DEBUG=1 NODE_ENV=test nodemon -w src --exec 'npm run test:dev'",
@@ -105,7 +105,8 @@
 	},
 	"nyc": {
 		"exclude": [
-			"*/*.spec.js"
+			"*/*.spec.js",
+			"*/**/*.spec.js"
 		],
 		"reporter": [
 			"lcov",
