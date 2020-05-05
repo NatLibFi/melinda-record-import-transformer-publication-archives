@@ -452,8 +452,16 @@ export default ({harvestSource, urnResolverUrl}) => record => {
           return generateIssn(seriesNumber.length > 0).concat(seriesNumber);
 
           function generateSeriesNumber() {
-            const values = getFieldValues(p => p === 'dc.relation.numberinseries' || p === 'dc.relation.numberofseries');
-            return values.length > 0 ? [{code: 'v', value: values[0]}] : [];
+            return getFieldValues(p => p === 'dc.relation.numberinseries' || p === 'dc.relation.numberofseries')
+              .reduceRight((acc, value) => {
+                if (acc.length === 0) {
+                  return acc.concat({code: 'v', value});
+                }
+
+                return acc.concat({code: 'v', value: `${value} ; `});
+              }, [])
+            // Reverse
+              .reduceRight((acc, v) => acc.concat(v), []);
           }
 
           function generateIssn(hasSeriesNumber) {
