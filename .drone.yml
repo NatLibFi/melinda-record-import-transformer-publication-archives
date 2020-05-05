@@ -22,6 +22,11 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
-  when:
-    branch: [dev]
-event: [push, tag]
+---
+kind: secret
+name: docker_username
+data: QTz9ATJUON7LrSDJ9Z/llLTGIRheoW9K7azMLkLlPoyKKrD6FGD8Bdd5ACUzb1xhnsM=
+---
+kind: secret
+name: docker_password
+data: SgZvOI3pZ0byWf9qAdmJkNcjGJzZXXx6PamlqbAzy3gWfxQ2eFFkZlmuAzZ67V+vBj6u23c2Ugjz+dFf9Ptbv5zdUoPumuAk3Ha03T68H5Fw4Izy2N4OkCwq4So=
