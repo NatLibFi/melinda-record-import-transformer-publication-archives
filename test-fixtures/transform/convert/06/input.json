@@ -1,0 +1,250 @@
+[{
+  "header": [
+    {
+      "identifier": [
+        "oai:lauda.ulapland.fi:10024/63608"
+      ],
+      "datestamp": [
+        "2019-02-04T11:00:21Z"
+      ],
+      "setSpec": [
+        "com_10024_59340",
+        "col_10024_59342"
+      ]
+    }
+  ],
+  "metadata": [
+    {
+      "kk:metadata": [
+        {
+          "$": {
+            "xmlns:kk": "http://kk/1.0",
+            "xmlns:doc": "http://www.lyncode.com/xoai",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+          },
+          "kk:identifier": [
+            {
+              "$": {
+                "type": "handle",
+                "value": "10024/63608"
+              }
+            }
+          ],
+          "kk:type": [
+            {
+              "$": {
+                "name": "item"
+              }
+            }
+          ],
+          "kk:link": [
+            {
+              "$": {
+                "href": "http://lauda.ulapland.fi/handle/10024/63608"
+              }
+            }
+          ],
+          "kk:field": [
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "editor",
+                "language": "none",
+                "value": "Granö, Päivi"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "editor",
+                "language": "none",
+                "value": "Hiltunen, Mirja"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "editor",
+                "language": "none",
+                "value": "Jokela, Timo"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "faculty",
+                "language": "-",
+                "value": "Lapland University Press"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "accessioned",
+                "language": "none",
+                "value": "2018-12-31T15:09:08Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "available",
+                "language": "none",
+                "value": "2018-12-31T15:09:08Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "issued",
+                "language": "none",
+                "value": "2018"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "isbn",
+                "language": "-",
+                "value": "978-952-310-934-6"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "uri",
+                "language": "none",
+                "value": "https://lauda.ulapland.fi/handle/10024/63608"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "urn",
+                "language": "-",
+                "value": "URN:ISBN:978-952-310-934-6"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "abstract",
+                "language": "-",
+                "value": "Suhteessa maailmaan -teos aukaisee luokkahuoneen ovea moninaisiin oppimisympäristöihin ja tilanteisiin. Teos on laadittu edistämään eheyttävien opetus- ja oppimiskäytäntöjen vakiintumista koulujen arkeen eri oppiaineiden näkökulmasta sekä oppiaineita yhdistäen. Kirjassa edetään tilannesidonnaisen oppimisen lähtökohtien tutkimusperustasta\r\nkäytännön sovelluksiin, jossa oppimisen painopiste on siirtynyt opettajan ja oppilaan välisestä suhteesta oppilaan ja ympäröivän maailman väliseen suhteeseen.\r\n\r\nTeoksen kolmessa luvussa tarkastellaan oppimisen tilanne- ja paikkasidonnaisuuksien merkityksiä erilaisten oppimisympäristöjen ja teknologian näkökulmasta. Lisäksi esitellään, miten oppiaineista siirrytään opetukseen, jossa tietoja ja taitoja opetellaan koulun oppiainerajoja ylittäen. Oppiminen kiinnittyy erilaisiin paikkoihin kuten museoon, metsään, saaristoon, koulupihoihin, kyliin ja kaupunginosiin. Kirjassa tarkastellaan niin leikkiä, pelillisyyttä ja teknologiaa kuin talvea ja kotoutumistakin aidossa tilanteessa ja ympäristössä. Aistisuus kokonaisvaltaisena oppimisena punoo useita näkökulmia yhteen.\r\n\r\nKirjoittajat edustavat monialaista asiantuntijuutta varhaiskasvatuksesta korkeakoulupedagogiikkaan."
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "version",
+                "language": "-",
+                "value": "publishedVersion"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "reviewstatus",
+                "language": "-",
+                "value": "Vertaisarvioitu teos"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "format",
+                "qualifier": "extent",
+                "language": "-",
+                "value": "320"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "language",
+                "qualifier": "iso",
+                "language": "-",
+                "value": "fi"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "rights",
+                "qualifier": "accesslevel",
+                "language": "-",
+                "value": "openAccess"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "language": "-",
+                "value": "Lapland University Press"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "rights",
+                "language": "-",
+                "value": "All rights reserved"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "title",
+                "language": "-",
+                "value": "Suhteessa maailmaan : ympäristöt oppimisen avaajina"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "type",
+                "language": "-",
+                "value": "book"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "audience",
+                "language": "-",
+                "value": "scientific"
+              }
+            }
+          ],
+          "kk:file": [
+            {
+              "$": {
+                "bundle": "ORIGINAL",
+                "href": "https://lauda.ulapland.fi/bitstream/10024/63608/9/Suhteessa_maailmaan.pdf",
+                "name": "Suhteessa_maailmaan.pdf",
+                "type": "application/pdf",
+                "size": "14948163",
+                "sequence": "9"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}]

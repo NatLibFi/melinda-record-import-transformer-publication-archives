@@ -3,11 +3,4 @@ node_modules
 coverage
 dist
 .nyc_output
-env
-
-src/helmet*
-src/dummy*
-
-marcRecords.json
-
-out/*
+.env*

@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
 *
 * @licstart  The following is the entire license notice for the JavaScript code in this file.
@@ -27,17 +26,32 @@
 *
 */
 
-import transform from './transform';
-import {Transformer} from '@natlibfi/melinda-record-import-commons';
+import chai from 'chai';
+import {readdirSync} from 'fs';
+import {join as joinPath} from 'path';
+import fixtureFactory, {READERS} from '@natlibfi/fixura';
+import createConverter from './convert';
 
-const {runCLI} = Transformer;
+describe('transform/convert', () => {
+  const {expect} = chai;
+  const fixturesPath = joinPath(__dirname, '..', '..', 'test-fixtures', 'transform', 'convert');
+  const convert = createConverter({
+    harvestSource: 'FOOBAR',
+    urnResolverUrl: 'http://foo.bar'
+  });
 
-const transformerSettings = {
-  name: 'melinda-record-import-transformer-publication-archives',
-  yargsOptions: [
-    {option: 'v', conf: {alias: 'validate', default: false, type: 'boolean', describe: 'Validate records'}},
-    {option: 'f', conf: {alias: 'fix', default: false, type: 'boolean', describe: 'Validate & fix records'}}
-  ],
-  callback: transform
-};
-runCLI(transformerSettings);
+  readdirSync(fixturesPath).forEach(subDir => {
+    const {getFixture} = fixtureFactory({root: [
+      fixturesPath,
+      subDir
+    ], reader: READERS.JSON});
+    const inputData = getFixture(['input.json']);
+    const expectedRecord = getFixture(['output.json']);
+
+    it(subDir, () => {
+      // Fixtures are lists so that they can be fed to the CLI when testing manually
+      const record = convert(inputData[0]);
+      expect(record.toObject()).to.eql(expectedRecord);
+    });
+  });
+});
