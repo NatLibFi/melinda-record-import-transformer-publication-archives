@@ -38,58 +38,58 @@ class TransformEmitter extends EventEmitter {}
 const {createLogger} = Utils;
 
 export default function (stream, {harvestSource, urnResolverUrl, validate = true, fix = true}) {
-	const Emitter = new TransformEmitter();
-	const logger = createLogger();
+  const Emitter = new TransformEmitter();
+  const logger = createLogger();
 
-	logger.log('debug', 'Starting to send recordEvents');
+  logger.log('debug', 'Starting to send recordEvents');
 
-	readStream(stream);
-	return Emitter;
+  readStream(stream);
+  return Emitter;
 
-	async function readStream(stream) {
-		try {
-			const validator = await createValidator();
-			const convertRecord = createConverter({harvestSource, urnResolverUrl});
-			const promises = [];
-			const pipeline = chain([
-				stream,
-				parser(),
-				streamArray()
-			]).on('error', err => Emitter.emit('error', err));
+  async function readStream(stream) {
+    try {
+      const validator = await createValidator();
+      const convertRecord = createConverter({harvestSource, urnResolverUrl});
+      const promises = [];
+      const pipeline = chain([
+        stream,
+        parser(),
+        streamArray()
+      ]).on('error', err => Emitter.emit('error', err));
 
-			pipeline.on('data', async data => {
-				promises.push(transform(data.value));
+      pipeline.on('data', data => {
+        promises.push(transform(data.value)); // eslint-disable-line functional/immutable-data
 
-				function transform(data) {
-					try {
-						const record = convertRecord(data);
+        function transform(data) {
+          try {
+            const record = convertRecord(data);
 
-						if (validate === true || fix === true) {
-							const result = validator(record, validate, fix);
-							Emitter.emit('record', result);
-							return;
-						}
+            if (validate === true || fix === true) {
+              const result = validator(record, validate, fix);
+              Emitter.emit('record', result);
+              return;
+            }
 
-						return Emitter.emit('record', {failed: false, record});
-					} catch (err) {
-						Emitter.emit('error', err);
-					}
-				}
-			});
+            return Emitter.emit('record', {failed: false, record});
+          } catch (err) {
+            Emitter.emit('error', err);
+          }
+        }
+      });
 
-			pipeline.on('end', async () => {
-				try {
-					logger.log('debug', `Handled ${promises.length} recordEvents`);
-					await Promise.all(promises);
-					Emitter.emit('end', promises.length);
-				} catch (err) {
-					Emitter.emit('error', err);
-				}
+      pipeline.on('end', async () => {
+        try {
+          logger.log('debug', `Handled ${promises.length} recordEvents`);
+          await Promise.all(promises);
+          Emitter.emit('end', promises.length);
+        } catch (err) {
+          Emitter.emit('error', err);
+        }
 
-				Emitter.emit('end', promises.length);
-			});
-		} catch (err) {
-			Emitter.emit('error', err);
-		}
-	}
+        Emitter.emit('end', promises.length);
+      });
+    } catch (err) {
+      Emitter.emit('error', err);
+    }
+  }
 }

@@ -64,22 +64,25 @@ import createValidator from './validate';
 run();
 
 async function run() {
-	const validate = await createValidator();
+  const validate = await createValidator();
 
-	describe('validate', () => {
-		const {expect} = chai;
-		const fixturesPath = joinPath(__dirname, '..', 'test-fixtures', 'validate');
-		// Const validate = await createValidator();
+  describe('validate', () => {
+    const {expect} = chai;
+    const fixturesPath = joinPath(__dirname, '..', 'test-fixtures', 'validate');
+    // Const validate = await createValidator();
 
-		readdirSync(fixturesPath).forEach(subDir => {
-			const {getFixture} = fixtureFactory({root: [fixturesPath, subDir], reader: READERS.JSON});
-			const record = new MarcRecord(getFixture(['input.json']));
-			const expectedResult = getFixture(['output.json']);
+    readdirSync(fixturesPath).forEach(subDir => {
+      const {getFixture} = fixtureFactory({root: [
+        fixturesPath,
+        subDir
+      ], reader: READERS.JSON});
+      const record = new MarcRecord(getFixture(['input.json']));
+      const expectedResult = getFixture(['output.json']);
 
-			it(subDir, async () => {
-				const result = await validate(record, {fix: true, validateFixes: true});
-				expect(result).to.eql(expectedResult);
-			});
-		});
-	});
+      it(subDir, async () => {
+        const result = await validate(record, {fix: true, validateFixes: true});
+        expect(result).to.eql(expectedResult);
+      });
+    });
+  });
 }

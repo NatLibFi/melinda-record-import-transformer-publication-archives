@@ -33,22 +33,25 @@ import fixtureFactory, {READERS} from '@natlibfi/fixura';
 import createConverter from './convert';
 
 describe('transform/convert', () => {
-	const {expect} = chai;
-	const fixturesPath = joinPath(__dirname, '..', '..', 'test-fixtures', 'transform', 'convert');
-	const convert = createConverter({
-		harvestSource: 'FOOBAR',
-		urnResolverUrl: 'http://foo.bar'
-	});
+  const {expect} = chai;
+  const fixturesPath = joinPath(__dirname, '..', '..', 'test-fixtures', 'transform', 'convert');
+  const convert = createConverter({
+    harvestSource: 'FOOBAR',
+    urnResolverUrl: 'http://foo.bar'
+  });
 
-	readdirSync(fixturesPath).forEach(subDir => {
-		const {getFixture} = fixtureFactory({root: [fixturesPath, subDir], reader: READERS.JSON});
-		const inputData = getFixture(['input.json']);
-		const expectedRecord = getFixture(['output.json']);
+  readdirSync(fixturesPath).forEach(subDir => {
+    const {getFixture} = fixtureFactory({root: [
+      fixturesPath,
+      subDir
+    ], reader: READERS.JSON});
+    const inputData = getFixture(['input.json']);
+    const expectedRecord = getFixture(['output.json']);
 
-		it(subDir, async () => {
-			// Fixtures are lists so that they can be fed to the CLI when testing manually
-			const record = convert(inputData[0]);
-			expect(record.toObject()).to.eql(expectedRecord);
-		});
-	});
+    it(subDir, () => {
+      // Fixtures are lists so that they can be fed to the CLI when testing manually
+      const record = convert(inputData[0]);
+      expect(record.toObject()).to.eql(expectedRecord);
+    });
+  });
 });

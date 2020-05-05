@@ -24,10 +24,10 @@
 		"cli": "node dist/cli.js",
 		"check-deps": "npm-check|exit 0",
 		"lint": "eslint src",
-		"lint:dev": "eslint --fix src",		
-		"test:base": "cross-env NODE_ENV=test nyc mocha --require @babel/register",		
+		"lint:dev": "eslint --fix src",
+		"test:base": "cross-env NODE_ENV=test nyc mocha --require @babel/register",
 		"test": "npm run lint && npm run test:base -- src/*.spec.js src/**/*.spec.js && npm run coverage",
-		"test:dev": "npm run lint:dev && npm run test:base -- src/*.spec.js src/**/*.spec.js && npm run coverage",		
+		"test:dev": "npm run lint:dev && npm run test:base -- src/*.spec.js src/**/*.spec.js && npm run coverage",
 		"coverage": "nyc check-coverage --per-file",
 		"build": "babel src --source-maps --copy-files --delete-dir-on-start --out-dir=dist --minified",
 		"watch:test": "cross-env DEBUG=1 NODE_ENV=test nodemon -w src --exec 'npm run test:dev'",
@@ -41,10 +41,11 @@
 		"@natlibfi/melinda-record-import-commons": "^7.0.4",
 		"get-stream": "^5.1.0",
 		"langs": "^2.0.0",
-		"moment": "^2.22.2",
+		"moment": "^2.25.3",
 		"stream-json": "^1.5.0"
 	},
 	"devDependencies": {
+		"@natlibfi/eslint-config-melinda-backend": ">1.0.0-alpha.1",
 		"@babel/cli": "^7.7.5",
 		"@babel/core": "^7.9.0",
 		"@babel/node": "^7.8.7",
@@ -57,8 +58,6 @@
 		"chai-as-promised": "^7.1.1",
 		"cross-env": "^7.0.2",
 		"eslint": "^6.4.0",
-		"eslint-config-xo": "^0.29.1",
-		"eslint-plugin-import": "^2.20.2",
 		"istanbul": "^0.4.5",
 		"mocha": "^7.1.2",
 		"nodemon": "^2.0.3",
@@ -67,22 +66,7 @@
 		"rimraf": "^3.0.2"
 	},
 	"eslintConfig": {
-		"parser": "babel-eslint",
-		"plugins": [
-			"import"
-		],
-		"extends": [
-			"xo",
-			"plugin:import/errors"
-		],
-		"rules": {
-			"prefer-arrow-callback": [
-				"error"
-			]
-		},
-		"env": {
-			"mocha": true
-		}
+		"extends": "@natlibfi/melinda-backend"
 	},
 	"babel": {
 		"presets": [
