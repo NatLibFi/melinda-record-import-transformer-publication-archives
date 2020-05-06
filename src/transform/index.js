@@ -26,12 +26,10 @@
 *
 */
 
-import {chain} from 'stream-chain';
-import {parser} from 'stream-json';
-import {streamArray} from 'stream-json/streamers/StreamArray';
 import createValidator from '../validate';
 import {Utils} from '@natlibfi/melinda-commons';
 import {EventEmitter} from 'events';
+import {Parser} from 'xml2js';
 import createConverter from './convert';
 
 class TransformEmitter extends EventEmitter {}
@@ -47,49 +45,61 @@ export default function (stream, {harvestSource, urnResolverUrl, validate = true
   return Emitter;
 
   async function readStream(stream) {
+    const validateRecord = await createValidator();
+    const convertRecord = createConverter({harvestSource, urnResolverUrl});
+
     try {
-      const validator = await createValidator();
-      const convertRecord = createConverter({harvestSource, urnResolverUrl});
-      const promises = [];
-      const pipeline = chain([
-        stream,
-        parser(),
-        streamArray()
-      ]).on('error', err => Emitter.emit('error', err));
-
-      pipeline.on('data', data => {
-        promises.push(transform(data.value)); // eslint-disable-line functional/immutable-data
-
-        function transform(data) {
-          try {
-            const record = convertRecord(data);
-
-            if (validate === true || fix === true) {
-              const result = validator(record, validate, fix);
-              Emitter.emit('record', result);
-              return;
-            }
-
-            return Emitter.emit('record', {failed: false, record});
-          } catch (err) {
-            Emitter.emit('error', err);
-          }
-        }
-      });
-
-      pipeline.on('end', async () => {
-        try {
-          logger.log('debug', `Handled ${promises.length} recordEvents`);
-          await Promise.all(promises);
-          Emitter.emit('end', promises.length);
-        } catch (err) {
-          Emitter.emit('error', err);
-        }
-
-        Emitter.emit('end', promises.length);
-      });
+      const records = await parse();
+      const promises = Promise.all(records.map(transform));
+      Emitter.emit('end', promises.length);
     } catch (err) {
       Emitter.emit('error', err);
+    }
+
+    async function parse() {
+      const str = await readToString();
+      const obj = await toObject();
+
+      return obj['OAI-PMH'].ListRecords[0].record;
+
+      function readToString() {
+        return new Promise((resolve, reject) => {
+          const list = [];
+
+          stream
+            .on('error', reject)
+            .on('data', chunk => list.push(chunk)) // eslint-disable-line functional/immutable-data
+            .on('end', () => resolve(list.join('')));
+        });
+      }
+
+      function toObject() {
+        return new Promise((resolve, reject) => {
+          new Parser().parseString(str, (err, obj) => {
+            if (err) {
+              return reject(err);
+            }
+
+            resolve(obj);
+          });
+        });
+      }
+    }
+
+    async function transform(data) {
+      try {
+        const record = convertRecord(data);
+
+        if (validate === true || fix === true) {
+          const result = await validateRecord(record, fix);
+          Emitter.emit('record', result);
+          return;
+        }
+
+        return Emitter.emit('record', {failed: false, record});
+      } catch (err) {
+        Emitter.emit('error', err);
+      }
     }
   }
 }

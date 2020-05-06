@@ -30,16 +30,21 @@ import langs from 'langs';
 import {MarcRecord} from '@natlibfi/marc-record';
 
 export default ({harvestSource, urnResolverUrl}) => record => {
-  const fields = record.metadata[0]['kk:metadata'][0]['kk:field'];
+  const fields = getInputFields();
   const marcRecord = new MarcRecord();
 
   marcRecord.leader = '01704nam a22002653i 4500'; // eslint-disable-line functional/immutable-data
 
-  generateFields(fields, marcRecord).forEach(f => marcRecord.insertField(f));
+  generateOutputFields(fields, marcRecord).forEach(f => marcRecord.insertField(f));
 
   return marcRecord;
 
-  function generateFields() {
+  function getInputFields() {
+    return record.metadata[0]['kk:metadata'][0]['kk:field']
+      .filter(field => '$' in field);
+  }
+
+  function generateOutputFields() {
     return [
       generate008(),
       generate020(),
