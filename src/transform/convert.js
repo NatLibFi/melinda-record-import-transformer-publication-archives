@@ -300,7 +300,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
 
       return {
         tag: '008',
-        value: `000000s${date}    ${country} |||||o${contentNature}||||||| ||${language} c`
+        value: `000000s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
       };
 
       function generateDate() {
@@ -315,7 +315,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
 
       function generateNatureOfContent() {
         const levels = getFields('dc.type.ontasot');
-        return levels.length > 0 ? 'm' : '|';
+        return levels.length > 0 ? 'm   ' : '||||';
       }
 
       function generateLanguage() {
