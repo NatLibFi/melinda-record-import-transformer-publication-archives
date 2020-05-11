@@ -35,71 +35,73 @@ import createConverter from './convert';
 class TransformEmitter extends EventEmitter {}
 const {createLogger} = Utils;
 
-export default function (stream, {harvestSource, urnResolverUrl, validate = true, fix = true}) {
-  const Emitter = new TransformEmitter();
-  const logger = createLogger();
+export default function ({harvestSource, urnResolverUrl}) {
+  return (stream, {validate = true, fix = true}) => {
+    const Emitter = new TransformEmitter();
+    const logger = createLogger();
 
-  logger.log('debug', 'Starting to send recordEvents');
+    logger.log('debug', 'Starting to send recordEvents');
 
-  readStream(stream);
-  return Emitter;
+    readStream(stream);
+    return Emitter;
 
-  async function readStream(stream) {
-    const validateRecord = await createValidator();
-    const convertRecord = createConverter({harvestSource, urnResolverUrl});
+    async function readStream(stream) {
+      const validateRecord = await createValidator();
+      const convertRecord = createConverter({harvestSource, urnResolverUrl});
 
-    try {
-      const records = await parse();
-      const promises = Promise.all(records.map(transform));
-      Emitter.emit('end', promises.length);
-    } catch (err) {
-      Emitter.emit('error', err);
-    }
-
-    async function parse() {
-      const str = await readToString();
-      const obj = await toObject();
-
-      return obj['OAI-PMH'].ListRecords[0].record;
-
-      function readToString() {
-        return new Promise((resolve, reject) => {
-          const list = [];
-
-          stream
-            .on('error', reject)
-            .on('data', chunk => list.push(chunk)) // eslint-disable-line functional/immutable-data
-            .on('end', () => resolve(list.join('')));
-        });
-      }
-
-      function toObject() {
-        return new Promise((resolve, reject) => {
-          new Parser().parseString(str, (err, obj) => {
-            if (err) {
-              return reject(err);
-            }
-
-            resolve(obj);
-          });
-        });
-      }
-    }
-
-    async function transform(data) {
       try {
-        const record = convertRecord(data);
-
-        if (validate === true || fix === true) {
-          const result = await validateRecord(record, fix);
-          Emitter.emit('record', result);
-          return;
-        }
-
-        return Emitter.emit('record', {failed: false, record});
+        const records = await parse();
+        const promises = Promise.all(records.map(transform));
+        Emitter.emit('end', promises.length);
       } catch (err) {
         Emitter.emit('error', err);
       }
+
+      async function parse() {
+        const str = await readToString();
+        const obj = await toObject();
+
+        return obj['OAI-PMH'].ListRecords[0].record;
+
+        function readToString() {
+          return new Promise((resolve, reject) => {
+            const list = [];
+
+            stream
+              .on('error', reject)
+              .on('data', chunk => list.push(chunk)) // eslint-disable-line functional/immutable-data
+              .on('end', () => resolve(list.join('')));
+          });
+        }
+
+        function toObject() {
+          return new Promise((resolve, reject) => {
+            new Parser().parseString(str, (err, obj) => {
+              if (err) {
+                return reject(err);
+              }
+
+              resolve(obj);
+            });
+          });
+        }
+      }
+
+      async function transform(data) {
+        try {
+          const record = convertRecord(data);
+
+          if (validate === true || fix === true) {
+            const result = await validateRecord(record, fix);
+            Emitter.emit('record', result);
+            return;
+          }
+
+          return Emitter.emit('record', {failed: false, record});
+        } catch (err) {
+          Emitter.emit('error', err);
+        }
+      }
     }
-  }
+  };
 }

@@ -27,7 +27,8 @@
 *
 */
 
-import transform from './transform';
+import {harvestSource, urnResolveUrl} from './config';
+import transformFactory from './transform';
 import {Transformer} from '@natlibfi/melinda-record-import-commons';
 
 const {runCLI} = Transformer;
@@ -38,6 +39,6 @@ const transformerSettings = {
     {option: 'v', conf: {alias: 'validate', default: false, type: 'boolean', describe: 'Validate records'}},
     {option: 'f', conf: {alias: 'fix', default: false, type: 'boolean', describe: 'Validate & fix records'}}
   ],
-  callback: transform
+  callback: transformFactory({harvestSource, urnResolveUrl})
 };
 runCLI(transformerSettings);
