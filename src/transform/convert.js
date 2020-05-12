@@ -319,7 +319,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
 
       function generateCountry() {
         const values = getFieldValues('dc.publisher.country');
-        return values.length > 0 ? values[0].slice(0, 2).toUpperCase() : 'FI';
+        return values.length > 0 ? values[0].slice(0, 2).toLowerCase() : 'fi';
       }
 
       function generateNatureOfContent() {
