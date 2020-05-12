@@ -29,8 +29,8 @@
 import createValidator from '../validate';
 import {Utils} from '@natlibfi/melinda-commons';
 import {EventEmitter} from 'events';
-import {Parser} from 'xml2js';
 import createConverter from './convert';
+import {xmlToObject} from './common';
 
 class TransformEmitter extends EventEmitter {}
 const {createLogger} = Utils;
@@ -58,33 +58,8 @@ export default function ({harvestSource, urnResolverUrl}) {
       }
 
       async function parse() {
-        const str = await readToString();
-        const obj = await toObject();
-
-        return obj['OAI-PMH'].ListRecords[0].record;
-
-        function readToString() {
-          return new Promise((resolve, reject) => {
-            const list = [];
-
-            stream
-              .on('error', reject)
-              .on('data', chunk => list.push(chunk)) // eslint-disable-line functional/immutable-data
-              .on('end', () => resolve(list.join('')));
-          });
-        }
-
-        function toObject() {
-          return new Promise((resolve, reject) => {
-            new Parser().parseString(str, (err, obj) => {
-              if (err) {
-                return reject(err);
-              }
-
-              resolve(obj);
-            });
-          });
-        }
+        const {'OAI-PMH': {ListRecords}} = await xmlToObject(stream);
+        return ListRecords[0].record;
       }
 
       async function transform(data) {
