@@ -27,28 +27,39 @@
 */
 
 import chai from 'chai';
+import moment from 'moment';
 import {readdirSync} from 'fs';
 import {join as joinPath} from 'path';
 import fixtureFactory, {READERS} from '@natlibfi/fixura';
-import createConverter from './convert';
+import createConverter, {__RewireAPI__ as RewireAPI} from './convert';
 
 describe('transform/convert', () => {
   const {expect} = chai;
   const fixturesPath = joinPath(__dirname, '..', '..', 'test-fixtures', 'transform', 'convert');
-  const convert = createConverter({
-    harvestSource: 'FOOBAR',
-    urnResolverUrl: 'http://foo.bar'
+
+  beforeEach(() => {
+    RewireAPI.__Rewire__('moment', () => moment('2020-01-01T00:00:00'));
   });
 
-  readdirSync(fixturesPath).forEach(subDir => {
-    const {getFixture} = fixtureFactory({root: [
-      fixturesPath,
-      subDir
-    ], reader: READERS.JSON});
-    const inputData = getFixture(['input.json']);
-    const expectedRecord = getFixture(['output.json']);
+  afterEach(() => {
+    RewireAPI.__ResetDependency__('moment');
+  });
 
+
+  readdirSync(fixturesPath).forEach(subDir => {
     it(subDir, () => {
+      const {getFixture} = fixtureFactory({root: [
+        fixturesPath,
+        subDir
+      ], reader: READERS.JSON});
+      const inputData = getFixture(['input.json']);
+      const expectedRecord = getFixture(['output.json']);
+
+      const convert = createConverter({
+        harvestSource: 'FOOBAR',
+        urnResolverUrl: 'http://foo.bar'
+      });
+
       // Fixtures are lists so that they can be fed to the CLI when testing manually
       const record = convert(inputData[0]);
       expect(record.toObject()).to.eql(expectedRecord);

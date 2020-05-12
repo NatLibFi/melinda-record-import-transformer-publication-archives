@@ -28,6 +28,7 @@
 
 import langs from 'langs';
 import {MarcRecord} from '@natlibfi/marc-record';
+import moment from 'moment';
 
 export default ({harvestSource, urnResolverUrl}) => record => {
   const fields = getInputFields();
@@ -296,6 +297,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
     }
 
     function generate008() {
+      const timestamp = generateTimestamp();
       const date = generateDate();
       const country = generateCountry();
       const contentNature = generateNatureOfContent();
@@ -303,8 +305,12 @@ export default ({harvestSource, urnResolverUrl}) => record => {
 
       return {
         tag: '008',
-        value: `000000s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
+        value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
       };
+
+      function generateTimestamp() {
+        return moment().format('YYMMDD');
+      }
 
       function generateDate() {
         const values = getFieldValues('dc.date.issued');
@@ -312,8 +318,8 @@ export default ({harvestSource, urnResolverUrl}) => record => {
       }
 
       function generateCountry() {
-        const values = getFieldValues('dc.publisher.country');
-        return values.length > 0 ? values[0].slice(0, 2) : 'fi';
+        const values = getFieldValues('dc.publisher.country');        
+        return values.length > 0 ? values[0].slice(0, 2).toUpperCase() : 'FI';
       }
 
       function generateNatureOfContent() {
