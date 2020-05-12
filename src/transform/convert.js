@@ -164,7 +164,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
         tag: '776', ind1: '0', ind2: '8',
         subfields: [
           {code: 'z', value},
-          {code: '9', value: '<FENNI>KEEP'}
+          {code: '9', value: 'FENNI>KEEP>'}
         ]
       }));
     }
@@ -318,7 +318,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
       }
 
       function generateCountry() {
-        const values = getFieldValues('dc.publisher.country');        
+        const values = getFieldValues('dc.publisher.country');
         return values.length > 0 ? values[0].slice(0, 2).toUpperCase() : 'FI';
       }
 
