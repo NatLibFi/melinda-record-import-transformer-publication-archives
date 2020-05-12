@@ -207,7 +207,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "Aineisto on käytettävissä vapaakappalekirjastoissa"
+          "value": "Aineisto on käytettävissä vapaakappalekirjastoissa."
         },
         {
           "code": "f",
@@ -261,7 +261,7 @@
         },
         {
           "code": "b",
-          "value": "Kansalliskirjasto"
+          "value": "Kansalliskirjasto;"
         },
         {
           "code": "c",
@@ -357,20 +357,20 @@
       "ind2": "0",
       "subfields": [
         {
-          "code": "z",
-          "value": "Käytettävissä vapaakappalekirjastoissa"
-        },
-        {
-          "code": "5",
-          "value": "FI-Vapaa"
-        },
-        {
           "code": "u",
           "value": "http://hdl.handle.net/10138/43166"
         },
         {
           "code": "u",
           "value": "http://julkaisut.valtioneuvosto.fi/handle/10138/43166"
+        },
+        {
+          "code": "z",
+          "value": "Käytettävissä vapaakappalekirjastoissa"
+        },
+        {
+          "code": "5",
+          "value": "FI-Vapaa"
         }
       ]
     },
@@ -380,16 +380,16 @@
       "ind2": "0",
       "subfields": [
         {
-          "code": "y",
-          "value": "Linkki verkkoaineistoon"
-        },
-        {
           "code": "u",
           "value": "http://hdl.handle.net/10138/43166"
         },
         {
           "code": "u",
           "value": "http://julkaisut.valtioneuvosto.fi/handle/10138/43166"
+        },
+        {
+          "code": "y",
+          "value": "Linkki verkkoaineistoon"
         }
       ]
     },

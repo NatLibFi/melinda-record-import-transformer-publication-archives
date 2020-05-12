@@ -161,7 +161,10 @@ export default ({harvestSource, urnResolverUrl}) => record => {
       const values = getFieldValues('dc.relation.isversionof');
       return values.map(value => ({
         tag: '776', ind1: '0', ind2: '8',
-        subfields: [{code: 'z', value}]
+        subfields: [
+          {code: 'z', value},
+          {code: '9', value: '<FENNI>KEEP'}
+        ]
       }));
     }
 
@@ -619,7 +622,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
           subfields: [
             {
               code: 'a',
-              value: 'Aineisto on käytettävissä vapaakappalekirjastoissa'
+              value: 'Aineisto on käytettävissä vapaakappalekirjastoissa.'
             },
             {
               code: 'f',
@@ -741,7 +744,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
           tag: '540', ind1: '', ind2: '',
           subfields: [
             {code: 'a', value: 'Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;'},
-            {code: 'b', value: 'Kansalliskirjasto'},
+            {code: 'b', value: 'Kansalliskirjasto;'},
             {code: 'c', value: 'Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä'},
             {code: 'u', value: 'http://www.finlex.fi/fi/laki/ajantasa/2007/20071433'},
             {code: '5', value: 'FI-Vapaa'},
@@ -758,6 +761,47 @@ export default ({harvestSource, urnResolverUrl}) => record => {
     const otherUrnFields = generateOtherUrnFields();
 
     return legalDepositFields.concat(publicAccessFields, otherUrnFields);
+
+    function generateLegalDeposit() {
+      const subfields = generateSubfields();
+      return [{tag: '856', ind1: '4', ind2: '0', subfields}];
+
+      function generateSubfields() {
+        const linkSubfields = generateLinkSubfields();
+
+        return linkSubfields.concat(
+          {code: 'z', value: 'Käytettävissä vapaakappalekirjastoissa'},
+          {code: '5', value: 'FI-Vapaa'}
+        );
+      }
+    }
+
+    function generatePublicAccessFields() {
+      const accessLevel = getFieldValues('dc.rights.accesslevel');
+
+      if (accessLevel.length === 0 || accessLevel[0] === 'openAccess') {
+        const subfields = generateSubfields();
+        return [{tag: '856', ind1: '4', ind2: '0', subfields}];
+      }
+
+      return [];
+
+      function generateSubfields() {
+        const linkSubfields = generateLinkSubfields();
+        return linkSubfields.concat({code: 'y', value: 'Linkki verkkoaineistoon'});
+      }
+    }
+
+    function generateOtherUrnFields() {
+      const urn = getFieldValues('dc.relation.urn');
+
+      return urn.length > 0 ? [
+        {
+          tag: '856', ind1: '4', ind2: '2',
+          subfields: [{code: 'u', value: urn[0]}]
+        }
+      ] : [];
+    }
 
     function generateLinkSubfields() {
       const urn = generateUrn();
@@ -780,48 +824,6 @@ export default ({harvestSource, urnResolverUrl}) => record => {
         const values = getFieldValues(path);
         return values.map(value => ({code: 'u', value}));
       }
-    }
-
-    function generateLegalDeposit() {
-      const subfields = generateSubfields();
-      return [{tag: '856', ind1: '4', ind2: '0', subfields}];
-
-      function generateSubfields() {
-        const linkSubfields = generateLinkSubfields();
-
-        return [
-          {code: 'z', value: 'Käytettävissä vapaakappalekirjastoissa'},
-          {code: '5', value: 'FI-Vapaa'}
-        ].concat(linkSubfields);
-      }
-    }
-
-    function generatePublicAccessFields() {
-      const accessLevel = getFieldValues('dc.rights.accesslevel');
-
-      if (accessLevel.length === 0 || accessLevel[0] === 'openAccess') {
-        const subfields = generateSubfields();
-        return [{tag: '856', ind1: '4', ind2: '0', subfields}];
-      }
-
-      return [];
-
-      function generateSubfields() {
-        const linkSubfields = generateLinkSubfields();
-
-        return [{code: 'y', value: 'Linkki verkkoaineistoon'}].concat(linkSubfields);
-      }
-    }
-
-    function generateOtherUrnFields() {
-      const urn = getFieldValues('dc.relation.urn');
-
-      return urn.length > 0 ? [
-        {
-          tag: '856', ind1: '4', ind2: '2',
-          subfields: [{code: 'u', value: urn[0]}]
-        }
-      ] : [];
     }
   }
 

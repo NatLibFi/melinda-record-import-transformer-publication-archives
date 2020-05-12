@@ -255,7 +255,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "Aineisto on käytettävissä vapaakappalekirjastoissa"
+          "value": "Aineisto on käytettävissä vapaakappalekirjastoissa."
         },
         {
           "code": "f",
@@ -320,7 +320,7 @@
         },
         {
           "code": "b",
-          "value": "Kansalliskirjasto"
+          "value": "Kansalliskirjasto;"
         },
         {
           "code": "c",
@@ -394,16 +394,16 @@
       "ind2": "0",
       "subfields": [
         {
+          "code": "u",
+          "value": "http://www.doria.fi/handle/10024/166749"
+        },
+        {
           "code": "z",
           "value": "Käytettävissä vapaakappalekirjastoissa"
         },
         {
           "code": "5",
           "value": "FI-Vapaa"
-        },
-        {
-          "code": "u",
-          "value": "http://www.doria.fi/handle/10024/166749"
         }
       ]
     },
@@ -413,12 +413,12 @@
       "ind2": "0",
       "subfields": [
         {
-          "code": "y",
-          "value": "Linkki verkkoaineistoon"
-        },
-        {
           "code": "u",
           "value": "http://www.doria.fi/handle/10024/166749"
+        },
+        {
+          "code": "y",
+          "value": "Linkki verkkoaineistoon"
         }
       ]
     },
