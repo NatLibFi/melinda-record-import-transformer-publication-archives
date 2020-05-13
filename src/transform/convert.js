@@ -164,7 +164,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
         tag: '776', ind1: '0', ind2: '8',
         subfields: [
           {code: 'z', value},
-          {code: '9', value: 'FENNI>KEEP>'}
+          {code: '9', value: 'FENNI<KEEP>'}
         ]
       }));
     }
