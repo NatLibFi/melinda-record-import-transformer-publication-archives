@@ -1,0 +1,386 @@
+{
+  "leader": "01704nam a22002653i 4500",
+  "fields": [
+    {
+      "tag": "007",
+      "value": "cr |||||||||||"
+    },
+    {
+      "tag": "008",
+      "value": "200101s2018    fi |||||o|||||||| ||fin c"
+    },
+    {
+      "tag": "020",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "978-952-310-934-6"
+        },
+        {
+          "code": "q",
+          "value": "PDF"
+        }
+      ]
+    },
+    {
+      "tag": "024",
+      "ind1": "7",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "URN:ISBN:978-952-310-934-6"
+        },
+        {
+          "code": "2",
+          "value": "urn"
+        }
+      ]
+    },
+    {
+      "tag": "040",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "b",
+          "value": "fin"
+        },
+        {
+          "code": "e",
+          "value": "rda"
+        },
+        {
+          "code": "d",
+          "value": "FI-NL"
+        }
+      ]
+    },
+    {
+      "tag": "041",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "fin"
+        }
+      ]
+    },
+    {
+      "tag": "042",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "finb"
+        }
+      ]
+    },
+    {
+      "tag": "245",
+      "ind1": "0",
+      "ind2": "0",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Suhteessa maailmaan : ympäristöt oppimisen avaajina."
+        }
+      ]
+    },
+    {
+      "tag": "264",
+      "ind1": " ",
+      "ind2": "1",
+      "subfields": [
+        {
+          "code": "b",
+          "value": "Lapland University Press,"
+        },
+        {
+          "code": "c",
+          "value": "2018."
+        }
+      ]
+    },
+    {
+      "tag": "300",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "1 verkkoaineisto (320 sivua)"
+        }
+      ]
+    },
+    {
+      "tag": "336",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "teksti"
+        },
+        {
+          "code": "b",
+          "value": "txt"
+        },
+        {
+          "code": "2",
+          "value": "rdacontent"
+        }
+      ]
+    },
+    {
+      "tag": "337",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "tietokonekäyttöinen"
+        },
+        {
+          "code": "b",
+          "value": "c"
+        },
+        {
+          "code": "2",
+          "value": "rdamedia"
+        }
+      ]
+    },
+    {
+      "tag": "338",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "verkkoaineisto"
+        },
+        {
+          "code": "b",
+          "value": "cr"
+        },
+        {
+          "code": "2",
+          "value": "rdacarrier"
+        }
+      ]
+    },
+    {
+      "tag": "500",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Koneellisesti tuotettu tietue."
+        },
+        {
+          "code": "9",
+          "value": "FENNI<KEEP>"
+        }
+      ]
+    },
+    {
+      "tag": "506",
+      "ind1": "1",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Aineisto on käytettävissä vapaakappalekirjastoissa."
+        },
+        {
+          "code": "f",
+          "value": "Online access with authorization"
+        },
+        {
+          "code": "2",
+          "value": "star"
+        },
+        {
+          "code": "5",
+          "value": "FI-Vapaa"
+        },
+        {
+          "code": "9",
+          "value": "FENNI<KEEP>"
+        }
+      ]
+    },
+    {
+      "tag": "506",
+      "ind1": "0",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Aineisto on vapaasti saatavissa."
+        },
+        {
+          "code": "f",
+          "value": "Unrestricted online access"
+        },
+        {
+          "code": "2",
+          "value": "star"
+        },
+        {
+          "code": "9",
+          "value": "FENNI<KEEP>"
+        }
+      ]
+    },
+    {
+      "tag": "540",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "All rights reserved"
+        }
+      ]
+    },
+    {
+      "tag": "540",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;"
+        },
+        {
+          "code": "b",
+          "value": "Kansalliskirjasto;"
+        },
+        {
+          "code": "c",
+          "value": "Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä"
+        },
+        {
+          "code": "u",
+          "value": "http://www.finlex.fi/fi/laki/ajantasa/2007/20071433"
+        },
+        {
+          "code": "5",
+          "value": "FI-Vapaa"
+        },
+        {
+          "code": "9",
+          "value": "FENNI<KEEP>"
+        }
+      ]
+    },
+    {
+      "tag": "700",
+      "ind1": "1",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Granö, Päivi"
+        },
+        {
+          "code": "e",
+          "value": "toimittaja."
+        }
+      ]
+    },
+    {
+      "tag": "700",
+      "ind1": "1",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Hiltunen, Mirja"
+        },
+        {
+          "code": "e",
+          "value": "toimittaja."
+        }
+      ]
+    },
+    {
+      "tag": "700",
+      "ind1": "1",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Jokela, Timo"
+        },
+        {
+          "code": "e",
+          "value": "toimittaja."
+        }
+      ]
+    },
+    {
+      "tag": "856",
+      "ind1": "4",
+      "ind2": "0",
+      "subfields": [
+        {
+          "code": "u",
+          "value": "http://foo.bar/URN:ISBN:978-952-310-934-6"
+        },
+        {
+          "code": "z",
+          "value": "Käytettävissä vapaakappalekirjastoissa"
+        },
+        {
+          "code": "5",
+          "value": "FI-Vapaa"
+        }
+      ]
+    },
+    {
+      "tag": "856",
+      "ind1": "4",
+      "ind2": "0",
+      "subfields": [
+        {
+          "code": "u",
+          "value": "http://foo.bar/URN:ISBN:978-952-310-934-6"
+        },
+        {
+          "code": "y",
+          "value": "Linkki verkkoaineistoon"
+        }
+      ]
+    },
+    {
+      "tag": "884",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "k",
+          "value": "FOOBAR"
+        }
+      ]
+    },
+    {
+      "tag": "LOW",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "FIKKA"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,627 @@
+[
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:www.theseus.fi:10024/163106"
+        ],
+        "datestamp": [
+          "2020-05-07T08:30:36Z"
+        ],
+        "setSpec": [
+          "com_10024_121364",
+          "col_10024_160900"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/163106"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://www.theseus.fi/handle/10024/163106"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "editor",
+                  "language": "none",
+                  "value": "Aschan, Tuulevi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Järvikukko, Lahja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Kallioinen, Raija"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Kesti, Marko"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Kyllönen, Tarja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Manninen, Mirjam"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Myöhänen, Paula"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Saar, Laura"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Turunen, Riikka"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Ylitalo, Aino-Inkeri"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "fi",
+                  "value": "Kaakkois-Suomen ammattikorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "sv",
+                  "value": "Kaakkois-Suomen ammattikorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "en",
+                  "value": "South-Eastern Finland University of Applied Sciences"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2019-03-28T12:12:50Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2019-03-28T12:12:50Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "-",
+                  "value": "2019"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-344-156-9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "http://www.theseus.fi/handle/10024/163106"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-952-344-156-9"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "-",
+                  "value": "Työhyvinvointia parannetaan hyvällä vuorovaikutuksella. Sitä opetellaan jo päiväkodissa osana varhaiskasvatusta. Vaikka tunteiden säätely ja toisten kunnioittaminen kuulostavat lapsellisilta, saattavat ne olla nykyorganisaatioissa ylivoimaisen kilpailuedun lähde. Hyvä käyttäytymispääoma on todellinen kilpailuetu, jonka vaikutusta voidaan mitata työelämän laadun (Quality of Working Life, QWL) indeksillä. Tätä käsitettä julkaisussa tarkastellaan useissa eri artikkeleissa eri näkökulmista. Käyttäytyminen herättää tunteita, ja tunteet puolestaan merkitsevät meille viestejä. Aivot eivät anna meidän valita sitä, mitä tunteita tunnemme. Tunteet ovat aina oikeita. Me työyhteisön jäseninä voimme opetella tunteisiin liittyviä taitoja sekä sitä, miten reagoimme niihin. Helsingin yliopiston CoPassion-hankkeen osana työyhteisöissä on toteutettu tunnetaitoihin liittyviä valmennuksia, jotka näyttivät vahvistavan työn imua. Se puolestaan on yhteydessä organisaation tehokkuuteen, mutta vain siinä tapauksessa, että henkilöstöä ei kuormiteta liikaa. Suorituskyky on aina itsearvostustekijöiden yhteisvaikutus, joten johtajien ja esimiesten pitää hallita sekä työpahoinvoinnin välttäminen että työn imun kokemusten edistäminen.\r\n\r\nMitä tämä tarkoittaa arjessa? Mikäli työntekijät ovat allapäin ja esimies vain juoksee palaverista toiseen, työyhteisön tuottavuus tuppaa olemaan huono. Työntekijöiden myönteinen mieliala ja se, että esimiehellä on aikaa työntekijöille, nostaa tuottavuutta. Rakettitiedettä tämä ei ole, vaikka me tutkijat haluammekin todistaa ytimeltään päivänselviä asioita monimutkaisilla funktioilla ja mittareilla. Vakavasti ottaen asia on niin tärkeä, ettei sitä voi jättää kunkin johtajan ja esimiehen uskon varaan. Työelämän laatua pitää mitata, ja henkilöstön näkemyksiä täytyy kunnioittaa organisaation kehittämisessä. Vaikka meidän työvoimamme on kallista ja työaika on niukkuusvoimavara, on meillä myös maailman osaavin ja kokenein työvoima – se on meidän kilpailukykymme virtalähde.\r\n\r\nTähän julkaisuun olemme koonneet paitsi henkilöstötuottavuuden taustaa, myös maakunnassa toteutettuja eri mittakaavan ideoita siitä, miten tuottavuuteen voi vaikuttaa. Julkaisu sisältää sekä johtamisessa, työyhteisötasolla että yksilötasolla sovellettavia ideoita. Taustalla on henkilöstötuottavuuden johtaminen strategisena valintana. Johdon tulee ymmärtää päätöksiä tehdessään se, että menestymiseen vaikuttavat asiat ovat strategisia. Julkaisun laajimmat ideat tukevatkin strategista ajattelua. Menestyvän organisaation johto ymmärtää myös henkilöstötuottavuuden psykologian eli organisaatiossa työskenteleviä ihmisiä. Tämän tueksi olemme koonneet ihmisläheisiä, helposti arkeen sovellettavia ideoita. Osa ideoista on poimittu suoraan teksteistä, osa on otettu talteen yrityskäynneiltä ja keskusteluista. Hyvän mielen CV tai yksittäiset myönteiset tapahtumat työyhteisössä eivät toki pelkästään riitä, jos työn tekemisen edellytyksiä ei samalla edistetä. Hyväkin yhteisöllisyyttä edistävä idea jää höttöiseksi kuorrutukseksi ilman työn sujuvuuden vauhdittamista. Jo pieni lisäys alhaiseen työelämän laadun indeksiin parantaa työelämässä selviytymistä ja vähentää työkyvyttömyyden riskiä. Henkilöstötuottavuutta saadaan kuitenkin nousemaan vain mikäli työyhteisön fyysinen ja emotionaalinen turvallisuus on kunnossa. Korkeaan työelämän laatuun tarvitaan sekä toimivat perusasiat että hyvät henkilöstöjohtamisen taidot. Esimiestoiminnassa pitää panostaa henkilöstön innostamiseen ja työn imun aikaansaamiseen – siihen tarvitaan ja siinä kannattaa hyödyntää niitä pienimpiäkin ideoita. Hyvä työelämän laatu on aina kokonaisuus, joka vaatii esimiehiltä ammattitaitoa ja organisaatiossa positiivista johtamisotetta."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "extent",
+                  "language": "-",
+                  "value": "160"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fin"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "Xamk Inspiroi 10"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Mitä tekemistä työhyvinvoinnilla ja tuottavuudella on keskenään?"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Metsänhoitoyhdistys Mänty-Saimaa. Päivittäisen työn toimivia tapoja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Yksinyrittäjän työhyvinvoinnin keinot"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Tunnistatko päivittäisen palautumisen merkityksen?"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Jalkaterveyden vaikutus työhyvinvointiin. \"On se jalka kyllä aika älykkäästi suunnitelu rakennelma\""
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "\"Tämä oli ihanaa – en voi muuta sanoa!\""
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Monta hyvää käytäntöä eteläsavolaisissa työyhteisöissä"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Johtamisen ja esimiestyön oivalluksia esimiesten itsearvioinnista"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Case Savonlinja Oy. Työelämän laadusta kilpailuetua bussibisnekseen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Kasvu henkilöstötuottavuuden asiantuntijana"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Tuottavampaa työtä esimiestyön ja johtamisen keinoin"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Kehittämiskokemukset Tiedosta-hankkeessa"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Työhyvinvointimarkkinoilta vinkkejä ja verkostoja!"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "haspart",
+                  "language": "-",
+                  "value": "Tyhytuupparit® – henkilöstölähtöinen työyhteisökehittäminen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "isversionof",
+                  "language": "-",
+                  "value": "978-952-344-155-2"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "eissn",
+                  "language": "-",
+                  "value": "2489-6764"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2489-2475"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "fi",
+                  "value": "Publisher's version"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "sv",
+                  "value": "Publisher's version"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "version",
+                  "language": "en",
+                  "value": "Publisher's version"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "other",
+                  "language": "fi",
+                  "value": "Julkaisusarja"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "other",
+                  "language": "sv",
+                  "value": "Publikation"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "other",
+                  "language": "en",
+                  "value": "Publications"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "other",
+                  "language": "none",
+                  "value": "Xamk Inspiroi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "fi",
+                  "value": "D6 Toimitettu ammatillinen teos"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "sv",
+                  "value": "D6 Redigerat yrkesinriktat verk"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "okm",
+                  "language": "en",
+                  "value": " D6 Edited professional book"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "työhyvinvointi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "henkilöstöjohtaminen"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "työn imu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "työn kuormittavuus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "vuorovaikutus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "tuottavuus"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "yso",
+                  "language": "-",
+                  "value": "henkilöstö"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Kaakkois-Suomen ammattikorkeakoulu"
+                }
+              },
+              {
+                "$": {
+                  "schema": "",
+                  "element": "dc",
+                  "qualifier": "rights",
+                  "language": "fi",
+                  "value": "Kaikki oikeudet pidätetään"
+                }
+              },
+              {
+                "$": {
+                  "schema": "",
+                  "element": "dc",
+                  "qualifier": "rights",
+                  "language": "en",
+                  "value": "This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "56 Innostavaa ideaa! Työelämän laatu euroiksi Etelä-Savossa"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "language": "none",
+                  "value": "publication"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "http://www.theseus.fi/bitstream/10024/163106/2/URNISBN9789523441569.pdf",
+                  "name": "URNISBN9789523441569.pdf",
+                  "originalName": "URNISBN9789523441569.pdf",
+                  "type": "application/pdf",
+                  "size": "6426533",
+                  "sequence": "2",
+                  "description": "",
+                  "checksum": "788a013d9ea012cac6e5001425d098ee",
+                  "checksumAlgorithm": "MD5"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

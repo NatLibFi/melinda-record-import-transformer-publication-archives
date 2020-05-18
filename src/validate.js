@@ -2,18 +2,18 @@
 *
 * @licstart  The following is the entire license notice for the JavaScript code in this file.
 *
-* Helmet record transformer for the Melinda record batch import system
+* Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2018 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
 *
-* This file is part of melinda-record-import-transformer-helmet
+* This file is part of melinda-record-import-transformer-publication-archives
 *
-* melinda-record-import-transformer-helmet program is free software: you can redistribute it and/or modify
+* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License as
 * published by the Free Software Foundation, either version 3 of the
 * License, or (at your option) any later version.
 *
-* melinda-record-import-transformer-helmet is distributed in the hope that it will be useful,
+* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU Affero General Public License for more details.
@@ -29,45 +29,23 @@
 /* eslint-disable new-cap */
 import validateFactory from '@natlibfi/marc-record-validate';
 import {
-	FieldsPresent
-	// FieldExclusion,
-	// FieldStructure,
-	// EmptyFields,
-	// EndingPunctuation,
-	// IsbnIssn,
-	// SubfieldExclusion
+  EmptyFields,
+  IsbnIssn
 } from '@natlibfi/marc-record-validators-melinda';
 
 export default async () => {
-	const validate = await validateFactory([
-		await FieldsPresent([/^(020)$/])
-		// Await FieldExclusion([
-		// 	/^(001|091|092|093|094|095|256|533|574|575|576|577|578|599)$/,
-		// 	{tag: /^264$/, subfields: [{code: /^a$/, value: /^\[.*\]$/}]},
-		// 	{tag: /^650$/, subfields: [{code: /^a$/, value: /^overdrive$/i}]},
-		// 	{tag: /^041$/, dependencies: [{leader: /^.{6}[g|i]/}]}
-		// ]),
-		// await EmptyFields(),
-		// await IsbnIssn(),
-		// await SubfieldExclusion([
-		// 	{tag: /^041$/, subfields: [{code: /a|d/, value: /^zxx$/}]}
-		// ]),
-		// await FieldStructure([
-		// 	{tag: /^007$/, dependencies: [{leader: /^.{6}[^at]/}]}
-		// ]),
-		// await EndingPunctuation()
-	]);
+  const validate = validateFactory([
+    await EmptyFields(),
+    await IsbnIssn({hyphenateISBN: true})
+  ]);
 
-	return async (records, fix = false) => {
-		const opts = fix ? {fix: true, validateFixes: true} : {fix: false};
-		const results = await Promise.all(
-			records.map(r => validate(r, opts))
-		);
-
-		return results.map(result => ({
-			record: result.record,
-			failed: !result.valid,
-			messages: result.report
-		}));
-	};
+  return async (record, fix, validateFixes) => {
+    const opts = fix ? {fix, validateFixes} : /* istanbul ignore next: No need to test this */ {fix};
+    const result = await validate(record, opts);
+    return {
+      record: result.record,
+      failed: result.valid === false,
+      messages: result.report
+    };
+  };
 };

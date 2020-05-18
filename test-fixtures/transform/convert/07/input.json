@@ -1,0 +1,368 @@
+[{
+  "header": [
+    {
+      "identifier": [
+        "oai:trepo.tuni.fi:10024/100446"
+      ],
+      "datestamp": [
+        "2019-05-29T15:46:30Z"
+      ],
+      "setSpec": [
+        "com_10024_105878",
+        "col_10024_105891"
+      ]
+    }
+  ],
+  "metadata": [
+    {
+      "kk:metadata": [
+        {
+          "$": {
+            "xmlns:kk": "http://kk/1.0",
+            "xmlns:doc": "http://www.lyncode.com/xoai",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+          },
+          "kk:identifier": [
+            {
+              "$": {
+                "type": "handle",
+                "value": "10024/100446"
+              }
+            }
+          ],
+          "kk:type": [
+            {
+              "$": {
+                "name": "item"
+              }
+            }
+          ],
+          "kk:link": [
+            {
+              "$": {
+                "href": "http://trepo.tuni.fi/handle/10024/100446"
+              }
+            }
+          ],
+          "kk:field": [
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "author",
+                "language": "none",
+                "value": "Ruokolainen, Olli"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "oldfaculty",
+                "language": "none",
+                "value": "Johtamiskorkeakoulu - Faculty of Management"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "contributor",
+                "qualifier": "organization",
+                "language": "none",
+                "value": "University of Tampere"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "accessioned",
+                "language": "none",
+                "value": "2017-01-03T12:55:44Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "available",
+                "language": "none",
+                "value": "2017-01-03T12:55:44Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "issued",
+                "language": "none",
+                "value": "2017"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "dissertation",
+                "language": "none",
+                "value": "2017-01-20"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "isbn",
+                "language": "-",
+                "value": "978-952-03-0312-9"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "uri",
+                "language": "none",
+                "value": "https://trepo.tuni.fi/handle/10024/100446"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "urn",
+                "language": "-",
+                "value": "URN:ISBN:978-952-03-0312-9"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "abstract",
+                "language": "fi",
+                "value": "Kulttuuritoiminnot ja luovuus muodostavat olennaisen osan kaupunkeja ja alueita. Viimeistään viimeisen noin kahden vuosikymmenen aikana niistä on muodostunut kaupunkien ja alueiden vetomaisuuden ja kilpailukyvyn osatekijöitä kahdella tavalla. Ensinnäkin monimuotoinen kulttuuritoiminta tekee kaupungista tai alueesta mielenkiintoisen kohteen sekä matkailijoiden että pysyvämmin sinne sijoittuvan osaavan työvoiman näkökulmasta. Toiseksi kulttuuritoiminnot ja luovat toimialat voidaan myös nähdä suoremmin yhtenä tuotannon ja taloudellisen aktiviteetin muotona, toimialoina muiden toimialojen joukossa.\r\n\r\nKulttuuritoimintojen (taloudellisista) vaikutuksista ja merkityksistä kaupunkien ja alueiden kehitykselle on puhuttu paljon niin tutkimuksen kuin ylipäätään yhteiskunnallisenkin keskustelun piireissä. Vähemmän on sen sijaan puhuttu siitä, miten kulttuuritoimintoihin liitetyt odotukset saataisiin aikaan. Tarvitaankin tietämystä kulttuuritoimintojen kehittämisdynamiikasta sekä -keinoista. Tarvitaan jäsentynyttä tietoa siitä, miten kaupunkien ja alueiden taloudellisessa kehittämisessä voidaan hyödyntää ja ylläpitää kulttuuritoimintoja sekä kulttuurin talouden ilmiöitä niiden omilla ehdoilla. Siksi tässä tutkimuksessa kysytään: Miten kulttuuritoimintoja ja luovia toimialoja voidaan kehittää strategisesti kaupunkien ja alueiden näkökulmasta? Tutkimuskysymys karrikoidaan myös ”suunnitellun luovuuden” ongelmaksi, eli pohditaan, miten luonteeltaan rajoja rikkova ja vapaa kulttuuritoiminta kohtaa hallinnon ja talouden jäykemmät toimintalogiikat alue- ja kaupunkikehittämisessä.\r\n\r\nKulttuuritoimintojen strategista aluekehittämistä lähestytään sekä kirjallisuuteen että kahteen tapausesimerkkiin tutustumalla. Tässä tutkimuksessa tarkastellaan laadullisin tutkimusmenetelmin sekä Tampereella vuosina 2006–2011 toteutettua elinkeinopoliittista Luova Tampere -ohjelmaa että Seinäjoella viime vuosina esillä ollutta niin sanotun rytmimusiikin käsitteen ympärille kiinnittynyttä luovien alojen toimintojen keskittymää.\r\n\r\nKaupungin tai alueen kulttuuritoiminnot näyttäytyvät tässä tutkimuksessa kompleksisena ja systeemisenä ilmiönä. Lisäksi käytetään myös alueen kulttuuripääoman käsitettä kuvaamaan kulttuuritoimintojen ominaisuuksia ja alueellista juurtuneisuutta. Kyseiset käsitteet konkretisoituvat siinä, että kulttuurisen sisällön tuottamisessa voi olla mukana taiteilijan lisäksi esimerkiksi tuottajia, yrittäjiä, investoijia, yhdistyksiä, kulttuuri- ja elinkeinopolitiikan toimijoita ja niin edelleen, jotka kaikki toimivat tietyissä (alue)konteksteissa ja toimintakulttuureissa pyrkien osittain hyvinkin ristiriitaisiin päämääriin. Kulttuuritoimijat ja -toiminnot sekä niiden väliset jännitteet hahmotetaan sekä julkisen hallinnon intentioiden ja kulttuuristen ruohonjuurten emergenssin että alueen kulttuuripääoman kulttuurisen ja taloudellisen arvon välisinä. Näin muodostetaan alueen kulttuuritoimintojen nelikenttä, joka koostuu emergentistä avantgardesta, korkeakulttuurista, kulttuuriteollisuudesta sekä alueellisesta kehittämisestä.\r\n\r\nAlueen kulttuuritoimintojen eri muotojen välillä tapahtuvaa strategista kehittämistä avataan kolmen strategisuuden osa-alueen kautta, joita ovat prosessi, aikomus sekä rytmitys. Edelleen esitetään näihin osa-alueisiin liittyen kolme alue- ja kaupunkikehittäjätahon tehtävää kulttuuritoimintojen suhteen: välittäminen, suuntaaminen ja rytmittäminen. Välittäminen tarkoittaa erilaisten toimintalogiikoiden välisten yhteyksien rakentamista mutta samalla myös niiden välisten jännitteiden puskurointia. Suuntaaminen tiivistyy uusien kehityspolkujen avaamiseen niin, että tasapainoillaan julkisten kehittäjätahojen intention ja haavoittuvien kulttuuritoiminnallisten ruohonjuurten emergenssin välillä. Rytmittäminen puolestaan tarkoittaa astetta sallivampaa ja avoimempaa kehittämisotetta, jossa ei puututa kulttuuritoimintaan sinänsä, mutta pyritään kiihdyttämään jo emergoituneen kehityksen nopeutta ja rytmiä esimerkiksi luovien alojen toimintaedellytyksiä ja infrastruktuuria kehittämällä. Tämän tutkimuksen perusteella suunniteltu luovuus ei näyttäydykään riskialttiina kulttuuritoimintojen vapauteen puuttumisena, vaan pääasiassa luovuuden ja kulttuuritoimintojen edellytysten strategisena kehittämisenä."
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "abstract",
+                "language": "en",
+                "value": "Cultural activities and creativity are essential parts of cities and regions. During the last two decades they have become important components in the competitiveness of cities and regions in two ways. Firstly, diverse cultural activity makes a city or a region an interesting destination from the point of view of tourists, and a high-skilled and educated workforce. Secondly, cultural activities and creative industries can be seen as a one form of production and economic activity.\r\n\r\nIn academia, as well as in society in general, there has been a vivid discussion on the (economic) impacts and meanings of cultural activities on the development of cities and regions. However attention has not focused on how to bring about all the expectations related to cultural activities. Therefore we need a deeper understanding of the dynamics of cultural activities and especially of the ways of developing them. We need to know how cultural phenomena can be utilized as well as supported in the development of cities and regions in the long term. Therefore the research question of this study is: How can the cultural activities and creative industries of cities and regions be strategically developed? This question is also provocatively simplified as the problem of ‘planned creativity’ in order to illustrate how the free and boundary breaking logic of cultural activity interacts with the rigid logics of governance and economy within regional development.\r\n\r\nThe strategic regional development of cultural activities is approached by looking at previous research literature and examining two case examples with qualitative methodology. The two case examples are the Creative Tampere Programme that was carried out between the years 2006 and 2011 in Tampere and the so-called rhythm music related activity and clustering that has happened in recent years in Seinäjoki.\r\n\r\nThe cultural activities of a city or a region appear as a complex and systemic phenomenon in this study. The concept of a regional cultural capital is also used in order to describe the characteristics and embeddedness of cultural activity. The aforementioned concepts become concrete by looking at the cultural content production that, in addition to the actual artist, involves, for example, producers, entrepreneurs, investors, associations, cultural and economic policy actors who all perform in certain contexts and aim at different goals. In this study this complexity of cultural activities and actors is perceived as tensions between public governance intentions and the emergence of grassroots cultural activities, as well as tensions between the cultural and economic value of cultural capital. In this way four forms of regional cultural activities are formed: the emergent avant-garde, high culture, cultural industries and regional development.\r\n\r\nThe strategic development of these cultural activities is opened up by introducing three sections of strategy: process, intention and pace. Related to these sections, three tasks of regional and city developers are also introduced: mediating, directing and pace setting. Mediating means building connections and at the same time also buffering between different types of actors and their logics. Directing means opening up new development paths by balancing the intentions of public development actors and the emergence of cultural grassroots. Pace making means a somewhat more open way of developing that does not interfere with the cultural content producing activity as such but instead focuses on intensifying the already existing paths of development by, for example, developing support infrastructure for the creative industries and other cultural activities. All in all, based on this study planned creativity is not the risky endeavor of interfering with the artistic core of cultural activities but instead it is the strategic development of the prerequisites for creativity."
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "language",
+                "qualifier": "iso",
+                "language": "-",
+                "value": "fi"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "relation",
+                "qualifier": "ispartofseries",
+                "language": "none",
+                "value": "Acta Electronica Universitatis Tamperensis"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "relation",
+                "qualifier": "numberinseries",
+                "language": "-",
+                "value": "1745"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "relation",
+                "qualifier": "issn",
+                "language": "none",
+                "value": "1456-954X"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "rights",
+                "qualifier": "accesslevel",
+                "language": "none",
+                "value": "openAccess"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "study",
+                "language": "-",
+                "value": "Aluetiede - Regional Studies"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "title",
+                "qualifier": "alternative",
+                "language": "-",
+                "value": "Planned creativity? Cultural activities and strategic regional development"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "type",
+                "qualifier": "ontasot",
+                "language": "-",
+                "value": "fi=Monografiaväitöskirja | en=Doctoral dissertation (monograph)|"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "type",
+                "qualifier": "publication",
+                "language": "none",
+                "value": "doctoralThesis"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "format",
+                "qualifier": "content",
+                "language": "none",
+                "value": "fulltext"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "language": "-",
+                "value": "Tampere University Press"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "rights",
+                "language": "none",
+                "value": "This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited."
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "kulttuuritoiminnot"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "luovuus"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "luovat alat"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "strategia"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "aluekehittäminen"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "culture"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "creativity"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "creative economy"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "strategy"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "-",
+                "value": "regional development"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "title",
+                "language": "-",
+                "value": "Suunniteltu luovuus : Kulttuuritoiminnot ja strateginen aluekehittäminen"
+              }
+            }
+          ],
+          "kk:file": [
+            {
+              "$": {
+                "bundle": "ORIGINAL",
+                "href": "https://trepo.tuni.fi//bitstream/10024/100446/1/978-952-03-0312-9.pdf",
+                "name": "978-952-03-0312-9.pdf",
+                "type": "application/pdf",
+                "size": "4031480",
+                "sequence": "1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}]

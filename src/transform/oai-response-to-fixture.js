@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
 *
 * @licstart  The following is the entire license notice for the JavaScript code in this file.
@@ -27,9 +26,12 @@
 *
 */
 
-import {harvestSource, urnResolverUrl} from './config';
-import transformFactory from './transform';
-import {Transformer} from '@natlibfi/melinda-record-import-commons';
 
-const {startTransformer} = Transformer;
-startTransformer(transformFactory({harvestSource, urnResolverUrl}));
+import {xmlToObject} from './common';
+
+run();
+
+async function run() {
+  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
+  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
+}

@@ -27,9 +27,18 @@
 *
 */
 
-import {harvestSource, urnResolverUrl} from './config';
+import {harvestSource, urnResolveUrl} from './config';
 import transformFactory from './transform';
 import {Transformer} from '@natlibfi/melinda-record-import-commons';
 
-const {startTransformer} = Transformer;
-startTransformer(transformFactory({harvestSource, urnResolverUrl}));
+const {runCLI} = Transformer;
+
+const transformerSettings = {
+  name: 'melinda-record-import-transformer-publication-archives',
+  yargsOptions: [
+    {option: 'v', conf: {alias: 'validate', default: false, type: 'boolean', describe: 'Validate records'}},
+    {option: 'f', conf: {alias: 'fix', default: false, type: 'boolean', describe: 'Validate & fix records'}}
+  ],
+  callback: transformFactory({harvestSource, urnResolveUrl})
+};
+runCLI(transformerSettings);
