@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
 *
 * @licstart  The following is the entire license notice for the JavaScript code in this file.
@@ -27,9 +26,32 @@
 *
 */
 
-import {harvestSource, urnResolverUrl} from './config';
-import transformFactory from './transform';
-import {Transformer} from '@natlibfi/melinda-record-import-commons';
+import {Parser} from 'xml2js';
 
-const {startTransformer} = Transformer;
-startTransformer(transformFactory({harvestSource, urnResolverUrl}));
+export async function xmlToObject(stream) {
+  const str = await readToString();
+  return toObject();
+
+  function readToString() {
+    return new Promise((resolve, reject) => {
+      const list = [];
+
+      stream
+        .on('error', reject)
+        .on('data', chunk => list.push(chunk)) // eslint-disable-line functional/immutable-data
+        .on('end', () => resolve(list.join('')));
+    });
+  }
+
+  function toObject() {
+    return new Promise((resolve, reject) => {
+      new Parser().parseString(str, (err, obj) => {
+        if (err) {
+          return reject(err);
+        }
+
+        resolve(obj);
+      });
+    });
+  }
+}
