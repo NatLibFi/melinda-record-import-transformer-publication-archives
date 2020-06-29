@@ -1,0 +1,438 @@
+[
+  {
+    "header": [
+      {
+        "identifier": [
+          "oai:trepo.tuni.fi:10024/122656"
+        ],
+        "datestamp": [
+          "2020-06-25T05:30:27Z"
+        ],
+        "setSpec": [
+          "com_10024_105878",
+          "col_10024_105891"
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "kk:metadata": [
+          {
+            "$": {
+              "xmlns:kk": "http://kk/1.0",
+              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+              "xmlns:doc": "http://www.lyncode.com/xoai",
+              "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+            },
+            "kk:identifier": [
+              {
+                "$": {
+                  "type": "handle",
+                  "value": "10024/122656"
+                }
+              }
+            ],
+            "kk:type": [
+              {
+                "$": {
+                  "name": "item"
+                }
+              }
+            ],
+            "kk:link": [
+              {
+                "$": {
+                  "href": "http://trepo.tuni.fi/handle/10024/122656"
+                }
+              }
+            ],
+            "kk:field": [
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "author",
+                  "language": "none",
+                  "value": "Kainulainen, Ville"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "faculty",
+                  "language": "-",
+                  "value": "Yhteiskuntatieteiden tiedekunta - Faculty of Social Sciences"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "contributor",
+                  "qualifier": "organization",
+                  "language": "none",
+                  "value": "Tampere University"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "accessioned",
+                  "language": "none",
+                  "value": "2020-06-25T05:26:08Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "available",
+                  "language": "none",
+                  "value": "2020-06-25T05:26:08Z"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "issued",
+                  "language": "none",
+                  "value": "2020"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "date",
+                  "qualifier": "dissertation",
+                  "language": "none",
+                  "value": "2020-08-22"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "isbn",
+                  "language": "-",
+                  "value": "978-952-03-1603-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "uri",
+                  "language": "none",
+                  "value": "https://trepo.tuni.fi/handle/10024/122656"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "identifier",
+                  "qualifier": "urn",
+                  "language": "-",
+                  "value": "URN:ISBN:978-952-03-1603-7"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "fi",
+                  "value": "Tämän väitöskirjan tutkimuskohteena on matalapalkkaisia ja naisvaltaisia yksityisiä palvelualoja edustavan Palvelualojen ammattiliiton (PAM) luottamushenkilötoiminta ja siinä rakentuva ruohonjuuritason ammattiyhdistysaktiivisuus. Tutkimuksen tehtävänä on tuoda esille ammatillisen edunvalvonnan edellytyksiä yksityisillä palvelualoilla, purkaa työpaikkatasoa koskevia luottamushenkilötoiminnan käytäntöjä sekä nostaa esille palvelutyöhön liittyviä ammattiyhdistystoiminnan erityispiirteitä. Se paikantuu feministisen työelämän suhteiden tutkimuksen ja työn sosiologisen tutkimuksen kentille. Tutkimus rakentuu neljästä tieteellisestä artikkelista ja yhteenveto-osiosta. Väitöskirjassa kysyn, 1) miten luottamushenkilöiden toimijuus ilmenee palvelutyön käytännöissä ja luottamus-henkilöiden arjessa, 2) millaista ammattiyhdistysaktiiviutta luottamushenkilöiden toiminnalleen antamissa merkityksissä rakentuu ja 3) miten PAMin luottamushenkilö-toiminta kiinnittyy työntekijöiden sukupuoleen ja muihin yhteiskunnallisiin eroihin.\r\n \r\nTutkimus on metodologialtaan monipaikkainen etnografia, ja sen aineistona toimii vuosien 2009–2014 aikana viidessä PAMin järjestämässä luottamushenkilö-koulutuksessa, yhdessä puhelinpalvelualan luottamushenkilötapaamisessa ja kolmen luottamushenkilön työpaikalla (varasto, hotellisiivous ja vähittäiskauppa) tuotettu kenttäaineisto. Aineistoon sisältyy myös yht\neensä 27 yksilö- ja parihaastattelua sekä kaksi nauhoitettua luottamushenkilöiden ryhmäkeskustelua. Tutkimuksen läpikulkevana juonteena toimii pohdintani siitä, miten luottamushenkilöiden toimintaedellytykset ja ammattiyhdistysaktiivien toimintaympäristön muutos kytkeytyvät yksityisen palvelusektorin erityispiirteisiin ja muuttuviin työelämän rakenteisiin sekä millaisia kehittämisedellytyksiä ammattiliiton luottamushenkilötoiminnalla on tutkittavien näkökulmasta. Lähestyn yksityisten palvelualojen edunvalvonnan \nkulttuurista kenttää erilaiset risteävät positiot ja näkökulmat huomioiden sekä avaan luottamushenkilötoiminnan ja ammattiyhdistysaktiivisuuden sukupuolittuneita käytäntöjä.\r\n \r\nAineiston analyysissa hyödynnän etnografista, kerronnallista ja diskursiivistä lähestymistapaa ja olen kiinnostunut luottamushenkilöiden ammattiyhdistysaktiivisuuteen liittämistä merkityksistä sekä toimijuuden rakentumisesta työpaikkojen arjessa tapahtuvan ammatillisen edunvalvonnan käytännöissä. Tutkimustulokseni tuovat esille, miten perinteiset ammatillisen edunvalvonnan keinot joutuvat palvelualoilla  muuttuvan työelämän kontekstissa haastavaan asemaan. Luottamushenkilöiden toimintaympäristö yksityisillä palvelualoilla asettaa edellytyksiä heidän toimijuutensa muutokselle, koska toimintaympäristö vaatii heiltä erilaisten työntekijäryhmien intressien huomioimista ja kykyä tehdä nopeita päätöksiä sekä sietää ympäristön ristiriitaisiakin vaatimuksia. Luottamushenkilön tehtävässä edellytetään myös palvelualttiutta ja tunnetyötä esimerkiksi neuvottelusuhteiden muodostamisessa työnantajaan. Samalla luottamushenkilöiden on pystyttävä osoittamaan työntekijöille, että he toimivat tehtävänsä vaatimusten mukaisesti ammattiliiton jäsenten edustajina työpaikoilla. Tutkimusten johtopäätöksissä tuon esille, miten luottamushenkilöiden asema rakentuu työelämässä muodollisten sopimusten pohjalta, mutta samalla luottamushenkilöiden asema on sosiaalisten vuorovaikutussuhteiden näkökulmasta myös jatkuvan neuvottelemisen ja tasapainoilun kohteena."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "description",
+                  "qualifier": "abstract",
+                  "language": "en",
+                  "value": "The dissertation focuses on the daily practices and conditions of shop steward action in the female-dominated low paid private service sector, represented by the Service Union United (PAM). The study brings forward the specificities of grassroots service sector trade unionism and investigates the construction of agency in the lives of shop stewards. The objects of the study are the subjective meanings of trade union activity and the changing employment relations and trade union culture in Finland. In addition to this, the dissertation studies the gendered and gendering character of the trade union activity. It also concentrates on shop steward’s position and interactions with employers and employees.\r\n \r\nThe dissertation is positioned theoretically in the fields of feminist employment relations and sociology of work. The key theoretical concepts of the study are agency, affective practices, emotion work, employee voice and subjective career theory. The study asks, 1) how is the shop steward’s agency manifested in the daily practices of service work, and how is it realized in the everyday life of the shop stewards 2) what kind of image of trade union activist is being produced in the meanings attached to shop steward action, 3) how is shop steward’s agency attached to gender and other differences? The research data was collected during multiple periods between 20092014. The ethnographic field data was produced in five shop steward courses, one shop steward meeting (call centre work) and three workplaces (retail, warehouse, and cleaning). It also contains the total of 27 individual and pair interviews and two group discussions. The dissertation consists of four articles and this summary chapter. The analytical approach is ethnographic, narrative, and discursive.\r\n \r\nThe study shows that private services offer a challenging environment for grassroots trade unionism and shop steward action, because of low trade union density, high proportion of small workplaces and workforce mainly consisting of young employees, students, and immigrants with relatively short labour market experience. It highlights how the service workplaces are difficult to organize, because employees feel fear in the workplace about their future in the company. The task requirements for shop stewards are becoming more demanding. They must be able to make quick decisions and perform emotion work so that they get their voices heard. Emotion work is a key component of shop steward’s tasks in the negotiations between the workers and the employer. The results of the study also bring forward the changing conditions of Finnish trade union movement and how the trade union activity in the private services is in flux. The study discusses the weakening power of trade unions, which creates a need for a new kind of grassroots trade unionism and shop steward action."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "language",
+                  "qualifier": "iso",
+                  "language": "-",
+                  "value": "fi"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "ispartofseries",
+                  "language": "-",
+                  "value": "Tampere University Dissertations - Tampereen yliopiston väitöskirjat"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "numberinseries",
+                  "language": "-",
+                  "value": "269"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "relation",
+                  "qualifier": "issn",
+                  "language": "-",
+                  "value": "2490-0028"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "qualifier": "accesslevel",
+                  "language": "none",
+                  "value": "openAccess"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "qualifier": "degreeprogramme",
+                  "language": "-",
+                  "value": "Yhteiskuntatieteiden ja filosofian tohtorin tutkinnot - Degree of Doctor of Social Sciences and Doctor of Philosophy"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "ontasot",
+                  "language": "fi",
+                  "value": " Artikkeliväitöskirja "
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "ontasot",
+                  "language": "en",
+                  "value": "Doctoral dissertation (article-based)"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "type",
+                  "qualifier": "publication",
+                  "language": "none",
+                  "value": "doctoralThesis"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "format",
+                  "qualifier": "content",
+                  "language": "-",
+                  "value": "fulltext"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "publisher",
+                  "language": "-",
+                  "value": "Tampereen yliopisto"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "rights",
+                  "language": "none",
+                  "value": "This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited."
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Työelämän suhteet"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "luottamushenkilöt,"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "luottamusmiehet,"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ammattiyhdistysaktiivit"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ammattiliitot,"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "palveluala,"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "toimijuus,"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "sukupuoli"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "etnografia"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "Employment relations"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "employee representatives"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "shop stewards"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "trade unionists"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "trade union"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "service sector"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "agency,"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "gender,"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "subject",
+                  "language": "-",
+                  "value": "ethnography"
+                }
+              },
+              {
+                "$": {
+                  "schema": "dc",
+                  "element": "title",
+                  "language": "-",
+                  "value": "Ay-aktiivien uusi arki?: Ammatillisen edunvalvonnan muuttuvat käytännöt matalapalkkaisella ja naisvaltaisella yksityisellä palvelusektorilla"
+                }
+              }
+            ],
+            "kk:file": [
+              {
+                "$": {
+                  "bundle": "ORIGINAL",
+                  "href": "https://trepo.tuni.fi/bitstream/10024/122656/2/978-952-03-1603-7.pdf",
+                  "name": "978-952-03-1603-7.pdf",
+                  "originalName": "978-952-03-1603-7.pdf",
+                  "type": "application/pdf",
+                  "size": "5263924",
+                  "sequence": "2",
+                  "description": "",
+                  "checksum": "770fa7e479f7ad234ac3a34a7bc60fa6",
+                  "checksumAlgorithm": "MD5"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

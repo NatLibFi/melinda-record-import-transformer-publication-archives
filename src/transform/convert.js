@@ -505,12 +505,16 @@ export default ({harvestSource, urnResolverUrl}) => record => {
         const standardFields = generateStandardFields();
 
         if (hasLevels) {
-          return [
+          const level = generateLevel();
+
+          const level500 = level ? [
             {
               tag: '500', ind1: '', ind2: '',
-              subfields: [{code: 'a', value: generateLevel()}]
+              subfields: [{code: 'a', value: level}]
             }
-          ].concat(standardFields);
+          ] : [];
+
+          return level500.concat(standardFields);
         }
 
         return standardFields;
@@ -608,7 +612,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
 
       function extractFinnishTerm(value) {
         const result = (/(?<a>^fi|\|fi)=(?<b>.[^|]+)/u).exec(value);
-        return result.length === 3 ? result[2].trim() : undefined;
+        return result && result.length === 3 ? result[2].trim() : undefined;
       }
     }
   }
