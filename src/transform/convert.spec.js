@@ -52,8 +52,8 @@ describe('transform/convert', () => {
         fixturesPath,
         subDir
       ], reader: READERS.JSON});
-      const inputData = getFixture(['input.json']);
-      const expectedRecord = getFixture(['output.json']);
+      const inputData = getFixture('input.json');
+      const expectedRecord = getFixture('output.json');
 
       const convert = createConverter({
         harvestSource: 'FOOBAR',

@@ -26,8 +26,7 @@
 *
 */
 
-import {Utils} from '@natlibfi/melinda-commons';
-const {readEnvironmentVariable} = Utils;
+import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 
 export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE');
 export const urnResolverUrl = readEnvironmentVariable('URN_RESOLVER_URL');
