@@ -27,13 +27,12 @@
 */
 
 import createValidator from '../validate';
-import {Utils} from '@natlibfi/melinda-commons';
+import {createLogger} from '@natlibfi/melinda-backend-commons';
 import {EventEmitter} from 'events';
 import createConverter from './convert';
 import {xmlToObject} from './common';
 
 class TransformEmitter extends EventEmitter {}
-const {createLogger} = Utils;
 
 export default function ({harvestSource, urnResolverUrl}) {
   return (stream, {validate = true, fix = true}) => {
