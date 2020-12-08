@@ -227,10 +227,6 @@
         {
           "code": "a",
           "value": "Koneellisesti tuotettu tietue."
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
         }
       ]
     },
@@ -254,7 +250,7 @@
         {
           "code": "9",
           "value": "FENNI<KEEP>"
-        }        
+        }
       ]
     },
     {

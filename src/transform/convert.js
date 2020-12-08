@@ -531,8 +531,8 @@ export default ({harvestSource, urnResolverUrl}) => record => {
               {
                 tag: '500', ind1: '', ind2: '',
                 subfields: [
-                  {code: 'a', value: 'Koneellisesti tuotettu tietue.'},
-                  {code: '9', value: 'FENNI<KEEP>'}
+                  {code: 'a', value: 'Koneellisesti tuotettu tietue.'}
+                  //{code: '9', value: 'FENNI<KEEP>'} // <--- 3.12.2020
                 ]
               }
             ];
