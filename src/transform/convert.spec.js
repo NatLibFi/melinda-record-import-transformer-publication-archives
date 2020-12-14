@@ -62,6 +62,7 @@ describe('transform/convert', () => {
 
       // Fixtures are lists so that they can be fed to the CLI when testing manually
       const record = convert(inputData[0]);
+      //console.log(JSON.stringify(record,undefined,2)); //eslint-disable-line
       expect(record.toObject()).to.eql(expectedRecord);
     });
   });

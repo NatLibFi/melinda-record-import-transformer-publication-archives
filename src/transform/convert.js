@@ -119,6 +119,15 @@ export default ({harvestSource, urnResolverUrl}) => record => {
             {code: '2', value: 'rdacarrier'}
           ]
         },
+        // -> add 9.12.2020
+        {
+          tag: '594', ind1: '', ind2: '',
+          subfields: [
+            {code: 'a', value: 'Koneellisesti tuotettu tietue'},
+            {code: '5', value: 'FENNI'}
+          ]
+        },
+        // <-
         {
           tag: '884', ind1: '', ind2: '',
           subfields: [{code: 'k', value: harvestSource}]
