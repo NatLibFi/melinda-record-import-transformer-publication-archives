@@ -31,10 +31,12 @@ import {createLogger} from '@natlibfi/melinda-backend-commons';
 import {EventEmitter} from 'events';
 import createConverter from './convert';
 import {xmlToObject} from './common';
+import {promisify} from 'util'
 
 class TransformEmitter extends EventEmitter {}
 
 export default function ({harvestSource, urnResolverUrl}) {
+  const setTimeoutPromise = promisify(setTimeout);
   return (stream, {validate = true, fix = true}) => {
     const Emitter = new TransformEmitter();
     const logger = createLogger();
@@ -50,7 +52,7 @@ export default function ({harvestSource, urnResolverUrl}) {
 
       try {
         const records = await parse();
-        const promises = Promise.all(records.map(transform));
+        const promises = await Promise.all(records.map(transform));
         Emitter.emit('end', promises.length);
       } catch (err) {
         Emitter.emit('error', err);
