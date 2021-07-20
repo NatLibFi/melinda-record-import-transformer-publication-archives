@@ -27,16 +27,21 @@
 */
 
 /* eslint-disable new-cap */
+import {isLegalDeposit} from './config';
 import validateFactory from '@natlibfi/marc-record-validate';
 import {
   EmptyFields,
-  IsbnIssn
+  IsbnIssn,
+  Urn,
+  AccessRights
 } from '@natlibfi/marc-record-validators-melinda';
 
 export default async () => {
   const validate = validateFactory([
-    await EmptyFields(),
-    await IsbnIssn({hyphenateISBN: true})
+      await EmptyFields(),
+      await IsbnIssn({hyphenateISBN: true}),
+      await Urn(isLegalDeposit),
+      ...(isLegalDeposit) ? [await AccessRights()] : []
   ]);
 
   return async (record, fix, validateFixes) => {

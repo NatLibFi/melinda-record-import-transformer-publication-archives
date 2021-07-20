@@ -27,9 +27,9 @@
 *
 */
 
-import {harvestSource, urnResolverUrl} from './config';
+import {harvestSource} from './config';
 import transformFactory from './transform';
 import {Transformer} from '@natlibfi/melinda-record-import-commons';
 
 const {startTransformer} = Transformer;
-startTransformer(transformFactory({harvestSource, urnResolverUrl}));
+startTransformer(transformFactory({harvestSource}));
