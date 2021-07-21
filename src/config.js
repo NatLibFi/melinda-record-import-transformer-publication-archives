@@ -26,6 +26,7 @@
 *
 */
 
+import {parseBoolean} from '@natlibfi/melinda-commons';
 import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 
 export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE');
