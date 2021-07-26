@@ -30,7 +30,7 @@ import langs from 'langs';
 import {MarcRecord} from '@natlibfi/marc-record';
 import moment from 'moment';
 
-export default ({harvestSource}) => record => {
+export default ({harvestSource, urnResolverUrl}) => record => {
   const fields = getInputFields();
   const marcRecord = new MarcRecord();
 
@@ -65,6 +65,9 @@ export default ({harvestSource}) => record => {
       generate653(),
       generate100and700(),
       generate776(),
+      generate506(),
+      generate540(),
+      generate856(),
       generateStaticFields()
     ]
     // Remove undefined values
@@ -610,6 +613,156 @@ export default ({harvestSource}) => record => {
       function extractFinnishTerm(value) {
         const result = (/(?<a>^fi|\|fi)=(?<b>.[^|]+)/u).exec(value);
         return result && result.length === 3 ? result[2].trim() : undefined;
+      }
+    }
+  }
+
+
+  function generate506() {
+    const accessLevelFields = generateAccessLevelFields();
+    const accessRightsFields = generateAccessRightsFields();
+
+    return accessLevelFields.concat(accessRightsFields);
+
+    function generateAccessLevelFields() {
+      const accessLevel = getFieldValues('dc.rights.accesslevel');
+      const fields = [
+        {
+          tag: '506',
+          ind1: '0',
+          ind2: '',
+          subfields: [
+            {
+              code: 'a',
+              value: 'Aineisto on vapaasti saatavissa.'
+            },
+            {
+              code: 'f',
+              value: 'Unrestricted online access'
+            },
+            {
+              code: '2',
+              value: 'star'
+            },
+            {
+              code: '9',
+              value: 'FENNI<KEEP>'
+            }
+          ]
+        }
+      ];
+
+      return accessLevel.length === 0 || accessLevel[0] === 'openAccess' ? fields : [];
+    }
+
+    function generateAccessRightsFields() {
+      const accessRights = getFields('dc.rights.accessrights');
+
+      return accessRights.length > 0 ? [
+        {
+          tag: '506',
+          ind1: '1',
+          ind2: ' ',
+          subfields: [
+            {
+              code: 'a',
+              value: ''
+            }
+          ]
+        }
+      ] : [];
+    }
+  }
+
+  function generate540() {
+    const rights = generateRights();
+    const uri = generateUri();
+    const url = generateUrl();
+
+    return rights.concat(uri, url);
+
+    function generateRights() {
+      const values = getFieldValues('dc.rights');
+      return values.map(value => {
+        const subfields = generateSubfields();
+        return {tag: '540', ind1: '', ind2: '', subfields};
+
+        function generateSubfields() {
+          return (/All rights reserved/u).test(value) ? [{code: 'a', value}] : [{code: 'c', value}];
+        }
+      });
+    }
+
+    function generateUri() {
+      const values = getFieldValues('dc.rights.uri');
+      return values.map(value => ({
+        tag: '540', ind1: '', ind2: '',
+        subfields: [{code: 'u', value}]
+      }));
+    }
+
+    function generateUrl() {
+      const values = getFieldValues('dc.rights.url');
+      return values.map(value => ({
+        tag: '540', ind1: '', ind2: '',
+        subfields: [{code: 'u', value}]
+      }));
+    }
+  }
+
+  function generate856() {
+    const publicAccessFields = generatePublicAccessFields();
+    const otherUrnFields = generateOtherUrnFields();
+
+    return publicAccessFields.concat(otherUrnFields);
+
+    function generatePublicAccessFields() {
+      const accessLevel = getFieldValues('dc.rights.accesslevel');
+
+      if (accessLevel.length === 0 || accessLevel[0] === 'openAccess') {
+        const subfields = generateSubfields();
+        return [{tag: '856', ind1: '4', ind2: '0', subfields}];
+      }
+
+      return [];
+
+      function generateSubfields() {
+        const linkSubfields = generateLinkSubfields();
+        return linkSubfields.concat({code: 'y', value: 'Linkki verkkoaineistoon'});
+      }
+    }
+
+    function generateOtherUrnFields() {
+      const urn = getFieldValues('dc.relation.urn');
+
+      return urn.length > 0 ? [
+        {
+          tag: '856', ind1: '4', ind2: '2',
+          subfields: [{code: 'u', value: urn[0]}]
+        }
+      ] : [];
+    }
+
+    function generateLinkSubfields() {
+      const urn = generateUrn();
+      const doi = generateU('dc.identifier.doi');
+      const uri = generateU('dc.identifier.uri');
+      const url = generateU('dc.identifier.url');
+
+      if (urn.length > 0) {
+        return doi ? urn.concat(doi) : urn;
+      }
+
+      return doi.concat(uri, url);
+
+      function generateUrn() {
+        const values = getFieldValues('dc.identifier.urn');
+        return values.map(v => ({code: 'u', value: `${urnResolverUrl}/${v}`}));
+      }
+
+      function generateU(path) {
+        const values = getFieldValues(path);
+        return values.map(value => ({code: 'u', value}));
       }
     }
   }

@@ -38,10 +38,10 @@ import {
 
 export default async () => {
   const validate = validateFactory([
-      await EmptyFields(),
-      await IsbnIssn({hyphenateISBN: true}),
-      await Urn(isLegalDeposit),
-      ...(isLegalDeposit) ? [await AccessRights()] : []
+    await EmptyFields(),
+    await IsbnIssn({hyphenateISBN: true}),
+    await Urn(isLegalDeposit),
+    ...isLegalDeposit ? [await AccessRights()] : []
   ]);
 
   return async (record, fix, validateFixes) => {
