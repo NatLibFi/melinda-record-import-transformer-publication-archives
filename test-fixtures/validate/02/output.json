@@ -7,14 +7,15 @@
     },
     {
       "description": "Validates ISBN and ISSN values",
-      "messages": [
-        "ISBN (978-952-00-3315-6((PDF))) is not valid"
-      ],
-      "state": "fixed"
+      "state": "valid"
     },
     {
       "description": "Adds URN for record, to 856-field (if not existing)",
-      "state": "valid"
+      "state": "fixed"
+    },
+    {
+      "description": "Adds access rights fields for a record (if not existing)",
+      "state": "fixed"
     }
   ],
   "record": {
@@ -36,7 +37,7 @@
         "subfields": [
           {
             "code": "a",
-            "value": "978-952-00-3315-6((PDF))"
+            "value": "978-952-00-3315-6"
           },
           {
             "code": "q",
@@ -233,6 +234,64 @@
         ]
       },
       {
+        "tag": "506",
+        "ind1": "1",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Aineisto on käytettävissä vapaakappalekirjastoissa."
+          },
+          {
+            "code": "f",
+            "value": "Online access with authorization."
+          },
+          {
+            "code": "2",
+            "value": "star"
+          },
+          {
+            "code": "5",
+            "value": "FI-Vapaa"
+          },
+          {
+            "code": "9",
+            "value": "FENNI<KEEP>"
+          }
+        ]
+      },
+      {
+        "tag": "540",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;"
+          },
+          {
+            "code": "b",
+            "value": "Kansalliskirjasto;"
+          },
+          {
+            "code": "c",
+            "value": "Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä"
+          },
+          {
+            "code": "u",
+            "value": "http://www.finlex.fi/fi/laki/ajantasa/2007/20071433"
+          },
+          {
+            "code": "5",
+            "value": "FI-Vapaa"
+          },
+          {
+            "code": "9",
+            "value": "FENNI<KEEP>"
+          }
+        ]
+      },
+      {
         "tag": "653",
         "ind1": " ",
         "ind2": " ",
@@ -255,6 +314,14 @@
           {
             "code": "u",
             "value": "http://urn.fi/URN:ISBN:978-952-00-3315-6"
+          },
+          {
+            "code": "z",
+            "value": "Käytettävissä vapaakappalekirjastoissa"
+          },
+          {
+            "code": "5",
+            "value": "FI-Vapaa"
           }
         ]
       },

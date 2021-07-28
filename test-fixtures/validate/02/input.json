@@ -7,7 +7,7 @@
     },
     {
       "tag": "008",
-      "value": "200101s2019    fi |||||o|||||||| ||fin c"
+      "value": "000000s2011    fi |||||o|||||||| ||fin c"
     },
     {
       "tag": "020",
@@ -16,7 +16,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "978-952-343-371-7"
+          "value": "978-952-00-3315-6"
         },
         {
           "code": "q",
@@ -31,7 +31,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "URN:ISBN:978-952-343-371-7"
+          "value": "URN:ISBN:978-952-00-3315-6"
         },
         {
           "code": "2",
@@ -81,28 +81,13 @@
       ]
     },
     {
-      "tag": "100",
-      "ind1": "1",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Manderbacka, Kristiina,"
-        },
-        {
-          "code": "e",
-          "value": "kirjoittaja."
-        }
-      ]
-    },
-    {
       "tag": "245",
-      "ind1": "1",
+      "ind1": "0",
       "ind2": "0",
       "subfields": [
         {
           "code": "a",
-          "value": "Terveyspalvelujen oikeudenmukaisuus edellyttää\r\npaikkatietoista politiikkaa."
+          "value": "Riskienhallinta ja turvallisuussuunnittelu. Opas sosiaali- ja terveydenhuollon johdolle ja turvallisuusasiantuntijoille."
         }
       ]
     },
@@ -112,16 +97,12 @@
       "ind2": "1",
       "subfields": [
         {
-          "code": "a",
-          "value": "Helsinki:"
-        },
-        {
           "code": "b",
-          "value": "THL,"
+          "value": "Sosiaali- ja terveysministeriö,"
         },
         {
           "code": "c",
-          "value": "2019."
+          "value": "2011."
         }
       ]
     },
@@ -189,23 +170,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "Tutkimuksesta tiiviisti "
-        },
-        {
-          "code": "a",
-          "value": "Suomen sosiaalinen tila,"
-        },
-        {
-          "code": "x",
-          "value": "2323-5179 ;"
-        },
-        {
-          "code": "v",
-          "value": "2019_025 ; "
-        },
-        {
-          "code": "v",
-          "value": "1/2019"
+          "value": "Sosiaali- ja terveysministeriön julkaisuja = Social- och hälsovårdsministeriets publikationer = Publications of the Ministry of Social Affairs and Health : 2011:15"
         }
       ]
     },
@@ -248,92 +213,13 @@
       ]
     },
     {
-      "tag": "650",
+      "tag": "653",
       "ind1": " ",
-      "ind2": "7",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "yhdenvertaisuus"
-        },
-        {
-          "code": "2",
-          "value": "yso"
-        }
-      ]
-    },
-    {
-      "tag": "650",
-      "ind1": " ",
-      "ind2": "7",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "järjestäminen"
-        },
-        {
-          "code": "2",
-          "value": "yso"
-        }
-      ]
-    },
-    {
-      "tag": "650",
-      "ind1": " ",
-      "ind2": "7",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "aluekehitys"
-        },
-        {
-          "code": "2",
-          "value": "yso"
-        }
-      ]
-    },
-    {
-      "tag": "650",
-      "ind1": " ",
-      "ind2": "7",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "väestörakenne"
-        },
-        {
-          "code": "2",
-          "value": "yso"
-        }
-      ]
-    },
-    {
-      "tag": "700",
-      "ind1": "1",
       "ind2": " ",
       "subfields": [
         {
           "code": "a",
-          "value": "Satokangas, Markku,"
-        },
-        {
-          "code": "e",
-          "value": "kirjoittaja."
-        }
-      ]
-    },
-    {
-      "tag": "700",
-      "ind1": "1",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Karvonen, Sakari,"
-        },
-        {
-          "code": "e",
-          "value": "kirjoittaja."
+          "value": "sosiaali- ja terveyspalvelut"
         }
       ]
     },
@@ -343,12 +229,12 @@
       "ind2": "0",
       "subfields": [
         {
-          "code": "u",
-          "value": "http://foo.bar/URN:ISBN:978-952-343-371-7"
-        },
-        {
           "code": "y",
           "value": "Linkki verkkoaineistoon"
+        },
+        {
+          "code": "u",
+          "value": "http://urn.fi/URN:ISBN:978-952-00-3315-6"
         }
       ]
     },

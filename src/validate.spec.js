@@ -31,13 +31,12 @@ import {readdirSync} from 'fs';
 import {join as joinPath} from 'path';
 import fixtureFactory, {READERS} from '@natlibfi/fixura';
 import {MarcRecord} from '@natlibfi/marc-record';
-import createValidator from './validate';
+import createValidator, {__RewireAPI__ as RewireAPI} from './validate';
+import {parseBoolean} from '@natlibfi/melinda-commons/dist/utils';
 
 run();
 
-async function run() {
-  const validate = await createValidator();
-
+function run() {
   describe('validate', () => {
     const {expect} = chai;
     const fixturesPath = joinPath(__dirname, '..', 'test-fixtures', 'validate');
@@ -51,7 +50,18 @@ async function run() {
       const expectedResult = getFixture('output.json');
 
       it(subDir, async () => {
+        RewireAPI.__Rewire__('isLegalDeposit', (() => {
+          try {
+            return parseBoolean(getFixture({components: ['isLegalDeposit.txt'], reader: READERS.TEXT}));
+          } catch {
+            return false;
+          }
+        })());
+
+        const validate = await createValidator();
         const result = await validate(record, {fix: true, validateFixes: true});
+
+        RewireAPI.__ResetDependency__('isLegalDeposit');
         expect(result).to.eql(expectedResult);
       });
     });

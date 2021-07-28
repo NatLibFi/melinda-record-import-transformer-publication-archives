@@ -191,33 +191,6 @@
     },
     {
       "tag": "506",
-      "ind1": "1",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Aineisto on käytettävissä vapaakappalekirjastoissa."
-        },
-        {
-          "code": "f",
-          "value": "Online access with authorization"
-        },
-        {
-          "code": "2",
-          "value": "star"
-        },
-        {
-          "code": "5",
-          "value": "FI-Vapaa"
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
-        }
-      ]
-    },
-    {
-      "tag": "506",
       "ind1": "0",
       "ind2": " ",
       "subfields": [
@@ -247,37 +220,6 @@
         {
           "code": "a",
           "value": "All rights reserved"
-        }
-      ]
-    },
-    {
-      "tag": "540",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;"
-        },
-        {
-          "code": "b",
-          "value": "Kansalliskirjasto;"
-        },
-        {
-          "code": "c",
-          "value": "Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä"
-        },
-        {
-          "code": "u",
-          "value": "http://www.finlex.fi/fi/laki/ajantasa/2007/20071433"
-        },
-        {
-          "code": "5",
-          "value": "FI-Vapaa"
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
         }
       ]
     },
@@ -323,25 +265,6 @@
         {
           "code": "e",
           "value": "toimittaja."
-        }
-      ]
-    },
-    {
-      "tag": "856",
-      "ind1": "4",
-      "ind2": "0",
-      "subfields": [
-        {
-          "code": "u",
-          "value": "http://foo.bar/URN:ISBN:978-952-310-934-6"
-        },
-        {
-          "code": "z",
-          "value": "Käytettävissä vapaakappalekirjastoissa"
-        },
-        {
-          "code": "5",
-          "value": "FI-Vapaa"
         }
       ]
     },
