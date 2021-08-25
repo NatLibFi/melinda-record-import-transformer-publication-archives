@@ -56,8 +56,7 @@ describe('transform/convert', () => {
       const expectedRecord = getFixture('output.json');
 
       const convert = createConverter({
-        harvestSource: 'FOOBAR',
-        urnResolverUrl: 'http://foo.bar'
+        harvestSource: 'FOOBAR'
       });
 
       // Fixtures are lists so that they can be fed to the CLI when testing manually

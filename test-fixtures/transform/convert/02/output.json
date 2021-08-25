@@ -238,7 +238,7 @@
       "subfields": [
         {
           "code": "u",
-          "value": "http://foo.bar/URN:NBN:fi-fe201801162076"
+          "value": "http://urn.fi/URN:NBN:fi-fe201801162076"
         },
         {
           "code": "y",

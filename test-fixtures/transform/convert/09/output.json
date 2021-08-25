@@ -431,7 +431,7 @@
       "subfields": [
         {
           "code": "u",
-          "value": "http://foo.bar/URN:ISBN:978-952-326-352-9"
+          "value": "http://urn.fi/URN:ISBN:978-952-326-352-9"
         },
         {
           "code": "y",

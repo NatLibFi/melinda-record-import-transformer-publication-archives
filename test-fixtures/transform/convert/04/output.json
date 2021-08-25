@@ -289,7 +289,7 @@
       "subfields": [
         {
           "code": "u",
-          "value": "http://foo.bar/URN:ISBN:978-952-00-3382-8"
+          "value": "http://urn.fi/URN:ISBN:978-952-00-3382-8"
         },
         {
           "code": "y",

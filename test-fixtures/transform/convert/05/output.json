@@ -316,7 +316,7 @@
       "subfields": [
         {
           "code": "u",
-          "value": "http://foo.bar/URN:NBN:fi-fe201901152144"
+          "value": "http://urn.fi/URN:NBN:fi-fe201901152144"
         },
         {
           "code": "y",

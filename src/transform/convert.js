@@ -30,7 +30,7 @@ import langs from 'langs';
 import {MarcRecord} from '@natlibfi/marc-record';
 import moment from 'moment';
 
-export default ({harvestSource, urnResolverUrl}) => record => {
+export default ({harvestSource}) => record => {
   const fields = getInputFields();
   const marcRecord = new MarcRecord();
 
@@ -757,7 +757,7 @@ export default ({harvestSource, urnResolverUrl}) => record => {
 
       function generateUrn() {
         const values = getFieldValues('dc.identifier.urn');
-        return values.map(v => ({code: 'u', value: `${urnResolverUrl}/${v}`}));
+        return values.map(v => ({code: 'u', value: (/http:\/\/urn.fi\//u).test(v) ? v : `http://urn.fi/${v}`}));
       }
 
       function generateU(path) {
