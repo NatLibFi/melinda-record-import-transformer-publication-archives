@@ -216,10 +216,6 @@
         {
           "code": "a",
           "value": "Koneellisesti tuotettu tietue."
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
         }
       ]
     },
@@ -243,6 +239,21 @@
         {
           "code": "9",
           "value": "FENNI<KEEP>"
+        }
+      ]
+    },
+    {
+      "tag": "594",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "Koneellisesti tuotettu tietue"
+        },
+        {
+          "code": "5",
+          "value": "FENNI"
         }
       ]
     },
@@ -332,6 +343,10 @@
         {
           "code": "k",
           "value": "FOOBAR"
+        },
+        {
+          "code": "5",
+          "value": "MELINDA"
         }
       ]
     },

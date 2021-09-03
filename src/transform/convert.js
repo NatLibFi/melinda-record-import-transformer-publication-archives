@@ -120,8 +120,18 @@ export default ({harvestSource}) => record => {
           ]
         },
         {
+          tag: '594',
+          subfields: [
+            {code: 'a', value: 'Koneellisesti tuotettu tietue'},
+            {code: '5', value: 'FENNI'}
+          ]
+        },
+        {
           tag: '884', ind1: '', ind2: '',
-          subfields: [{code: 'k', value: harvestSource}]
+          subfields: [
+            {code: 'k', value: harvestSource},
+            {code: '5', value: 'MELINDA'}
+          ]
         }
       ];
     }
@@ -530,10 +540,7 @@ export default ({harvestSource}) => record => {
             return [
               {
                 tag: '500', ind1: '', ind2: '',
-                subfields: [
-                  {code: 'a', value: 'Koneellisesti tuotettu tietue.'},
-                  {code: '9', value: 'FENNI<KEEP>'}
-                ]
+                subfields: [{code: 'a', value: 'Koneellisesti tuotettu tietue.'}]
               }
             ];
           }
