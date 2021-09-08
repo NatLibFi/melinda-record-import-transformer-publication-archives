@@ -25,7 +25,7 @@
 * for the JavaScript code in this file.
 *
 */
-
+/* istanbul ignore file */
 import {parseBoolean} from '@natlibfi/melinda-commons';
 import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 
