@@ -32,7 +32,6 @@ import {join as joinPath} from 'path';
 import fixtureFactory, {READERS} from '@natlibfi/fixura';
 import {MarcRecord} from '@natlibfi/marc-record';
 import createValidator, {__RewireAPI__ as RewireAPI} from './validate';
-import {parseBoolean} from '@natlibfi/melinda-commons/dist/utils';
 
 run();
 
@@ -52,7 +51,7 @@ function run() {
       it(subDir, async () => {
         RewireAPI.__Rewire__('isLegalDeposit', (() => {
           try {
-            return parseBoolean(getFixture({components: ['isLegalDeposit.txt'], reader: READERS.TEXT}));
+            return getFixture('metadata.json')?.isLegalDeposit === true;
           } catch {
             return false;
           }

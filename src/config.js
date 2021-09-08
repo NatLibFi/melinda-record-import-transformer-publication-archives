@@ -29,5 +29,5 @@
 import {parseBoolean} from '@natlibfi/melinda-commons';
 import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 
-export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE');
+export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE', {defaultValue: ''});
 export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
