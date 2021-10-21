@@ -30,6 +30,9 @@ import langs from 'langs';
 import {MarcRecord} from '@natlibfi/marc-record';
 import moment from 'moment';
 
+/* eslint-disable max-statements */
+/* eslint-disable max-lines */
+
 export default ({harvestSource}) => record => {
   const fields = getInputFields();
   const marcRecord = new MarcRecord();
@@ -158,10 +161,10 @@ export default ({harvestSource}) => record => {
 
       function generateEditors() {
         const values = getFieldValues('dc.contributor.editor');
-        return values.map(value => ({
+        return values.map(v => ({
           tag: '700', ind1: '1', ind2: '',
           subfields: [
-            {code: 'a', value},
+            {code: 'a', value: `${v},`},
             {code: 'e', value: 'toimittaja.'}
           ]
         }));
