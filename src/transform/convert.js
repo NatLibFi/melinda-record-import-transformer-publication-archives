@@ -182,7 +182,7 @@ export default ({harvestSource}) => record => {
     function generate648() {
       const values = getFieldValues('dc.coverage.temporal');
       return values.map(value => ({
-        tag: '648', ind1: '', ind2: '7',
+        tag: '648', ind1: '', ind2: '4',
         subfields: [{code: 'a', value}]
       }));
     }
@@ -219,7 +219,7 @@ export default ({harvestSource}) => record => {
     function generate651() {
       const values = getFieldValues('dc.coverage.spatial');
       return values.map(value => ({
-        tag: '651', ind1: '', ind2: '7',
+        tag: '651', ind1: '', ind2: '4',
         subfields: [{code: 'a', value}]
       }));
     }
