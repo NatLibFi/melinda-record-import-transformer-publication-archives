@@ -51,7 +51,7 @@ export default function ({harvestSource}) {
       try {
         const records = await parse();
         const promises = await Promise.all(records.map(transform));
-        Emitter.emit('end', promises.length);
+        Emitter.emit('end', promises ? promises.length : '0');
       } catch (err) {
         Emitter.emit('error', err);
       }

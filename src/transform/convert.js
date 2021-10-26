@@ -806,7 +806,7 @@ export default ({harvestSource}) => record => {
   }
 
   function formatLanguage(code) {
-    if (code.length === 3) {
+    if (code && code.length === 3) {
       return code;
     }
 
