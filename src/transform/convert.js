@@ -59,6 +59,7 @@ export default ({harvestSource}) => record => {
       generate250(),
       generate264(),
       generate300(),
+      generate341(),
       generate490(),
       generate500and502(),
       generate542(),
@@ -505,6 +506,16 @@ export default ({harvestSource}) => record => {
           }
         }
       }
+    }
+
+    function generate341() {
+      return [
+        {
+          tag: '341', ind1: '', ind2: '',
+          subfields:
+          [{code: 'a', value: 'tekstiin perustuva'}]
+        }
+      ];
     }
 
     function generate500and502() {
