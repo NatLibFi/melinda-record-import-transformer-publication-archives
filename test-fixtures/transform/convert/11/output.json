@@ -405,8 +405,20 @@
       "ind2": " ",
       "subfields": [
         {
+          "code": "a",
+          "value": "Dublin Core to MARC transformation"
+        },
+        {
+          "code": "g",
+          "value": "20200101"
+        },
+        {
           "code": "k",
           "value": "FOOBAR"
+        },
+        {
+          "code": "q",
+          "value": "FI-NL"
         },
         {
           "code": "5",

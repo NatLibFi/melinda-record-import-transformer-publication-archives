@@ -133,7 +133,10 @@ export default ({harvestSource}) => record => {
         {
           tag: '884', ind1: '', ind2: '',
           subfields: [
+            {code: 'a', value: 'Dublin Core to MARC transformation'},
+            {code: 'g', value: moment().format('YYYYMMDD')},
             {code: 'k', value: harvestSource},
+            {code: 'q', value: 'FI-NL'},
             {code: '5', value: 'MELINDA'}
           ]
         }
