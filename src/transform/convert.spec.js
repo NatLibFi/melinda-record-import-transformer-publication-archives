@@ -55,12 +55,22 @@ describe('transform/convert', () => {
       const inputData = getFixture('input.json');
       const expectedRecord = getFixture('output.json');
 
+      RewireAPI.__Rewire__('sourceMap', (() => {
+        try {
+          return getFixture('metadata.json')?.sourceMap;
+        } catch {
+          return false;
+        }
+      })());
+
       const convert = createConverter({
         harvestSource: 'FOOBAR'
       });
 
       // Fixtures are lists so that they can be fed to the CLI when testing manually
       const record = convert(inputData[0]);
+
+      RewireAPI.__ResetDependency__('sourceMap');
       expect(record.toObject()).to.eql(expectedRecord);
     });
   });

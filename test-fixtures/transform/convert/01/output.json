@@ -40,6 +40,21 @@
       ]
     },
     {
+      "tag": "024",
+      "ind1": "7",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "http://julkaisut.valtioneuvosto.fi/handle/10024/72811"
+        },
+        {
+          "code": "2",
+          "value": "hdl"
+        }
+      ]
+    },
+    {
       "tag": "040",
       "ind1": " ",
       "ind2": " ",
@@ -295,6 +310,21 @@
         {
           "code": "a",
           "value": "FIKKA"
+        }
+      ]
+    },
+    {
+      "tag": "SID",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "c",
+          "value": "/10024/72811"
+        },
+        {
+          "code": "b",
+          "value": "REPO_VALTO"
         }
       ]
     }

@@ -26,6 +26,7 @@
 *
 */
 
+import {sourceMap} from '../config';
 import langs from 'langs';
 import {MarcRecord} from '@natlibfi/marc-record';
 import moment from 'moment';
@@ -72,7 +73,8 @@ export default ({harvestSource}) => record => {
       generate506(),
       generate540(),
       generate856(),
-      generateStaticFields()
+      generateStaticFields(),
+      generateSID()
     ]
     // Remove undefined values
       .filter(v => v)
@@ -350,11 +352,37 @@ export default ({harvestSource}) => record => {
       }
     }
 
+    function generateSID() {
+      const values = getFieldValues('dc.identifier.uri');
+      const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
+      const handleRegex = /(?<handle>\/[^/]+\/[^/]+$)/u;
+
+      const validSidValues = values.reduce((acc, hdl) => {
+        const {source} = hdl.match(baseUrlRegex).groups;
+        const {handle} = hdl.match(handleRegex).groups;
+
+        if (source !== null && handle !== null && Object.prototype.hasOwnProperty.call(sourceMap, source)) {
+          return acc.concat({source: sourceMap[source], handle});
+        }
+
+        return acc;
+      }, []);
+
+      return validSidValues.length > 0 ? validSidValues.map(v => (
+        {tag: 'SID', ind1: '', ind2: '',
+          subfields: [
+            {code: 'c', value: v.handle},
+            {code: 'b', value: v.source}
+          ]}
+      )) : [];
+    }
+
     function generate024() {
       const urn = generateUrnFields();
       const doi = generateDoiFields();
+      const handle = generateHandleFields();
 
-      return urn.concat(doi);
+      return urn.concat(doi, handle);
 
       function generateUrnFields() {
         const values = getFieldValues('dc.identifier.urn');
@@ -374,12 +402,24 @@ export default ({harvestSource}) => record => {
         return values.length > 0 ? [
           {
             tag: '024', ind1: '7', ind2: '',
-            sbufields: [
+            subfields: [
               {code: 'a', value: values[0]},
               {code: '2', value: 'urn'}
             ]
           }
         ] : [];
+      }
+
+      function generateHandleFields() {
+        const values = getFieldValues('dc.identifier.uri');
+
+        return values.length > 0 ? values.map(v => ({
+          tag: '024', ind1: '7', ind2: '',
+          subfields: [
+            {code: 'a', value: v},
+            {code: '2', value: 'hdl'}
+          ]
+        })) : [];
       }
     }
 

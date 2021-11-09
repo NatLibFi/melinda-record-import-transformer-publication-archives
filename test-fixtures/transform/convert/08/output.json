@@ -25,6 +25,36 @@
       ]
     },
     {
+      "tag": "024",
+      "ind1": "7",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "http://hdl.handle.net/10138/43166"
+        },
+        {
+          "code": "2",
+          "value": "hdl"
+        }
+      ]
+    },
+    {
+      "tag": "024",
+      "ind1": "7",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "http://julkaisut.valtioneuvosto.fi/handle/10138/43166"
+        },
+        {
+          "code": "2",
+          "value": "hdl"
+        }
+      ]
+    },
+    {
       "tag": "040",
       "ind1": " ",
       "ind2": " ",
@@ -369,6 +399,36 @@
         {
           "code": "a",
           "value": "FIKKA"
+        }
+      ]
+    },
+    {
+      "tag": "SID",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "c",
+          "value": "/10138/43166"
+        },
+        {
+          "code": "b",
+          "value": "REPO_HELDA"
+        }
+      ]
+    },
+    {
+      "tag": "SID",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "c",
+          "value": "/10138/43166"
+        },
+        {
+          "code": "b",
+          "value": "REPO_VALTO"
         }
       ]
     }
