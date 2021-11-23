@@ -29,15 +29,19 @@
 import {sourceMap} from '../config';
 import langs from 'langs';
 import {MarcRecord} from '@natlibfi/marc-record';
+import NotSupportedError from '../error';
 import moment from 'moment';
 
 /* eslint-disable max-statements */
 /* eslint-disable max-lines */
 
 export default ({harvestSource}) => record => {
+  const fileTypes = getFileTypesInformation();
   const fields = getInputFields();
-  const marcRecord = new MarcRecord();
 
+  filterRecord();
+
+  const marcRecord = new MarcRecord();
   marcRecord.leader = '01704nam a22002653i 4500'; // eslint-disable-line functional/immutable-data
 
   generateOutputFields().forEach(f => marcRecord.insertField(f));
@@ -47,6 +51,13 @@ export default ({harvestSource}) => record => {
   function getInputFields() {
     return record.metadata[0]['kk:metadata'][0]['kk:field']
       .filter(field => '$' in field);
+  }
+
+  function getFileTypesInformation() {
+    const inputFields = record.metadata[0]['kk:metadata'][0]['kk:file']
+      .filter(field => '$' in field);
+
+    return inputFields.length === 0 ? [] : inputFields.map(f => f.$.type);
   }
 
   function generateOutputFields() {
@@ -866,5 +877,26 @@ export default ({harvestSource}) => record => {
 
     const lang = langs.where(1, code);
     return lang ? lang['2B'] : 'und';
+  }
+
+  function filterRecord() {
+    if (fileTypes.length === 0) {
+      throw new NotSupportedError('Conversion without filetype specification is not supported');
+    }
+
+    filterByMaterialType();
+
+    function filterByMaterialType() {
+      const materialType = getFieldValues('dc.type.okm');
+      if (materialType.length > 0) {
+        if (materialType.some(isUnsupportedMaterialType)) {
+          throw new NotSupportedError('Conversion does not support the given type of material');
+        }
+      }
+
+      function isUnsupportedMaterialType(mType) {
+        return mType.match(/A3/ui) || mType.match(/B2/ui) || mType.match(/D2/ui);
+      }
+    }
   }
 };
