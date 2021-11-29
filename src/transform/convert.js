@@ -26,10 +26,10 @@
 *
 */
 
+import {MarcRecord} from '@natlibfi/marc-record';
+import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 import {sourceMap} from '../config';
 import langs from 'langs';
-import {MarcRecord} from '@natlibfi/marc-record';
-import NotSupportedError from '../error';
 import moment from 'moment';
 
 /* eslint-disable max-statements */
@@ -881,7 +881,7 @@ export default ({harvestSource}) => record => {
 
   function filterRecord() {
     if (fileTypes.length === 0) {
-      throw new NotSupportedError('Conversion without filetype specification is not supported');
+      throw new NotSupportedError(null, null, 'Conversion without filetype specification is not supported');
     }
 
     filterByMaterialType();
@@ -890,7 +890,7 @@ export default ({harvestSource}) => record => {
       const materialType = getFieldValues('dc.type.okm');
       if (materialType.length > 0) {
         if (materialType.some(isUnsupportedMaterialType)) {
-          throw new NotSupportedError('Conversion does not support the given type of material');
+          throw new NotSupportedError(null, null, 'Conversion does not support the given type of material');
         }
       }
 
