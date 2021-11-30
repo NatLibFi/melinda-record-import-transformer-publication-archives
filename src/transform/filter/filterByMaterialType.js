@@ -4,7 +4,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -26,12 +26,17 @@
 *
 */
 
+import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 
-import {xmlToObject} from './utils';
+export function filterByMaterialType({getFieldValues}) {
+  const materialType = getFieldValues('dc.type.okm');
+  if (materialType.length > 0) {
+    if (materialType.some(isUnsupportedMaterialType)) {
+      throw new NotSupportedError(null, null, 'Conversion does not support the given type of material');
+    }
+  }
 
-run();
-
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
+  function isUnsupportedMaterialType(mType) {
+    return mType.match(/A3/ui) || mType.match(/B2/ui) || mType.match(/D2/ui);
+  }
 }

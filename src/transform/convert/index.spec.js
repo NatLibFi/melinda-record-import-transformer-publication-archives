@@ -31,11 +31,12 @@ import moment from 'moment';
 import {readdirSync} from 'fs';
 import {join as joinPath} from 'path';
 import fixtureFactory, {READERS} from '@natlibfi/fixura';
-import createConverter, {__RewireAPI__ as RewireAPI} from './convert';
+import createConverter from './index';
+import {__RewireAPI__ as RewireAPI} from './convertRecord';
 
 describe('transform/convert', () => {
   const {expect} = chai;
-  const fixturesPath = joinPath(__dirname, '..', '..', 'test-fixtures', 'transform', 'convert');
+  const fixturesPath = joinPath(__dirname, '..', '..', '..', 'test-fixtures', 'transform', 'convert');
 
   beforeEach(() => {
     RewireAPI.__Rewire__('moment', () => moment('2020-01-01T00:00:00'));

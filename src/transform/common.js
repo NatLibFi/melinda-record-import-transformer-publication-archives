@@ -4,7 +4,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -26,32 +26,57 @@
 *
 */
 
-import {Parser} from 'xml2js';
+import langs from 'langs';
 
-export async function xmlToObject(stream) {
-  const str = await readToString();
-  return toObject();
+export function createValueInterface(inputFields) {
+  return {getFieldValues, getFields};
 
-  function readToString() {
-    return new Promise((resolve, reject) => {
-      const list = [];
-
-      stream
-        .on('error', reject)
-        .on('data', chunk => list.push(chunk)) // eslint-disable-line functional/immutable-data
-        .on('end', () => resolve(list.join('')));
-    });
+  function getFieldValues(filter) {
+    const fields = getFields(filter);
+    return fields
+      .filter(f => f.$.value)
+      .map(f => f.$.value);
   }
 
-  function toObject() {
-    return new Promise((resolve, reject) => {
-      new Parser().parseString(str, (err, obj) => {
-        if (err) {
-          return reject(err);
-        }
+  function getFields(arg) {
+    const filter = typeof arg === 'function' ? arg : p => p === arg;
 
-        resolve(obj);
-      });
+    const newFields = inputFields.filter(field => {
+      const dcPath = getDCPath(field);
+      return filter(dcPath);
     });
+
+    return newFields;
   }
+
+  function getDCPath(field) {
+    const dcPath = `${field.$.schema}.${field.$.element}`;
+
+    if (field.$.qualifier) {
+      return `${dcPath}.${field.$.qualifier}`;
+    }
+
+    return dcPath;
+  }
+}
+
+export function formatLanguage(code) {
+  if (code && code.length === 3) {
+    return code;
+  }
+
+  const lang = langs.where(1, code);
+  return lang ? lang['2B'] : 'und';
+}
+
+export function getInputFields(record) {
+  return record.metadata[0]['kk:metadata'][0]['kk:field']
+    .filter(field => '$' in field);
+}
+
+export function getFileTypesInformation(record) {
+  const inputFields = record.metadata[0]['kk:metadata'][0]['kk:file']
+    .filter(field => '$' in field);
+
+  return inputFields.length === 0 ? [] : inputFields.map(f => f.$.type);
 }

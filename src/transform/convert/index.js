@@ -4,7 +4,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -26,12 +26,10 @@
 *
 */
 
+import filterRecord from '../filter';
+import convertRecord from './convertRecord';
 
-import {xmlToObject} from './utils';
-
-run();
-
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
-}
+export default ({harvestSource}) => record => {
+  const fieldValueInterface = filterRecord(record);
+  return convertRecord(fieldValueInterface, harvestSource);
+};

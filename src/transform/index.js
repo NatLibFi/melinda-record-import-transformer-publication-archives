@@ -30,7 +30,7 @@ import createValidator from '../validate';
 import {createLogger} from '@natlibfi/melinda-backend-commons';
 import {EventEmitter} from 'events';
 import createConverter from './convert';
-import {xmlToObject} from './common';
+import {xmlToObject} from './utils';
 
 class TransformEmitter extends EventEmitter {}
 
