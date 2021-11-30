@@ -43,9 +43,6 @@ import {generate776} from './generate7xxFields';
 import {generate856} from './generate8xxFields';
 import {generateSID} from './generateSidFields';
 
-/* eslint-disable max-statements */
-/* eslint-disable max-lines */
-
 export default (fieldValueInterface, harvestSource) => {
   const marcRecord = new MarcRecord();
   marcRecord.leader = '01704nam a22002653i 4500'; // eslint-disable-line functional/immutable-data
