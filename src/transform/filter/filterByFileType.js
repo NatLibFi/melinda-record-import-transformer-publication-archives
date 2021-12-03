@@ -26,12 +26,14 @@
 *
 */
 
+import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
+import {getFileTypesInformation} from '../common';
 
-import {xmlToObject} from './xmlParser';
+export function filterByFileType(record) {
+  const values = getFileTypesInformation(record) || false;
+  if (!values || values.length === 0) {
+    throw new NotSupportedError(null, null, 'Conversion without filetype specification is not supported');
+  }
 
-run();
-
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
+  return values;
 }

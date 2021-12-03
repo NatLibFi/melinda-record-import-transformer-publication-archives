@@ -4,7 +4,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -30,7 +30,7 @@ import createValidator from '../validate';
 import {createLogger} from '@natlibfi/melinda-backend-commons';
 import {EventEmitter} from 'events';
 import createConverter from './convert';
-import {xmlToObject} from './common';
+import {xmlToObject} from './xmlParser';
 
 class TransformEmitter extends EventEmitter {}
 

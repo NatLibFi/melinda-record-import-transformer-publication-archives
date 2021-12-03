@@ -26,12 +26,27 @@
 *
 */
 
+export function generateSID({getFieldValues}, sourceMap) {
+  const values = getFieldValues('dc.identifier.uri');
+  const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
+  const handleRegex = /(?<handle>\/[^/]+\/[^/]+$)/u;
 
-import {xmlToObject} from './xmlParser';
+  const validSidValues = values.reduce((acc, hdl) => {
+    const {source} = hdl.match(baseUrlRegex).groups;
+    const {handle} = hdl.match(handleRegex).groups;
 
-run();
+    if (source !== null && handle !== null && Object.prototype.hasOwnProperty.call(sourceMap, source)) {
+      return acc.concat({source: sourceMap[source], handle});
+    }
 
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
+    return acc;
+  }, []);
+
+  return validSidValues.length > 0 ? validSidValues.map(v => (
+    {tag: 'SID', ind1: '', ind2: '',
+      subfields: [
+        {code: 'c', value: v.handle},
+        {code: 'b', value: v.source}
+      ]}
+  )) : [];
 }
