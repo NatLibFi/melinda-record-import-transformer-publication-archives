@@ -27,7 +27,6 @@
 */
 
 /* eslint-disable new-cap */
-import {isLegalDeposit} from './config';
 import validateFactory from '@natlibfi/marc-record-validate';
 import {
   EmptyFields,
@@ -36,7 +35,7 @@ import {
   AccessRights
 } from '@natlibfi/marc-record-validators-melinda';
 
-export default async () => {
+export default async (isLegalDeposit) => {
   const validate = validateFactory([
     await EmptyFields(),
     await IsbnIssn({hyphenateISBN: true}),

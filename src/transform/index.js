@@ -34,7 +34,7 @@ import {xmlToObject} from './xmlParser';
 
 class TransformEmitter extends EventEmitter {}
 
-export default function ({harvestSource}) {
+export default function ({harvestSource, isLegalDeposit}) {
   return (stream, {validate = true, fix = true}) => {
     const Emitter = new TransformEmitter();
     const logger = createLogger();
@@ -45,7 +45,7 @@ export default function ({harvestSource}) {
     return Emitter;
 
     async function readStream(stream) {
-      const validateRecord = await createValidator();
+      const validateRecord = await createValidator(isLegalDeposit);
       const convertRecord = createConverter({harvestSource});
 
       try {

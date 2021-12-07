@@ -1,22 +1,4 @@
 {
-  "failed": false,
-  "messages": [
-    {
-      "description": "Handles empty fields",
-      "state": "valid"
-    },
-    {
-      "description": "Validates ISBN and ISSN values",
-      "messages": [
-        "ISBN (978-952-00-3315-6((PDF))) is not valid"
-      ],
-      "state": "fixed"
-    },
-    {
-      "description": "Adds URN for record, to 856-field (if not existing)",
-      "state": "valid"
-    }
-  ],
   "record": {
     "_validationOptions": {},
     "leader": "01704nam a22002653i 4500",
@@ -308,5 +290,23 @@
         ]
       }
     ]
-  }
+  },
+  "failed": false,
+  "messages": [
+    {
+      "description": "Handles empty fields",
+      "state": "valid"
+    },
+    {
+      "description": "Validates ISBN and ISSN values",
+      "messages": [
+        "ISBN (978-952-00-3315-6((PDF))) is not valid"
+      ],
+      "state": "fixed"
+    },
+    {
+      "description": "Adds URN for record, to 856-field (if not existing)",
+      "state": "valid"
+    }
+  ]
 }

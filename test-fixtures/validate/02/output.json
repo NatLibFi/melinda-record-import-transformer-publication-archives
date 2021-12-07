@@ -1,23 +1,4 @@
 {
-  "failed": false,
-  "messages": [
-    {
-      "description": "Handles empty fields",
-      "state": "valid"
-    },
-    {
-      "description": "Validates ISBN and ISSN values",
-      "state": "valid"
-    },
-    {
-      "description": "Adds URN for record, to 856-field (if not existing)",
-      "state": "fixed"
-    },
-    {
-      "description": "Adds access rights fields for a record (if not existing)",
-      "state": "fixed"
-    }
-  ],
   "record": {
     "_validationOptions": {},
     "leader": "01704nam a22002653i 4500",
@@ -255,7 +236,7 @@
           },
           {
             "code": "f",
-            "value": "Online access with authorization."
+            "value": "Online access with authorization"
           },
           {
             "code": "2",
@@ -375,5 +356,24 @@
         ]
       }
     ]
-  }
+  },
+  "failed": false,
+  "messages": [
+    {
+      "description": "Handles empty fields",
+      "state": "valid"
+    },
+    {
+      "description": "Validates ISBN and ISSN values",
+      "state": "valid"
+    },
+    {
+      "description": "Adds URN for record, to 856-field (if not existing)",
+      "state": "fixed"
+    },
+    {
+      "description": "Adds access rights fields for a record (if not existing)",
+      "state": "fixed"
+    }
+  ]
 }
