@@ -5,7 +5,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -27,9 +27,9 @@
 *
 */
 
-import {harvestSource, urnResolverUrl} from './config';
+import * as config from './config';
 import transformFactory from './transform';
 import {Transformer} from '@natlibfi/melinda-record-import-commons';
 
 const {startTransformer} = Transformer;
-startTransformer(transformFactory({harvestSource, urnResolverUrl}));
+startTransformer(transformFactory(config));

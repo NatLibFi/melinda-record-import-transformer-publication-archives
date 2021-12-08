@@ -4,7 +4,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -30,13 +30,17 @@
 import validateFactory from '@natlibfi/marc-record-validate';
 import {
   EmptyFields,
-  IsbnIssn
+  IsbnIssn,
+  Urn,
+  AccessRights
 } from '@natlibfi/marc-record-validators-melinda';
 
-export default async () => {
+export default async (isLegalDeposit) => {
   const validate = validateFactory([
     await EmptyFields(),
-    await IsbnIssn({hyphenateISBN: true})
+    await IsbnIssn({hyphenateISBN: true}),
+    await Urn(isLegalDeposit),
+    ...isLegalDeposit ? [await AccessRights()] : []
   ]);
 
   return async (record, fix, validateFixes) => {

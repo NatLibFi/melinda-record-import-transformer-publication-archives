@@ -26,12 +26,34 @@
 *
 */
 
+export function generate100and700({getFieldValues}) {
+  const writers = generateWriters();
+  const editors = generateEditors();
 
-import {xmlToObject} from './xmlParser';
+  return writers.concat(editors);
 
-run();
+  function generateWriters() {
+    const values = getFieldValues(p => [
+      'dc.contributor.author',
+      'dc.creator'
+    ].includes(p));
+    return values.map((v, index) => ({
+      tag: index === 0 ? '100' : '700', ind1: '1', ind2: '',
+      subfields: [
+        {code: 'a', value: `${v},`},
+        {code: 'e', value: 'kirjoittaja.'}
+      ]
+    }));
+  }
 
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
+  function generateEditors() {
+    const values = getFieldValues('dc.contributor.editor');
+    return values.map(v => ({
+      tag: '700', ind1: '1', ind2: '',
+      subfields: [
+        {code: 'a', value: `${v},`},
+        {code: 'e', value: 'toimittaja.'}
+      ]
+    }));
+  }
 }

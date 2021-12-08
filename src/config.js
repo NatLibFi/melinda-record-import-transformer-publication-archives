@@ -4,7 +4,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -25,8 +25,10 @@
 * for the JavaScript code in this file.
 *
 */
-
+/* istanbul ignore file */
+import {parseBoolean} from '@natlibfi/melinda-commons';
 import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 
-export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE');
-export const urnResolverUrl = readEnvironmentVariable('URN_RESOLVER_URL');
+export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE', {defaultValue: ''});
+export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
+export const sourceMap = readEnvironmentVariable('SOURCEMAP', {defaultValue: {}, format: JSON.parse});

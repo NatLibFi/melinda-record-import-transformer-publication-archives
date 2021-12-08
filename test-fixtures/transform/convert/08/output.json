@@ -25,6 +25,36 @@
       ]
     },
     {
+      "tag": "024",
+      "ind1": "7",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "http://hdl.handle.net/10138/43166"
+        },
+        {
+          "code": "2",
+          "value": "hdl"
+        }
+      ]
+    },
+    {
+      "tag": "024",
+      "ind1": "7",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "http://julkaisut.valtioneuvosto.fi/handle/10138/43166"
+        },
+        {
+          "code": "2",
+          "value": "hdl"
+        }
+      ]
+    },
+    {
       "tag": "040",
       "ind1": " ",
       "ind2": " ",
@@ -175,6 +205,17 @@
       ]
     },
     {
+      "tag": "341",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "tekstiin perustuva"
+        }
+      ]
+    },
+    {
       "tag": "490",
       "ind1": "0",
       "ind2": " ",
@@ -193,37 +234,6 @@
         {
           "code": "a",
           "value": "Koneellisesti tuotettu tietue."
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
-        }
-      ]
-    },
-    {
-      "tag": "506",
-      "ind1": "1",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Aineisto on käytettävissä vapaakappalekirjastoissa."
-        },
-        {
-          "code": "f",
-          "value": "Online access with authorization"
-        },
-        {
-          "code": "2",
-          "value": "star"
-        },
-        {
-          "code": "5",
-          "value": "FI-Vapaa"
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
         }
       ]
     },
@@ -251,33 +261,17 @@
       ]
     },
     {
-      "tag": "540",
+      "tag": "594",
       "ind1": " ",
       "ind2": " ",
       "subfields": [
         {
           "code": "a",
-          "value": "Aineisto on käytettävissä tutkimus- ja muihin tarkoituksiin;"
-        },
-        {
-          "code": "b",
-          "value": "Kansalliskirjasto;"
-        },
-        {
-          "code": "c",
-          "value": "Laki kulttuuriaineistojen tallettamisesta ja säilyttämisestä"
-        },
-        {
-          "code": "u",
-          "value": "http://www.finlex.fi/fi/laki/ajantasa/2007/20071433"
+          "value": "Koneellisesti tuotettu tietue"
         },
         {
           "code": "5",
-          "value": "FI-Vapaa"
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
+          "value": "FENNI"
         }
       ]
     },
@@ -365,29 +359,6 @@
           "value": "http://julkaisut.valtioneuvosto.fi/handle/10138/43166"
         },
         {
-          "code": "z",
-          "value": "Käytettävissä vapaakappalekirjastoissa"
-        },
-        {
-          "code": "5",
-          "value": "FI-Vapaa"
-        }
-      ]
-    },
-    {
-      "tag": "856",
-      "ind1": "4",
-      "ind2": "0",
-      "subfields": [
-        {
-          "code": "u",
-          "value": "http://hdl.handle.net/10138/43166"
-        },
-        {
-          "code": "u",
-          "value": "http://julkaisut.valtioneuvosto.fi/handle/10138/43166"
-        },
-        {
           "code": "y",
           "value": "Linkki verkkoaineistoon"
         }
@@ -399,8 +370,24 @@
       "ind2": " ",
       "subfields": [
         {
+          "code": "a",
+          "value": "Dublin Core to MARC transformation"
+        },
+        {
+          "code": "g",
+          "value": "20200101"
+        },
+        {
           "code": "k",
           "value": "FOOBAR"
+        },
+        {
+          "code": "q",
+          "value": "FI-NL"
+        },
+        {
+          "code": "5",
+          "value": "MELINDA"
         }
       ]
     },
@@ -412,6 +399,36 @@
         {
           "code": "a",
           "value": "FIKKA"
+        }
+      ]
+    },
+    {
+      "tag": "SID",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "c",
+          "value": "/10138/43166"
+        },
+        {
+          "code": "b",
+          "value": "REPO_HELDA"
+        }
+      ]
+    },
+    {
+      "tag": "SID",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "c",
+          "value": "/10138/43166"
+        },
+        {
+          "code": "b",
+          "value": "REPO_VALTO"
         }
       ]
     }

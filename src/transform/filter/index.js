@@ -26,12 +26,21 @@
 *
 */
 
+import {getInputFields, createValueInterface} from '../common';
+import {filterByFileType} from './filterByFileType';
+import {filterByMaterialType} from './filterByMaterialType';
 
-import {xmlToObject} from './xmlParser';
+export default (record) => {
+  const inputFields = getInputFields(record);
+  const fieldValueInterface = createValueInterface(inputFields);
 
-run();
+  const recordFilters = {
+    raw: [filterByFileType],
+    interface: [filterByMaterialType]
+  };
 
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
-}
+  recordFilters.raw.forEach(f => f(record));
+  recordFilters.interface.forEach(f => f(fieldValueInterface));
+
+  return fieldValueInterface;
+};

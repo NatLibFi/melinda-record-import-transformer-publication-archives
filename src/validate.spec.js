@@ -4,7 +4,7 @@
 *
 * Publication archives record transformer for the Melinda record batch import system
 *
-* Copyright (C) 2019-2020 University Of Helsinki (The National Library Of Finland)
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of melinda-record-import-transformer-publication-archives
 *
@@ -26,34 +26,28 @@
 *
 */
 
-import chai from 'chai';
-import {readdirSync} from 'fs';
-import {join as joinPath} from 'path';
-import fixtureFactory, {READERS} from '@natlibfi/fixura';
+import {expect} from 'chai';
 import {MarcRecord} from '@natlibfi/marc-record';
+import {READERS} from '@natlibfi/fixura';
+import generateTests from '@natlibfi/fixugen';
 import createValidator from './validate';
 
-run();
+generateTests({
+  path: [__dirname, '..', 'test-fixtures', 'validate'],
+  useMetadataFile: true,
+  recurse: false,
+  fixura: {reader: READERS.JSON, failWhenNotFound: false},
+  callback
+});
 
-async function run() {
-  const validate = await createValidator();
+async function callback({getFixture, isLegalDeposit}) {
+  const record = new MarcRecord(getFixture('input.json'));
+  const expectedResult = getFixture('output.json');
 
-  describe('validate', () => {
-    const {expect} = chai;
-    const fixturesPath = joinPath(__dirname, '..', 'test-fixtures', 'validate');
+  const validate = await createValidator(isLegalDeposit);
+  const result = await validate(record, {fix: true, validateFixes: true});
 
-    readdirSync(fixturesPath).forEach(subDir => {
-      const {getFixture} = fixtureFactory({root: [
-        fixturesPath,
-        subDir
-      ], reader: READERS.JSON});
-      const record = new MarcRecord(getFixture('input.json'));
-      const expectedResult = getFixture('output.json');
-
-      it(subDir, async () => {
-        const result = await validate(record, {fix: true, validateFixes: true});
-        expect(result).to.eql(expectedResult);
-      });
-    });
-  });
+  expect(result.record).to.eql(expectedResult.record);
+  expect(result.messages).to.eql(expectedResult.messages);
+  expect(result.fail).to.eql(expectedResult.fail);
 }

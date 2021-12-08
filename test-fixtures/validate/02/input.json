@@ -7,7 +7,7 @@
     },
     {
       "tag": "008",
-      "value": "200101s2018    fi |||||o|||||||| ||eng c"
+      "value": "000000s2011    fi |||||o|||||||| ||fin c"
     },
     {
       "tag": "020",
@@ -16,7 +16,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "978-952-68538-5-7"
+          "value": "978-952-00-3315-6"
         },
         {
           "code": "q",
@@ -31,26 +31,11 @@
       "subfields": [
         {
           "code": "a",
-          "value": "URN:NBN:fi-fe201901152144"
+          "value": "URN:ISBN:978-952-00-3315-6"
         },
         {
           "code": "2",
           "value": "urn"
-        }
-      ]
-    },
-    {
-      "tag": "024",
-      "ind1": "7",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "https://osuva.uwasa.fi/handle/10024/8150"
-        },
-        {
-          "code": "2",
-          "value": "hdl"
         }
       ]
     },
@@ -80,7 +65,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "eng"
+          "value": "fin"
         }
       ]
     },
@@ -96,28 +81,13 @@
       ]
     },
     {
-      "tag": "100",
-      "ind1": "1",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Lehtonen, Tommi,"
-        },
-        {
-          "code": "e",
-          "value": "kirjoittaja."
-        }
-      ]
-    },
-    {
       "tag": "245",
-      "ind1": "1",
+      "ind1": "0",
       "ind2": "0",
       "subfields": [
         {
           "code": "a",
-          "value": "The Concept of Alternative Facts."
+          "value": "Riskienhallinta ja turvallisuussuunnittelu. Opas sosiaali- ja terveydenhuollon johdolle ja turvallisuusasiantuntijoille."
         }
       ]
     },
@@ -128,22 +98,11 @@
       "subfields": [
         {
           "code": "b",
-          "value": "VAKKI ry,"
+          "value": "Sosiaali- ja terveysministeriö,"
         },
         {
           "code": "c",
-          "value": "2018."
-        }
-      ]
-    },
-    {
-      "tag": "300",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "1 verkkoaineisto (13 sivua)"
+          "value": "2011."
         }
       ]
     },
@@ -222,15 +181,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "VAKKI publications,"
-        },
-        {
-          "code": "x",
-          "value": "2242-685X ;"
-        },
-        {
-          "code": "v",
-          "value": "9"
+          "value": "Sosiaali- ja terveysministeriön julkaisuja = Social- och hälsovårdsministeriets publikationer = Publications of the Ministry of Social Affairs and Health : 2011:15"
         }
       ]
     },
@@ -242,6 +193,10 @@
         {
           "code": "a",
           "value": "Koneellisesti tuotettu tietue."
+        },
+        {
+          "code": "9",
+          "value": "FENNI<KEEP>"
         }
       ]
     },
@@ -269,80 +224,13 @@
       ]
     },
     {
-      "tag": "594",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Koneellisesti tuotettu tietue"
-        },
-        {
-          "code": "5",
-          "value": "FENNI"
-        }
-      ]
-    },
-    {
-      "tag": "650",
-      "ind1": " ",
-      "ind2": "7",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "valeuutiset"
-        },
-        {
-          "code": "2",
-          "value": "yso"
-        }
-      ]
-    },
-    {
-      "tag": "650",
-      "ind1": " ",
-      "ind2": "7",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "näkökulma"
-        },
-        {
-          "code": "2",
-          "value": "yso"
-        }
-      ]
-    },
-    {
       "tag": "653",
       "ind1": " ",
       "ind2": " ",
       "subfields": [
         {
           "code": "a",
-          "value": "alternative facts"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "partial truths"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "post-truth"
+          "value": "sosiaali- ja terveyspalvelut"
         }
       ]
     },
@@ -352,12 +240,12 @@
       "ind2": "0",
       "subfields": [
         {
-          "code": "u",
-          "value": "http://urn.fi/URN:NBN:fi-fe201901152144"
-        },
-        {
           "code": "y",
           "value": "Linkki verkkoaineistoon"
+        },
+        {
+          "code": "u",
+          "value": "http://urn.fi/URN:ISBN:978-952-00-3315-6"
         }
       ]
     },
@@ -396,21 +284,6 @@
         {
           "code": "a",
           "value": "FIKKA"
-        }
-      ]
-    },
-    {
-      "tag": "SID",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "c",
-          "value": "/10024/8150"
-        },
-        {
-          "code": "b",
-          "value": "REPO_OSUVA"
         }
       ]
     }
