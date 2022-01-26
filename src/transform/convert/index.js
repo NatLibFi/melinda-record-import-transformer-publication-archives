@@ -26,10 +26,6 @@
 *
 */
 
-import filterRecord from '../filter';
 import convertRecord from './convertRecord';
 
-export default ({harvestSource}) => record => {
-  const fieldValueInterface = filterRecord(record);
-  return convertRecord(fieldValueInterface, harvestSource);
-};
+export default options => fieldValueInterface => convertRecord(fieldValueInterface, options);

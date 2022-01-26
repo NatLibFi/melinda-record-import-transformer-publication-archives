@@ -29,8 +29,6 @@
 import {MarcRecord} from '@natlibfi/marc-record';
 import moment from 'moment';
 
-import {sourceMap} from '../../config';
-
 import {generateStaticFields} from './generateStaticFields';
 import {generate008, generate020, generate024, generate041} from './generate0xxFields';
 import {generate100and700} from './generate1xxFields';
@@ -43,7 +41,10 @@ import {generate776} from './generate7xxFields';
 import {generate856} from './generate8xxFields';
 import {generateSID} from './generateSidFields';
 
-export default (fieldValueInterface, harvestSource) => {
+export default (fieldValueInterface, options) => {
+  const {harvestSource, sourceMap} = options;
+  const momentSource = options.moment || moment;
+
   const marcRecord = new MarcRecord();
   marcRecord.leader = '01704nam a22002653i 4500'; // eslint-disable-line functional/immutable-data
 
@@ -53,8 +54,8 @@ export default (fieldValueInterface, harvestSource) => {
 
   function generateOutputFields() {
     return [
-      generateStaticFields(harvestSource, moment),
-      generate008(fieldValueInterface, moment),
+      generateStaticFields(harvestSource, momentSource),
+      generate008(fieldValueInterface, momentSource),
       generate020(fieldValueInterface),
       generate024(fieldValueInterface),
       generate041(fieldValueInterface),
