@@ -30,7 +30,7 @@ import {getInputFields, createValueInterface} from '../common';
 import {filterByFileType} from './filterByFileType';
 import {filterByMaterialType} from './filterByMaterialType';
 
-export default (record) => {
+export default options => record => {
   const inputFields = getInputFields(record);
   const fieldValueInterface = createValueInterface(inputFields);
 
@@ -39,8 +39,8 @@ export default (record) => {
     interface: [filterByMaterialType]
   };
 
-  recordFilters.raw.forEach(f => f(record));
-  recordFilters.interface.forEach(f => f(fieldValueInterface));
+  recordFilters.raw.forEach(f => f(record, options));
+  recordFilters.interface.forEach(f => f(fieldValueInterface, options));
 
   return fieldValueInterface;
 };
