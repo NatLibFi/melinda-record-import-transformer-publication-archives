@@ -1,4 +1,5 @@
 {
+    "description": "Finnish terms are extracted correctly for generation of field 502",
     "sourceMap": {
         "trepo.tuni.fi": "REPO_TREPO"
     }
