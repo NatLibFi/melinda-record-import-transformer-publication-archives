@@ -40,21 +40,6 @@
       ]
     },
     {
-      "tag": "024",
-      "ind1": "7",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "http://jukuri.luke.fi/handle/10024/537960"
-        },
-        {
-          "code": "2",
-          "value": "hdl"
-        }
-      ]
-    },
-    {
       "tag": "040",
       "ind1": " ",
       "ind2": " ",

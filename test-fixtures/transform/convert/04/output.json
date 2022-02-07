@@ -40,36 +40,6 @@
       ]
     },
     {
-      "tag": "024",
-      "ind1": "7",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "http://www.julkari.fi/handle/10024/103109"
-        },
-        {
-          "code": "2",
-          "value": "hdl"
-        }
-      ]
-    },
-    {
-      "tag": "024",
-      "ind1": "7",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "http://julkaisut.valtioneuvosto.fi/handle/10024/69912"
-        },
-        {
-          "code": "2",
-          "value": "hdl"
-        }
-      ]
-    },
-    {
       "tag": "040",
       "ind1": " ",
       "ind2": " ",

@@ -7,22 +7,7 @@
     },
     {
       "tag": "008",
-      "value": "200101s2020    fi |||||om   |||| ||fin c"
-    },
-    {
-      "tag": "020",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "978-952-03-1603-7"
-        },
-        {
-          "code": "q",
-          "value": "PDF"
-        }
-      ]
+      "value": "200101s2018    fi |||||om   |||| ||fin c"
     },
     {
       "tag": "024",
@@ -31,11 +16,11 @@
       "subfields": [
         {
           "code": "a",
-          "value": "URN:ISBN:978-952-03-1603-7"
+          "value": "http://www.utupub.fi/handle/10024/144448"
         },
         {
           "code": "2",
-          "value": "urn"
+          "value": "hdl"
         }
       ]
     },
@@ -87,7 +72,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "Kainulainen, Ville,"
+          "value": "Maalismaa, Oona,"
         },
         {
           "code": "e",
@@ -102,7 +87,7 @@
       "subfields": [
         {
           "code": "a",
-          "value": "Ay-aktiivien uusi arki?: Ammatillisen edunvalvonnan muuttuvat käytännöt matalapalkkaisella ja naisvaltaisella yksityisellä palvelusektorilla."
+          "value": "Äidin syömishäiriötaustan yhteys lapsen ruokailuun liittyviin asenteisiin, ruokailukäytäntöihin ja vanhemmuuden stressiin."
         }
       ]
     },
@@ -113,11 +98,15 @@
       "subfields": [
         {
           "code": "b",
-          "value": "Tampereen yliopisto,"
+          "value": "fi=Turun yliopisto|en=University of Turku|,"
         },
         {
           "code": "c",
-          "value": "2020."
+          "value": "2018-01-16."
+        },
+        {
+          "code": "c",
+          "value": "2018."
         }
       ]
     },
@@ -190,21 +179,13 @@
       ]
     },
     {
-      "tag": "490",
-      "ind1": "0",
+      "tag": "500",
+      "ind1": " ",
       "ind2": " ",
       "subfields": [
         {
           "code": "a",
-          "value": "Tampere University Dissertations - Tampereen yliopiston väitöskirjat,"
-        },
-        {
-          "code": "x",
-          "value": "2490-0028 ;"
-        },
-        {
-          "code": "v",
-          "value": "269"
+          "value": "Pro gradu –tutkielma"
         }
       ]
     },
@@ -227,14 +208,6 @@
         {
           "code": "a",
           "value": "Väitöskirja :"
-        },
-        {
-          "code": "c",
-          "value": "Tampere University, undefined, "
-        },
-        {
-          "code": "d",
-          "value": "2020."
         },
         {
           "code": "9",
@@ -266,17 +239,6 @@
       ]
     },
     {
-      "tag": "540",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "c",
-          "value": "This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited."
-        }
-      ]
-    },
-    {
       "tag": "594",
       "ind1": " ",
       "ind2": " ",
@@ -292,211 +254,17 @@
       ]
     },
     {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Työelämän suhteet"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "luottamushenkilöt,"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "luottamusmiehet,"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "ammattiyhdistysaktiivit"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "ammattiliitot,"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "palveluala,"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "toimijuus,"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "sukupuoli"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "etnografia"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Employment relations"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "employee representatives"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "shop stewards"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "trade unionists"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "trade union"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "service sector"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "agency,"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "gender,"
-        }
-      ]
-    },
-    {
-      "tag": "653",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "ethnography"
-        }
-      ]
-    },
-    {
       "tag": "856",
       "ind1": "4",
       "ind2": "0",
       "subfields": [
         {
           "code": "u",
-          "value": "http://urn.fi/URN:ISBN:978-952-03-1603-7"
+          "value": "http://www.utupub.fi/handle/10024/144448"
+        },
+        {
+          "code": "u",
+          "value": "http://www.totallyimaginaryvalueherepleaseignore.me/123"
         },
         {
           "code": "y",
@@ -549,11 +317,11 @@
       "subfields": [
         {
           "code": "c",
-          "value": "/10024/122656"
+          "value": "/10024/144448"
         },
         {
           "code": "b",
-          "value": "REPO_TREPO"
+          "value": "REPO_UTUPUB"
         }
       ]
     }

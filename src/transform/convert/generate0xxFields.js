@@ -27,6 +27,7 @@
 */
 
 import {formatLanguage} from '../common';
+import {getHandle} from './utils';
 
 export function generate008({getFields, getFieldValues}, moment) {
   const timestamp = generateTimestamp();
@@ -87,7 +88,7 @@ export function generate024({getFieldValues}) {
   const doi = generateDoiFields();
   const handle = generateHandleFields();
 
-  return urn.concat(doi, handle);
+  return urn.length > 0 || doi.length > 0 ? urn.concat(doi) : handle;
 
   function generateUrnFields() {
     const values = getFieldValues('dc.identifier.urn');
@@ -118,7 +119,7 @@ export function generate024({getFieldValues}) {
   function generateHandleFields() {
     const values = getFieldValues('dc.identifier.uri');
 
-    return values.length > 0 ? values.map(v => ({
+    return values.length > 0 ? values.filter(v => getHandle(v) !== false).map(v => ({
       tag: '024', ind1: '7', ind2: '',
       subfields: [
         {code: 'a', value: v},

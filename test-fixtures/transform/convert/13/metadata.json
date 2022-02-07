@@ -1,0 +1,6 @@
+{
+    "description": "Transform: Generate 024 only from dc.identifier.uri if the value is valid handle.",
+    "sourceMap": {
+        "www.utupub.fi": "REPO_UTUPUB"
+    }
+}
