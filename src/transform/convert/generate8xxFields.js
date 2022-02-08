@@ -26,6 +26,8 @@
 *
 */
 
+import {isValidLink} from './utils';
+
 export function generate856({getFieldValues}) {
   const publicAccessFields = generatePublicAccessFields();
   const otherUrnFields = generateOtherUrnFields();
@@ -78,7 +80,7 @@ export function generate856({getFieldValues}) {
 
     function generateU(path) {
       const values = getFieldValues(path);
-      return values.map(value => ({code: 'u', value}));
+      return values.filter(value => isValidLink(value)).map(value => ({code: 'u', value}));
     }
   }
 }

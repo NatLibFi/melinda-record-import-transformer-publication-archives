@@ -1,4 +1,5 @@
 {
+    "description": "Transform: Unknown legacy test",
     "sourceMap": {
         "www.julkari.fi": "REPO_JULKARI",
         "julkaisut.valtioneuvosto.fi": "REPO_VALTO"

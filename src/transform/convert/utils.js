@@ -26,24 +26,22 @@
 *
 */
 
-import {getHandle} from './utils';
 
-export function generateSID({getFieldValues}, sourceMap) {
-  const values = getFieldValues('dc.identifier.uri');
+export function getHandle(value) {
+  const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
+  const handleRegex = /(?<handle>\/[0-9a-zA-Z]+\/[^/]+$)/u;
 
-  const validSidValues = values.reduce((acc, value) => {
-    const result = getHandle(value, sourceMap);
-    if (result && Object.prototype.hasOwnProperty.call(sourceMap, result.source)) {
-      return acc.concat({source: sourceMap[result.source], handle: result.handle});
-    }
-    return acc;
-  }, []);
+  const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
+  const {handle} = value.match(handleRegex) ? value.match(handleRegex).groups : {handle: null};
 
-  return validSidValues.length > 0 ? validSidValues.map(v => (
-    {tag: 'SID', ind1: '', ind2: '',
-      subfields: [
-        {code: 'c', value: v.handle},
-        {code: 'b', value: v.source}
-      ]}
-  )) : [];
+  if (source !== null && handle !== null) {
+    return {source, handle};
+  }
+
+  return false;
+}
+
+export function isValidLink(value) {
+  const httpProtocolRegex = /^(?:https?|ftp):\/\/[-a-zA-Z0-9]+\.[-a-zA-Z0-9]+/u;
+  return value.match(httpProtocolRegex) !== null;
 }
