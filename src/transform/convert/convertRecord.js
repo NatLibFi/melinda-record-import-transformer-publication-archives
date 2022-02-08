@@ -46,7 +46,7 @@ export default (fieldValueInterface, options) => {
   const momentSource = options.moment || moment;
 
   const marcRecord = new MarcRecord();
-  marcRecord.leader = '01704nam a22002653i 4500'; // eslint-disable-line functional/immutable-data
+  marcRecord.leader = '00000nam a22000003i 4500'; // eslint-disable-line functional/immutable-data
 
   generateOutputFields().forEach(f => marcRecord.insertField(f));
 
