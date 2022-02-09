@@ -32,3 +32,9 @@ import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE', {defaultValue: ''});
 export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
 export const sourceMap = readEnvironmentVariable('SOURCEMAP', {defaultValue: {}, format: JSON.parse});
+export const filters = {
+  filterByFileType: readEnvironmentVariable('FILTER_FILETYPE_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
+  filterByISBN: readEnvironmentVariable('FILTER_ISBN_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
+  filterByIssuedYear: readEnvironmentVariable('FILTER_ISSUED_AFTER', {defaultValue: '', format: v => Number(v)}),
+  filterMaterialTypes: readEnvironmentVariable('FILTER_MATERIALTYPES', {defaultValue: [], format: JSON.parse})
+};
