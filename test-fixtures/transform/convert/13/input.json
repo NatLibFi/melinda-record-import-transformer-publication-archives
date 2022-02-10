@@ -180,7 +180,19 @@
                   "value": "Äidin syömishäiriötaustan yhteys lapsen ruokailuun liittyviin asenteisiin, ruokailukäytäntöihin ja vanhemmuuden stressiin"
                 }
               }
-            ]
+            ],
+            "kk:file": [
+            {
+              "$": {
+                "bundle": "ORIGINAL",
+                "href": "https://www.utupub.fi/bitstream/10024/144448/1/Maalismaa%20Oona.pdf",
+                "name": "Maalismaa Oona.pdf",
+                "type": "application/pdf",
+                "size": "616633",
+                "sequence": "1"
+              }
+            }
+          ]
           }
         ]
       }
