@@ -34,7 +34,7 @@ export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defau
 export const sourceMap = readEnvironmentVariable('SOURCEMAP', {defaultValue: {}, format: JSON.parse});
 export const filters = {
   filterByFileType: readEnvironmentVariable('FILTER_FILETYPE_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
-  filterByISBN: readEnvironmentVariable('FILTER_ISBN_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
-  filterByIssuedYear: readEnvironmentVariable('FILTER_ISSUED_AFTER', {defaultValue: '', format: v => Number(v)}),
-  filterMaterialTypes: readEnvironmentVariable('FILTER_MATERIALTYPES', {defaultValue: [], format: JSON.parse})
+  filterByIsbnIdentifier: readEnvironmentVariable('FILTER_ISBN_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
+  filterByIssuedYear: readEnvironmentVariable('FILTER_ISSUED_AFTER', {defaultValue: 0, format: v => Number(v)}),
+  filterByMaterialType: readEnvironmentVariable('FILTER_MATERIALTYPES', {defaultValue: true, format: v => parseBoolean(v)})
 };

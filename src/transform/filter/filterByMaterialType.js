@@ -28,11 +28,16 @@
 
 import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 
-export function filterByMaterialType({getFieldValues}) {
+export function filterByMaterialType({getFieldValues}, options = {}) {
+  if (!options.filterByMaterialType) {
+    return;
+  }
+
   const materialType = getFieldValues('dc.type.okm');
+
   if (materialType.length > 0) {
     if (materialType.some(isUnsupportedMaterialType)) {
-      throw new NotSupportedError(null, null, 'Conversion does not support the given type of material');
+      throw new NotSupportedError(422, 'Unprocessable entity', 'Filter: Conversion does not support the given type of material');
     }
   }
 

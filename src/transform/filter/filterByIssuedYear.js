@@ -26,24 +26,19 @@
 *
 */
 
-import {getInputFields, createValueInterface} from '../common';
+import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 
-import {filterByFileType} from './filterByFileType';
-import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
-import {filterByIssuedYear} from './filterByIssuedYear';
-import {filterByMaterialType} from './filterByMaterialType';
+export function filterByIssuedYear({getFieldValues}, options = {}) {
+  if (!options.filterByIssuedYear || options.filterByIssuedYear === 0) {
+    return;
+  }
 
-export default options => record => {
-  const inputFields = getInputFields(record);
-  const fieldValueInterface = createValueInterface(inputFields);
+  const values = getFieldValues('dc.date.issued');
+  const issuedYears = values.map(v => v.length >= 4 ? Number(v.slice(0, 4)) : false);
 
-  const recordFilters = {
-    raw: [filterByFileType],
-    interface: [filterByMaterialType, filterByIsbnIdentifier, filterByIssuedYear]
-  };
+  if (issuedYears.length > 0 && issuedYears.some(v => Number(v) >= options.filterByIssuedYear)) {
+    return;
+  }
 
-  recordFilters.raw.forEach(f => f(record, options));
-  recordFilters.interface.forEach(f => f(fieldValueInterface, options));
-
-  return fieldValueInterface;
-};
+  throw new NotSupportedError(422, 'Unprocessable entity', 'Filter: Date issued is older than required by filter configuration');
+}

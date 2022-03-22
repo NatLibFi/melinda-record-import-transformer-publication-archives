@@ -1,0 +1,9 @@
+{
+    "description": "Filter: Filetype filter throws error when filetype definition is not found",
+    "sourceMap": {
+        "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
+    },
+    "filters": {
+      "filterByFileType": true
+    }
+}

@@ -26,24 +26,16 @@
 *
 */
 
-import {getInputFields, createValueInterface} from '../common';
+import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 
-import {filterByFileType} from './filterByFileType';
-import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
-import {filterByIssuedYear} from './filterByIssuedYear';
-import {filterByMaterialType} from './filterByMaterialType';
+export function filterByIsbnIdentifier({getFieldValues}, options = {}) {
+  if (!options.filterByIsbnIdentifier) {
+    return;
+  }
 
-export default options => record => {
-  const inputFields = getInputFields(record);
-  const fieldValueInterface = createValueInterface(inputFields);
+  const isbnIdentifier = getFieldValues('dc.identifier.isbn') || [];
 
-  const recordFilters = {
-    raw: [filterByFileType],
-    interface: [filterByMaterialType, filterByIsbnIdentifier, filterByIssuedYear]
-  };
-
-  recordFilters.raw.forEach(f => f(record, options));
-  recordFilters.interface.forEach(f => f(fieldValueInterface, options));
-
-  return fieldValueInterface;
-};
+  if (isbnIdentifier.length === 0) {
+    throw new NotSupportedError(422, 'Unprocessable entity', 'Filter: Cannot find ISBN identifier which is a required field');
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "description": "Filter: Material type filter throws error when material type is not allowed",
+    "sourceMap": {
+        "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
+    },
+    "filters": {
+      "filterByMaterialType": true
+    }
+}

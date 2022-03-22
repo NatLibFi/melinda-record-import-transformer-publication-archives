@@ -76,7 +76,7 @@ export function getInputFields(record) {
 
 export function getFileTypesInformation(record) {
   const inputFields = record.metadata[0]['kk:metadata'][0]['kk:file']
-    .filter(field => '$' in field);
+    ? record.metadata[0]['kk:metadata'][0]['kk:file'].filter(field => '$' in field) : [];
 
   return inputFields.length === 0 ? [] : inputFields.map(f => f.$.type);
 }

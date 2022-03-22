@@ -1,0 +1,9 @@
+{
+    "description": "Filter: Filetype filter passes when filetype is defined",
+    "sourceMap": {
+        "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
+    },
+    "filters": {
+      "filterByFileType": true
+    }
+}
