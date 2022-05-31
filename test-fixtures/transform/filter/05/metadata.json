@@ -1,0 +1,9 @@
+{
+    "description": "Filter: ISBN filter passes when ISBN identifier is found",
+    "sourceMap": {
+        "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
+    },
+    "filters": {
+      "filterByIsbnIdentifier": true
+    }
+}

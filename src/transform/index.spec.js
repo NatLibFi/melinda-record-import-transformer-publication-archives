@@ -42,6 +42,16 @@ generateTests({
   }
 });
 
+generateTests({
+  callback,
+  path: [__dirname, '..', '..', 'test-fixtures', 'transform', 'filter'],
+  recurse: false,
+  useMetadataFile: true,
+  fixura: {
+    failWhenNotFound: false
+  }
+});
+
 function callback({getFixture, isLegalDeposit = false, sourceMap = {}, filters = {}, isJson = true}) {
   const momentMock = () => moment('2020-01-01T00:00:00');
 

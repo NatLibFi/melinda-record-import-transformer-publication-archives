@@ -1,0 +1,9 @@
+{
+    "description": "Filter: Issued year filter throws error when issued year is older than defined in filter config",
+    "sourceMap": {
+        "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
+    },
+    "filters": {
+      "filterByIssuedYear": 2020
+    }
+}

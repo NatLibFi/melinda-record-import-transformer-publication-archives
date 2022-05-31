@@ -1,0 +1,319 @@
+[{
+  "header": [
+    {
+      "identifier": [
+        "oai:julkaisut.valtioneuvosto.fi:10024/72811"
+      ],
+      "datestamp": [
+        "2019-08-15T06:07:21Z"
+      ],
+      "setSpec": [
+        "com_10024_59365",
+        "col_10024_69908"
+      ]
+    }
+  ],
+  "metadata": [
+    {
+      "kk:metadata": [
+        {
+          "$": {
+            "xmlns:kk": "http://kk/1.0",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xmlns:doc": "http://www.lyncode.com/xoai",
+            "xsi:schemaLocation": "http://kk/1.0/kk.xsd"
+          },
+          "kk:identifier": [
+            {
+              "$": {
+                "type": "handle",
+                "value": "10024/72811"
+              }
+            }
+          ],
+          "kk:type": [
+            {
+              "$": {
+                "name": "item"
+              }
+            }
+          ],
+          "kk:link": [
+            {
+              "$": {
+                "href": "http://julkaisut.valtioneuvosto.fi/handle/10024/72811"
+              }
+            }
+          ],
+          "kk:field": [
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "accessioned",
+                "language": "none",
+                "value": "2014-01-16T14:20:35Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "accessioned",
+                "language": "none",
+                "value": "2016-04-05T13:22:29Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "available",
+                "language": "none",
+                "value": "2014-01-16T14:20:35Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "available",
+                "language": "none",
+                "value": "2016-04-05T13:22:29Z"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "date",
+                "qualifier": "issued",
+                "language": "none",
+                "value": "2011"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "isbn",
+                "language": "none",
+                "value": "978-952-00-3315-6 ( (PDF))"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "issn",
+                "language": "none",
+                "value": "1797-9854 ;"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "uri",
+                "language": "none",
+                "value": "http://julkaisut.valtioneuvosto.fi/handle/10024/72811"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "identifier",
+                "qualifier": "urn",
+                "language": "none",
+                "value": "URN:ISBN:978-952-00-3315-6"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "description",
+                "qualifier": "abstract",
+                "language": "fi",
+                "value": "Yhteiskunnassa tapahtuvat muutokset asettavat mittavia haasteita sosiaali- ja terveydenhuollon turvallisuuskulttuurin kehittämiselle. Turvallisuussuunnitteluun  ja  riskien  hallintaan  liittyy  olennaisesti  riskien  laaja-alainen tarkastelu. Se on myös keskeinen osa johtamista.\r\n\r\nTämän oppaan tarkoituksena on tukea sosiaali- ja terveydenhuollon turvallisuuden  suunnittelua  ja  yhdenmukaistaa  riskienhallinnan  käytäntöjä. Oppaassa on huomioitu viimeisimmät lainsäädäntömuutokset ja varmistettu julkaisun ajantasaisuus.\r\n\r\nTurvallisuussuunnittelun  perustana  käytetään  terveydenhuollon  laitosturvallisuuden  työryhmän  kehittämää  riskienhallinnan  mallia  (sosiaali-  ja terveysministeriön  selvityksiä  2009:59).  Malli  on  helppokäyttöinen  ja  kattava  ja  tarkoitettu  sovellettavaksi  sosiaali-  ja  terveydenhuollon  fyysisten  turvallisuusriskien hallintaan. Se ei sisällä asiakkaan ja potilaan hoidollisiin toimenpiteisiin liittyvää riskien tarkastelua. \r\n\r\nTässä oppaassa sosiaali- ja terveydenhuollon toimijoiden riskienhallintatyö jaetaan ylimmän johdon vastuulla olevaan strategiseen riskienhallintaan ja käytännön toiminnan tasolla toteutettavaan operatiiviseen riskienhallintaan. Johto huolehtii riskienhallinnan ja sisäisen valvonnan järjestämisestä. Operatiivinen taso huolehtii käytännön turvallisuuden päivittäisestä hallinnasta. Oppaassa käsitellään myös tärkeimpiä toimialalle tyypillisiä riskejä riskienhallintamallin  mukaisesti  henkilö-,  toiminta-  ja  toimitilariskeihin jaoteltuina.\r\n\r\nOppaan liitteinä ovat muun muassa kuvaus johdon vastuista riskienhallinnassa ja strategisten riskien arvioinnin ja seurannan lomake, keskeisiä riskejä kuvaava riskikartta sekä turvallisuussuunnitelman sisältömalli suunnitelman laadinnan helpottamiseksi."
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "format",
+                "qualifier": "mimetype",
+                "language": "none",
+                "value": "application/pdf;charset=UTF-8"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "format",
+                "qualifier": "size",
+                "language": "none",
+                "value": "71 s"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "language",
+                "qualifier": "iso",
+                "language": "none",
+                "value": "fi"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "language",
+                "qualifier": "x-abstract",
+                "language": "none",
+                "value": "sv"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "language",
+                "qualifier": "x-abstract",
+                "language": "none",
+                "value": "en"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "qualifier": "x-cityofpublication",
+                "language": "none",
+                "value": "Helsinki"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "relation",
+                "qualifier": "ispartofseries",
+                "language": "none",
+                "value": "Sosiaali- ja terveysministeriön julkaisuja = Social- och hälsovårdsministeriets publikationer = Publications of the Ministry of Social Affairs and Health : 2011:15"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "riskienhallinta"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "riskinarviointi"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "riskit"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "sosiaalihuolto"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "terveydenhuolto"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "turvallisuusjohtaminen"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "turvallisuusohjeet"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "qualifier": "stm",
+                "language": "none",
+                "value": "vaaratilanteet"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "publisher",
+                "language": "none",
+                "value": "Sosiaali- ja terveysministeriö"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "subject",
+                "language": "none",
+                "value": "sosiaali- ja terveyspalvelut"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "title",
+                "language": "none",
+                "value": "Riskienhallinta ja turvallisuussuunnittelu. Opas sosiaali- ja terveydenhuollon johdolle ja turvallisuusasiantuntijoille"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "organization",
+                "language": "none",
+                "value": "STM"
+              }
+            },
+            {
+              "$": {
+                "schema": "dc",
+                "element": "accessrights",
+                "language": "none",
+                "value": ""
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}]
