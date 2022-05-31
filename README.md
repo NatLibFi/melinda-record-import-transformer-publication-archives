@@ -2,29 +2,33 @@
 
 Publication archives record transformer for the Melinda record batch import system. Consumes Dublic Core records from [publication archives](https://www.kansalliskirjasto.fi/en/services/system-platform-services/publication-archive-service).
 
-## License and copyright
-
-Copyright (c) 2020 **University Of Helsinki (The National Library Of Finland)**
-
-This project's source code is licensed under the terms of **GNU Affero General Public License Version 3** or any later version.
-
 ## Environment variables
 ### Mandatory environment values
-Following variables are required for passing harvested records to import system. (API) This behaviour is inherited from [melinda-record-import-commons](https://github.com/NatLibFi/melinda-record-import-commons). 
-* API_URL
-* API_USERNAME
-* API_PASSWORD
+Following variables are required for passing harvested records to import system. (API) This behaviour is inherited from [melinda-record-import-commons](https://github.com/NatLibFi/melinda-record-import-commons).
+* RECORD_IMPORT_API_URL
+* RECORD_IMPORT_API_USERNAME_TRANSFORMER
+* RECORD_IMPORT_API_PASSWORD_TRANSFORMER
 * AMQP_URL
-* BLOB_ID
-* PROFILE_ID
+* PROFILE_IDS
+
+### Filtering environment variables
+* FILTER_FILETYPE_ONLY
+  - description: Filters records without filetype information
+  - default: false
+* FILTER_ISBN_ONLY
+  - description: Filters records without isbn information in field dc.identifier.isbn
+  - default: false
+* FILTER_ISSUED_AFTER
+  - description: Filters records which have dc.date.issued year less than what is configured
+  - default: 0
+* FILTER_MATERIALTYPES
+  - description: Filters record that have material type currently unsupported by the transformation (dc.type.okm is A3, B2 or D2)
+  - default: true
 
 ### Optional environmental values
 These values have default values in inherited configuration file from [melinda-record-import-commons](https://github.com/NatLibFi/melinda-record-import-commons). Default values may change.
 * ABORT_ON_INVALID_RECORDS
   - default: false
-* HEALTH_CHECK_PORT
-  - Port to check if transformer is functioning
-  - default: 8080
 * API_CLIENT_USER_AGENT
   - default: _RECORD-IMPORT-TRANSFORMER
 * SOURCE
@@ -45,6 +49,12 @@ These values have default values in inherited configuration file from [melinda-r
     - UEF Electronic Publications – Itä-Suomen yliopisto | MELINDA_RECORD_IMPORT_REPO:UEF
     - UTUPub – Turun yliopisto | MELINDA_RECORD_IMPORT_REPO:UTUPUP
     - Valto – Valtioneuvosto | MELINDA_RECORD_IMPORT_REPO:VALTO
-  
+
 ## Configuration
 Transformation is configurated in src/config.js file. [More details.](https://github.com/NatLibFi/melinda-record-import-transformer-publication-archives/wiki/Configuration)
+
+## License and copyright
+
+Copyright (c) 2020 **University Of Helsinki (The National Library Of Finland)**
+
+This project's source code is licensed under the terms of **MIT** or any later version.
