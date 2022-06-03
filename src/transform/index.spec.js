@@ -24,7 +24,7 @@ generateTests({
   }
 });
 
-function callback({getFixture, isLegalDeposit = false, sourceMap = {}, filters = {}, isJson = true}) {
+function callback({getFixture, harvestSource = undefined, isLegalDeposit = false, sourceMap = {}, filters = {}, isJson = true}) {
   const momentMock = () => moment('2020-01-01T00:00:00');
 
   const inputData = getFixture({components: ['input.json'], reader: READERS.JSON});
@@ -33,7 +33,7 @@ function callback({getFixture, isLegalDeposit = false, sourceMap = {}, filters =
 
   const transform = createTransformer({
     isJson,
-    harvestSource: 'FOOBAR',
+    harvestSource: harvestSource || 'FOOBAR',
     isLegalDeposit,
     sourceMap,
     filters,

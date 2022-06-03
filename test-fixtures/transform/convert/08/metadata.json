@@ -1,7 +1,8 @@
 {
-    "description": "Transform: Unknown legacy test + generate two different 024 fields for different handles",
+    "description": "Transform: Helda and Valto basic & generate two different 024 fields for different handles",
     "sourceMap": {
         "hdl.handle.net": "REPO_HELDA",
         "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
-    }
+    },
+    "harvestSource": "VALTO"
 }

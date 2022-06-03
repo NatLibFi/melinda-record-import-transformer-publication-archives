@@ -1,7 +1,9 @@
 {
-    "description": "Transform: Unknown legacy test",
+    "description": "Transform: Julkari & Valto basic",
     "sourceMap": {
         "www.julkari.fi": "REPO_JULKARI",
         "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
-    }
+    },
+    "harvestSource": "VALTO",
+    "only": false
 }

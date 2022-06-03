@@ -4,11 +4,11 @@ import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 
 export const profileIds = readEnvironmentVariable('PROFILE_IDS', {defaultValue: ['foobar'], format: v => JSON.parse(v)});
 export const amqpUrl = readEnvironmentVariable('AMQP_URL', {defaultValue: 'amqp://127.0.0.1:5672/'});
-export const abortOnInvalidRecords = readEnvironmentVariable('ABORT_ON_INVALID_RECORDS', {defaultValue: false, format: parseBoolean});
+export const abortOnInvalidRecords = readEnvironmentVariable('ABORT_ON_INVALID_RECORDS', {defaultValue: false, format: v => parseBoolean(v)});
 
-export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE', {defaultValue: ''});
+export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE', {format: JSON.parse});
+export const sourceMap = readEnvironmentVariable('SOURCEMAP', {format: JSON.parse});
 export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
-export const sourceMap = readEnvironmentVariable('SOURCEMAP', {defaultValue: {}, format: JSON.parse});
 export const filters = {
   filterByFileType: readEnvironmentVariable('FILTER_FILETYPE_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
   filterByIsbnIdentifier: readEnvironmentVariable('FILTER_ISBN_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),

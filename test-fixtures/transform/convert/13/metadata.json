@@ -1,6 +1,7 @@
 {
-    "description": "Transform: Generate 024 only from dc.identifier.uri if the value is valid handle.",
+    "description": "Transform: Utupub basic & generate 024 only from dc.identifier.uri if the value is valid handle.",
     "sourceMap": {
         "www.utupub.fi": "REPO_UTUPUB"
-    }
+    },
+    "harvestSource": "UTUPUB"
 }

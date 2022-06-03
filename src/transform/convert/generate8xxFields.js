@@ -56,3 +56,20 @@ export function generate856({getFieldValues}) {
     }
   }
 }
+
+export function generate884(harvestSource, moment) {
+  const source = `MELINDA_RECORD_IMPORT_REPO:${harvestSource}`;
+
+  return [
+    {
+      tag: '884', ind1: '', ind2: '',
+      subfields: [
+        {code: 'a', value: 'Dublin Core to MARC transformation'},
+        {code: 'g', value: moment().format('YYYYMMDD')},
+        {code: 'k', value: source},
+        {code: 'q', value: 'FI-NL'},
+        {code: '5', value: 'MELINDA'}
+      ]
+    }
+  ];
+}

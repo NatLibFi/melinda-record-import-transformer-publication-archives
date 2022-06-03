@@ -1,4 +1,4 @@
-export function generateStaticFields(harvestSource, moment) {
+export function generateStaticFields() {
   return [
     {
       tag: '007', value: 'cr |||||||||||'
@@ -48,16 +48,6 @@ export function generateStaticFields(harvestSource, moment) {
       subfields: [
         {code: 'a', value: 'Koneellisesti tuotettu tietue'},
         {code: '5', value: 'FENNI'}
-      ]
-    },
-    {
-      tag: '884', ind1: '', ind2: '',
-      subfields: [
-        {code: 'a', value: 'Dublin Core to MARC transformation'},
-        {code: 'g', value: moment().format('YYYYMMDD')},
-        {code: 'k', value: harvestSource},
-        {code: 'q', value: 'FI-NL'},
-        {code: '5', value: 'MELINDA'}
       ]
     }
   ];

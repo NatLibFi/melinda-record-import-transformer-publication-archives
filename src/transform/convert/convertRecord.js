@@ -10,11 +10,11 @@ import {generate490} from './generate4xxFields';
 import {generate500and502, generate506, generate540, generate542} from './generate5xxFields';
 import {generate648, generate650, generate651, generate653} from './generate6xxFields';
 import {generate776} from './generate7xxFields';
-import {generate856} from './generate8xxFields';
+import {generate856, generate884} from './generate8xxFields';
 import {generateSID} from './generateSidFields';
 
 export default (fieldValueInterface, options) => {
-  const {harvestSource, sourceMap} = options;
+  const {sourceMap, harvestSource} = options;
   const momentSource = options.moment || moment;
 
   const marcRecord = new MarcRecord();
@@ -26,7 +26,7 @@ export default (fieldValueInterface, options) => {
 
   function generateOutputFields() {
     return [
-      generateStaticFields(harvestSource, momentSource),
+      generateStaticFields(),
       generate008(fieldValueInterface, momentSource),
       generate020(fieldValueInterface),
       generate024(fieldValueInterface),
@@ -49,6 +49,7 @@ export default (fieldValueInterface, options) => {
       generate653(fieldValueInterface),
       generate776(fieldValueInterface),
       generate856(fieldValueInterface),
+      generate884(harvestSource, momentSource),
       generateSID(fieldValueInterface, sourceMap)
     ]
     // Remove undefined values
