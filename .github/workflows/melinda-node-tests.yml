@@ -43,19 +43,34 @@ jobs:
       with:
         args: '.'
 
-  publish:
-    runs-on: ubuntu-latest
+  quayio:
+    name: Quay.io image builder & publisher
     needs: [build-node-versions, njsscan]
-    if: contains(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v3
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
         with:
-          node-version: '14.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.MELINDA_RECORD_IMPORT_COMMONS_JS_NPM_TOKEN }}
+          images: quay.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) }}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+      - name: Login to Quay.io
+        uses: docker/login-action@v1
+        with:
+          registry: quay.io
+          username: ${{ secrets.MELINDA_QUAY_IO_USERNAME }}
+          password: ${{ secrets.MELINDA_QUAY_IO_PASSWORD }}
+      - name: Build and publish image to Quay.io
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
