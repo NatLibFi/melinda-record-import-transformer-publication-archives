@@ -6,7 +6,7 @@ export const profileIds = readEnvironmentVariable('PROFILE_IDS', {defaultValue: 
 export const amqpUrl = readEnvironmentVariable('AMQP_URL', {defaultValue: 'amqp://127.0.0.1:5672/'});
 export const abortOnInvalidRecords = readEnvironmentVariable('ABORT_ON_INVALID_RECORDS', {defaultValue: false, format: v => parseBoolean(v)});
 
-export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE', {format: JSON.parse});
+export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE');
 export const sourceMap = readEnvironmentVariable('SOURCEMAP', {format: JSON.parse});
 export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
 export const filters = {
