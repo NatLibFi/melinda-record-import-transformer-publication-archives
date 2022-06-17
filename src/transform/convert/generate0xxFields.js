@@ -50,7 +50,7 @@ export function generate020({getFieldValues}) {
     };
 
     function formatValue() {
-      return value.replace(/ISBN|\s+|\(print\)/gu, '');
+      return value.replace(/ISBN|\s+|:|\(print\)/gu, '');
     }
   });
 }
