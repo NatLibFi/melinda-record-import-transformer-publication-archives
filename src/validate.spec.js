@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {MarcRecord} from '@natlibfi/marc-record';
 import {READERS} from '@natlibfi/fixura';
-import generateTests from '@natlibfi/fixugen';
+import generateTests from '@natlibfi/fixugen-http-client';
 import createValidator from './validate';
 
 generateTests({
