@@ -44,8 +44,11 @@ jobs:
           exclude-private-packages: true
           allow-only:  |
             MIT
-            BSD-3-Clause
             ISC
+            0BSD
+            BSD-2-Clause
+            BSD-3-Clause
+            Apache-2.0
 
   njsscan:
     name: Njsscan-check
