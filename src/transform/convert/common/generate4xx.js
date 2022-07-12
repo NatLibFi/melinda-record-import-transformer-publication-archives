@@ -1,3 +1,10 @@
+/**
+ * Generates field 490 ($a, $v, $x) if any of the subfields can be generated.
+ * Values creation is based on are found from dc.relation.ispartofseries,
+ * dc.relation.numberofseries, dc.relation.numberinseries and dc.relation.issn.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Undefined or object containing field 490 ($a, $v, $x)
+ */
 export function generate490({getFieldValues}) {
   const subfields = generateSubfields();
 

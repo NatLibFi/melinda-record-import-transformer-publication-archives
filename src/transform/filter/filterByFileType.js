@@ -1,6 +1,12 @@
 import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
-import {getFileTypesInformation} from '../common';
+import {getFileTypesInformation} from '../convert/util';
 
+/**
+ * Filter filtering items that do not have filetype information included to their metadata.
+ * @param {Object} record Record object parsed using XML parser
+ * @param {Object} options Options containing info whether filter should be used
+ * @returns Error if filetype information cannot be found, otherwise found values
+ */
 export function filterByFileType(record, options = {}) {
   if (!options.filterByFileType) {
     return;
