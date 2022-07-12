@@ -36,6 +36,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: mikaelvesavuori/license-compliance-action@v1.0.0
+        with:
+          exclude_pattern: /@natlibfi/*
 
   njsscan:
     name: Njsscan-check
