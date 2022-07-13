@@ -121,3 +121,28 @@ export function extractFinnishTerm(value) {
   const result = (/(?<a>^fi|\|fi)=(?<b>.[^|]+)/u).exec(value);
   return result && result.length === 3 ? result[2].trim() : undefined;
 }
+
+/**
+ * Based on dc.type.ontasot value resolve whether record is dissertation
+ * @param {Object} ValueInterface containing getFields function
+ * @returns {boolean} true if record considers dissertation, false if not
+ */
+export function isDissertation({getFieldValues}) {
+  const validDissertationValues = ['artikkeliväitöskirja', 'esseeväitöskirja', 'monografiaväitöskirja', 'väitöskirja'];
+  const values = getFieldValues('dc.type.ontasot');
+
+  if (values.length > 0) {
+    return values.some(v => validDissertationValues.some(validValue => parseTerm(v) === validValue));
+  }
+
+  return false;
+
+
+  function parseTerm(value) {
+    if (value.match(/fi=/ui)) {
+      return extractFinnishTerm(value).toLowerCase();
+    }
+
+    return value.trim().toLowerCase();
+  }
+}
