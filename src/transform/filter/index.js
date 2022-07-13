@@ -1,4 +1,4 @@
-import {getInputFields, createValueInterface} from '../common';
+import {getInputFields, createValueInterface} from '../convert/util';
 
 import {filterByFileType} from './filterByFileType';
 import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';

@@ -1,3 +1,10 @@
+
+/**
+ * Generates field 100 or 700 ($a, $e) depending on author role
+ * Creation is based on values from dc.contributor.author, dc.creator and dc.contributor.editor
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing fields 100/700 ($a, $e)
+ */
 export function generate100and700({getFieldValues}) {
   const writers = generateWriters();
   const editors = generateEditors();

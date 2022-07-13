@@ -1,43 +1,10 @@
-import {formatLanguage} from '../common';
-import {getHandle} from './utils';
+import {formatLanguage, getHandle} from '../util';
 
-export function generate008({getFields, getFieldValues}, moment) {
-  const timestamp = generateTimestamp();
-  const date = generateDate();
-  const country = generateCountry();
-  const contentNature = generateNatureOfContent();
-  const language = generateLanguage();
-
-  return {
-    tag: '008',
-    value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
-  };
-
-  function generateTimestamp() {
-    return moment().format('YYMMDD');
-  }
-
-  function generateDate() {
-    const values = getFieldValues('dc.date.issued');
-    return values.length > 0 ? values[0].slice(0, 4) : '||||';
-  }
-
-  function generateCountry() {
-    const values = getFieldValues('dc.publisher.country');
-    return values.length > 0 ? values[0].slice(0, 2).toLowerCase() : 'fi';
-  }
-
-  function generateNatureOfContent() {
-    const levels = getFields('dc.type.ontasot');
-    return levels.length > 0 ? 'm   ' : '||||';
-  }
-
-  function generateLanguage() {
-    const values = getFieldValues('dc.language.iso');
-    return formatLanguage(values.slice(-1)[0]);
-  }
-}
-
+/**
+ * Generates field 020 ($a, $q) based on dc.identifier.isbn values
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 020 ($a, $q)
+ */
 export function generate020({getFieldValues}) {
   const values = getFieldValues('dc.identifier.isbn');
   return values.map(value => {
@@ -55,6 +22,11 @@ export function generate020({getFieldValues}) {
   });
 }
 
+/**
+ * Generates field 024 ($a, $2) based on dc.identifier.(urn|doi|uri) values
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 024 ($a, $2)
+ */
 export function generate024({getFieldValues}) {
   const urn = generateUrnFields();
   const doi = generateDoiFields();
@@ -101,11 +73,47 @@ export function generate024({getFieldValues}) {
   }
 }
 
+/**
+ * Generates field 040 ($b, $e, $d) using static values
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Array containing field 040 ($b, $e, $d)
+ */
+export function generate040() {
+  return [
+    {
+      tag: '040', ind1: '', ind2: '',
+      subfields: [
+        {code: 'b', value: 'fin'},
+        {code: 'e', value: 'rda'},
+        {code: 'd', value: 'FI-NL'}
+      ]
+    }
+  ];
+}
+
+/**
+ * Generates field 041 ($a) based on values from dc.language.iso
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 041 ($a)
+ */
 export function generate041({getFieldValues}) {
   const values = getFieldValues('dc.language.iso');
   return values.map(v => ({
     tag: '041', ind1: '', ind2: '',
     subfields: [{code: 'a', value: formatLanguage(v)}]
   }));
+}
+
+/**
+ * Generates field 042 ($a) using static values
+ * @returns Array containing field 042 ($a)
+ */
+export function generate042() {
+  return [
+    {
+      tag: '042', ind1: '', ind2: '',
+      subfields: [{code: 'a', value: 'finb'}]
+    }
+  ];
 }
 
