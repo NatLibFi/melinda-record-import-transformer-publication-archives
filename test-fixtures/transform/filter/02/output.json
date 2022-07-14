@@ -3,6 +3,11 @@
   "title": [
     "Riskienhallinta ja turvallisuussuunnittelu. Opas sosiaali- ja terveydenhuollon johdolle ja turvallisuusasiantuntijoille"
   ],
-  "standardIdentifiers": [ "(REPO_VALTO)/10024/72811" ],
+  "standardIdentifiers": [
+    "978-952-00-3315-6 ( (PDF))",
+    "http://julkaisut.valtioneuvosto.fi/handle/10024/72811",
+    "URN:ISBN:978-952-00-3315-6",
+    "(REPO_VALTO)/10024/72811"
+  ],
   "message": "Filter: Conversion without file type specification is not supported"
 }

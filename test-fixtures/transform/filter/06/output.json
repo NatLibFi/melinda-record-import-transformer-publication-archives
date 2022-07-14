@@ -3,6 +3,9 @@
   "title": [
     "Riskienhallinta ja turvallisuussuunnittelu. Opas sosiaali- ja terveydenhuollon johdolle ja turvallisuusasiantuntijoille"
   ],
-  "standardIdentifiers": [ "(REPO_VALTO)/10024/72811" ],
+  "standardIdentifiers": [
+    "http://julkaisut.valtioneuvosto.fi/handle/10024/72811",
+    "(REPO_VALTO)/10024/72811"
+  ],
   "message": "Filter: Cannot find ISBN identifier which is a required field"
 }
