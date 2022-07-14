@@ -24,14 +24,13 @@ generateTests({
   }
 });
 
-function callback({getFixture, harvestSource = undefined, isLegalDeposit = false, sourceMap = {}, filters = {}, isJson = true}) {
+function callback({getFixture, expectedError = false, harvestSource = undefined, isLegalDeposit = false, sourceMap = {}, filters = {}, isJson = true}) {
   const momentMock = () => moment('2020-01-01T00:00:00');
 
   const inputData = isJson
     ? getFixture({components: ['input.json'], reader: READERS.JSON})
     : getFixture({components: ['input.xml'], reader: READERS.STREAM});
   const expectedRecord = getFixture({components: ['output.json'], reader: READERS.JSON});
-  const expectedError = getFixture('error.txt');
 
   const transform = createTransformer({
     isJson,
@@ -62,8 +61,19 @@ function callback({getFixture, harvestSource = undefined, isLegalDeposit = false
       .on('end', () => {
         try {
           expect(results).to.have.lengthOf(1);
-          expect(results[0].failed).to.eql(false);
-          expect(results[0].record.toObject()).to.eql(expectedRecord);
+          const [result] = results;
+
+          if (result.failed === false) {
+            expect(result.failed).to.eql(false);
+            expect(result.record.toObject()).to.eql(expectedRecord);
+            return resolve();
+          }
+
+          const {failed, title, standardIdentifiers, message} = result;
+          expect(failed).to.eql(expectedRecord.failed);
+          expect(title).to.eql(expectedRecord.title);
+          expect(standardIdentifiers).to.eql(expectedRecord.standardIdentifiers);
+          expect(message).to.eql(expectedRecord.message);
           resolve();
         } catch (err) {
           reject(err);

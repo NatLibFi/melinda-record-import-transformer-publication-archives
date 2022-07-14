@@ -30,7 +30,7 @@ jobs:
     - run: npm run build --if-present
 
   license-scan:
-    name: license check
+    name: License compliance check
     runs-on: ubuntu-latest
 
     steps:

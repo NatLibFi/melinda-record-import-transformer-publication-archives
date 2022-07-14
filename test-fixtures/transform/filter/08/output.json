@@ -1,0 +1,10 @@
+{
+  "failed": true,
+  "title": [
+    "Riskienhallinta ja turvallisuussuunnittelu. Opas sosiaali- ja terveydenhuollon johdolle ja turvallisuusasiantuntijoille"
+  ],
+  "standardIdentifiers": [
+    "(REPO_VALTO)/10024/72811"
+  ],
+  "message": "Filter: Date issued is older than required by filter configuration"
+}

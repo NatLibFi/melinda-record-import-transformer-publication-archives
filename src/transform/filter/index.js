@@ -1,21 +1,25 @@
 import {getInputFields, createValueInterface} from '../common';
+import {generateSID} from '../convert/generateSidFields';
 
 import {filterByFileType} from './filterByFileType';
 import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
 import {filterByIssuedYear} from './filterByIssuedYear';
 import {filterByMaterialType} from './filterByMaterialType';
 
-export default options => record => {
+export default ({filters, sourceMap}) => record => {
   const inputFields = getInputFields(record);
   const fieldValueInterface = createValueInterface(inputFields);
+  const {getFieldValues} = fieldValueInterface;
+  const identifiers = [...getFieldValues('dc.identifier'), ...generateSID(fieldValueInterface, sourceMap, true)];
+  const title = getFieldValues('dc.title');
 
   const recordFilters = {
     raw: [filterByFileType],
     interface: [filterByMaterialType, filterByIsbnIdentifier, filterByIssuedYear]
   };
 
-  recordFilters.raw.forEach(f => f(record, options));
-  recordFilters.interface.forEach(f => f(fieldValueInterface, options));
+  recordFilters.raw.forEach(f => f(record, {...filters, identifiers, title}));
+  recordFilters.interface.forEach(f => f(fieldValueInterface, {...filters, identifiers, title}));
 
   return fieldValueInterface;
 };

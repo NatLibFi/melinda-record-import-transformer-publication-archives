@@ -7,9 +7,10 @@ export function filterByFileType(record, options = {}) {
   }
 
   const values = getFileTypesInformation(record) || false;
+  const {identifiers, title} = options;
 
   if (!values || values.length === 0) {
-    throw new NotSupportedError(422, 'Unprocessable entity', 'Filter: Conversion without file type specification is not supported');
+    throw new NotSupportedError(422, {identifiers, title}, 'Filter: Conversion without file type specification is not supported');
   }
 
   return values;

@@ -6,10 +6,11 @@ export function filterByMaterialType({getFieldValues}, options = {}) {
   }
 
   const materialType = getFieldValues('dc.type.okm');
+  const {identifiers, title} = options;
 
   if (materialType.length > 0) {
     if (materialType.some(isUnsupportedMaterialType)) {
-      throw new NotSupportedError(422, 'Unprocessable entity', 'Filter: Conversion does not support the given type of material');
+      throw new NotSupportedError(422, {identifiers, title}, 'Filter: Conversion does not support the given type of material');
     }
   }
 

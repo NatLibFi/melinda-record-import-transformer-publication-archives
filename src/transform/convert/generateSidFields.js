@@ -1,6 +1,6 @@
 import {getHandle} from './utils';
 
-export function generateSID({getFieldValues}, sourceMap) {
+export function generateSID({getFieldValues}, sourceMap, justSIDValues = false) {
   const values = getFieldValues('dc.identifier.uri');
 
   const validSidValues = values.reduce((acc, value) => {
@@ -11,11 +11,11 @@ export function generateSID({getFieldValues}, sourceMap) {
     return acc;
   }, []);
 
-  return validSidValues.length > 0 ? validSidValues.map(v => (
-    {tag: 'SID', ind1: '', ind2: '',
-      subfields: [
-        {code: 'c', value: v.handle},
-        {code: 'b', value: v.source}
-      ]}
-  )) : [];
+  return validSidValues.length > 0 ? validSidValues.map(v => {
+    if (!justSIDValues) {
+      return {tag: 'SID', ind1: '', ind2: '', subfields: [{code: 'c', value: v.handle}, {code: 'b', value: v.source}]};
+    }
+
+    return `(${v.source})${v.handle}`;
+  }) : [];
 }

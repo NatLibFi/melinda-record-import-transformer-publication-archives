@@ -1,1 +1,0 @@
-Filter: Date issued is older than required by filter configuration
