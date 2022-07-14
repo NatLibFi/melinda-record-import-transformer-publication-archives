@@ -1,5 +1,5 @@
-import {getInputFields, createValueInterface} from '../common';
-import {generateSID} from '../convert/generateSidFields';
+import {generateSID} from '../convert/common/generateSystemFields';
+import {getInputFields, createValueInterface} from '../convert/util';
 
 import {filterByFileType} from './filterByFileType';
 import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';

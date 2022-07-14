@@ -1,3 +1,8 @@
+/**
+ * Generates field 648 ($a) based on dc.coverage.temporal values
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 648 ($a)
+ */
 export function generate648({getFieldValues}) {
   const values = getFieldValues('dc.coverage.temporal');
   return values.map(value => ({
@@ -6,6 +11,12 @@ export function generate648({getFieldValues}) {
   }));
 }
 
+/**
+ * Generates field 650 ($a, $2) based on dc.subject.yso values.
+ * $2 subfield contains static value 'yso'.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 650 ($a, $2)
+ */
 export function generate650({getFieldValues}) {
   const yso = generateYso();
   const afo = generateAfo();
@@ -35,6 +46,11 @@ export function generate650({getFieldValues}) {
   }
 }
 
+/**
+ * Generates field 651 ($a) based on dc.coverage.spatial values.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 651 ($a)
+ */
 export function generate651({getFieldValues}) {
   const values = getFieldValues('dc.coverage.spatial');
   return values.map(value => ({
@@ -43,6 +59,11 @@ export function generate651({getFieldValues}) {
   }));
 }
 
+/**
+ * Generates field 653 ($a) based on dc.subject.ysa and dc.subject values.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 653 ($a)
+ */
 export function generate653({getFieldValues}) {
   const values = getFieldValues(p => [
     'dc.subject.ysa',

@@ -1,5 +1,11 @@
 import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 
+/**
+ * Filter filtering items based on material type (dc.type.okm).
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @param {Object} options Options containing info whether filter should be used
+ * @returns Error if material type is A3, B2 or D2, otherwise undefined.
+ */
 export function filterByMaterialType({getFieldValues}, options = {}) {
   if (!options.filterByMaterialType) {
     return;

@@ -1,5 +1,13 @@
-import {isValidLink} from './utils';
+import {isValidLink} from '../util';
 
+/**
+ * Generates field 856 ($u: optional, $y: optional).
+ * Field generation is based on dc.rights.accesslevel value.
+ * 856 fields relating to publicly available access prioritize
+ * URN and DOI over URI and URL.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 856 ($u, $y)
+ */
 export function generate856({getFieldValues}) {
   const publicAccessFields = generatePublicAccessFields();
   const otherUrnFields = generateOtherUrnFields();
@@ -57,6 +65,13 @@ export function generate856({getFieldValues}) {
   }
 }
 
+/**
+ * Generates field 884 ($a, $g, $k, $q, $5).
+ * Field generation is based on environmental variables value.
+ * @param {string} harvestSource Source from where metadata was retrieved
+ * @param {Object} moment Moment instance to be used for date generation
+ * @returns Empty array or array containing field 856 ($u, $y)
+ */
 export function generate884(harvestSource, moment) {
   const source = `MELINDA_RECORD_IMPORT_REPO:${harvestSource}`;
 

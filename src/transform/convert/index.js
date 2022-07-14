@@ -1,3 +1,7 @@
-import convertRecord from './convertRecord';
+import convertRecord from './common';
 
-export default options => fieldValueInterface => convertRecord(fieldValueInterface, options);
+/* eslint-disable-next-line arrow-body-style */
+export default options => fieldValueInterface => {
+  // Support for new material types should be placed here
+  return convertRecord(fieldValueInterface, options);
+};
