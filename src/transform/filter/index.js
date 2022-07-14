@@ -10,7 +10,12 @@ export default ({filters, sourceMap}) => record => {
   const inputFields = getInputFields(record);
   const fieldValueInterface = createValueInterface(inputFields);
   const {getFieldValues} = fieldValueInterface;
-  const identifiers = [...getFieldValues('dc.identifier'), ...generateSID(fieldValueInterface, sourceMap, true)];
+  const identifiers = [
+    ...getFieldValues('dc.identifier.isbn'),
+    ...getFieldValues('dc.identifier.uri'),
+    ...getFieldValues('dc.identifier.urn'),
+    ...generateSID(fieldValueInterface, sourceMap, true)
+  ];
   const title = getFieldValues('dc.title');
 
   const recordFilters = {
