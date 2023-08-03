@@ -466,17 +466,6 @@
       ]
     },
     {
-      "tag": "LOW",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "FIKKA"
-        }
-      ]
-    },
-    {
       "tag": "SID",
       "ind1": " ",
       "ind2": " ",
@@ -488,6 +477,17 @@
         {
           "code": "b",
           "value": "REPO_TREPO"
+        }
+      ]
+    },
+    {
+      "tag": "LOW",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "FIKKA"
         }
       ]
     }

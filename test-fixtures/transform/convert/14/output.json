@@ -354,17 +354,6 @@
       "ind2": " ",
       "subfields": [
         {
-          "code": "a",
-          "value": "FIKKA"
-        }
-      ],
-      "tag": "LOW"
-    },
-    {
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
           "code": "c",
           "value": "/10024/64928"
         },
@@ -374,6 +363,17 @@
         }
       ],
       "tag": "SID"
+    },
+    {
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "FIKKA"
+        }
+      ],
+      "tag": "LOW"
     }
   ],
   "leader": "00000nam a22000003i 4500"
