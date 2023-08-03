@@ -1,6 +1,7 @@
 {
-    "description": "Transform: Generates fields 007,008,020,024(URN),040,041,042,245,264,336,337,338,341,490,500,506,594,653,856,884,LOW,SID",
+    "description": "Transform: Valto basic & generates fields 007,008,020,024(URN),040,041,042,245,264,336,337,338,341,490,500,506,594,653,856,884,LOW,SID",
     "sourceMap": {
         "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
-    }
+    },
+    "harvestSource": "VALTO"
 }

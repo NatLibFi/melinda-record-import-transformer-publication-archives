@@ -1,31 +1,10 @@
 /**
-*
-* @licstart  The following is the entire license notice for the JavaScript code in this file.
-*
-* Publication archives record transformer for the Melinda record batch import system
-*
-* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
-*
-* This file is part of melinda-record-import-transformer-publication-archives
-*
-* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU Affero General Public License as
-* published by the Free Software Foundation, either version 3 of the
-* License, or (at your option) any later version.
-*
-* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU Affero General Public License for more details.
-*
-* You should have received a copy of the GNU Affero General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-* @licend  The above is the entire license notice
-* for the JavaScript code in this file.
-*
-*/
-
+ * Generates field 490 ($a, $v, $x) if any of the subfields can be generated.
+ * Values creation is based on are found from dc.relation.ispartofseries,
+ * dc.relation.numberofseries, dc.relation.numberinseries and dc.relation.issn.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Undefined or object containing field 490 ($a, $v, $x)
+ */
 export function generate490({getFieldValues}) {
   const subfields = generateSubfields();
 
