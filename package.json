@@ -40,7 +40,7 @@
 	"dependencies": {
 		"@babel/runtime": "^7.22.6",
 		"@natlibfi/marc-record": "^7.2.4",
-		"@natlibfi/marc-record-validate": "^7.0.1-alpha.2",
+		"@natlibfi/marc-record-validate": "^8.0.1",
 		"@natlibfi/marc-record-validators-melinda": "9.0.10-alpha.2",
 		"@natlibfi/melinda-backend-commons": "^2.2.1",
 		"@natlibfi/melinda-commons": "^13.0.5",
@@ -65,7 +65,7 @@
 		"chai-as-promised": "^7.1.1",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.46.0",
-		"mocha": "^10.0.0",
+		"mocha": "^10.2.0",
 		"nodemon": "^3.0.1",
 		"nyc": "^15.1.0"
 	},
