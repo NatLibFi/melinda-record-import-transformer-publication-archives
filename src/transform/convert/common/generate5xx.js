@@ -1,4 +1,4 @@
-import {hasLevels, extractFinnishTerm} from '../util';
+import {hasLevels, isDissertation, extractFinnishTerm} from '../util';
 
 /**
  * Generates field 500 ($a) based on dc.description, dc.description.notification and dc.type.ontasot
@@ -67,10 +67,8 @@ export function generate500({getFieldValues, getFields}) {
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 502 ($a, $d, $c ,$9)
  */
-export function generate502({getFieldValues, getFields}) {
-  const hasLevel = hasLevels({getFields});
-
-  return hasLevel ? [
+export function generate502({getFieldValues}) {
+  return isDissertation({getFieldValues}) ? [
     {
       tag: '502', ind1: '', ind2: '',
       subfields: generate502Subfields()
