@@ -1,7 +1,6 @@
 {
-    "description": "Transform: Jukuri basic & Generates field 542",
+    "description": "Transform: Generates field 542",
     "sourceMap": {
         "jukuri.luke.fi": "REPO_JUKURI"
-    },
-    "harvestSource": "JUKURI"
+    }
 }

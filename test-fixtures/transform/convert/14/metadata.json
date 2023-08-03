@@ -1,8 +1,0 @@
-{
-    "description": "Transform: VALTO test 020 generation",
-    "sourceMap": {
-        "julkaisut.valtioneuvosto.fi": "REPO_VALTO"
-    },
-    "harvestSource": "VALTO",
-    "isJson": false
-}

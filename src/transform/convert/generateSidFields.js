@@ -26,12 +26,24 @@
 *
 */
 
+import {getHandle} from './utils';
 
-import {xmlToObject} from './xmlParser';
+export function generateSID({getFieldValues}, sourceMap) {
+  const values = getFieldValues('dc.identifier.uri');
 
-run();
+  const validSidValues = values.reduce((acc, value) => {
+    const result = getHandle(value, sourceMap);
+    if (result && Object.prototype.hasOwnProperty.call(sourceMap, result.source)) {
+      return acc.concat({source: sourceMap[result.source], handle: result.handle});
+    }
+    return acc;
+  }, []);
 
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
+  return validSidValues.length > 0 ? validSidValues.map(v => (
+    {tag: 'SID', ind1: '', ind2: '',
+      subfields: [
+        {code: 'c', value: v.handle},
+        {code: 'b', value: v.source}
+      ]}
+  )) : [];
 }
