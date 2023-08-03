@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="static/style.xsl"?><OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2022-06-02T10: 29: 22Z</responseDate><request verb="ListRecords" metadataPrefix="kk" set="com_10024_59357">https: //julkaisut.valtioneuvosto.fi/oai/request</request><ListRecords><record><header><identifier>oai:julkaisut.valtioneuvosto.fi:10024/64928</identifier><datestamp>2021-01-12T07:51:18Z</datestamp><setSpec>com_10024_59357</setSpec><setSpec>col_10024_59358</setSpec></header><metadata><kk:metadata xmlns:kk="http://kk/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:doc="http://www.lyncode.com/xoai" xsi:schemaLocation="http://kk/1.0/kk.xsd">
+   <kk:identifier type="handle" value="10024/64928" />
+   <kk:type name="item" />
+   <kk:link href="http://julkaisut.valtioneuvosto.fi/handle/10024/64928" />
+   <kk:field schema="dc" element="date" qualifier="accessioned" language="none" value="2016-03-02T08:33:35Z" />
+   <kk:field schema="dc" element="date" qualifier="available" language="none" value="2016-03-02T08:33:35Z" />
+   <kk:field schema="dc" element="date" qualifier="issued" language="-" value="2016-02-18" />
+   <kk:field schema="dc" element="identifier" qualifier="isbn" language="-" value="ISBN:978-952-263-389-7" />
+   <kk:field schema="dc" element="identifier" qualifier="uri" language="none" value="http://julkaisut.valtioneuvosto.fi/handle/10024/64928" />
+   <kk:field schema="dc" element="identifier" qualifier="urn" language="-" value="URN:ISBN:978-952-263-389-7" />
+   <kk:field schema="dc" element="identifier" qualifier="dscollection" language="-" value="10024/59358" />
+   <kk:field schema="dc" element="identifier" qualifier="dscollection" language="-" value="10024/59358" />
+   <kk:field schema="dc" element="description" qualifier="abstract" language="fi" value="Opetus- ja kulttuuriministeriö asetti työryhmän selvittämään taidenäyttelyiden järjestämiseen liittyviä sopimus- ja korvauskäytäntöjä. Työryhmän tehtävänä oli selvittää nykyiset taiteilijoiden ja näyttelynjärjestäjien väliset sopimus- ja korvauskäytännöt sekä näyttelyiden kustannusten jakautuminen osapuolten kesken, laatia vaihtoehtoiset tavat kehittää käytäntöjä ja arvioida vaihtoehtoisten kehittämistapojen vaikutuksia. Työryhmä keskittyi työskentelyssään tarkastelemaan niitä taidenäyttelyitä, joita järjestetään museoissa tai taidegallerioissa tai joiden järjestämistä tuetaan muutoin valtion rahoituksen kautta. Työryhmä kuuli työssään alan asiantuntijoita sekä sai käyttöönsä taidealan toimijoiden tekemiä selvityksiä. Työryhmä selvitti myös pohjoismaisia käytäntöjä, niiden kehityssuuntia ja vaikutuksia. Työryhmä selvitti näyttelyiden järjestämisen taloudellisia reunaehtoja, koska niillä on olennainen vaikutus näyttelyistä suoritettavien korvausten määrään ja laatuun. Selvityksistä ilmeni, että Suomessa on jo olemassa hyviä sopimus- ja korvauskäytäntöjä Kansallisgallerian ja suurimpien muiden näyttelynjärjestäjien osalta. Selvityksessä esitellään näitä käytäntöjä ja pyritään saattamaan ne laajempaan tietoisuuteen. Työryhmän laatimat kehittämisehdotukset liittyvät museoiden sopimus- ja korvauskäytäntöihin, järjestöille ja muille organisaatioille myönnettäviin valtionavustuksiin, taiteilijoille myönnettäviin valtionavustuksiin, välittäjäportaan tukemiseen ja galleriatoimintaan, taiteen myynnin lisäämiseen ja tiedotukseen sekä taiteilijoiden tunnettuuden lisäämiseen. Kehittämisehdotusten yhteydessä on arvioitu niiden vaikutuksia. Kehittämisehdotuksia laadittaessa on pyritty ottamaan huomioon valtiontalouden haastava tilanne. Työryhmä laati työnsä ohessa myös suositukset asioista, joista osapuolten, eli näyttelynjärjestäjien, taiteilijoiden ja teosten oikeudenhaltijoiden, tulisi sopia näyttelyitä järjestettäessä ja niihin osallistuttaessa. Suositukset ovat liitteenä. Lisäksi liitteenä on artikkeli visuaalisen alan taiteilijoiden tulonmuodostuksesta." />
+   <kk:field schema="dc" element="format" qualifier="extent" language="-" value="69" />
+   <kk:field schema="dc" element="format" qualifier="bitstream" language="none" value="true" />
+   <kk:field schema="dc" element="format" qualifier="bitstream" language="none" value="true" />
+   <kk:field schema="dc" element="language" qualifier="iso" language="-" value="fi" />
+   <kk:field schema="dc" element="relation" qualifier="ispartofseries" language="-" value="Opetus- ja kulttuuriministeriön julkaisuja" />
+   <kk:field schema="dc" element="relation" qualifier="issn" language="b" value="1799-0335" />
+   <kk:field schema="dc" element="relation" qualifier="numberinseries" language="-" value="2016:4" />
+   <kk:field schema="dc" element="contributor" qualifier="groupauthor" language="-" value="Opetus- ja kulttuuriministeriö" />
+   <kk:field schema="dc" element="contributor" qualifier="department" language="-" value="Kulttuuri- ja taidepolitiikan osasto" />
+   <kk:field schema="dc" element="publisher" language="-" value="Opetus- ja kulttuuriministeriö" />
+   <kk:field schema="dc" element="rights" language="none" value="This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited." />
+   <kk:field schema="dc" element="subject" language="-" value="taidenäyttelyt" />
+   <kk:field schema="dc" element="subject" language="-" value="palkkiot" />
+   <kk:field schema="dc" element="subject" language="-" value="korvaukset" />
+   <kk:field schema="dc" element="subject" language="-" value="kulttuuri" />
+   <kk:field schema="dc" element="title" language="-" value="Taidenäyttelyiden järjestämiseen liittyvistä sopimus- ja korvauskäytännöistä : Työryhmän loppuraportti" />
+   <kk:field schema="dc" element="topic" language="-" value="kulttuuri" />
+   <kk:file bundle="ORIGINAL" href="https://julkaisut.valtioneuvosto.fi/bitstream/10024/64928/1/Taiden%c3%a4yttelyiden%20j%c3%a4rjest%c3%a4miseen%20liittyvist%c3%a4%20sopimus-%20ja%20korvausk%c3%a4yt%c3%a4nn%c3%b6ist%c3%a4_Ty%c3%b6ryhm%c3%a4n%20loppuraportti.pdf" name="Taidenäyttelyiden järjestämiseen liittyvistä sopimus- ja korvauskäytännöistä_Työryhmän loppuraportti.pdf" originalName="Taidenäyttelyiden järjestämiseen liittyvistä sopimus- ja korvauskäytännöistä_Työryhmän loppuraportti.pdf" type="application/pdf" size="931895" sequence="1" description="" checksum="929e1a46d2e2b594ba4e84e485d06134" checksumAlgorithm="MD5" />
+</kk:metadata>
+</metadata></record></ListRecords></OAI-PMH>

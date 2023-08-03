@@ -201,21 +201,6 @@
       ]
     },
     {
-      "tag": "502",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "Väitöskirja :"
-        },
-        {
-          "code": "9",
-          "value": "FENNI<KEEP>"
-        }
-      ]
-    },
-    {
       "tag": "506",
       "ind1": "0",
       "ind2": " ",
@@ -287,7 +272,7 @@
         },
         {
           "code": "k",
-          "value": "FOOBAR"
+          "value": "MELINDA_RECORD_IMPORT_REPO:UTUPUB"
         },
         {
           "code": "q",
@@ -299,18 +284,7 @@
         }
       ]
     },
-    {
-      "tag": "LOW",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "FIKKA"
-        }
-      ]
-    },
-    {
+     {
       "tag": "SID",
       "ind1": " ",
       "ind2": " ",
@@ -322,6 +296,17 @@
         {
           "code": "b",
           "value": "REPO_UTUPUB"
+        }
+      ]
+    },
+    {
+      "tag": "LOW",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "FIKKA"
         }
       ]
     }

@@ -368,7 +368,7 @@
       "state": "valid"
     },
     {
-      "description": "Adds URN for record, to 856-field (if not existing)",
+      "description": "Adds URN for record, to 856-field (if not existing). If isLegalDeposit is active, adds legal deposit subfields to the f856s with URN.",
       "state": "fixed"
     },
     {

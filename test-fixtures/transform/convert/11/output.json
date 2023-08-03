@@ -414,7 +414,7 @@
         },
         {
           "code": "k",
-          "value": "FOOBAR"
+          "value": "MELINDA_RECORD_IMPORT_REPO:THESEUS"
         },
         {
           "code": "q",
@@ -423,17 +423,6 @@
         {
           "code": "5",
           "value": "MELINDA"
-        }
-      ]
-    },
-    {
-      "tag": "LOW",
-      "ind1": " ",
-      "ind2": " ",
-      "subfields": [
-        {
-          "code": "a",
-          "value": "FIKKA"
         }
       ]
     },
@@ -449,6 +438,17 @@
         {
           "code": "b",
           "value": "REPO_THESEUS"
+        }
+      ]
+    },
+    {
+      "tag": "LOW",
+      "ind1": " ",
+      "ind2": " ",
+      "subfields": [
+        {
+          "code": "a",
+          "value": "FIKKA"
         }
       ]
     }

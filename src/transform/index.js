@@ -1,42 +1,15 @@
-/**
-*
-* @licstart  The following is the entire license notice for the JavaScript code in this file.
-*
-* Publication archives record transformer for the Melinda record batch import system
-*
-* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
-*
-* This file is part of melinda-record-import-transformer-publication-archives
-*
-* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU Affero General Public License as
-* published by the Free Software Foundation, either version 3 of the
-* License, or (at your option) any later version.
-*
-* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU Affero General Public License for more details.
-*
-* You should have received a copy of the GNU Affero General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-* @licend  The above is the entire license notice
-* for the JavaScript code in this file.
-*
-*/
-
-import createValidator from '../validate';
-import {createLogger} from '@natlibfi/melinda-backend-commons';
 import {EventEmitter} from 'events';
+import {createLogger} from '@natlibfi/melinda-backend-commons';
+import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 import createConverter from './convert';
 import createFilter from './filter';
+import createValidator from '../validate';
 import {xmlToObject} from './xmlParser';
 
 class TransformEmitter extends EventEmitter {}
 
 export default options => (stream, {validate = true, fix = true} = {}) => {
-  const {isLegalDeposit, filters, isJson} = options;
+  const {isLegalDeposit, filters, isJson, sourceMap} = options;
   const Emitter = new TransformEmitter();
   const logger = createLogger();
 
@@ -47,7 +20,7 @@ export default options => (stream, {validate = true, fix = true} = {}) => {
   return Emitter;
 
   async function readStream(stream) {
-    const filterRecord = createFilter(filters);
+    const filterRecord = createFilter({filters, sourceMap});
     const validateRecord = await createValidator(isLegalDeposit);
     const convertRecord = createConverter({...options});
 
@@ -77,7 +50,31 @@ export default options => (stream, {validate = true, fix = true} = {}) => {
 
         return Emitter.emit('record', {failed: false, record});
       } catch (err) {
+        if (err instanceof NotSupportedError) {
+          const {title = '', standardIdentifiers, message} = collectErrorInfo(err);
+
+          return Emitter.emit('record', {
+            failed: true,
+            title,
+            standardIdentifiers,
+            message
+          });
+        }
+
         Emitter.emit('error', err);
+      }
+
+      function collectErrorInfo(err) {
+        const message = err.message === '' ? false : err.message;
+
+        if (err.payload !== undefined && err.payload !== null && typeof err.payload === 'object') {
+          const standardIdentifiers = err.payload.identifiers ? err.payload.identifiers : [];
+          const {title} = err.payload;
+
+          return {title, standardIdentifiers, message};
+        }
+
+        return {message};
       }
     }
   }

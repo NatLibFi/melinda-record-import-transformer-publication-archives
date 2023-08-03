@@ -1,33 +1,13 @@
+import {isValidLink} from '../util';
+
 /**
-*
-* @licstart  The following is the entire license notice for the JavaScript code in this file.
-*
-* Publication archives record transformer for the Melinda record batch import system
-*
-* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
-*
-* This file is part of melinda-record-import-transformer-publication-archives
-*
-* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU Affero General Public License as
-* published by the Free Software Foundation, either version 3 of the
-* License, or (at your option) any later version.
-*
-* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU Affero General Public License for more details.
-*
-* You should have received a copy of the GNU Affero General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-* @licend  The above is the entire license notice
-* for the JavaScript code in this file.
-*
-*/
-
-import {isValidLink} from './utils';
-
+ * Generates field 856 ($u: optional, $y: optional).
+ * Field generation is based on dc.rights.accesslevel value.
+ * 856 fields relating to publicly available access prioritize
+ * URN and DOI over URI and URL.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 856 ($u, $y)
+ */
 export function generate856({getFieldValues}) {
   const publicAccessFields = generatePublicAccessFields();
   const otherUrnFields = generateOtherUrnFields();
@@ -83,4 +63,28 @@ export function generate856({getFieldValues}) {
       return values.filter(value => isValidLink(value)).map(value => ({code: 'u', value}));
     }
   }
+}
+
+/**
+ * Generates field 884 ($a, $g, $k, $q, $5).
+ * Field generation is based on environmental variables value.
+ * @param {string} harvestSource Source from where metadata was retrieved
+ * @param {Object} moment Moment instance to be used for date generation
+ * @returns Empty array or array containing field 856 ($u, $y)
+ */
+export function generate884(harvestSource, moment) {
+  const source = `MELINDA_RECORD_IMPORT_REPO:${harvestSource}`;
+
+  return [
+    {
+      tag: '884', ind1: '', ind2: '',
+      subfields: [
+        {code: 'a', value: 'Dublin Core to MARC transformation'},
+        {code: 'g', value: moment().format('YYYYMMDD')},
+        {code: 'k', value: source},
+        {code: 'q', value: 'FI-NL'},
+        {code: '5', value: 'MELINDA'}
+      ]
+    }
+  ];
 }
