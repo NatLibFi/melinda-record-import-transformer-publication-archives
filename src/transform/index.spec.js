@@ -46,7 +46,7 @@ function callback({getFixture, expectedError = false, harvestSource = undefined,
 
     transform(inputData, {validate: false, fix: false})
       .on('error', err => {
-        if (expectedError) { // eslint-disable-line functional/no-conditional-statement
+        if (expectedError) { // eslint-disable-line functional/no-conditional-statements
           try {
             expect(err).to.be.an('error');
             expect(err.message).to.match(new RegExp(expectedError, 'u'));
