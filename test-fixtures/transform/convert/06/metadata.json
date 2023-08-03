@@ -1,7 +1,6 @@
 {
-    "description": "Transform: Lauda basic & generates field 700",
+    "description": "Transform: Generates field 700",
     "sourceMap": {
         "lauda.ulapland.fi": "REPO_LAUDA"
-    },
-    "harvestSource": "LAUDA"
+    }
 }

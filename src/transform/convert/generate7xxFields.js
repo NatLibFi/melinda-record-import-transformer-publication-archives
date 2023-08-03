@@ -26,12 +26,15 @@
 *
 */
 
+// Note: Generation of field 700 is defined together with generation of field 100
 
-import {xmlToObject} from './xmlParser';
-
-run();
-
-async function run() {
-  const {'OAI-PMH': {GetRecord}} = await xmlToObject(process.stdin);
-  console.log(JSON.stringify(GetRecord[0].record, undefined, 2)); // eslint-disable-line no-console
+export function generate776({getFieldValues}) {
+  const values = getFieldValues('dc.relation.isversionof');
+  return values.map(value => ({
+    tag: '776', ind1: '0', ind2: '8',
+    subfields: [
+      {code: 'z', value},
+      {code: '9', value: 'FENNI<KEEP>'}
+    ]
+  }));
 }

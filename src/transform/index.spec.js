@@ -1,3 +1,31 @@
+/**
+*
+* @licstart  The following is the entire license notice for the JavaScript code in this file.
+*
+* Publication archives record transformer for the Melinda record batch import system
+*
+* Copyright (C) 2019-2021 University Of Helsinki (The National Library Of Finland)
+*
+* This file is part of melinda-record-import-transformer-publication-archives
+*
+* melinda-record-import-transformer-publication-archives program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as
+* published by the Free Software Foundation, either version 3 of the
+* License, or (at your option) any later version.
+*
+* melinda-record-import-transformer-publication-archives is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Affero General Public License for more details.
+*
+* You should have received a copy of the GNU Affero General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* @licend  The above is the entire license notice
+* for the JavaScript code in this file.
+*
+*/
+
 import {READERS} from '@natlibfi/fixura';
 import moment from 'moment';
 import {expect} from 'chai';
@@ -24,17 +52,16 @@ generateTests({
   }
 });
 
-function callback({getFixture, expectedError = false, harvestSource = undefined, isLegalDeposit = false, sourceMap = {}, filters = {}, isJson = true}) {
+function callback({getFixture, isLegalDeposit = false, sourceMap = {}, filters = {}, isJson = true}) {
   const momentMock = () => moment('2020-01-01T00:00:00');
 
-  const inputData = isJson
-    ? getFixture({components: ['input.json'], reader: READERS.JSON})
-    : getFixture({components: ['input.xml'], reader: READERS.STREAM});
+  const inputData = getFixture({components: ['input.json'], reader: READERS.JSON});
   const expectedRecord = getFixture({components: ['output.json'], reader: READERS.JSON});
+  const expectedError = getFixture('error.txt');
 
   const transform = createTransformer({
     isJson,
-    harvestSource: harvestSource || 'FOOBAR',
+    harvestSource: 'FOOBAR',
     isLegalDeposit,
     sourceMap,
     filters,
@@ -61,19 +88,8 @@ function callback({getFixture, expectedError = false, harvestSource = undefined,
       .on('end', () => {
         try {
           expect(results).to.have.lengthOf(1);
-          const [result] = results;
-
-          if (result.failed === false) {
-            expect(result.failed).to.eql(false);
-            expect(result.record.toObject()).to.eql(expectedRecord);
-            return resolve();
-          }
-
-          const {failed, title, standardIdentifiers, message} = result;
-          expect(failed).to.eql(expectedRecord.failed);
-          expect(title).to.eql(expectedRecord.title);
-          expect(standardIdentifiers).to.eql(expectedRecord.standardIdentifiers);
-          expect(message).to.eql(expectedRecord.message);
+          expect(results[0].failed).to.eql(false);
+          expect(results[0].record.toObject()).to.eql(expectedRecord);
           resolve();
         } catch (err) {
           reject(err);

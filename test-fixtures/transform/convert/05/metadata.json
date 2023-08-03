@@ -1,7 +1,6 @@
 {
-    "description": "Transform: Osuva basic",
+    "description": "Transform: Unknown legacy test",
     "sourceMap": {
         "osuva.uwasa.fi": "REPO_OSUVA"
-    },
-    "harvestSource": "OSUVA"
+    }
 }

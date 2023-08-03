@@ -1,7 +1,6 @@
 {
-    "description": "Transform: Utupub basic & generates fields 100,502",
+    "description": "Transform: Generates fields 100,502",
     "sourceMap": {
         "www.utupub.fi": "REPO_UTUPUB"
-    },
-    "harvestSource": "UTUPUB"
+    }
 }

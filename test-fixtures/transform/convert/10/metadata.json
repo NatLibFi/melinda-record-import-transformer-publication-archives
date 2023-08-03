@@ -1,7 +1,6 @@
 {
-    "description": "Transform: Julkari basic",
+    "description": "Transform: Unknown legacy test",
     "sourceMap": {
         "www.julkari.fi": "REPO_JULKARI"
-    },
-    "harvestSource": "JULKARI"
+    }
 }

@@ -5,5 +5,3 @@ dist
 .nyc_output
 .env*
 test_runs
-test/
-testMaterial
