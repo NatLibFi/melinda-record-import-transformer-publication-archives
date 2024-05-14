@@ -1,4 +1,4 @@
-# Publication archives record transformer for the Melinda record batch import system  [![Build Status](https://travis-ci.org/NatLibFi/melinda-record-import-transformer-publication-archives.svg)](https://travis-ci.org/NatLibFi/melinda-record-import-transformer-publication-archives) [![Test Coverage](https://codeclimate.com/github/NatLibFi/melinda-record-import-transformer-publication-archives/badges/coverage.svg)](https://codeclimate.com/github/NatLibFi/melinda-record-import-transformer-publication-archives/coverage)
+# Publication archives record transformer for the Melinda record batch import system
 
 Publication archives record transformer for the Melinda record batch import system. Consumes Dublic Core records from [publication archives](https://www.kansalliskirjasto.fi/en/services/system-platform-services/publication-archive-service).
 
@@ -71,6 +71,6 @@ Transformation is configurated in src/config.js file. [More details.](https://gi
 
 ## License and copyright
 
-Copyright (c) 2020, 2023 **University Of Helsinki (The National Library Of Finland)**
+Copyright (c) 2020, 2023-2024 **University Of Helsinki (The National Library Of Finland)**
 
 This project's source code is licensed under the terms of **MIT** or any later version.
