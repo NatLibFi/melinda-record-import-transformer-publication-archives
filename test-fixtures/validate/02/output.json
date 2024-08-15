@@ -232,7 +232,7 @@
         "subfields": [
           {
             "code": "a",
-            "value": "Aineisto on käytettävissä vapaakappalekirjastoissa."
+            "value": "Aineisto on käytettävissä vapaakappaletyöasemilla."
           },
           {
             "code": "f",
@@ -309,7 +309,7 @@
           },
           {
             "code": "z",
-            "value": "Käytettävissä vapaakappalekirjastoissa"
+            "value": "Käytettävissä vapaakappaletyöasemilla"
           },
           {
             "code": "5",
