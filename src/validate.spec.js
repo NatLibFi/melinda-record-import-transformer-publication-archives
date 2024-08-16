@@ -12,7 +12,7 @@ generateTests({
   callback
 });
 
-async function callback({getFixture, isLegalDeposit}) {
+async function callback({getFixture, isLegalDeposit = false}) {
   const record = new MarcRecord(getFixture('input.json'));
   const expectedResult = getFixture('output.json');
 
