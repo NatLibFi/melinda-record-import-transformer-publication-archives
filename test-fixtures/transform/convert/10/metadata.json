@@ -1,7 +1,0 @@
-{
-    "description": "Transform: Julkari basic",
-    "sourceMap": {
-        "www.julkari.fi": "REPO_JULKARI"
-    },
-    "harvestSource": "JULKARI"
-}

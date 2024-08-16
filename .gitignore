@@ -7,3 +7,7 @@ dist
 test_runs
 test/
 testMaterial
+
+# By default ignore xml
+data
+*.xml
