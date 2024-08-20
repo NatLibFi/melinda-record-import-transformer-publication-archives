@@ -1,81 +1,120 @@
 import {EventEmitter} from 'events';
-import {createLogger} from '@natlibfi/melinda-backend-commons';
-import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
-import createConverter from './convert';
-import createFilter from './filter';
+
+import createDebugLogger from 'debug';
+import createStreamParser, {ALWAYS as streamParserAlways} from 'xml-flow';
+
+import ConversionError from './convert/conversionError';
+
+import convertRecord from './convert';
 import createValidator from '../validate';
-import {xmlToObject} from './xmlParser';
+import filterAndCreateValueInterface from './filter';
+
+import {convertToObject} from './xmlParser';
+import {parseHeaderInformation} from './utils';
+
+import {sourceConfig} from '../config';
 
 class TransformEmitter extends EventEmitter {}
 
-export default options => (stream, {validate = true, fix = true} = {}) => {
-  const {isLegalDeposit, filters, isJson, sourceMap} = options;
+/**
+ * Transform handler is an EventEmitter that emits the following signals:
+ *   - record = record was transformed or transformation of individual record failed.
+ *   - end = all records have been tranformed. Emits number of records as value.
+ *   - error = transformation process resulted into an fatal error. Emits the error as value.
+ */
+export default () => (stream, {validate = true, fix = true} = {}) => {
+  const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:transform');
+
   const Emitter = new TransformEmitter();
-  const logger = createLogger();
-
-  logger.log('debug', 'Starting to send recordEvents');
-
+  const validateRecord = createValidator();
   readStream(stream);
 
   return Emitter;
 
-  async function readStream(stream) {
-    const filterRecord = createFilter({filters, sourceMap});
-    const validateRecord = await createValidator(isLegalDeposit);
-    const convertRecord = createConverter({...options});
+  function readStream(stream) {
+    let numberOfRecords = 0; // eslint-disable-line functional/no-let
+    let harvestSource = false; // eslint-disable-line functional/no-let
 
-    try {
-      const records = isJson ? stream : await parse();
-      const promises = await Promise.all(records.map(transform));
-      Emitter.emit('end', promises ? promises.length : '0');
-    } catch (err) {
-      Emitter.emit('error', err);
-    }
+    // Used for deduplication
+    let identifiersProcessed = []; // eslint-disable-line functional/no-let,prefer-const
 
-    async function parse() {
-      const {'OAI-PMH': {ListRecords}} = await xmlToObject(stream);
-      return ListRecords[0].record;
-    }
+    // Parsing as stream to avoid holding full XML in memory
+    createStreamParser(stream, {
+      strict: true,
+      trim: false,
+      normalize: false,
+      preserveMarkup: streamParserAlways,
+      simplifyNodes: false,
+      useArrays: streamParserAlways
+    })
+      .on('error', err => Emitter.emit('error', err))
+      .on('end', () => {
+        try {
+          debug('All records readed from stream process!');
+          Emitter.emit('end', numberOfRecords);
 
-    async function transform(data) {
-      try {
-        const fieldValueInterface = filterRecord(data);
-        const record = convertRecord(fieldValueInterface);
-
-        if (validate === true || fix === true) {
-          const result = await validateRecord(record, fix);
-          Emitter.emit('record', result);
-          return;
+          // Clear processed identitifers array
+          identifiersProcessed.length = 0; // eslint-disable-line functional/immutable-data
+        } catch (err) {
+          /* istanbul ignore next: Generic error */
+          Emitter.emit('error', err);
         }
+      })
+      .on('tag:record', async xmlRecordEntry => {
+        try {
+          // Destructuring to get the header + metadata from the xml parsed to object
+          const {record: {header: [headerValue], metadata: [{'kk:metadata': [recordMetadata]}]}} = await convertToObject(xmlRecordEntry);
 
-        return Emitter.emit('record', {failed: false, record});
-      } catch (err) {
-        if (err instanceof NotSupportedError) {
-          const {title = '', standardIdentifiers, message} = collectErrorInfo(err);
+          if (!headerValue) {
+            throw new Error('Could not find header information for record, cannot process');
+          }
 
-          return Emitter.emit('record', {
-            failed: true,
-            title,
-            standardIdentifiers,
-            message
-          });
+          if (!recordMetadata) {
+            throw new Error('Could not find record metadata to transform, cannot process');
+          }
+
+          // Header contains information regarding source and date of harvest
+          const headerInformation = parseHeaderInformation(headerValue);
+
+          // Set harvest source if it has not yet been set for the package
+          // eslint-disable-next-line functional/no-conditional-statements
+          if (!harvestSource) {
+            harvestSource = headerInformation?.identifier?.source;
+          }
+
+          if (!harvestSource || !Object.keys(sourceConfig).includes(harvestSource)) {
+            throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source: ${harvestSource}`);
+          }
+
+          const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata);
+          const convertedRecord = convertRecord({harvestSource, fieldValueInterface, commonErrorPayload});
+
+          if (validate === true || fix === true) {
+            const validateFixResult = await validateRecord(convertedRecord, fix, validate);
+            return emitUniqueRecord(Emitter, validateFixResult, commonErrorPayload);
+          }
+
+          return emitUniqueRecord(Emitter, {record: convertedRecord}, commonErrorPayload);
+
+        } catch (err) {
+          Emitter.emit('error', err);
+        } finally {
+          // Increment number of processed records whether the transformation results into error or not
+          numberOfRecords += 1;
         }
+      });
 
-        Emitter.emit('error', err);
+    function emitUniqueRecord(emitter, result, errPayload) {
+      const {identifiers} = errPayload;
+      if (identifiersProcessed.some(i => identifiers.includes(i))) {
+        throw new ConversionError(errPayload, 'Record has already been processed once within the current blob (not allowing duplicates).');
       }
 
-      function collectErrorInfo(err) {
-        const message = err.message === '' ? false : err.message;
+      identifiers.forEach(identifier => {
+        identifiersProcessed.push(identifier); // eslint-disable-line functional/immutable-data
+      });
 
-        if (err.payload !== undefined && err.payload !== null && typeof err.payload === 'object') {
-          const standardIdentifiers = err.payload.identifiers ? err.payload.identifiers : [];
-          const {title} = err.payload;
-
-          return {title, standardIdentifiers, message};
-        }
-
-        return {message};
-      }
+      return emitter.emit('record', result);
     }
   }
 };

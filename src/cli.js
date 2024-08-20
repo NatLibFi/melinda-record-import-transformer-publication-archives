@@ -40,5 +40,6 @@ async function cli() {
     .parseSync();
 
   const transform = transformFactory(config);
+  console.log('created transform factory');
   await transformerCliLogic(args, transform);
 }

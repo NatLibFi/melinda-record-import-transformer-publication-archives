@@ -7,14 +7,14 @@ export const amqpUrl = readEnvironmentVariable('AMQP_URL', {defaultValue: 'amqp:
 export const mongoUrl = readEnvironmentVariable('MONGO_URI', {defaultValue: 'mongodb://127.0.0.1/db'});
 export const abortOnInvalidRecords = readEnvironmentVariable('ABORT_ON_INVALID_RECORDS', {defaultValue: false, format: v => parseBoolean(v)});
 
-export const harvestSource = readEnvironmentVariable('HARVEST_SOURCE');
-export const sourceMap = readEnvironmentVariable('SOURCEMAP', {format: JSON.parse});
 export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
-export const filters = {
-  filterByFileType: readEnvironmentVariable('FILTER_FILETYPE_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
-  filterByIsbnIdentifier: readEnvironmentVariable('FILTER_ISBN_ONLY', {defaultValue: false, format: v => parseBoolean(v)}),
-  filterByIssuedYear: readEnvironmentVariable('FILTER_ISSUED_AFTER', {defaultValue: 0, format: v => Number(v)}),
-  filterByMaterialType: readEnvironmentVariable('FILTER_MATERIALTYPES', {defaultValue: true, format: v => parseBoolean(v)})
+
+// Filter config
+export const applyFilters = readEnvironmentVariable('FILTERS', {defaultValue: [], format: v => JSON.parse(v)});
+export const filterConfig = {
+  filterByIssuedYear: {
+    filterYearNotBefore: readEnvironmentVariable('FILTER_YEAR_NOT_BEFORE', {defaultValue: 0, format: v => Number(v)})
+  }
 };
 
 export const recordImportApiOptions = {
@@ -27,4 +27,12 @@ export const keycloakOptions = {
   issuerBaseURL: readEnvironmentVariable('KEYCLOAK_ISSUER_BASE_URL', {defaultValue: 'KEYCLOAK_ISSUER_BASE_URL env is not set!'}),
   serviceClientID: readEnvironmentVariable('KEYCLOAK_SERVICE_CLIENT_ID', {defaultValue: 'KEYCLOAK_SERVICE_CLIENT_ID env is not set!'}),
   serviceClientSecret: readEnvironmentVariable('KEYCLOAK_SERVICE_CLIENT_SECRET', {defaultValue: 'KEYCLOAK_SERVICE_CLIENT_SECRET env is not set!'})
+};
+
+// NB: Source config is static and not to be read from env vars
+export const sourceConfig = {
+  'julkaisut.valtioneuvosto.fi': {
+    'fSID': 'REPO_VALTO',
+    'f884': 'MELINDA_RECORD_IMPORT_REPO:VALTO'
+  }
 };

@@ -1,4 +1,5 @@
 import {getHandle} from '../util';
+import {sourceConfig} from '../../../config';
 
 /**
  * Generates field SID ($b, $c).
@@ -6,25 +7,31 @@ import {getHandle} from '../util';
  * containing mapping table.
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @param {Object} sourceMap environmental variable containing map of valid sources
+ * @param {boolean} returnDebugString whether to return MARC field or debug string
  * @returns Empty array or array containing field 856 ($u, $y)
  */
-export function generateSID({getFieldValues}, sourceMap, justSIDValues = false) {
+export function generateSID(harvestSource, {getFieldValues}, returnDebugString = false) {
   const values = getFieldValues('dc.identifier.uri');
 
+  // URI fields may have multiple values. Values that correspond with the harvest source
+  // are only one considered valid for SID field/debug string.
   const validSidValues = values.reduce((acc, value) => {
-    const result = getHandle(value, sourceMap);
-    if (result && Object.prototype.hasOwnProperty.call(sourceMap, result.source)) {
-      return acc.concat({source: sourceMap[result.source], handle: result.handle});
+    const result = getHandle(value);
+
+    if (result && result?.source === harvestSource) {
+      const sourceSidValue = sourceConfig[result.source].fSID;
+      return acc.concat({sourceSidValue, handle: result.handle});
     }
     return acc;
   }, []);
 
+  // Return type depends whether information is used for debugging or MARC record
   return validSidValues.length > 0 ? validSidValues.map(v => {
-    if (!justSIDValues) {
-      return {tag: 'SID', ind1: '', ind2: '', subfields: [{code: 'c', value: v.handle}, {code: 'b', value: v.source}]};
+    if (returnDebugString) {
+      return `(${v.sourceSidValue})${v.handle}`;
     }
 
-    return `(${v.source})${v.handle}`;
+    return {tag: 'SID', ind1: '', ind2: '', subfields: [{code: 'c', value: v.handle}, {code: 'b', value: v.sourceSidValue}]};
   }) : [];
 }
 

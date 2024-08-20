@@ -1,4 +1,5 @@
 import langs from 'langs';
+import {getAllValuesInContext, getFirstValueInContext} from '../../utils';
 
 /**
  * Creates interface that allows interacting with metadata given as input
@@ -57,20 +58,8 @@ export function formatLanguage(code) {
  * @returns Array containing record fields
  */
 export function getInputFields(record) {
-  return record.metadata[0]['kk:metadata'][0]['kk:field']
+  return record['kk:field']
     .filter(field => '$' in field);
-}
-
-/**
- * Function retrieving file type information
- * @param {Object} record Input record parsed by XML parser
- * @returns Empty array or array containing filetype information
- */
-export function getFileTypesInformation(record) {
-  const inputFields = record.metadata[0]['kk:metadata'][0]['kk:file']
-    ? record.metadata[0]['kk:metadata'][0]['kk:file'].filter(field => '$' in field) : [];
-
-  return inputFields.length === 0 ? [] : inputFields.map(f => f.$.type);
 }
 
 /**

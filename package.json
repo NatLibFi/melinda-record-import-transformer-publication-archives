@@ -22,7 +22,7 @@
 	"scripts": {
 		"start": "node dist/index.js",
 		"cli": "node dist/cli.js",
-    "cli:dotenv": "npm run build && node -r dotenv/config dist/cli.js",
+		"cli:dotenv": "npm run build && node -r dotenv/config dist/cli.js",
 		"build": "babel src --source-maps --copy-files --delete-dir-on-start --out-dir=dist",
 		"lint": "eslint ./src",
 		"lint:dev": "eslint --fix ./src",

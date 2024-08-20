@@ -12,22 +12,25 @@ import {
   FieldExclusion
 } from '@natlibfi/marc-record-validators-melinda';
 
-export default async (isLegalDeposit) => {
+export default () => {
+  // NB: All items are considered legal deposit items
+  const isLegalDeposit = true;
+
   const validators = [
-    await EmptyFields(),
-    await IsbnIssn({hyphenateISBN: true}),
-    await IndicatorFixes(),
-    isLegalDeposit ? await Urn(isLegalDeposit) : undefined,
-    isLegalDeposit ? await AccessRights() : undefined,
-    await FieldExclusion([
+    EmptyFields(),
+    IsbnIssn({hyphenateISBN: true}),
+    IndicatorFixes(),
+    isLegalDeposit ? Urn(isLegalDeposit) : undefined,
+    isLegalDeposit ? AccessRights() : undefined,
+    FieldExclusion([
       {
         tag: /^520$/u
       }
     ]),
-    await EndingPunctuation(),
-    await Punctuation(),
-    await RemoveDuplicateDataFields()
-  ].filter(v => v !== undefined)
+    EndingPunctuation(),
+    Punctuation(),
+    RemoveDuplicateDataFields()
+  ].filter(v => v !== undefined);
 
   const validate = validateFactory(validators);
 

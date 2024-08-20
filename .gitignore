@@ -11,3 +11,9 @@ testMaterial
 # By default ignore xml
 data
 *.xml
+
+# By default ignore bash scripts
+*.sh
+
+# Ignore VScode workspace
+.vscode
