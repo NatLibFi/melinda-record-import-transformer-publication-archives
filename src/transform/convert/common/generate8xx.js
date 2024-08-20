@@ -1,4 +1,10 @@
+import {createHash} from 'crypto';
+
+import {clone} from '@natlibfi/melinda-commons';
+import {MarcRecord} from '@natlibfi/marc-record';
+
 import {isValidLink} from '../util';
+import {sourceConfig} from '../../../config';
 
 /**
  * Generates field 856 ($u: optional, $y: optional).
@@ -70,10 +76,15 @@ export function generate856({getFieldValues}) {
  * Field generation is based on environmental variables value.
  * @param {string} harvestSource Source from where metadata was retrieved
  * @param {Object} moment Moment instance to be used for date generation
- * @returns Empty array or array containing field 856 ($u, $y)
+ * @param {Object} marcRecord MarcRecord object of transformed record
+ * @returns Array containing field 884 ($a, $g, $k, $q, $5)
  */
-export function generate884(harvestSource, moment) {
-  const source = `MELINDA_RECORD_IMPORT_REPO:${harvestSource}`;
+export function generate884(harvestSource, moment, marcRecord) {
+  const copyMarcRecordData = clone(marcRecord);
+  const copyMarcRecord = new MarcRecord(copyMarcRecordData);
+
+  emptyCreationDate(copyMarcRecord);
+  const hash = createHash('sha256').update(JSON.stringify(copyMarcRecord)).digest('hex');
 
   return [
     {
@@ -81,10 +92,25 @@ export function generate884(harvestSource, moment) {
       subfields: [
         {code: 'a', value: 'Dublin Core to MARC transformation'},
         {code: 'g', value: moment().format('YYYYMMDD')},
-        {code: 'k', value: source},
+        {code: 'k', value: `${sourceConfig[harvestSource].f884}:${hash}`},
         {code: 'q', value: 'FI-NL'},
         {code: '5', value: 'MELINDA'}
       ]
     }
   ];
+
+
+  function emptyCreationDate(record) {
+    const [f008] = record.pop(/008/u); // eslint-disable-line functional/immutable-data
+    // emptyCreationDate:
+    // Normalize f008/00-05 - In non-MARC21 imports f008 'Date entered on file' gets always the current date
+    // This propably should be configurable
+    const newF008 = {
+      tag: f008.tag,
+      value: `000000${f008.value.substring(6)}`
+    };
+
+    record.insertFields([newF008]);
+    return;
+  }
 }

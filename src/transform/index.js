@@ -22,7 +22,7 @@ class TransformEmitter extends EventEmitter {}
  *   - end = all records have been tranformed. Emits number of records as value.
  *   - error = transformation process resulted into an fatal error. Emits the error as value.
  */
-export default () => (stream, {validate = true, fix = true} = {}) => {
+export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:transform');
 
   const Emitter = new TransformEmitter();
@@ -87,7 +87,7 @@ export default () => (stream, {validate = true, fix = true} = {}) => {
           }
 
           const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata);
-          const convertedRecord = convertRecord({harvestSource, fieldValueInterface, commonErrorPayload});
+          const convertedRecord = convertRecord({harvestSource, fieldValueInterface, convertOpts});
 
           if (validate === true || fix === true) {
             const validateFixResult = await validateRecord(convertedRecord, fix, validate);

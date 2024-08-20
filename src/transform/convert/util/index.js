@@ -1,5 +1,4 @@
 import langs from 'langs';
-import {getAllValuesInContext, getFirstValueInContext} from '../../utils';
 
 /**
  * Creates interface that allows interacting with metadata given as input
@@ -63,22 +62,47 @@ export function getInputFields(record) {
 }
 
 /**
- * Parses source and handle from dc.identifier.uri values
- * @param {string} value URI value found in dc.identifier.uri field
+ * Parses source and handle from dc.identifier.uri values or from header information
+ * @param {string} value URI value
  * @returns false if source or handle cannot be parsed, otherwise object containing source and handle attributes
  */
 export function getHandle(value) {
-  const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
-  const handleRegex = /(?<handle>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+  if (value.startsWith('oai:')) {
+    return parseOai(value);
+  }
 
-  const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
-  const {handle} = value.match(handleRegex) ? value.match(handleRegex).groups : {handle: null};
-
-  if (source !== null && handle !== null) {
-    return {source, handle};
+  if (value.startsWith('http')) {
+    return parseHttp(value);
   }
 
   return false;
+
+
+  function parseHttp(value) {
+    const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
+    const handleRegex = /(?<handle>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+
+    const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
+    const {handle} = value.match(handleRegex) ? value.match(handleRegex).groups : {handle: null};
+
+    if (source !== null && handle !== null) {
+      return {source, handle};
+    }
+
+    return false;
+  }
+
+  function parseOai(value) {
+    const parts = value.split(':');
+    if (parts.length !== 3) {
+      return false;
+    }
+
+    return {
+      source: parts[1],
+      handle: parts[2]
+    };
+  }
 }
 
 /**

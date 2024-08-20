@@ -1,3 +1,5 @@
+import {getHandle} from './convert/util';
+
 /**
  * Parses source, unique identifier and date harvested from record header
  * @param {*} header Record header: ListRecords -> record -> header
@@ -14,8 +16,8 @@ export function parseHeaderInformation(header) {
 
   function parseIdentifier(identifierValue) {
     // eslint-disable-next-line no-unused-vars
-    const [_, source, uniqueIdentifier] = identifierValue.split(':');
-    return {source, uniqueIdentifier};
+    const {source, handle} = getHandle(identifierValue);
+    return {source, uniqueIdentifier: handle};
   }
 }
 
