@@ -1,0 +1,5 @@
+{
+  "description": "filterByIsbnIdentifier passes when ISBN information is available",
+  "filter": "filterByIsbnIdentifier",
+  "only": false
+}

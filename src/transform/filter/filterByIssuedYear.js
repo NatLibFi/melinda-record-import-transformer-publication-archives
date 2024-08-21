@@ -1,20 +1,19 @@
-import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
-
-import {filterConfig} from '../../config';
+import ConversionError from '../convert/conversionError';
 
 /**
  * Filter filtering items based on issued year.
+ * @param filterConfig Filter configuration
  * @returns Object containing filter and its name
  */
-export function filterByIssuedYear() {
+export function filterByIssuedYear(filterConfig) {
+  const filterYearNotBefore = filterConfig?.filterByIssuedYear?.filterYearNotBefore;
+
   return {
     filter,
     name: 'filterByIssuedYear'
   };
 
   function filter({getFieldValues}, debugInfo = {}) {
-    const {filterByIssuedYear: {filterYearNotBefore}} = filterConfig;
-
     // NB: default value of zero is falsy
     if (!filterYearNotBefore || isNaN(filterYearNotBefore)) {
       return;
@@ -28,6 +27,6 @@ export function filterByIssuedYear() {
       return;
     }
 
-    throw new NotSupportedError(422, {identifiers, title}, `Filter: Date issued information (${JSON.stringify(issuedYears)}) is older than required by filter configuration (${filterYearNotBefore})`);
+    throw new ConversionError({identifiers, title}, `Filter: Date issued information (${JSON.stringify(issuedYears)}) is older than required by filter configuration (${filterYearNotBefore})`);
   }
 }

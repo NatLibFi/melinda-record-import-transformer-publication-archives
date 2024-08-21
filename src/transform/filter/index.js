@@ -8,7 +8,7 @@ import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
 import {filterByIssuedYear} from './filterByIssuedYear';
 import {filterByMaterialType} from './filterByMaterialType';
 
-export default (harvestSource, record, applyFilters = []) => {
+export default (harvestSource, record, applyFilters = [], filterConfig = {}) => {
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:filter');
   debug('Staring to define and apply filter configuration');
 
@@ -30,9 +30,11 @@ export default (harvestSource, record, applyFilters = []) => {
   // NB: filter definitions have following attributes:
   // - name -> name of the filter that is used when selecting filters to be applied based on config
   // - filter -> filtering function
+
+  // Only some filters require config during initialization
   const availableFilters = {
     raw: [filterByFileType()],
-    interface: [filterByMaterialType(), filterByIsbnIdentifier(), filterByIssuedYear()]
+    interface: [filterByMaterialType(), filterByIsbnIdentifier(), filterByIssuedYear(filterConfig)]
   };
 
   // Use only filters that are defined in config

@@ -23,7 +23,7 @@ class TransformEmitter extends EventEmitter { }
  *   - error = transformation process resulted into an fatal error. Emits the error as value.
  */
 export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
-  const {applyFilters} = convertOpts;
+  const {applyFilters, filterConfig} = convertOpts;
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:transform');
 
   const Emitter = new TransformEmitter();
@@ -88,7 +88,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
             throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source: ${harvestSource}`);
           }
 
-          const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters);
+          const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);
           const convertedRecord = convertRecord({harvestSource, fieldValueInterface, convertOpts});
 
           if (validate === true || fix === true) {

@@ -1,4 +1,4 @@
-import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
+import ConversionError from '../convert/conversionError';
 
 /**
  * Filter filtering items without isbn identifiers.
@@ -11,15 +11,11 @@ export function filterByIsbnIdentifier() {
   };
 
   function filter({getFieldValues}, debugInfo = {}) {
-    if (!debugInfo.filterByIsbnIdentifier) {
-      return;
-    }
-
     const isbnIdentifier = getFieldValues('dc.identifier.isbn') || [];
     const {identifiers, title} = debugInfo;
 
     if (isbnIdentifier.length === 0) {
-      throw new NotSupportedError(422, {identifiers, title}, 'Filter: Cannot find ISBN identifier which is a required field by the applied filter');
+      throw new ConversionError({identifiers, title}, 'Filter: Cannot find ISBN identifier which is a required field by the applied filter');
     }
   }
 }

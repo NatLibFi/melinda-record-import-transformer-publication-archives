@@ -9,7 +9,7 @@ export const abortOnInvalidRecords = readEnvironmentVariable('ABORT_ON_INVALID_R
 
 export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
 
-// Filter config
+// Filter configuration: what filters to apply and with what type of configuration
 export const applyFilters = readEnvironmentVariable('FILTERS', {defaultValue: [], format: v => JSON.parse(v)});
 export const filterConfig = {
   filterByIssuedYear: {
