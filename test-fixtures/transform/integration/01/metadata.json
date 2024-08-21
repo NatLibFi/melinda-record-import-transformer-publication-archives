@@ -1,5 +1,5 @@
 {
   "description": "Transformation successfully completes (incl. hash)",
   "testHash": true,
-  "only": true
+  "only": false
 }

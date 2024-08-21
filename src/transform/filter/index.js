@@ -1,7 +1,5 @@
 import createDebugLogger from 'debug';
 
-import {applyFilters} from '../../config';
-
 import {generateSID} from '../convert/common/generateSystemFields';
 import {getInputFields, createValueInterface} from '../convert/util';
 
@@ -10,7 +8,7 @@ import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
 import {filterByIssuedYear} from './filterByIssuedYear';
 import {filterByMaterialType} from './filterByMaterialType';
 
-export default (harvestSource, record) => {
+export default (harvestSource, record, applyFilters = []) => {
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:filter');
   debug('Staring to define and apply filter configuration');
 
@@ -19,7 +17,8 @@ export default (harvestSource, record) => {
   const {getFieldValues} = fieldValueInterface;
 
   // Information required for filtering records
-  const title = getFieldValues('dc.title');
+  const titleValues = getFieldValues('dc.title');
+  const title = titleValues.length > 0 ? titleValues[0] : '';
   const identifiers = [
     getFieldValues('dc.identifier.isbn'),
     getFieldValues('dc.identifier.uri'),

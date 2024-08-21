@@ -14,7 +14,7 @@ import {parseHeaderInformation} from './utils';
 
 import {sourceConfig} from '../config';
 
-class TransformEmitter extends EventEmitter {}
+class TransformEmitter extends EventEmitter { }
 
 /**
  * Transform handler is an EventEmitter that emits the following signals:
@@ -23,6 +23,7 @@ class TransformEmitter extends EventEmitter {}
  *   - error = transformation process resulted into an fatal error. Emits the error as value.
  */
 export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
+  const {applyFilters} = convertOpts;
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:transform');
 
   const Emitter = new TransformEmitter();
@@ -60,6 +61,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
           Emitter.emit('error', err);
         }
       })
+      // eslint-disable-next-line max-statements
       .on('tag:record', async xmlRecordEntry => {
         try {
           // Destructuring to get the header + metadata from the xml parsed to object
@@ -86,7 +88,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
             throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source: ${harvestSource}`);
           }
 
-          const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata);
+          const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters);
           const convertedRecord = convertRecord({harvestSource, fieldValueInterface, convertOpts});
 
           if (validate === true || fix === true) {
@@ -97,7 +99,22 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
           return emitUniqueRecord(Emitter, {record: convertedRecord}, commonErrorPayload);
 
         } catch (err) {
-          Emitter.emit('error', err);
+          if (err instanceof ConversionError) {
+            // Common payload
+            const {title = '', identifiers} = err.payload;
+
+            // Note: emitting error does not halt process
+            return Emitter.emit('record', {
+              failed: true,
+              title,
+              standardIdentifiers: identifiers,
+              message: err.message
+            });
+          }
+
+          // Unmanaged errors or managed errors that should halt processing
+          // Are thrown here
+          throw err;
         } finally {
           // Increment number of processed records whether the transformation results into error or not
           numberOfRecords += 1;

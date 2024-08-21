@@ -1,5 +1,5 @@
-import {Error as NotSupportedError} from '@natlibfi/melinda-commons';
 import {getAllValuesInContext} from '../utils';
+import ConversionError from '../convert/conversionError';
 
 /**
  * Filter filtering items that do not have filetype information included to their metadata.
@@ -16,7 +16,7 @@ export function filterByFileType() {
 
     if (filetypeInformation.length === 0) {
       const {identifiers, title} = debugInfo;
-      throw new NotSupportedError(422, {identifiers, title}, 'Filter: Conversion without file type specification is not supported');
+      throw new ConversionError({identifiers, title}, 'Filter: Conversion without file type specification is not supported');
     }
 
     return;

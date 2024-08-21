@@ -21,7 +21,7 @@ import {generateSID, generateLOW} from './common/generateSystemFields';
  * @return Newly generated MarcRecord object
  */
 export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
-  const momentSource = convertOpts.mockMoment || moment;
+  const momentSource = convertOpts.moment || moment;
 
   const marcRecord = new MarcRecord();
   marcRecord.leader = generateLDR(); // eslint-disable-line functional/immutable-data
