@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "isbn",
+      "value": "978-92-95055-20-9"
+    }
+  }
+]

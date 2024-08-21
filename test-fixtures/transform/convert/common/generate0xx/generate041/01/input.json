@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "language",
+      "qualifier": "iso",
+      "value": "fi"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "language",
+      "qualifier": "iso",
+      "value": "en"
+    }
+  }
+]

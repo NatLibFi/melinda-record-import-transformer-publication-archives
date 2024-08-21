@@ -1,0 +1,4 @@
+{
+  "description": "Generates f024 from both URN and DOI information when available. URI information is not included in this case.",
+  "only": false
+}

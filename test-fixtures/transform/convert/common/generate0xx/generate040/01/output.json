@@ -1,0 +1,10 @@
+[
+  {
+    "tag": "040", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "b", "value": "fin"},
+      {"code": "e", "value": "rda"},
+      {"code": "d", "value": "FI-NL"}
+    ]
+  }
+]
