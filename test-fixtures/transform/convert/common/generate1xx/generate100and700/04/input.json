@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "contributor",
+      "qualifier": "editor",
+      "value": "Esimerkki, Erkki"
+    }
+  }
+]
