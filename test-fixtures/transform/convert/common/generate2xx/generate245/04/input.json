@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "title",
+      "qualifier": "alternative",
+      "value": "Dublin Core - MARC21 -conversion"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "title",
+      "qualifier": "alternative",
+      "value": "Och samma på svenska"
+    }
+  }
+]

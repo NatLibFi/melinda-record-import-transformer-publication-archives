@@ -5,20 +5,23 @@
  */
 export function generate245({getFields, getFieldValues}) {
   const isAddedEntry = generateIsAddedEntry();
-  const titles = getFieldValues('dc.title');
+  const [title] = getFieldValues('dc.title');
 
-  return titles.map(title => ({
-    tag: '245',
-    ind1: isAddedEntry ? '1' : '0',
-    ind2: '0',
-    subfields: [{code: 'a', value: `${title}.`}]
-  }));
+  return title ? [
+    {
+      tag: '245',
+      ind1: isAddedEntry ? '1' : '0',
+      ind2: '0',
+      subfields: [{code: 'a', value: `${title}.`}]
+    }
+  ] : [];
 
   function generateIsAddedEntry() {
     const fields = getFields(p => [
       'dc.contributor.author',
-      'dc.author'
+      'dc.creator'
     ].includes(p));
+
     return fields.length > 0;
   }
 }
@@ -59,10 +62,15 @@ export function generate264({getFieldValues}) {
   const subfields = generateSubfields();
 
   if (subfields.length > 0) {
-    return {
-      tag: '264', ind1: '', ind2: '1', subfields
-    };
+    return [
+      {
+        tag: '264', ind1: '', ind2: '1', subfields
+      }
+    ];
   }
+
+  return [];
+
 
   function generateSubfields() {
     const place = generatePlace();
@@ -83,11 +91,7 @@ export function generate264({getFieldValues}) {
 
     function generateIssueDate() {
       const values = getFieldValues('dc.date.issued');
-      return values.length > 0 ? values.map(toSubfield) : [];
-
-      function toSubfield(value) {
-        return {code: 'c', value: `${value}.`};
-      }
+      return values.length > 0 ? [{code: 'c', value: `${values[0]}.`}] : [];
     }
   }
 }

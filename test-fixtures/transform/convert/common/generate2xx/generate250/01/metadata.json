@@ -1,0 +1,4 @@
+{
+  "description": "Generates a f250 from each dc.description.edition information.",
+  "only": false
+}
