@@ -1,0 +1,17 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "subject",
+      "qualifier": "ysa",
+      "value": "muinais-DNA"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "subject",
+      "value": "yhdenmukaistaminen"
+    }
+  }
+]
