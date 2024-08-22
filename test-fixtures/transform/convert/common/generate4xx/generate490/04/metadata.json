@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f490 only that would only contain subfield $v",
+  "only": false
+}

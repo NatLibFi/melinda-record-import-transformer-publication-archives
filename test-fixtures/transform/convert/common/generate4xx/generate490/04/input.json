@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "numberinseries",
+      "value": "123"
+    }
+  }
+]

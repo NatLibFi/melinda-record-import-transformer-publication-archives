@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "ispartofseries",
+      "value": "The Example Series"
+    }
+  }
+]
