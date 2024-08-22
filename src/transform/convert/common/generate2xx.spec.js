@@ -29,9 +29,9 @@ function generate245() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate245(valueInteface);
+    const result = fieldGenerator.generate245(valueInterface);
     expect(result).to.eql(output);
   }
 }
@@ -52,9 +52,9 @@ function generate246() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate246(valueInteface);
+    const result = fieldGenerator.generate246(valueInterface);
     expect(result).to.eql(output);
   }
 }
@@ -75,9 +75,9 @@ function generate250() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate250(valueInteface);
+    const result = fieldGenerator.generate250(valueInterface);
     expect(result).to.eql(output);
   }
 }
@@ -98,9 +98,9 @@ function generate264() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate264(valueInteface);
+    const result = fieldGenerator.generate264(valueInterface);
     expect(result).to.eql(output);
   }
 }

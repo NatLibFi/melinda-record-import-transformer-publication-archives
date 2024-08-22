@@ -26,9 +26,9 @@ function generate100and700() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate100and700(valueInteface);
+    const result = fieldGenerator.generate100and700(valueInterface);
     expect(result).to.eql(output);
   }
 }

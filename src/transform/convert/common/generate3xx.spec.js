@@ -30,9 +30,9 @@ function generate300() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate300(valueInteface);
+    const result = fieldGenerator.generate300(valueInterface);
     expect(result).to.eql(output);
   }
 }

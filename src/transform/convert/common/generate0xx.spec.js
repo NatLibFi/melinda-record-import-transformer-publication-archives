@@ -30,9 +30,9 @@ function generate020() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate020(valueInteface);
+    const result = fieldGenerator.generate020(valueInterface);
     expect(result).to.eql(output);
   }
 }
@@ -53,9 +53,9 @@ function generate024() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate024(valueInteface);
+    const result = fieldGenerator.generate024(valueInterface);
     expect(result).to.eql(output);
   }
 }
@@ -98,9 +98,9 @@ function generate041() {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const valueInteface = createValueInterface(input);
+    const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate041(valueInteface);
+    const result = fieldGenerator.generate041(valueInterface);
     expect(result).to.eql(output);
   }
 }
