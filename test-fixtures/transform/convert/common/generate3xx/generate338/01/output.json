@@ -1,0 +1,10 @@
+[
+  {
+    "tag": "338", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "a", "value": "verkkoaineisto"},
+      {"code": "b", "value": "cr"},
+      {"code": "2", "value": "rdacarrier"}
+    ]
+  }
+]
