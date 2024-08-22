@@ -9,8 +9,8 @@ import {sourceConfig} from '../../../config';
 /**
  * Generates field 856 ($u: optional, $y: optional).
  * Field generation is based on dc.rights.accesslevel value.
- * 856 fields relating to publicly available access prioritize
- * URN and DOI over URI and URL.
+ * 856 fields relating to publicly available access prioritization:
+ * URN and DOI > URI and URL.
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 856 ($u, $y)
  */
@@ -21,9 +21,11 @@ export function generate856({getFieldValues}) {
   return publicAccessFields.concat(otherUrnFields);
 
   function generatePublicAccessFields() {
-    const accessLevel = getFieldValues('dc.rights.accesslevel');
+    const accessLevels = getFieldValues('dc.rights.accesslevel');
 
-    if (accessLevel.length === 0 || accessLevel[0] === 'openAccess') {
+    // TO DO: evaluate whether old implementation evaluation of not having accessLevel info
+    // for generating this field is valid
+    if (accessLevels.find(v => v === 'openAccess')) {
       const subfields = generateSubfields();
       return [{tag: '856', ind1: '4', ind2: '0', subfields}];
     }
