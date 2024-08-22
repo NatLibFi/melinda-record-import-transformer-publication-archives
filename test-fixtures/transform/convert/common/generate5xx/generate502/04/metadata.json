@@ -1,0 +1,4 @@
+{
+  "description": "Generates subfield $d if dc.date.issued exists",
+  "only": false
+}

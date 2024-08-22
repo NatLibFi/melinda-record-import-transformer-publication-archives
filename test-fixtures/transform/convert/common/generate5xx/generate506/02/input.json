@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "accessrights",
+      "value": "Pääsy aineistoon rajattu, käyttö vain Foobar-kirjaston tiloissa."
+    }
+  }
+]

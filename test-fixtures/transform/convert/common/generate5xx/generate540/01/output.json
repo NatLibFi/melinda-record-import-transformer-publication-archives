@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "540", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "c", "value": "CC BY 4.0"}
+    ]
+  },
+  {
+    "tag": "540", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "u", "value": "https://creativecommons.org/licenses/by/4.0/deed.en"}
+    ]
+  },
+  {
+    "tag": "540", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "u", "value": "https://creativecommons.org/licenses/by/4.0/"}
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "notification",
+      "value": "This is an example of description notification."
+    }
+  }
+]

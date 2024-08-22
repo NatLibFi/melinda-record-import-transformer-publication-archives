@@ -1,0 +1,26 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "type",
+      "qualifier": "ontasot",
+      "value": "fi= Artikkeliväitöskirja | en=Doctoral dissertation (article-based)|"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "contributor",
+      "qualifier": "organization",
+      "value": "Example university"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "contributor",
+      "qualifier": "faculty",
+      "value": "Faculty of examples"
+    }
+  }
+]

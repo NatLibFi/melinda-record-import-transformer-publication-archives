@@ -1,0 +1,4 @@
+{
+  "description": "Generates f502 notification regarding dissertation if there is dissertation value in dc.type.ontasot",
+  "only": false
+}

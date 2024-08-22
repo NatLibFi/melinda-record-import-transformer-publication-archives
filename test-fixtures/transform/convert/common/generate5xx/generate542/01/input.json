@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "copyrightholder",
+      "value": "Esimerkki, Erkki"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "copyright",
+      "value": "© Example Publisher"
+    }
+  }
+]

@@ -222,29 +222,6 @@
       },
       {
         "tag": "506",
-        "ind1": "0",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "a",
-            "value": "Aineisto on vapaasti saatavissa."
-          },
-          {
-            "code": "f",
-            "value": "Unrestricted online access"
-          },
-          {
-            "code": "2",
-            "value": "star"
-          },
-          {
-            "code": "9",
-            "value": "FENNI<KEEP>"
-          }
-        ]
-      },
-      {
-        "tag": "506",
         "ind1": "1",
         "subfields": [
           {
@@ -398,7 +375,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:8e29f6134b12f8cbaa264a5a7c501d4d62f343722f48cdd353d83a07258ae3a2"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:08a9750c0ad261ba4d6004819b56c089d92c9fb6f756ed818b7a37794fb8d5a0"
           },
           {
             "code": "q",
