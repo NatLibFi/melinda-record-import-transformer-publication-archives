@@ -1,4 +1,4 @@
 {
-  "description": "Generates f024 from URN information",
+  "description": "Generates f024 from dc.identifier.urn information",
   "only": false
 }
