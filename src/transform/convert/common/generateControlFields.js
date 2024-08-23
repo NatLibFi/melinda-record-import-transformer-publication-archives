@@ -1,7 +1,7 @@
 import {formatLanguage} from '../util';
 
 /**
- * Generates control field LDR
+ * Generates static control field LDR
  * @returns Field LDR as string
  */
 export function generateLDR() {
@@ -9,7 +9,7 @@ export function generateLDR() {
 }
 
 /**
- * Generates control field 007
+ * Generates static control field 007
  * @returns Field 007 as string
  */
 export function generate007() {
@@ -21,7 +21,11 @@ export function generate007() {
 }
 
 /**
- * Generates control field 008
+ * Generates control field 008 based on the current date and following record values:
+ * - dc.date.issued
+ * - dc.publisher.country
+ * - dc.type.ontasot
+ * - dc.language.iso
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @param {Object} moment Moment instance to be used for date generation
  * @returns Field 008 as string
