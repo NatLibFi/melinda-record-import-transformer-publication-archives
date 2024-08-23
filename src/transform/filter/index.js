@@ -8,6 +8,14 @@ import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
 import {filterByIssuedYear} from './filterByIssuedYear';
 import {filterByMaterialType} from './filterByMaterialType';
 
+/**
+ * Filter generator
+ * @param {string} harvestSource Source where record was harvested
+ * @param {object} record record transformed from XML to JS object
+ * @param {[]string} applyFilters array of filter names to apply
+ * @param {object} filterConfig configuration object containing filter specific configurations
+ * @return object containing fieldValueInterface (for interacting with record) and commonErrorPayload to use for producing debugging information
+ */
 export default (harvestSource, record, applyFilters = [], filterConfig = {}) => {
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:filter');
   debug('Staring to define and apply filter configuration');
@@ -15,6 +23,7 @@ export default (harvestSource, record, applyFilters = [], filterConfig = {}) => 
   const inputFields = getInputFields(record);
   const fieldValueInterface = createValueInterface(inputFields);
   const {getFieldValues} = fieldValueInterface;
+
 
   // Information required for filtering records
   const titleValues = getFieldValues('dc.title');

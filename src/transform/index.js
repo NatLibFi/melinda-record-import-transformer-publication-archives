@@ -10,7 +10,7 @@ import createValidator from '../validate';
 import filterAndCreateValueInterface from './filter';
 
 import {convertToObject} from './xmlParser';
-import {parseHeaderInformation} from './utils';
+import {parseHeaderInformation} from './convert/util';
 
 import {sourceConfig} from '../config';
 
@@ -84,8 +84,9 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
             harvestSource = headerInformation?.identifier?.source;
           }
 
-          if (!harvestSource || !Object.keys(sourceConfig).includes(harvestSource)) {
-            throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source: ${harvestSource}`);
+          const mandatorySourceConfig = ['fSID', 'f884'];
+          if (!harvestSource || !Object.keys(sourceConfig).includes(harvestSource) || !mandatorySourceConfig.every(v => Object.keys(sourceConfig[harvestSource]).includes(v))) {
+            throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
           }
 
           const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);

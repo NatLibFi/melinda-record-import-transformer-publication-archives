@@ -15,9 +15,10 @@ import {generateSID, generateLOW} from './common/generateSystemFields';
 
 /**
  * Generates MarcRecord using common field generations.
- * @param {string} harvestSource Source where record was harvested from
- * @param {Object} fieldValueInterface interface containing getFieldValues and getFields functions
- * @param {Object} convertOpts Options to control conversion (e.g., moment mock for automated tests)
+ * @param {object} conversionConfig Config object containing following attributes:
+ * - harvestSource Source where record was harvested from
+ * - fieldValueInterface interface containing getFieldValues and getFields functions
+ * - convertOpts Options to control conversion (e.g., moment mock for automated tests)
  * @return Newly generated MarcRecord object
  */
 export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {

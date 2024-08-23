@@ -1,4 +1,4 @@
-import {getAllValuesInContext} from '../utils';
+import {getAllValuesInContext} from '../convert/util';
 import ConversionError from '../convert/conversionError';
 
 /**

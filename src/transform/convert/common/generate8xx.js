@@ -26,14 +26,14 @@ export function generate856({getFieldValues}) {
     // NB: not having access level fields generates f856 public access field
     if (accessLevels.length === 0 || accessLevels.find(v => v === 'openAccess')) {
       const subfields = generateSubfields();
-      return [{tag: '856', ind1: '4', ind2: '0', subfields}];
+      return subfields.length > 0 ? [{tag: '856', ind1: '4', ind2: '0', subfields}] : [];
     }
 
     return [];
 
     function generateSubfields() {
       const linkSubfields = generateLinkSubfields();
-      return linkSubfields.concat({code: 'y', value: 'Linkki verkkoaineistoon'});
+      return linkSubfields.length > 0 ? linkSubfields.concat({code: 'y', value: 'Linkki verkkoaineistoon'}) : [];
     }
   }
 
