@@ -1,5 +1,5 @@
 /**
- * Generates field 300 ($a) based on dc.format.extent values.
+ * Generates field 300 ($a) based on first dc.format.extent value.
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 300 ($a)
  */
