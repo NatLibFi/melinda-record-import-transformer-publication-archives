@@ -1,5 +1,5 @@
 /**
- * Generates field 245 ($a) based on dc.title values
+ * Generates field 245 ($a) based on first dc.title value
  * @param {Object} ValueInterface containing getFields and getFieldValues functions
  * @returns Empty array or array containing field 245 ($a)
  */
@@ -56,7 +56,7 @@ export function generate250({getFieldValues}) {
  * Generates field 264 if any of subfields can be created ($a: optional, $b: optional, $c: optional)
  * Values used for generation are based on dc.publisher.place, dc.publisher and dc.date.issued.
  * @param {Object} ValueInterface containing getFieldValues function
- * @returns Undefined or Object containing field 264 ($a, $b, $c)
+ * @returns Empty array or array containing field 264 ($a, $b, $c)
  */
 export function generate264({getFieldValues}) {
   const subfields = generateSubfields();
