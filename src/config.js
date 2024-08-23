@@ -7,8 +7,6 @@ export const amqpUrl = readEnvironmentVariable('AMQP_URL', {defaultValue: 'amqp:
 export const mongoUrl = readEnvironmentVariable('MONGO_URI', {defaultValue: 'mongodb://127.0.0.1/db'});
 export const abortOnInvalidRecords = readEnvironmentVariable('ABORT_ON_INVALID_RECORDS', {defaultValue: false, format: v => parseBoolean(v)});
 
-export const isLegalDeposit = readEnvironmentVariable('IS_LEGAL_DEPOSIT', {defaultValue: false, format: v => parseBoolean(v)});
-
 // Filter configuration: what filters to apply and with what type of configuration
 export const applyFilters = readEnvironmentVariable('FILTERS', {defaultValue: [], format: v => JSON.parse(v)});
 export const filterConfig = {
@@ -18,9 +16,9 @@ export const filterConfig = {
 };
 
 export const recordImportApiOptions = {
-  recordImportApiUrl: readEnvironmentVariable('RECORD_IMPORT_API_URL', {defaultValue: 'cli'}),
-  userAgent: readEnvironmentVariable('API_CLIENT_USER_AGENT', {defaultValue: '_RECORD-IMPORT-TRANSFORMER'}),
-  allowSelfSignedApiCert: readEnvironmentVariable('ALLOW_API_SELF_SIGNED', {defaultValue: false, format: parseBoolean})
+  recordImportApiUrl: readEnvironmentVariable('RI_API_URL', {defaultValue: 'cli'}),
+  userAgent: readEnvironmentVariable('RI_API_CLIENT_USER_AGENT', {defaultValue: '_RECORD-IMPORT-TRANSFORMER'}),
+  allowSelfSignedApiCert: readEnvironmentVariable('RI_API_ALLOW_SELF_SIGNED', {defaultValue: false, format: parseBoolean})
 };
 
 export const keycloakOptions = {
