@@ -1,0 +1,4 @@
+{
+  "description": "When generating field with only subfield $B, produces correct field separator",
+  "only": false
+}

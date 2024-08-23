@@ -1,0 +1,9 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "value": "Helsingin yliopisto"
+    }
+  }
+]

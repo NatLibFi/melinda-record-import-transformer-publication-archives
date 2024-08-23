@@ -73,23 +73,25 @@ export function generate264({getFieldValues}) {
 
 
   function generateSubfields() {
-    const place = generatePlace();
-    const publisher = generatePublisher();
-    const issueDate = generateIssueDate();
+    const subfieldC = generateSubfieldC();
+    const subfieldB = generateSubfieldB(subfieldC.length > 0);
+    const subfieldA = generateSubfieldA(subfieldB.length > 0, subfieldC.lenth > 0);
 
-    return place.concat(publisher, issueDate);
+    return subfieldA.concat(subfieldB, subfieldC);
 
-    function generatePlace() {
+    function generateSubfieldA(hasSubfieldB, hasSubfieldC) {
+      const fieldSeparator = hasSubfieldB || hasSubfieldC ? ':' : '';
       const values = getFieldValues('dc.publisher.place');
-      return values.length > 0 ? [{code: 'a', value: `${values[0]}:`}] : [];
+      return values.length > 0 ? [{code: 'a', value: `${values[0]}${fieldSeparator}`}] : [];
     }
 
-    function generatePublisher() {
+    function generateSubfieldB(hasSubfieldC) {
+      const fieldSeparator = hasSubfieldC ? ',' : '';
       const values = getFieldValues('dc.publisher');
-      return values.length > 0 ? [{code: 'b', value: `${values[0]},`}] : [];
+      return values.length > 0 ? [{code: 'b', value: `${values[0]}${fieldSeparator}`}] : [];
     }
 
-    function generateIssueDate() {
+    function generateSubfieldC() {
       const values = getFieldValues('dc.date.issued');
       return values.length > 0 ? [{code: 'c', value: `${values[0]}.`}] : [];
     }
