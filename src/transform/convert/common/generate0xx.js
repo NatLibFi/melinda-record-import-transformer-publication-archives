@@ -3,7 +3,7 @@ import {formatLanguage, getHandle} from '../util';
 /**
  * Generates field 020 ($a, $q) based on dc.identifier.isbn values
  * @param {Object} ValueInterface containing getFieldValues function
- * @returns Empty array or array containing field 020 ($a, $q)
+ * @returns Empty array or array containing field(s) 020
  */
 export function generate020({getFieldValues}) {
   const values = getFieldValues('dc.identifier.isbn');
@@ -23,9 +23,10 @@ export function generate020({getFieldValues}) {
 }
 
 /**
- * Generates field 024 ($a, $2) based on dc.identifier.(urn|doi|uri) values
+ * Generates field 024 ($a, $2) based on dc.identifier.(urn|doi|uri) values.
+ * Each value maps to a new field.
  * @param {Object} ValueInterface containing getFieldValues function
- * @returns Empty array or array containing field 024 ($a, $2)
+ * @returns Empty array or array containing field 024(s) ($a, $2)
  */
 export function generate024({getFieldValues}) {
   const urn = generateUrnFields();
@@ -75,7 +76,6 @@ export function generate024({getFieldValues}) {
 
 /**
  * Generates field 040 ($b, $e, $d) using static values
- * @param {Object} ValueInterface containing getFieldValues function
  * @returns Array containing field 040 ($b, $e, $d)
  */
 export function generate040() {
