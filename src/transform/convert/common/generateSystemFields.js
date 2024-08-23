@@ -19,7 +19,7 @@ export function generateSID(harvestSource, {getFieldValues}, returnDebugString =
     const result = getHandle(value);
 
     if (result && result?.source === harvestSource) {
-      const sourceSidValue = sourceConfig[result.source].fSID;
+      const sourceSidValue = sourceConfig[result.source].fSID; // NB: confirming that key exists happens in transformation-level
       return acc.concat({sourceSidValue, handle: result.handle});
     }
     return acc;
@@ -36,7 +36,7 @@ export function generateSID(harvestSource, {getFieldValues}, returnDebugString =
 }
 
 /**
- * Generates field LOW ($a).
+ * Generates static field LOW ($a).
  * @returns Array containing field LOW ($a) with FIKKA tag.
  */
 export function generateLOW() {
