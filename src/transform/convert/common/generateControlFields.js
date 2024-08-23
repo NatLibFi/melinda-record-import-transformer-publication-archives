@@ -33,10 +33,12 @@ export function generate008({getFields, getFieldValues}, moment) {
   const contentNature = generateNatureOfContent();
   const language = generateLanguage();
 
-  return {
-    tag: '008',
-    value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
-  };
+  return [
+    {
+      tag: '008',
+      value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
+    }
+  ];
 
   function generateTimestamp() {
     return moment().format('YYMMDD');
