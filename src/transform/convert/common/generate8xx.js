@@ -23,9 +23,8 @@ export function generate856({getFieldValues}) {
   function generatePublicAccessFields() {
     const accessLevels = getFieldValues('dc.rights.accesslevel');
 
-    // TO DO: evaluate whether old implementation evaluation of not having accessLevel info
-    // for generating this field is valid
-    if (accessLevels.find(v => v === 'openAccess')) {
+    // NB: not having access level fields generates f856 public access field
+    if (accessLevels.length === 0 || accessLevels.find(v => v === 'openAccess')) {
       const subfields = generateSubfields();
       return [{tag: '856', ind1: '4', ind2: '0', subfields}];
     }
@@ -75,7 +74,7 @@ export function generate856({getFieldValues}) {
 
 /**
  * Generates field 884 ($a, $g, $k, $q, $5).
- * Field generation is based on environmental variables value.
+ * Field generation is based on hardcoded mapping which is read using harvestSource.
  * @param {string} harvestSource Source from where metadata was retrieved
  * @param {Object} moment Moment instance to be used for date generation
  * @param {Object} marcRecord MarcRecord object of transformed record
@@ -94,7 +93,7 @@ export function generate884(harvestSource, moment, marcRecord) {
       subfields: [
         {code: 'a', value: 'Dublin Core to MARC transformation'},
         {code: 'g', value: moment().format('YYYYMMDD')},
-        {code: 'k', value: `${sourceConfig[harvestSource].f884}:${hash}`},
+        {code: 'k', value: `${sourceConfig[harvestSource].f884}:${hash}`}, // NB: transform-level checks that key exists
         {code: 'q', value: 'FI-NL'},
         {code: '5', value: 'MELINDA'}
       ]
