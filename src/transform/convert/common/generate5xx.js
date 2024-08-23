@@ -63,8 +63,8 @@ export function generate500({getFieldValues, getFields}) {
 }
 
 /**
- * Generates field 502 ($a, $d, $c ,$9) if dc.type.ontasot fields exist in record.
- * Generated values are based on dc.contributor.organization, dc.date.issued and dc.contributor faculty
+ * Generates field 502 ($a, $d, $c ,$9) if dc.type.ontasot contains information regarding dissertation.
+ * Generated values are based on dc.contributor.organization, dc.date.issued and dc.contributor.faculty
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 502 ($a, $d, $c ,$9)
  */
@@ -116,7 +116,7 @@ export function generate502({getFieldValues}) {
 }
 
 /**
- * Generates field 506 ($a, $f, $2 ,$9) if dc.type.ontasot fields exist in record.
+ * Generates field 506 ($a, $f, $2 ,$9) if dc.type.accesslevel fields exist in record with valid value or field does not exist.
  * Generated values are based on dc.rights.accesslevel and dc.rights.accessrights
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 506 ($a, $f, $2 ,$9)
@@ -128,12 +128,11 @@ export function generate506({getFieldValues}) {
   return accessLevelFields.concat(accessRightsFields);
 
   function generateAccessLevelFields() {
-    const isOpenAccess = getFieldValues('dc.rights.accesslevel')
+    const accessLevelFields = getFieldValues('dc.rights.accesslevel');
+    const isOpenAccess = accessLevelFields.lenth === 0 || accessLevelFields
       .filter(value => value === 'openAccess')
       .length > 0;
 
-    // TO DO: evaluate whether no access level fields should result into open access notification in f506
-    // as done by previous implementation
     return isOpenAccess ? [
       {
         tag: '506',
