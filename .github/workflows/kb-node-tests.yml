@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: mikaelvesavuori/license-compliance-action@main
+      - uses: mikaelvesavuori/license-compliance-action@v1
         with:
           exclude_pattern: /^@natlibfi/
 
@@ -47,7 +47,7 @@ jobs:
       uses: actions/checkout@v4
     - name: nodejsscan scan
       id: njsscan
-      uses: ajinabraham/njsscan-action@master
+      uses: ajinabraham/njsscan-action@v7
       with:
         args: '.'
 
@@ -58,13 +58,13 @@ jobs:
 
     steps:
       - name: Staging webhook
-        uses: joelwmale/webhook-action@master
+        uses: joelwmale/webhook-action@v2
         if: github.ref == 'refs/heads/test'
         with:
           url: ${{ secrets.WEBHOOK_URL_TEST }}
           body: '{}'
       - name: Production webhook
-        uses: joelwmale/webhook-action@master
+        uses: joelwmale/webhook-action@v2
         if: github.ref == 'refs/heads/main'
         with:
           url: ${{ secrets.WEBHOOK_URL_PROD }}
