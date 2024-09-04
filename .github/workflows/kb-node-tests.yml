@@ -58,7 +58,7 @@ jobs:
 
     steps:
       - name: Staging webhook
-        uses: joelwmale/webhook-action@v2
+        uses: joelwmale/webhook-action@master
         if: github.ref == 'refs/heads/test'
         with:
           url: ${{ secrets.WEBHOOK_URL_TEST }}
