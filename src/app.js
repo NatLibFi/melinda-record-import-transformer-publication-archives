@@ -7,7 +7,7 @@ export async function startApp(config) {
   const logger = createLogger();
 
   const mongoOperator = config.mongoUrl ? await createMongoOperator(config.mongoUrl) : false;
-  const riApiClient = createRecordImportApiClient(config.recordImportApiOptions);
+  const riApiClient = createRecordImportApiClient(config.recordImportApiOptions, config.keycloakOptions, mongoOperator);
   const transformHandler = createTransformHandler(config);
 
   logger.info('Starting melinda record import dc transformer');
