@@ -1,6 +1,6 @@
 import {Parser} from 'xml2js';
 import {toXml} from 'xml-flow';
-import {DOMParser} from 'xmldom';
+import {DOMParser} from '@xmldom/xmldom';
 
 /**
  * Convert XML to JS object
@@ -9,6 +9,7 @@ import {DOMParser} from 'xmldom';
  */
 export function convertToObject(node) {
   const str = toXml(node);
+
   return toObject(str.replaceAll('\\"', '&quot;')); // NB: escaped quote seems to be something xmldom cannot handle
 
   function toObject(str) {
