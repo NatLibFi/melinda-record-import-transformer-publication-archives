@@ -16,9 +16,9 @@ export const filterConfig = {
 };
 
 export const recordImportApiOptions = {
-  recordImportApiUrl: readEnvironmentVariable('RI_API_URL', {defaultValue: 'cli'}),
-  userAgent: readEnvironmentVariable('RI_API_CLIENT_USER_AGENT', {defaultValue: '_RECORD-IMPORT-TRANSFORMER'}),
-  allowSelfSignedApiCert: readEnvironmentVariable('RI_API_ALLOW_SELF_SIGNED', {defaultValue: false, format: parseBoolean})
+  recordImportApiUrl: readEnvironmentVariable('RECORD_IMPORT_API_URL', {defaultValue: 'cli'}),
+  userAgent: readEnvironmentVariable('API_CLIENT_USER_AGENT', {defaultValue: '_RECORD-IMPORT-TRANSFORMER'}),
+  allowSelfSignedApiCert: readEnvironmentVariable('ALLOW_API_SELF_SIGNED', {defaultValue: false, format: parseBoolean})
 };
 
 export const keycloakOptions = {
