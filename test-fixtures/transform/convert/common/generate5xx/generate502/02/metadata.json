@@ -1,0 +1,4 @@
+{
+  "description": "Generates subfield $c if dc.contributor.organization exists",
+  "only": false
+}

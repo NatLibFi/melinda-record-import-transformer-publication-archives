@@ -1,0 +1,4 @@
+{
+  "description": "Generates f653 from dc.subject.ysa and dc.subject values",
+  "only": false
+}

@@ -1,0 +1,4 @@
+{
+  "description": "Generates f540 from each dc.rights, dc.rights.url and dc.rights.uri information",
+  "only": false
+}

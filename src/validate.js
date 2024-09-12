@@ -4,22 +4,41 @@ import {
   EmptyFields,
   IsbnIssn,
   Urn,
-  AccessRights
+  AccessRights,
+  EndingPunctuation,
+  Punctuation,
+  RemoveDuplicateDataFields,
+  IndicatorFixes,
+  FieldExclusion
 } from '@natlibfi/marc-record-validators-melinda';
 
-export default async (isLegalDeposit) => {
-  const validate = validateFactory([
-    await EmptyFields(),
-    await IsbnIssn({hyphenateISBN: true}),
-    await Urn(isLegalDeposit),
-    ...isLegalDeposit ? [await AccessRights()] : []
-  ]);
+export default () => {
+  // NB: All items are considered legal deposit items
+  const isLegalDeposit = true;
+
+  const validators = [
+    EmptyFields(),
+    IsbnIssn({hyphenateISBN: true}),
+    IndicatorFixes(),
+    isLegalDeposit ? Urn(isLegalDeposit) : undefined,
+    isLegalDeposit ? AccessRights() : undefined,
+    FieldExclusion([
+      {
+        tag: /^520$/u
+      }
+    ]),
+    EndingPunctuation(),
+    Punctuation(),
+    RemoveDuplicateDataFields()
+  ].filter(v => v !== undefined);
+
+  const validate = validateFactory(validators);
 
   return async (record, fix, validateFixes) => {
     const opts = fix ? {fix, validateFixes} : /* istanbul ignore next: No need to test this */ {fix};
     const result = await validate(record, opts);
     return {
-      record: result.record,
+      record: result.record.toObject(),
       failed: result.valid === false,
       messages: result.report
     };

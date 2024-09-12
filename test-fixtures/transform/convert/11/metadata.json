@@ -1,7 +1,0 @@
-{
-    "description": "Transform: Theseus basic & generates field 776",
-    "sourceMap": {
-        "www.theseus.fi": "REPO_THESEUS"
-    },
-    "harvestSource": "THESEUS"
-}

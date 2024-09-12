@@ -1,5 +1,0 @@
-{
-  "description": "Should validate record - Generates URN and $9MELINDA<TEMP> needs http mock",
-  "isLegalDeposit": true,
-  "skip": true
-}

@@ -1,25 +1,26 @@
 import {Parser} from 'xml2js';
+import {toXml} from 'xml-flow';
+import {DOMParser} from '@xmldom/xmldom';
 
-export async function xmlToObject(stream) {
-  const str = await readToString();
-  return toObject();
+/**
+ * Convert XML to JS object
+ * @param {object} node Read XML node as object
+ * @returns Parsed JS object
+ */
+export function convertToObject(node) {
+  const str = toXml(node);
 
-  function readToString() {
+  return toObject(str.replaceAll('\\"', '&quot;')); // NB: escaped quote seems to be something xmldom cannot handle
+
+  function toObject(str) {
     return new Promise((resolve, reject) => {
-      const list = [];
+      // NB: required for parsing entities such as &amp;
+      // see https://stackoverflow.com/a/41943379
+      const xmlString = new DOMParser().parseFromString(str, 'text/xml');
 
-      stream
-        .on('error', reject)
-        .on('data', chunk => list.push(chunk)) // eslint-disable-line functional/immutable-data
-        .on('end', () => resolve(list.join('')));
-    });
-  }
-
-  function toObject() {
-    return new Promise((resolve, reject) => {
-      new Parser().parseString(str, (err, obj) => {
+      new Parser().parseString(xmlString, (err, obj) => {
         if (err) {
-          return reject(err);
+          /* istanbul ignore next: Generic error */ return reject(err);
         }
 
         resolve(obj);

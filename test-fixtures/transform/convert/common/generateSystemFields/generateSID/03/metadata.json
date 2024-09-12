@@ -1,0 +1,6 @@
+{
+  "description": "Returns debug string if returnDebugString parameter is true",
+  "source": "foobar.example.com",
+  "returnDebugString": true,
+  "only": false
+}

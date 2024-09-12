@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "doi",
+      "value": "https://doi.org/doi.10.1234/ABCD123456"
+    }
+  }
+]

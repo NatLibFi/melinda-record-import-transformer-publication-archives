@@ -1,14 +1,16 @@
 /**
- * Generates field 300 ($a) based on dc.format.extent values.
+ * Generates field 300 ($a) based on first dc.format.extent value.
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 300 ($a)
  */
 export function generate300({getFieldValues}) {
-  const values = getFieldValues('dc.format.extent');
-  return values.map(v => ({
-    tag: '300', ind1: '', ind2: '',
-    subfields: [{code: 'a', value: `1 verkkoaineisto (${v} sivua)`}]
-  }));
+  const [value] = getFieldValues('dc.format.extent');
+  return value ? [
+    {
+      tag: '300', ind1: '', ind2: '',
+      subfields: [{code: 'a', value: `1 verkkoaineisto (${value} sivua)`}]
+    }
+  ] : [];
 }
 
 /**

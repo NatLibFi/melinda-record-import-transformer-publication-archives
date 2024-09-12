@@ -1,0 +1,4 @@
+{
+  "description": "Subfield separators are correct when generating only $a, $d and $9",
+  "only": false
+}

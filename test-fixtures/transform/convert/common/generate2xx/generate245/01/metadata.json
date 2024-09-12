@@ -1,0 +1,4 @@
+{
+  "description": "Generates f245 from dc.title information. Ind1=0 when do.contibutor.author or dc.creator information cannot be found.",
+  "only": false
+}

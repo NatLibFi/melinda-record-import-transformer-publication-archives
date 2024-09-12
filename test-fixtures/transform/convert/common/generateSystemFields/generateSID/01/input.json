@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "uri",
+      "value": "https://foobar.example.com/handle/123/456"
+    }
+  }
+]

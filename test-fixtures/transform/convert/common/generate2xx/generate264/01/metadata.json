@@ -1,0 +1,4 @@
+{
+  "description": "Generates f264 from dc.publisher/dc.publisher.place/dc.date.issued information.",
+  "only": false
+}

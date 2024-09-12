@@ -1,7 +1,0 @@
-{
-    "description": "Transform: Trepo basic",
-    "sourceMap": {
-        "trepo.tuni.fi": "REPO_TREPO"
-    },
-    "harvestSource": "TREPO"
-}

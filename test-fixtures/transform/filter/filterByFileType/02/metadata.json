@@ -1,0 +1,5 @@
+{
+  "description": "filterByFileType does not pass when kk:file tag is not included to xml",
+  "filter": "filterByFileType",
+  "only": false
+}

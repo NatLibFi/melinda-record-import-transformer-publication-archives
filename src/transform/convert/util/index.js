@@ -57,39 +57,52 @@ export function formatLanguage(code) {
  * @returns Array containing record fields
  */
 export function getInputFields(record) {
-  return record.metadata[0]['kk:metadata'][0]['kk:field']
+  return record['kk:field']
     .filter(field => '$' in field);
 }
 
 /**
- * Function retrieving file type information
- * @param {Object} record Input record parsed by XML parser
- * @returns Empty array or array containing filetype information
- */
-export function getFileTypesInformation(record) {
-  const inputFields = record.metadata[0]['kk:metadata'][0]['kk:file']
-    ? record.metadata[0]['kk:metadata'][0]['kk:file'].filter(field => '$' in field) : [];
-
-  return inputFields.length === 0 ? [] : inputFields.map(f => f.$.type);
-}
-
-/**
- * Parses source and handle from dc.identifier.uri values
- * @param {string} value URI value found in dc.identifier.uri field
+ * Parses source and handle from dc.identifier.uri values or from header information
+ * @param {string} value URI value
  * @returns false if source or handle cannot be parsed, otherwise object containing source and handle attributes
  */
 export function getHandle(value) {
-  const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
-  const handleRegex = /(?<handle>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+  if (value.startsWith('oai:')) {
+    return parseOai(value);
+  }
 
-  const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
-  const {handle} = value.match(handleRegex) ? value.match(handleRegex).groups : {handle: null};
-
-  if (source !== null && handle !== null) {
-    return {source, handle};
+  if (value.startsWith('http')) {
+    return parseHttp(value);
   }
 
   return false;
+
+
+  function parseHttp(value) {
+    const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
+    const handleRegex = /(?<handle>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+
+    const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
+    const {handle} = value.match(handleRegex) ? value.match(handleRegex).groups : {handle: null};
+
+    if (source !== null && handle !== null) {
+      return {source, handle};
+    }
+
+    return false;
+  }
+
+  function parseOai(value) {
+    const parts = value.split(':');
+    if (parts.length !== 3) {
+      return false;
+    }
+
+    return {
+      source: parts[1],
+      handle: parts[2]
+    };
+  }
 }
 
 /**
@@ -144,5 +157,74 @@ export function isDissertation({getFieldValues}) {
     }
 
     return value.trim().toLowerCase();
+  }
+}
+
+/**
+ * Parses source, unique identifier and date harvested from record header
+ * @param {object}} header Record header: ListRecords -> record -> header
+ * @returns {object} Object containing identifier and dateHarvested attributes
+ */
+export function parseHeaderInformation(header) {
+  const identifier = getFirstValueInContext(header, 'identifier');
+  const dateHarvested = getFirstValueInContext(header, 'datestamp');
+
+  return {
+    identifier: parseIdentifier(identifier),
+    dateHarvested
+  };
+
+  function parseIdentifier(identifierValue) {
+    // eslint-disable-next-line no-unused-vars
+    const {source, handle} = getHandle(identifierValue);
+    return {source, uniqueIdentifier: handle};
+  }
+}
+
+/**
+ * Get first value of given path in context of given object
+ * @param {object} context Object to be used as context
+ * @param  {...any} path Path to value to retrieve. Each step follows the first index of array if available.
+ * @returns {any|null} Null if value could not be found from path, otherwise the first value retrieved through the path
+ */
+function getFirstValueInContext(context, ...path) {
+  return recurse(path, context);
+
+  function recurse(props, context) {
+    const [prop] = props;
+
+    if (prop) {
+      if (props.length === 1) {
+        return context?.[prop] ? context[prop][0] : null;
+      }
+
+      return recurse(props.slice(1), context?.[prop]?.[0] || {});
+    }
+
+    return null;
+  }
+}
+
+/**
+ * Get all values when stepping through first indexes of given path in context of given object
+ * @param {object} context Object to be used as context
+ * @param  {...any} path Path to value to retrieve. Each step follows the first index of array if available.
+ * @returns Empty array if there are no values that could not be found from path, otherwise array containing the values retrieved from path's last attribute
+ */
+export function getAllValuesInContext(context, ...path) {
+  return recurse(path, context);
+
+  function recurse(props, context) {
+    const [prop] = props;
+
+    if (prop) {
+      if (props.length === 1) {
+        return context?.[prop] || [];
+      }
+
+      return recurse(props.slice(1), context?.[prop]?.[0] || {});
+    }
+
+    return [];
   }
 }

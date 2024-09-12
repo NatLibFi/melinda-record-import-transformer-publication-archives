@@ -16,6 +16,7 @@ export function generate100and700({getFieldValues}) {
       'dc.contributor.author',
       'dc.creator'
     ].includes(p));
+
     return values.map((v, index) => ({
       tag: index === 0 ? '100' : '700', ind1: '1', ind2: '',
       subfields: [

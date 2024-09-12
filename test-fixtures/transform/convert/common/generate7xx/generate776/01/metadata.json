@@ -1,0 +1,4 @@
+{
+  "description": "Generates a f776 from each dc.relation.isversionof entry",
+  "only": false
+}

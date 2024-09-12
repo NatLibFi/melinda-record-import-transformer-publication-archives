@@ -1,17 +1,21 @@
 import {createLogger} from '@natlibfi/melinda-backend-commons';
-import {transformerBlobLogic, createApiClient as createRecordImportApiClient} from '@natlibfi/melinda-record-import-commons';
+import {transformerBlobLogic, createApiClient as createRecordImportApiClient, createMongoOperator} from '@natlibfi/melinda-record-import-commons';
 import createTransformHandler from './transform';
 import amqplib from 'amqplib';
 
 export async function startApp(config) {
   const logger = createLogger();
+
+  const mongoOperator = config.mongoUrl ? await createMongoOperator(config.mongoUrl) : false;
   const riApiClient = createRecordImportApiClient(config.recordImportApiOptions);
   const transformHandler = createTransformHandler(config);
 
-  logger.info('Starting melinda record import transformer helmet');
+  logger.info('Starting melinda record import dc transformer');
   try {
     await transformerBlobLogic(riApiClient, transformHandler, amqplib, config);
   } catch (error) {
     logger.error(error);
+  } finally {
+    mongoOperator.closeClient();
   }
 }

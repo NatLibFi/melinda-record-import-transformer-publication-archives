@@ -1,0 +1,16 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "creator",
+      "value": "Esimerkki, Erkki"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "title",
+      "value": "Dublin Core - MARC21 -konversio"
+    }
+  }
+]

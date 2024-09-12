@@ -69,6 +69,7 @@ export function generate653({getFieldValues}) {
     'dc.subject.ysa',
     'dc.subject'
   ].includes(p));
+
   return values.map(value => ({
     tag: '653', ind1: '', ind2: '',
     subfields: [{code: 'a', value}]
