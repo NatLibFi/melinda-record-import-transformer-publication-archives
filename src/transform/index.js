@@ -13,6 +13,7 @@ import {convertToObject} from './xmlParser';
 import {parseHeaderInformation} from './convert/util';
 
 import {sourceConfig} from '../config';
+import {ParseError} from '@xmldom/xmldom';
 
 class TransformEmitter extends EventEmitter { }
 
@@ -110,6 +111,15 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
               title,
               standardIdentifiers: identifiers,
               message: err.message
+            });
+          }
+
+          if (err instanceof ParseError) {
+            return Emitter.emit('record', {
+              failed: true,
+              title: 'Unknown title',
+              standardIdentifiers: [],
+              message: `Record XML could not be parsed due to an ParserError: ${err.message}`
             });
           }
 
