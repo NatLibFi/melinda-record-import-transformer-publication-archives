@@ -40,7 +40,7 @@
           <kk:field schema="dc" element="subject" language="fi" value="tietotekniikka" />
           <kk:field schema="dc" element="subject" language="fi" value="ohjelmointi" />
           <kk:field schema="dc" element="title" language="fi"
-            value="Dublin Core - MARC21 konversio" />
+            value="&quot;Cool Stuff&quot;, like &apos;this&apos;: &lt;Dublin Core &amp; MARC21 &gt; &hearts;" />
           <kk:field schema="dc" element="type" language="fi" value="sarjajulkaisu" />
           <kk:file bundle="ORIGINAL"
             href="https://foobar.example.com/bitstream/123/456/1/example.pdf"

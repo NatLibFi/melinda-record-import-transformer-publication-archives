@@ -47,7 +47,8 @@
 		"languagedetect": "^2.0.0",
 		"moment": "^2.30.1",
 		"xml-flow": "^1.0.4",
-		"xml2js": "^0.6.2"
+		"xml2js": "^0.6.2",
+		"xmldom": "^0.6.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.23.4",
