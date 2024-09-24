@@ -9,7 +9,7 @@ import convertRecord from './convert';
 import createValidator from '../validate';
 import filterAndCreateValueInterface from './filter';
 
-import {convertToObject} from './xmlParser';
+import {convertToObject, getMetadataHeader, getRecordMetadata} from './xmlParser';
 import {parseHeaderInformation} from './convert/util';
 
 import {sourceConfig} from '../config';
@@ -66,7 +66,9 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
       .on('tag:record', async xmlRecordEntry => {
         try {
           // Destructuring to get the header + metadata from the xml parsed to object
-          const {record: {header: [headerValue], metadata: [{'kk:metadata': [recordMetadata]}]}} = await convertToObject(xmlRecordEntry);
+          const xmlObject = await convertToObject(xmlRecordEntry);
+          const headerValue = getMetadataHeader(xmlObject?.record?.header);
+          const recordMetadata = getRecordMetadata(xmlObject?.record?.metadata);
 
           if (!headerValue) {
             throw new Error('Could not find header information for record, cannot process');

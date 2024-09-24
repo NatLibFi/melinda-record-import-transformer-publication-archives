@@ -1,6 +1,7 @@
 import {Parser} from 'xml2js';
 import {toXml} from 'xml-flow';
 import {DOMParser} from '@xmldom/xmldom';
+import ConversionError from './convert/conversionError';
 
 /**
  * Convert XML to JS object
@@ -27,4 +28,33 @@ export function convertToObject(node) {
       });
     });
   }
+}
+
+
+export function getMetadataHeader(xmlObjectRecordHeader) {
+  if (!xmlObjectRecordHeader || !Array.isArray(xmlObjectRecordHeader) || xmlObjectRecordHeader.length === 0) {
+    throw new ConversionError({}, 'XML record header could not be read');
+  }
+
+  return xmlObjectRecordHeader[0];
+}
+
+export function getRecordMetadata(xmlObjectRecordMetadata) {
+  // const {record: {header: [headerValue], metadata: [{'kk:metadata': [recordMetadata]}]}} = await convertToObject(xmlRecordEntry);
+
+  if (!xmlObjectRecordMetadata || !Array.isArray(xmlObjectRecordMetadata) || xmlObjectRecordMetadata.length === 0) {
+    throw new ConversionError({}, 'XML record metadata could not be read');
+  }
+
+  const [firstEntry] = xmlObjectRecordMetadata;
+  if (typeof firstEntry !== 'object' || !Object.keys(firstEntry).includes('kk:metadata')) {
+    throw new ConversionError({}, 'XML record metadata did not contain kk:metadata');
+  }
+
+  const kkMetadata = firstEntry['kk:metadata'];
+  if (!Array.isArray(kkMetadata) || kkMetadata.lenght === 0) {
+    throw new ConversionError({}, 'XML record metadata kk:metada was empty');
+  }
+
+  return kkMetadata[0];
 }
