@@ -15,18 +15,6 @@ export const filterConfig = {
   }
 };
 
-export const recordImportApiOptions = {
-  recordImportApiUrl: readEnvironmentVariable('RECORD_IMPORT_API_URL', {defaultValue: 'cli'}),
-  userAgent: readEnvironmentVariable('API_CLIENT_USER_AGENT', {defaultValue: '_RECORD-IMPORT-TRANSFORMER'}),
-  allowSelfSignedApiCert: readEnvironmentVariable('ALLOW_API_SELF_SIGNED', {defaultValue: false, format: parseBoolean})
-};
-
-export const keycloakOptions = {
-  issuerBaseURL: readEnvironmentVariable('KEYCLOAK_ISSUER_BASE_URL', {defaultValue: 'not set!'}),
-  serviceClientID: readEnvironmentVariable('KEYCLOAK_SERVICE_CLIENT_ID', {defaultValue: 'not set!'}),
-  serviceClientSecret: readEnvironmentVariable('KEYCLOAK_SERVICE_CLIENT_SECRET', {defaultValue: 'not set!'})
-};
-
 // NB: Source config is static and not to be read from env vars
 export const sourceConfig = {
   // eslint-disable-next-line no-process-env

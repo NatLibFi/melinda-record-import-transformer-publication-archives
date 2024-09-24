@@ -12,30 +12,13 @@ DC to MARC21 json record transformer for the Melinda record batch import system.
 ## Configuration
 
 ### Record import system
-| Name                                   | Description                                                        | default                      |
-|----------------------------------------|--------------------------------------------------------------------|------------------------------|
-| ABORT_ON_INVALID_RECORDS               | If record transformation fails abort transformation process        | false                        |
-| PROFILE_IDS                            | Record-import profiles that wish to use this transformer           | ["foobar"]                   |
-| AMQP_URL                               | Rabbit MQ container url                                            | "amqp://127.0.0.1:5672/"     |
-| MONGO_URI                              | MongoDB connection                                                 | "mongodb://127.0.0.1/db"
-|                                        |                                                                    |                              |
-
-### Record import api
-| Name                                   | Description                                                        | default                      |
-|----------------------------------------|--------------------------------------------------------------------|------------------------------|
-| RI_API_URL                             | Record import api url                                              | 'cli'                        |
-| RI_API_CLIENT_USER_AGENT               | Api client user agent                                              | "_RECORD-IMPORT-TRANSFORMER" |
-| RI_API_ALLOW_SELF_SIGNED               | Whether to allow record import api to use self-signed certificates | false                        |
-|                                        |                                                                    |                              |
-
-
-### Authentication
-| Name                                   | Description                                                        | default                      |
-|----------------------------------------|--------------------------------------------------------------------|------------------------------|
-| KEYCLOAK_ISSUER_BASE_URL               | Keycloak realm base url                                            | 'not set!'                   |
-| KEYCLOAK_SERVICE_CLIENT_ID             | Keycloak client id                                                 | 'not set!'                   |
-| KEYCLOAK_SERVICE_CLIENT_SECRET         | Keycloak client secret                                             | 'not set!'                   |
-|                                        |                                                                    |                              |
+| Name                     | Description                                                 | default                  |
+|--------------------------|-------------------------------------------------------------|--------------------------|
+| ABORT_ON_INVALID_RECORDS | If record transformation fails abort transformation process | false                    |
+| PROFILE_IDS              | Record-import profiles that wish to use this transformer    | ["foobar"]               |
+| AMQP_URL                 | Rabbit MQ container url                                     | "amqp://127.0.0.1:5672/" |
+| MONGO_URI                | MongoDB connection                                          | "mongodb://127.0.0.1/db" |
+|                          |                                                             |                          |
 
 
 ### Filters
@@ -45,11 +28,11 @@ Filters define which records should and should not be converted based on the sou
 - filterByIssuedYear: requires dc.date.issued to be equal or greater than what is defined in FILTER_YEAR_NOT_BEFORE to pass
 - filterByMaterialType: if dc.type.okm is found, requires the value be something else than A3/B2/D2 to pass
 
-| Name                                   | Description                                                             | default                      |
-|----------------------------------------|-------------------------------------------------------------------------|------------------------------|
-| FILTERS                                | Names of filters which should be applied before converting record       | []                           |
-| FILTER_YEAR_NOT_BEFORE                 | Configuration for filterByIssuedYear: oldest publication year to allow  | []                           |
-|                                        |                                                                    |                              |
+| Name                   | Description                                                            | default |
+|------------------------|------------------------------------------------------------------------|---------|
+| FILTERS                | Names of filters which should be applied before converting record      | []      |
+| FILTER_YEAR_NOT_BEFORE | Configuration for filterByIssuedYear: oldest publication year to allow | []      |
+|                        |                                                                        |         |
 
 
 #### Other configuration
