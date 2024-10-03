@@ -31,7 +31,7 @@
 		"coverage": "npm run cover:unit && npm run cover:report",
 		"cover:unit": "nyc --silent npm run test:base",
 		"cover:report": "nyc report",
-		"watch:test": "cross-env DEBUG=1 NODE_ENV=test nodemon -w src --exec 'npm run test:base -- \"./src/**/*.spec.js\"'"
+		"watch:test": "cross-env DEBUG=1 NODE_ENV=test nodemon -e js,xml -w src -w test-fixtures --exec 'npm run test:base -- -b \"./src/**/*.spec.js\"'"
 	},
 	"dependencies": {
 		"@natlibfi/marc-record": "^9.0.1",
@@ -40,7 +40,6 @@
 		"@natlibfi/melinda-backend-commons": "^2.3.1",
 		"@natlibfi/melinda-commons": "^13.0.16",
 		"@natlibfi/melinda-record-import-commons": "^11.0.0-alpha.56",
-		"@xmldom/xmldom": "^0.9.2",
 		"amqplib": "^0.10.4",
 		"debug": "^4.3.6",
 		"isbn3": "^1.1.51",

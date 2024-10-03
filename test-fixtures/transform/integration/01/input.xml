@@ -40,7 +40,7 @@
           <kk:field schema="dc" element="subject" language="fi" value="tietotekniikka" />
           <kk:field schema="dc" element="subject" language="fi" value="ohjelmointi" />
           <kk:field schema="dc" element="title" language="fi"
-            value="&quot;Cool Stuff&quot;, like &apos;this&apos;: Dublin Core &amp; MARC21 &hearts; &gt;" />
+            value="&lt;&quot;Cool Stuff&quot;, like &apos;this&apos;: Dublin Core &amp; MARC21 &hearts; &gt;" />
           <kk:field schema="dc" element="type" language="fi" value="sarjajulkaisu" />
           <kk:file bundle="ORIGINAL"
             href="https://foobar.example.com/bitstream/123/456/1/example.pdf"

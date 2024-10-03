@@ -103,7 +103,7 @@
         "subfields": [
           {
             "code": "a",
-            "value": "\"Cool Stuff\", like 'this': Dublin Core & MARC21 ♥ >."
+            "value": "<\"Cool Stuff\", like 'this': Dublin Core & MARC21 ♥ >."
           }
         ]
       },
@@ -375,7 +375,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:3290ad7475931af926fa698c7ccfdbc9bc6a9ae3d8d7e73010179078b7103ddc"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:248dbae7726744ca13be6bc9ffbda462e54e933a3a0a9b00ffe6d43bfe2f9baf"
           },
           {
             "code": "q",
