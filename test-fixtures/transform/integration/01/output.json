@@ -1,6 +1,6 @@
 {
   "record": {
-    "leader": "00000nam a22000003i 4500",
+    "leader": "00000nam a22000002i 4500",
     "fields": [
       {
         "tag": "007",
@@ -375,7 +375,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:248dbae7726744ca13be6bc9ffbda462e54e933a3a0a9b00ffe6d43bfe2f9baf"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:3b90bf01848995b1471e0100095a8f4f3943f970b223d7f20808a2a692277be9"
           },
           {
             "code": "q",

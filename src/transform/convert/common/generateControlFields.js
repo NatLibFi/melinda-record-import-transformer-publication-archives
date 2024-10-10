@@ -5,7 +5,7 @@ import {formatLanguage} from '../util';
  * @returns Field LDR as string
  */
 export function generateLDR() {
-  return '00000nam a22000003i 4500';
+  return '00000nam a22000002i 4500';
 }
 
 /**
