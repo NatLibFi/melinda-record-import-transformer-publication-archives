@@ -129,7 +129,7 @@ export function generate506({getFieldValues}) {
 
   function generateAccessLevelFields() {
     const accessLevelFields = getFieldValues('dc.rights.accesslevel');
-    const isOpenAccess = accessLevelFields.lenth === 0 || accessLevelFields
+    const isOpenAccess = accessLevelFields.length === 0 || accessLevelFields
       .filter(value => value === 'openAccess')
       .length > 0;
 
