@@ -222,6 +222,29 @@
       },
       {
         "tag": "506",
+        "ind1": "0",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "Aineisto on vapaasti saatavissa."
+          },
+          {
+            "code": "f",
+            "value": "Unrestricted online access"
+          },
+          {
+            "code": "2",
+            "value": "star"
+          },
+          {
+            "code": "9",
+            "value": "FENNI<KEEP>"
+          }
+        ]
+      },
+      {
+        "tag": "506",
         "ind1": "1",
         "subfields": [
           {
@@ -349,6 +372,17 @@
           {
             "code": "y",
             "value": "Linkki verkkoaineistoon"
+          }
+        ]
+      },
+      {
+        "tag": "856",
+        "ind1": "4",
+        "ind2": "0",
+        "subfields": [
+          {
+            "code": "u",
+            "value": "https://urn.fi/URN:ISBN:978-92-95055-20-9"
           },
           {
             "code": "z",
@@ -375,7 +409,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:3b90bf01848995b1471e0100095a8f4f3943f970b223d7f20808a2a692277be9"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:8b2b654ebd162607fe92ed26457c31cba5291b2066118b4f3878010b08d7bee2"
           },
           {
             "code": "q",

@@ -3,6 +3,14 @@
     "$": {
       "schema": "dc",
       "element": "rights",
+      "qualifier": "accesslevel",
+      "value": "proprietary"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
       "qualifier": "accessrights",
       "value": "Pääsy aineistoon rajattu, käyttö vain Foobar-kirjaston tiloissa."
     }

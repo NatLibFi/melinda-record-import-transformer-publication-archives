@@ -228,3 +228,8 @@ export function getAllValuesInContext(context, ...path) {
     return [];
   }
 }
+
+export function isOpenAccess({getFieldValues}) {
+  const dcAccessLevelFields = getFieldValues('dc.rights.accesslevel');
+  return dcAccessLevelFields.length === 0 || dcAccessLevelFields.includes('openAccess');
+}

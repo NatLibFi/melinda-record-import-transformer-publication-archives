@@ -3,7 +3,7 @@ import {createHash} from 'crypto';
 import {clone} from '@natlibfi/melinda-commons';
 import {MarcRecord} from '@natlibfi/marc-record';
 
-import {isValidLink} from '../util';
+import {isOpenAccess, isValidLink} from '../util';
 import {sourceConfig} from '../../../config';
 
 /**
@@ -21,10 +21,10 @@ export function generate856({getFieldValues}) {
   return publicAccessFields.concat(otherUrnFields);
 
   function generatePublicAccessFields() {
-    const accessLevels = getFieldValues('dc.rights.accesslevel');
+    const openAccess = isOpenAccess({getFieldValues});
 
     // NB: not having access level fields generates f856 public access field
-    if (accessLevels.length === 0 || accessLevels.find(v => v === 'openAccess')) {
+    if (openAccess) {
       const subfields = generateSubfields();
       return subfields.length > 0 ? [{tag: '856', ind1: '4', ind2: '0', subfields}] : [];
     }
