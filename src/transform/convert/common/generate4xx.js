@@ -47,7 +47,11 @@ export function generate490({getFieldValues}) {
     }
 
     function generateSubfieldX(hasSeriesNumber) {
-      return getFieldValues('dc.relation.issn')
+      const issnFieldValues = getFieldValues('dc.relation.issn');
+      const issnLFieldValues = getFieldValues('dc.relation.issn-l');
+
+      const issnValues = issnFieldValues.length > 0 ? issnFieldValues : issnLFieldValues;
+      return issnValues
         .reduceRight((acc, value) => {
           if (acc.length === 0) {
             return acc.concat({code: 'x', value: hasSeriesNumber ? `${value} ;` : value});
