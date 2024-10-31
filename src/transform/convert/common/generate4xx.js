@@ -1,3 +1,5 @@
+import {isValidIssn} from '../util';
+
 /**
  * Generates field 490 ($a, $v, $x) if subfields $a or $x can be generated.
  * Values creation is based on are found from dc.relation.ispartofseries,
@@ -47,8 +49,8 @@ export function generate490({getFieldValues}) {
     }
 
     function generateSubfieldX(hasSeriesNumber) {
-      const issnFieldValues = getFieldValues('dc.relation.issn');
-      const issnLFieldValues = getFieldValues('dc.relation.issn-l');
+      const issnFieldValues = getFieldValues('dc.relation.issn').filter(isValidIssn);
+      const issnLFieldValues = getFieldValues('dc.relation.issn-l').filter(isValidIssn);
 
       const issnValues = issnFieldValues.length > 0 ? issnFieldValues : issnLFieldValues;
       return issnValues

@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "issn",
+      "value": "totally-not-valid-issn"
+    }
+  }
+]
