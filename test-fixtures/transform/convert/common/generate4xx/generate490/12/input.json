@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "issn",
+      "value": "ISSN 1459-3467 NSSI"
+    }
+  }
+]

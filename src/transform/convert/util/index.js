@@ -240,6 +240,18 @@ export function isValidIssn(issn) {
     return false;
   }
 
-  const issnRegexLax = /\d{4}-\d{3}[0-9xX]{1}/u;
+  const issnRegexLax = /^\d{4}-\d{3}[0-9xX]{1}$/u;
   return issnRegexLax.test(issn);
+}
+
+export function parseIssnFromString(issnString) {
+  const issnRegex = /\d{4}-\d{3}[0-9xX]{1}/u;
+  const containsIssn = issnRegex.test(issnString);
+
+  if (!containsIssn) {
+    return null;
+  }
+
+  const [result] = issnString.match(issnRegex);
+  return result;
 }
