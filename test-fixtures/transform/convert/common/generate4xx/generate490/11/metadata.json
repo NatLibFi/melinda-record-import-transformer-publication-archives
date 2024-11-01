@@ -1,0 +1,4 @@
+{
+  "description": "If both dc.relation.issn-l and dc.relation.issn can be found but are invalid, field is not generated",
+  "only": false
+}

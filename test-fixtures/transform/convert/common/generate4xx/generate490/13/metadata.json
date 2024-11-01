@@ -1,0 +1,4 @@
+{
+  "description": "If multiple ISSN is contained within one value, only first one is parsed and used for field generation",
+  "only": false
+}

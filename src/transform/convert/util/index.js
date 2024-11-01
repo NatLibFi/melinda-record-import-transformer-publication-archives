@@ -228,3 +228,34 @@ export function getAllValuesInContext(context, ...path) {
     return [];
   }
 }
+
+export function isOpenAccess({getFieldValues}) {
+  const dcAccessLevelFields = getFieldValues('dc.rights.accesslevel');
+  const dcAccessRightsFields = getFieldValues('dc.rights.accessrights');
+
+  const accessFields = [...dcAccessLevelFields, ...dcAccessRightsFields];
+
+  return accessFields.length === 0 || dcAccessLevelFields.includes('openAccess');
+}
+
+// This is lax validation -- if stricter is required it will be implemented at later stage and to common package
+export function isValidIssn(issn) {
+  if (typeof issn !== 'string' || issn.length < 8) {
+    return false;
+  }
+
+  const issnRegexLax = /^\d{4}-\d{3}[0-9xX]{1}$/u;
+  return issnRegexLax.test(issn);
+}
+
+export function parseIssnFromString(issnString) {
+  const issnRegex = /\d{4}-\d{3}[0-9xX]{1}/u;
+  const containsIssn = issnRegex.test(issnString);
+
+  if (!containsIssn) {
+    return null;
+  }
+
+  const [result] = issnString.match(issnRegex);
+  return result;
+}

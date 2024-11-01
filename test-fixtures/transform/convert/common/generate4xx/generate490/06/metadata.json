@@ -1,0 +1,4 @@
+{
+  "description": "Value may be taken from dc.relation.issn-l if dc.relation.issn cannot be found",
+  "only": false
+}

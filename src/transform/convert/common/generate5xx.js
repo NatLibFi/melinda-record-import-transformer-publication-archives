@@ -1,4 +1,4 @@
-import {hasLevels, isDissertation, extractFinnishTerm} from '../util';
+import {hasLevels, isDissertation, extractFinnishTerm, isOpenAccess} from '../util';
 
 /**
  * Generates field 500 ($a) based on dc.description, dc.description.notification and dc.type.ontasot
@@ -128,12 +128,9 @@ export function generate506({getFieldValues}) {
   return accessLevelFields.concat(accessRightsFields);
 
   function generateAccessLevelFields() {
-    const accessLevelFields = getFieldValues('dc.rights.accesslevel');
-    const isOpenAccess = accessLevelFields.length === 0 || accessLevelFields
-      .filter(value => value === 'openAccess')
-      .length > 0;
+    const openAccess = isOpenAccess({getFieldValues});
 
-    return isOpenAccess ? [
+    return openAccess ? [
       {
         tag: '506',
         ind1: '0',
