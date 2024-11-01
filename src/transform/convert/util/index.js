@@ -231,7 +231,11 @@ export function getAllValuesInContext(context, ...path) {
 
 export function isOpenAccess({getFieldValues}) {
   const dcAccessLevelFields = getFieldValues('dc.rights.accesslevel');
-  return dcAccessLevelFields.length === 0 || dcAccessLevelFields.includes('openAccess');
+  const dcAccessRightsFields = getFieldValues('dc.rights.accessrights');
+
+  const accessFields = [...dcAccessLevelFields, ...dcAccessRightsFields];
+
+  return accessFields.length === 0 || dcAccessLevelFields.includes('openAccess');
 }
 
 // This is lax validation -- if stricter is required it will be implemented at later stage and to common package
