@@ -58,6 +58,7 @@ export function generate250({getFieldValues}) {
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 264 ($a, $b, $c)
  */
+
 export function generate264({getFieldValues}) {
   const subfields = generateSubfields();
 
@@ -91,9 +92,34 @@ export function generate264({getFieldValues}) {
       return values.length > 0 ? [{code: 'b', value: `${values[0]}${fieldSeparator}`}] : [];
     }
 
+
+    /**
+     * Generates f264 $c from first encountered dc.date.issued that is in format of one of following:
+     * - YYYY
+     * - YYYY-MM
+     * - YYYY-MM-DD
+     */
     function generateSubfieldC() {
-      const values = getFieldValues('dc.date.issued');
-      return values.length > 0 ? [{code: 'c', value: `${values[0]}.`}] : [];
+      const dcValues = getFieldValues('dc.date.issued');
+      const validValues = dcValues.map(getYear).filter(v => v !== null);
+
+      return validValues.length > 0 ? [{code: 'c', value: `${validValues[0]}.`}] : [];
+
+
+      function getYear(v) {
+        const validFormats = [
+          /^\d{4}-\d{2}-\d{2}$/u,
+          /^\d{4}-\d{2}$/u,
+          /^\d{4}$/u
+        ];
+
+        const valueIsValid = validFormats.some(re => re.test(v));
+        if (!valueIsValid) {
+          return null;
+        }
+
+        return v.slice(0, 4);
+      }
     }
   }
 }
