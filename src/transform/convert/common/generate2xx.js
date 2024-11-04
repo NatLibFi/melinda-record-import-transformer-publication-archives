@@ -3,9 +3,11 @@
  * @param {Object} ValueInterface containing getFields and getFieldValues functions
  * @returns Empty array or array containing field 245 ($a)
  */
-export function generate245({getFields, getFieldValues}) {
+export function generate245({getFields}) {
   const isAddedEntry = generateIsAddedEntry();
-  const [title] = getFieldValues('dc.title');
+
+  const fields = getFields('dc.title');
+  const title = fields.length > 0 ? fields[0].$.value : null;
 
   return title ? [
     {
@@ -61,8 +63,8 @@ export function generate250({getFieldValues}) {
  * @returns Empty array or array containing field 264 ($a, $b, $c)
  */
 
-export function generate264({getFieldValues}) {
-  const subfields = generateSubfields();
+export function generate264({getFields, getFieldValues}, titleLanguage) {
+  const subfields = generateSubfields(titleLanguage);
 
   if (subfields.length > 0) {
     return [
@@ -75,9 +77,9 @@ export function generate264({getFieldValues}) {
   return [];
 
 
-  function generateSubfields() {
+  function generateSubfields(titleLanguage) {
     const subfieldC = generateSubfieldC();
-    const subfieldB = generateSubfieldB(subfieldC.length > 0);
+    const subfieldB = generateSubfieldB(subfieldC.length > 0, titleLanguage);
     const subfieldA = generateSubfieldA(subfieldB.length > 0, subfieldC.lenth > 0);
 
     return subfieldA.concat(subfieldB, subfieldC);
@@ -92,10 +94,19 @@ export function generate264({getFieldValues}) {
       return values.length > 0 ? [{code: 'a', value: `${values[0]}${fieldSeparator}`}] : [];
     }
 
-    function generateSubfieldB(hasSubfieldC) {
+    function generateSubfieldB(hasSubfieldC, titleLanguage) {
       const fieldSeparator = hasSubfieldC ? ',' : '';
-      const values = getFieldValues('dc.publisher');
-      return values.length > 0 ? [{code: 'b', value: `${values[0]}${fieldSeparator}`}] : [];
+
+      const fields = getFields('dc.publisher');
+
+      if (fields.length === 0) {
+        return [];
+      }
+
+      const languageVersionValue = titleLanguage ? fields.find(f => f.$.language === titleLanguage) : false;
+      const fieldValue = languageVersionValue ? languageVersionValue.$.value : fields[0].$.value;
+
+      return [{code: 'b', value: `${fieldValue}${fieldSeparator}`}];
     }
 
 

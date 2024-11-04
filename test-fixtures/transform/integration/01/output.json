@@ -114,7 +114,7 @@
         "subfields": [
           {
             "code": "b",
-            "value": "Example publisher,"
+            "value": "Esimerkkikustantaja,"
           },
           {
             "code": "c",
@@ -409,7 +409,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:8b2b654ebd162607fe92ed26457c31cba5291b2066118b4f3878010b08d7bee2"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:3f39198fe332d48b27b8d18cfab4356d286ce43f3afd2799c21a302556bd04a8"
           },
           {
             "code": "q",

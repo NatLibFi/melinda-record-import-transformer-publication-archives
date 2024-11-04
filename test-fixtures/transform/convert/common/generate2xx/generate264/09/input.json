@@ -1,0 +1,34 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "qualifier": "place",
+      "value": "Helsinki"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "language": "fi",
+      "value": "Helsingin yliopisto"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "language": "en",
+      "value": "University of Helsinki"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "date",
+      "qualifier": "issued",
+      "value": "2023"
+    }
+  }
+]

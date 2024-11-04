@@ -33,7 +33,8 @@
           <kk:field schema="dc" element="relation" qualifier="issn" language="e" value="1459-3467" />
           <kk:field schema="dc" element="relation" qualifier="numberinseries" language="none"
             value="17/2024" />
-          <kk:field schema="dc" element="publisher" language="fi" value="Example publisher" />
+          <kk:field schema="dc" element="publisher" language="fi" value="Esimerkkikustantaja" />
+          <kk:field schema="dc" element="publisher" language="en" value="Example publisher" />
           <kk:field schema="dc" element="rights" language="none"
             value="This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited." />
           <kk:field schema="dc" element="subject" language="fi" value="esimerkit" />

@@ -94,13 +94,13 @@ function generate264() {
     }
   });
 
-  function callback({getFixture}) {
+  function callback({getFixture, titleLanguage = null}) {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
     const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate264(valueInterface);
+    const result = fieldGenerator.generate264(valueInterface, titleLanguage);
     expect(result).to.eql(output);
   }
 }

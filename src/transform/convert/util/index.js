@@ -259,3 +259,14 @@ export function parseIssnFromString(issnString) {
   const [result] = issnString.match(issnRegex);
   return result;
 }
+
+/**
+ * Getter for title language. May return only en,sv,fi or null if language attribute cannot be found/value is not one of known valid values.
+ */
+export function getTitleLanguage({getFields}) {
+  const validLangs = ['en', 'sv', 'fi'];
+
+  const fields = getFields('dc.title');
+  const language = fields.length > 0 ? fields[0].$.language : null;
+  return validLangs.includes(language) ? language : null;
+}
