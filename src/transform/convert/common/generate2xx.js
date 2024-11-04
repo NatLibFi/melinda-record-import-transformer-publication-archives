@@ -82,7 +82,11 @@ export function generate264({getFieldValues}) {
 
     function generateSubfieldA(hasSubfieldB, hasSubfieldC) {
       const fieldSeparator = hasSubfieldB || hasSubfieldC ? ':' : '';
-      const values = getFieldValues('dc.publisher.place');
+
+      const dcPublisherPlaceValues = getFieldValues('dc.publisher.place');
+      const dcPublisherCityOfPublicationValues = getFieldValues('dc.publisher.x-cityofpublication');
+
+      const values = dcPublisherPlaceValues.length > 0 ? dcPublisherPlaceValues : dcPublisherCityOfPublicationValues;
       return values.length > 0 ? [{code: 'a', value: `${values[0]}${fieldSeparator}`}] : [];
     }
 
