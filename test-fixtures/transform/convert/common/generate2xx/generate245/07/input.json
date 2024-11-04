@@ -3,7 +3,7 @@
     "$": {
       "schema": "dc",
       "element": "title",
-      "value": "Dublin Core"
+      "value": "Dublin Core! MARC21 -conversion"
     }
   }
 ]

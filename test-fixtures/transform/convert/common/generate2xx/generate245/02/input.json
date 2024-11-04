@@ -10,7 +10,7 @@
     "$": {
       "schema": "dc",
       "element": "title",
-      "value": "Dublin Core - MARC21 -konversio"
+      "value": "Dublin Core"
     }
   }
 ]

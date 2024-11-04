@@ -5,18 +5,22 @@
  */
 export function generate245({getFields}) {
   const isAddedEntry = generateIsAddedEntry();
+  const ind1 = isAddedEntry ? '1' : '0';
+  const ind2 = ' '; // NB: generated in validation phase by marc-record-validators-melinda:IndicatorFixes
 
   const fields = getFields('dc.title');
-  const title = fields.length > 0 ? fields[0].$.value : null;
+  if (fields.length === 0) {
+    return [];
+  }
 
-  return title ? [
-    {
-      tag: '245',
-      ind1: isAddedEntry ? '1' : '0',
-      ind2: '0',
-      subfields: [{code: 'a', value: `${title}.`}]
-    }
-  ] : [];
+  const titleText = fields.length > 0 ? fields[0].$.value : null;
+
+  const {title, alternativeSubtitle} = getTitle(titleText);
+
+  return alternativeSubtitle
+    ? [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title} :`}, {code: 'b', value: `${alternativeSubtitle}.`}]}]
+    : [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title}.`}]}];
+
 
   function generateIsAddedEntry() {
     const fields = getFields(p => [
@@ -25,6 +29,42 @@ export function generate245({getFields}) {
     ].includes(p));
 
     return fields.length > 0;
+  }
+
+  // Splits title to title+subtitle if title contains any of patterns that require this type of processing.
+  // Note: this getter is same as one defined within ONIX-transformer
+  function getTitle(titleText) {
+    const regexObj = findRegex(titleText);
+    const result = regexObj ? regexObj.regex.exec(titleText) : undefined;
+
+    if (!result) {
+      return {title: titleText.trimEnd(), alternativeSubtitle: undefined};
+    }
+
+    const titleResult = regexObj.keepResult === true ? {
+      title: (titleText.slice(0, result.index + regexObj.keepCharactersFromStart) + result).trimEnd(),
+      alternativeSubtitle: titleText.slice(result.index + result[0].length - regexObj.keepCharactersFromEnd).trimEnd().trimStart()
+    }
+      : {
+        title: titleText.slice(0, result.index + regexObj.keepCharactersFromStart).trimEnd(),
+        alternativeSubtitle: titleText.slice(result.index + result[0].length - regexObj.keepCharactersFromEnd).trimEnd().trimStart()
+      };
+
+    return titleResult;
+
+    function findRegex(titleText) {
+      // Note: order defines priority
+      const pluralOfRegex = [
+        // split title to mainTitle and subtitle at first ':', do not keep ':'
+        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /:\s+/u},
+        // split title to mainTitle and subtitle at first ' - ', do not keep the separator
+        {keepCharactersFromStart: 1, keepCharactersFromEnd: 1, regex: /[^0-9]\s+[\u2013\u2014-]\s+[^0-9]/u},
+        // split title to mainTitle and subtitle at '! ' or '? ', keep question and exclamation marks, they are part of the title
+        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, keepResult: true, regex: /!+|\?+/u}
+      ];
+
+      return pluralOfRegex.find(({regex}) => regex.test(titleText));
+    }
   }
 }
 
