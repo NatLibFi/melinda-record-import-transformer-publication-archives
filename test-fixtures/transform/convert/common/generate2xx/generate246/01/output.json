@@ -4,11 +4,5 @@
     "subfields": [
       {"code": "a", "value": "Dublin Core - MARC21 -conversion"}
     ]
-  },
-  {
-    "tag": "246", "ind1": "1", "ind2": "3",
-    "subfields": [
-      {"code": "a", "value": "Och samma på svenska"}
-    ]
   }
 ]
