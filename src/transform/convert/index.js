@@ -12,7 +12,7 @@ import {generate648, generate650, generate651, generate653} from './common/gener
 import {generate776} from './common/generate7xx';
 import {generate856, generate884} from './common/generate8xx';
 import {generateSID, generateLOW} from './common/generateSystemFields';
-import {getTitleLanguage} from './util';
+import {getLanguage} from './util';
 
 /**
  * Generates MarcRecord using common field generations.
@@ -24,14 +24,14 @@ import {getTitleLanguage} from './util';
  */
 export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
   const momentSource = convertOpts.moment || moment;
-  const titleLanguage = getTitleLanguage(fieldValueInterface);
+  const titleLanguage = getLanguage(fieldValueInterface);
 
   const marcRecord = new MarcRecord();
   marcRecord.leader = generateLDR(); // eslint-disable-line functional/immutable-data
 
   const fields = [
     generate007(),
-    generate008(fieldValueInterface, momentSource),
+    generate008(fieldValueInterface, titleLanguage, momentSource),
     generate020(fieldValueInterface),
     generate024(fieldValueInterface),
     generate040(),
