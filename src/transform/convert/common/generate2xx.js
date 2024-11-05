@@ -55,6 +55,8 @@ export function generate245({getFields}) {
     function findRegex(titleText) {
       // Note: order defines priority
       const pluralOfRegex = [
+        // split title to mainTitle and subtitle at first '.', do not keep '.'
+        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /\.\s+/u},
         // split title to mainTitle and subtitle at first ':', do not keep ':'
         {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /:\s+/u},
         // split title to mainTitle and subtitle at first ' - ', do not keep the separator
