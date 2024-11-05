@@ -34,7 +34,7 @@ export function generate008({getFields, getFieldValues}, language, moment) {
   const date = generateDate();
   const country = generateCountry();
   const contentNature = generateNatureOfContent();
-  const lng = language || 'und';
+  const lng = language || '|||';
 
   return [
     {
