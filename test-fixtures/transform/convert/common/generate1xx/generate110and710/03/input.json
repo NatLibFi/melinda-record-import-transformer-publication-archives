@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "contributor",
+      "qualifier": "groupauthor",
+      "value": "Ryhmä Foo"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "contributor",
+      "qualifier": "groupauthor",
+      "value": "Ryhmä Bar"
+    }
+  }
+]

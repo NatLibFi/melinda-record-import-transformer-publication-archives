@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import {generate007, generate008, generateLDR} from './common/generateControlFields';
 import {generate020, generate024, generate040, generate041, generate042} from './common/generate0xx';
-import {generate100and700} from './common/generate1xx';
+import {generate100and700, generate110and710} from './common/generate1xx';
 import {generate245, generate246, generate250, generate264} from './common/generate2xx';
 import {generate300, generate336, generate337, generate338, generate341} from './common/generate3xx';
 import {generate490} from './common/generate4xx';
@@ -40,6 +40,7 @@ export default ({harvestSource, fieldValueInterface, convertOpts = {}, numberOfF
     generate041(fieldValueInterface),
     generate042(),
     generate100and700(fieldValueInterface),
+    generate110and710(fieldValueInterface),
     generate245(fieldValueInterface),
     generate246(fieldValueInterface),
     generate250(fieldValueInterface),
