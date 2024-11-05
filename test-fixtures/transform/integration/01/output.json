@@ -402,11 +402,30 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:a4679eb48194a8af5b4d0832ef174e2ebb1518e15e4bf7c57a81711c4665b415"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:37e47c2ce2cf0a6d4d598f906741132406add4357f9277231d30ef2305a46a22"
           },
           {
             "code": "q",
             "value": "FI-NL"
+          },
+          {
+            "code": "5",
+            "value": "MELINDA"
+          }
+        ]
+      },
+      {
+        "tag": "946",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "i",
+            "value": "Nimeke Dublin Coressa:"
+          },
+          {
+            "code": "a",
+            "value": "<\"Cool Stuff\", like 'this': Dublin Core & MARC21 ♥ >"
           },
           {
             "code": "5",

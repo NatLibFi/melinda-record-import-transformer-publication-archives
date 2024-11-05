@@ -11,6 +11,7 @@ import {generate500, generate502, generate506, generate540, generate542, generat
 import {generate648, generate650, generate651, generate653} from './common/generate6xx';
 import {generate776} from './common/generate7xx';
 import {generate856, generate884} from './common/generate8xx';
+import {generate946} from './common/generate9xx';
 import {generateSID, generateLOW} from './common/generateSystemFields';
 import {getLanguage} from './util';
 
@@ -60,6 +61,7 @@ export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
     generate653(fieldValueInterface),
     generate776(fieldValueInterface),
     generate856(fieldValueInterface),
+    generate946(fieldValueInterface),
     generateSID(harvestSource, fieldValueInterface),
     generateLOW()
   ]
