@@ -10,7 +10,12 @@ export function generate300({getFieldValues}) {
       tag: '300', ind1: '', ind2: '',
       subfields: [{code: 'a', value: `1 verkkoaineisto (${value} sivua)`}]
     }
-  ] : [];
+  ] : [
+    {
+      tag: '300', ind1: '', ind2: '',
+      subfields: [{code: 'a', value: '1 verkkoaineisto'}]
+    }
+  ];
 }
 
 /**

@@ -127,6 +127,17 @@
         ]
       },
       {
+        "tag": "300",
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "code": "a",
+            "value": "1 verkkoaineisto"
+          }
+        ]
+      },
+      {
         "tag": "336",
         "ind1": " ",
         "ind2": " ",
@@ -402,7 +413,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:37e47c2ce2cf0a6d4d598f906741132406add4357f9277231d30ef2305a46a22"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:bca9390abe71e65dad7b9c7b2a6a4655c043a412de978e333d04069d54dd13c6"
           },
           {
             "code": "q",
