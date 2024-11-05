@@ -1,4 +1,5 @@
 import langs from 'langs';
+import LanguageDetect from 'languagedetect';
 
 /**
  * Creates interface that allows interacting with metadata given as input
@@ -40,7 +41,7 @@ export function createValueInterface(inputFields) {
 /**
  * Formats language based on given language code
  * @param {string} code Language code to format
- * @returns {string} Lang code as it was if seems valid, otherwise ISO 639-2B lang code or 'und' if not found
+ * @returns {string} Lang code as it was if seems valid, otherwise ISO 639-2B lang code or null if not found
  */
 export function formatLanguage(code) {
   if (code && code.length === 3) {
@@ -48,7 +49,7 @@ export function formatLanguage(code) {
   }
 
   const lang = langs.where(1, code);
-  return lang ? lang['2B'] : 'und';
+  return lang ? lang['2B'] : null;
 }
 
 /**
@@ -258,4 +259,59 @@ export function parseIssnFromString(issnString) {
 
   const [result] = issnString.match(issnRegex);
   return result;
+}
+
+/**
+ * Wrapper for language getters. Prioritizes dc.language.iso > dc.title.$.language > language detection from title text
+ * @returns Lang code as it was if seems valid, otherwise ISO 639-2B lang code or null if not found
+ */
+export function getLanguage({getFields, getFieldValues}) {
+  const languageIsoValues = getFieldValues('dc.language.iso');
+  if (languageIsoValues.length > 0) {
+    return formatLanguage(languageIsoValues[0]);
+  }
+
+  const titleLanguage = getTitleLanguage({getFields});
+  if (titleLanguage) {
+    return titleLanguage;
+  }
+
+  return detectLanguage({getFieldValues});
+}
+
+/**
+ * Getter for title language. May return only fin/eng/swe or null if language attribute cannot be found/value is not one of known valid values.
+ */
+export function getTitleLanguage({getFields}) {
+  const validLangs = ['en', 'sv', 'fi'];
+
+  const fields = getFields('dc.title');
+  const language = fields.length > 0 ? fields[0].$.language : null;
+  return validLangs.includes(language) ? formatLanguage(language) : null;
+}
+
+/**
+ * Detect title language using language detection. Returns only fin/eng/swe or null.
+ */
+
+export function detectLanguage({getFieldValues}) {
+  const validLangs = ['eng', 'swe', 'fin'];
+
+  const lngDetector = new LanguageDetect();
+  lngDetector.setLanguageType('iso3');
+
+  const titleFields = getFieldValues('dc.title');
+  if (titleFields.length === 0) {
+    return null;
+  }
+
+  const [title] = titleFields;
+  const detectedTitleLanguages = lngDetector.detect(title, 1).flat().map(([lang, ...rest]) => lang); // eslint-disable-line no-unused-vars
+
+  if (detectedTitleLanguages.length === 0) {
+    return null;
+  }
+
+  const [lang] = detectedTitleLanguages;
+  return validLangs.includes(lang) ? formatLanguage(lang) : null;
 }

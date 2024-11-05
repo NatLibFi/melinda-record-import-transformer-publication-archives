@@ -1,5 +1,3 @@
-import {formatLanguage} from '../util';
-
 /**
  * Generates static control field LDR
  * @returns Field LDR as string
@@ -27,20 +25,21 @@ export function generate007() {
  * - dc.type.ontasot
  * - dc.language.iso
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
+ * @param {string|null} language language of item
  * @param {Object} moment Moment instance to be used for date generation
  * @returns Field 008 as string
  */
-export function generate008({getFields, getFieldValues}, moment) {
+export function generate008({getFields, getFieldValues}, language, moment) {
   const timestamp = generateTimestamp();
   const date = generateDate();
   const country = generateCountry();
   const contentNature = generateNatureOfContent();
-  const language = generateLanguage();
+  const lng = language || 'und';
 
   return [
     {
       tag: '008',
-      value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
+      value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${lng} c`
     }
   ];
 
@@ -61,10 +60,5 @@ export function generate008({getFields, getFieldValues}, moment) {
   function generateNatureOfContent() {
     const levels = getFields('dc.type.ontasot');
     return levels.length > 0 ? 'm   ' : '||||';
-  }
-
-  function generateLanguage() {
-    const values = getFieldValues('dc.language.iso');
-    return formatLanguage(values.slice(-1)[0]);
   }
 }

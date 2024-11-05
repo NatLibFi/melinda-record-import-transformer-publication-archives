@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "qualifier": "x-cityofpublication",
+      "value": "Helsinki"
+    }
+  }
+]

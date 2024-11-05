@@ -1,0 +1,4 @@
+{
+  "description": "$c generation parses dc.date.issued information correctly if value is in one of accepted date formats",
+  "only": false
+}

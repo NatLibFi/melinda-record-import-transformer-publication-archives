@@ -1,0 +1,4 @@
+{
+  "description": "$c is not generated if dc.date.issued information is not in preferred date format",
+  "only": false
+}

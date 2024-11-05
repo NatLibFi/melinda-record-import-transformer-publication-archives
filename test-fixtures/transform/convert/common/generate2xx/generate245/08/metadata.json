@@ -1,0 +1,4 @@
+{
+  "description": "Splits title to title+subtitle from character \"?\"",
+  "only": false
+}

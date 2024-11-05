@@ -103,7 +103,11 @@
         "subfields": [
           {
             "code": "a",
-            "value": "<\"Cool Stuff\", like 'this': Dublin Core & MARC21 ♥ >."
+            "value": "<\"Cool Stuff\", like 'this' :"
+          },
+          {
+            "code": "b",
+            "value": "Dublin Core & MARC21 ♥ >."
           }
         ]
       },
@@ -114,7 +118,7 @@
         "subfields": [
           {
             "code": "b",
-            "value": "Example publisher,"
+            "value": "Esimerkkikustantaja,"
           },
           {
             "code": "c",
@@ -409,7 +413,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:8b2b654ebd162607fe92ed26457c31cba5291b2066118b4f3878010b08d7bee2"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:00eb8bec1dddd268cf2306e35693e6889d402f30ccb4a882d4978c78cfcaccaf"
           },
           {
             "code": "q",
@@ -461,7 +465,7 @@
     },
     {
       "description": "Normalizes indicator values",
-      "state": "valid"
+      "state": "fixed"
     },
     {
       "description": "Adds URN for record, to 856-field (if not existing). If isLegalDeposit is active, adds legal deposit subfields to the f856s with URN.",

@@ -66,14 +66,14 @@ function generate008() {
     }
   });
 
-  function callback({getFixture}) {
+  function callback({getFixture, language = null}) {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
     const valueInterface = createValueInterface(input);
     const momentMock = () => moment('2020-01-01T00:00:00');
 
-    const result = fieldGenerator.generate008(valueInterface, momentMock);
+    const result = fieldGenerator.generate008(valueInterface, language, momentMock);
     expect(result).to.eql(output);
   }
 }

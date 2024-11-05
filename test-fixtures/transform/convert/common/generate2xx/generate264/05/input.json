@@ -1,0 +1,25 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "qualifier": "place",
+      "value": "Helsinki"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "value": "Helsingin yliopisto"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "date",
+      "qualifier": "issued",
+      "value": "01/01/1970"
+    }
+  }
+]
