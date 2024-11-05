@@ -276,17 +276,6 @@
       },
       {
         "tag": "540",
-        "ind1": " ",
-        "ind2": " ",
-        "subfields": [
-          {
-            "code": "c",
-            "value": "This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited."
-          }
-        ]
-      },
-      {
-        "tag": "540",
         "subfields": [
           {
             "code": "a",
@@ -413,7 +402,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:00eb8bec1dddd268cf2306e35693e6889d402f30ccb4a882d4978c78cfcaccaf"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:a4679eb48194a8af5b4d0832ef174e2ebb1518e15e4bf7c57a81711c4665b415"
           },
           {
             "code": "q",
