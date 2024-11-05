@@ -1,0 +1,4 @@
+{
+  "description": "Value contains full title value in cases where f245 title splitter would split to title + subtitle",
+  "only": false
+}

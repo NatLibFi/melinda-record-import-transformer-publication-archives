@@ -1,0 +1,16 @@
+[
+  {
+    "tag": "710", "ind1": "1", "ind2": "",
+    "subfields": [
+      {"code": "a", "value": "Ryhmä Foo,"},
+      {"code": "e", "value": "kirjoittaja."}
+    ]
+  },
+  {
+    "tag": "710", "ind1": "1", "ind2": "",
+    "subfields": [
+      {"code": "a", "value": "Ryhmä Bar,"},
+      {"code": "e", "value": "kirjoittaja."}
+    ]
+  }
+]

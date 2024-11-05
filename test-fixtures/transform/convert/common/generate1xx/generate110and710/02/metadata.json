@@ -1,0 +1,4 @@
+{
+  "description": "Generate 710 for each dc.contributor.groupauthor if dc.creator is available",
+  "only": false
+}

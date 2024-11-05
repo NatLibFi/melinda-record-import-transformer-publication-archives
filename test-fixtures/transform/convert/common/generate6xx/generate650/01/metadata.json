@@ -1,4 +1,4 @@
 {
-  "description": "Generates f650 from dc.subject.yso and dc.subject.afo values",
+  "description": "Generates f650 from dc.subject.yso, dc.subject.juho, and dc.subject.afo values",
   "only": false
 }

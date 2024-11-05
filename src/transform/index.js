@@ -10,7 +10,7 @@ import createValidator from '../validate';
 import filterAndCreateValueInterface from './filter';
 
 import {convertToObject, getMetadataHeader, getRecordMetadata} from './xmlParser';
-import {parseHeaderInformation} from './convert/util';
+import {getAllValuesInContext, parseHeaderInformation} from './convert/util';
 
 import {sourceConfig} from '../config';
 
@@ -93,7 +93,8 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
           }
 
           const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);
-          const convertedRecord = convertRecord({harvestSource, fieldValueInterface, convertOpts});
+          const numberOfFiles = getAllValuesInContext(recordMetadata, 'kk:file').length;
+          const convertedRecord = convertRecord({harvestSource, fieldValueInterface, convertOpts, numberOfFiles});
 
           if (validate === true || fix === true) {
             const validateFixResult = await validateRecord(convertedRecord, fix, validate);

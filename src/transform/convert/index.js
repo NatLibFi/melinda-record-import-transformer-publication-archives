@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import {generate007, generate008, generateLDR} from './common/generateControlFields';
 import {generate020, generate024, generate040, generate041, generate042} from './common/generate0xx';
-import {generate100and700} from './common/generate1xx';
+import {generate100and700, generate110and710} from './common/generate1xx';
 import {generate245, generate246, generate250, generate264} from './common/generate2xx';
 import {generate300, generate336, generate337, generate338, generate341} from './common/generate3xx';
 import {generate490} from './common/generate4xx';
@@ -11,6 +11,7 @@ import {generate500, generate502, generate506, generate540, generate542, generat
 import {generate648, generate650, generate651, generate653} from './common/generate6xx';
 import {generate776} from './common/generate7xx';
 import {generate856, generate884} from './common/generate8xx';
+import {generate946} from './common/generate9xx';
 import {generateSID, generateLOW} from './common/generateSystemFields';
 import {getLanguage} from './util';
 
@@ -20,9 +21,10 @@ import {getLanguage} from './util';
  * - harvestSource Source where record was harvested from
  * - fieldValueInterface interface containing getFieldValues and getFields functions
  * - convertOpts Options to control conversion (e.g., moment mock for automated tests)
+ * - numberOfFiles represents number of kk:file tags within the record metadata
  * @return Newly generated MarcRecord object
  */
-export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
+export default ({harvestSource, fieldValueInterface, convertOpts = {}, numberOfFiles = 1}) => {
   const momentSource = convertOpts.moment || moment;
   const titleLanguage = getLanguage(fieldValueInterface);
 
@@ -38,11 +40,12 @@ export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
     generate041(fieldValueInterface),
     generate042(),
     generate100and700(fieldValueInterface),
+    generate110and710(fieldValueInterface),
     generate245(fieldValueInterface),
     generate246(fieldValueInterface),
     generate250(fieldValueInterface),
     generate264(fieldValueInterface, titleLanguage),
-    generate300(fieldValueInterface),
+    generate300(fieldValueInterface, numberOfFiles),
     generate336(),
     generate337(),
     generate338(),
@@ -60,6 +63,7 @@ export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
     generate653(fieldValueInterface),
     generate776(fieldValueInterface),
     generate856(fieldValueInterface),
+    generate946(fieldValueInterface),
     generateSID(harvestSource, fieldValueInterface),
     generateLOW()
   ]

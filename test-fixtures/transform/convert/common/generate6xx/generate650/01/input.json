@@ -22,5 +22,13 @@
       "qualifier": "afo",
       "value": "raaka-ainekustannukset"
     }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "subject",
+      "qualifier": "juho",
+      "value": "sekakomiteat"
+    }
   }
 ]

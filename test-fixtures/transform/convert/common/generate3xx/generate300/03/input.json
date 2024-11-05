@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "format",
+      "qualifier": "extent",
+      "value": "123"
+    }
+  }
+]

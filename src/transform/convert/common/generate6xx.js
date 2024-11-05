@@ -20,8 +20,9 @@ export function generate648({getFieldValues}) {
 export function generate650({getFieldValues}) {
   const yso = generateYso();
   const afo = generateAfo();
+  const juho = generateJuho();
 
-  return yso.concat(afo);
+  return yso.concat(afo, juho);
 
   function generateYso() {
     const values = getFieldValues('dc.subject.yso');
@@ -41,6 +42,17 @@ export function generate650({getFieldValues}) {
       subfields: [
         {code: 'a', value},
         {code: '2', value: 'afo'}
+      ]
+    }));
+  }
+
+  function generateJuho() {
+    const values = getFieldValues('dc.subject.juho');
+    return values.map(value => ({
+      tag: '650', ind1: '', ind2: '7',
+      subfields: [
+        {code: 'a', value},
+        {code: '2', value: 'juho'}
       ]
     }));
   }

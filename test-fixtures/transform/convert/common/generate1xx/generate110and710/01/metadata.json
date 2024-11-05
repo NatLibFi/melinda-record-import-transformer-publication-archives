@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f110/710 if dc.creator is available and there are no dc.contributor.groupauthor entries",
+  "only": false
+}

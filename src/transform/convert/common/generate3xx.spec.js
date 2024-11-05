@@ -26,13 +26,13 @@ function generate300() {
     }
   });
 
-  function callback({getFixture}) {
+  function callback({getFixture, numberOfFiles = 1}) {
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
     const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate300(valueInterface);
+    const result = fieldGenerator.generate300(valueInterface, numberOfFiles);
     expect(result).to.eql(output);
   }
 }

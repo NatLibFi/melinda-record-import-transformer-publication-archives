@@ -178,6 +178,10 @@ export function generate506({getFieldValues}) {
  * @returns Empty array or array containing field 540
  */
 export function generate540({getFieldValues}) {
+  if (blockGeneration({getFieldValues})) {
+    return [];
+  }
+
   const rights = generateRights();
   const uri = generateUri();
   const url = generateUrl();
@@ -191,7 +195,6 @@ export function generate540({getFieldValues}) {
       return {tag: '540', ind1: '', ind2: '', subfields};
 
       function generateSubfields() {
-        // TO DO: only access right reserved to use $a?
         return (/All rights reserved/u).test(value) ? [{code: 'a', value}] : [{code: 'c', value}];
       }
     });
@@ -211,6 +214,13 @@ export function generate540({getFieldValues}) {
       tag: '540', ind1: '', ind2: '',
       subfields: [{code: 'u', value}]
     }));
+  }
+
+  function blockGeneration({getFieldValues}) {
+    const rightsFields = getFieldValues('dc.rights');
+    const blockValues = ['This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited.'];
+
+    return rightsFields.some(v => blockValues.includes(v));
   }
 }
 
