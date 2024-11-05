@@ -21,9 +21,10 @@ import {getLanguage} from './util';
  * - harvestSource Source where record was harvested from
  * - fieldValueInterface interface containing getFieldValues and getFields functions
  * - convertOpts Options to control conversion (e.g., moment mock for automated tests)
+ * - numberOfFiles represents number of kk:file tags within the record metadata
  * @return Newly generated MarcRecord object
  */
-export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
+export default ({harvestSource, fieldValueInterface, convertOpts = {}, numberOfFiles = 1}) => {
   const momentSource = convertOpts.moment || moment;
   const titleLanguage = getLanguage(fieldValueInterface);
 
@@ -43,7 +44,7 @@ export default ({harvestSource, fieldValueInterface, convertOpts = {}}) => {
     generate246(fieldValueInterface),
     generate250(fieldValueInterface),
     generate264(fieldValueInterface, titleLanguage),
-    generate300(fieldValueInterface),
+    generate300(fieldValueInterface, numberOfFiles),
     generate336(),
     generate337(),
     generate338(),
