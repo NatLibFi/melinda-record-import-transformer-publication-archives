@@ -28,7 +28,7 @@
       "schema": "dc",
       "element": "identifier",
       "qualifier": "url",
-      "value": "http://foobar.example.com/handle/123/456?url=true"
+      "value": "http://foobar.example.com/handle/456/789?url=true"
     }
   },
   {
