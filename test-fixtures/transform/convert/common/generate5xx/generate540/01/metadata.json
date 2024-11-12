@@ -1,4 +1,4 @@
 {
-  "description": "Generates f540 from each dc.rights, dc.rights.url and dc.rights.uri information",
+  "description": "Generates f540 for CC BY 4.0 using predefined mapping",
   "only": false
 }

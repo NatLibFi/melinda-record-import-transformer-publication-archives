@@ -1,0 +1,4 @@
+{
+  "description": "Http link generation identifies HTTPS url from dc.identifier.urn correctly",
+  "only": false
+}

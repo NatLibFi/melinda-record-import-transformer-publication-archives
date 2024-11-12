@@ -19,7 +19,7 @@
     "$": {
       "schema": "dc",
       "element": "identifier",
-      "qualifier": "url",
+      "qualifier": "doi",
       "value": "http://foobar.example.com/handle/123/456?url=true"
     }
   },

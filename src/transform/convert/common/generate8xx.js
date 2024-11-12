@@ -7,68 +7,82 @@ import {isOpenAccess, isValidLink} from '../util';
 import {sourceConfig} from '../../../config';
 
 /**
- * Generates field 856 ($u: optional, $y: optional).
- * Field generation is based on dc.rights.accesslevel value.
- * 856 fields relating to publicly available access prioritization:
- * URN and DOI > URI and URL.
+ * Generates field 856 ($u, $y: optional).
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 856 ($u, $y)
  */
 export function generate856({getFieldValues}) {
-  const publicAccessFields = generatePublicAccessFields();
-  const otherUrnFields = generateOtherUrnFields();
+  const publicAccessFields = generatePublicAccessFields({getFieldValues});
+  const otherUrnFields = generateOtherUrnFields({getFieldValues});
 
   return publicAccessFields.concat(otherUrnFields);
 
-  function generatePublicAccessFields() {
+  /**
+   * Generation prioritization if open access fields are to be generated:
+   *   1. If dc.identifier.urn has value(s), generate subfields using all these values
+   *   2. If dc.identifier.doi/dc.identifier.uri have value(s), generate subfields using all these values
+  */
+  function generatePublicAccessFields({getFieldValues}) {
     const openAccess = isOpenAccess({getFieldValues});
 
-    // NB: not having access level fields generates f856 public access field
     if (openAccess) {
-      const subfields = generateSubfields();
+      const subfields = generateSubfields({getFieldValues});
       return subfields.length > 0 ? [{tag: '856', ind1: '4', ind2: '0', subfields}] : [];
     }
 
     return [];
 
-    function generateSubfields() {
-      const linkSubfields = generateLinkSubfields();
+
+    function generateSubfields({getFieldValues}) {
+      const linkSubfields = generateLinkSubfields({getFieldValues});
       return linkSubfields.length > 0 ? linkSubfields.concat({code: 'y', value: 'Linkki verkkoaineistoon'}) : [];
     }
-  }
 
-  function generateOtherUrnFields() {
-    const urn = getFieldValues('dc.relation.urn');
+    function generateLinkSubfields({getFieldValues}) {
+      const urn = generateUrn({getFieldValues});
+      const doi = generateU('dc.identifier.doi', {getFieldValues});
+      const uri = generateU('dc.identifier.uri', {getFieldValues});
 
-    return urn.length > 0 ? [
-      {
-        tag: '856', ind1: '4', ind2: '2',
-        subfields: [{code: 'u', value: urn[0]}]
+      if (urn.length > 0) {
+        return urn;
       }
-    ] : [];
+
+      return doi.concat(uri);
+
+      // NB: URN needs to be in proper format (http|https://urn.fi/<value>) or otherwise it will not be used in subfield generation
+      function generateUrn({getFieldValues}) {
+        const values = getFieldValues('dc.identifier.urn');
+        return values
+          .filter(urnIsValid)
+          .map(mapUrnValue)
+          .map(v => ({code: 'u', value: v}));
+      }
+
+      function generateU(path, {getFieldValues}) {
+        const values = getFieldValues(path);
+        return values.filter(value => isValidLink(value)).map(value => ({code: 'u', value}));
+      }
+    }
   }
 
-  function generateLinkSubfields() {
-    const urn = generateUrn();
-    const doi = generateU('dc.identifier.doi');
-    const uri = generateU('dc.identifier.uri');
-    const url = generateU('dc.identifier.url');
+  function generateOtherUrnFields({getFieldValues}) {
+    const urn = getFieldValues('dc.relation.urn');
+    const firstUrnValue = urn.length > 0 ? urn[0] : null;
+    const validUrn = urnIsValid(firstUrnValue);
 
-    if (urn.length > 0) {
-      return doi ? urn.concat(doi) : urn;
+    if (!firstUrnValue || !validUrn) {
+      return [];
     }
 
-    return doi.concat(uri, url);
+    return [{tag: '856', ind1: '4', ind2: '2', subfields: [{code: 'u', value: mapUrnValue(firstUrnValue)}]}];
+  }
 
-    function generateUrn() {
-      const values = getFieldValues('dc.identifier.urn');
-      return values.map(v => ({code: 'u', value: (/http:\/\/urn.fi\//u).test(v) ? v : `http://urn.fi/${v}`}));
-    }
+  function urnIsValid(urn) {
+    return (/https?:\/\/urn.fi\//u).test(urn) || (/^URN:/u).test(urn);
+  }
 
-    function generateU(path) {
-      const values = getFieldValues(path);
-      return values.filter(value => isValidLink(value)).map(value => ({code: 'u', value}));
-    }
+  function mapUrnValue(urn) {
+    return (/https?:\/\/urn.fi\//u).test(urn) ? urn : `http://urn.fi/${urn}`;
   }
 }
 

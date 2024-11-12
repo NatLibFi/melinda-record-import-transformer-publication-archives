@@ -178,49 +178,65 @@ export function generate506({getFieldValues}) {
  * @returns Empty array or array containing field 540
  */
 export function generate540({getFieldValues}) {
-  if (blockGeneration({getFieldValues})) {
+  const rightsValues = getFieldValues('dc.rights');
+
+  if (blockGeneration(rightsValues)) {
     return [];
   }
 
-  const rights = generateRights();
-  const uri = generateUri();
-  const url = generateUrl();
+  const fieldMap = {
+    'cc by-nc-nd 4.0': {
+      value: 'CC BY-NC-ND 4.0',
+      url: 'https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fi'
+    },
+    'cc by-sa 4.0': {
+      value: 'CC BY-SA 4.0',
+      url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fi'
+    },
+    'cc by-sa 4.0 nimeä-jaasamoin': {
+      value: 'CC BY-SA 4.0',
+      url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fi'
+    },
+    'cc by-nd 4.0': {
+      value: 'CC BY-ND 4.0',
+      url: 'https://creativecommons.org/licenses/by-nd/4.0/deed.fi'
+    },
+    'cc by-nc 4.0': {
+      value: 'CC BY-NC 4.0',
+      url: 'https://creativecommons.org/licenses/by-nc/4.0/deed.fi'
+    },
+    'cc by-nc-sa 4.0': {
+      value: 'CC BY-NC-SA 4.0',
+      url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fi'
+    },
+    'cc by 4.0': {
+      value: 'CC BY 4.0',
+      url: 'https://creativecommons.org/licenses/by/4.0/deed.fi'
+    }
+  };
 
-  return rights.concat(uri, url);
-
-  function generateRights() {
-    const values = getFieldValues('dc.rights');
-    return values.map(value => {
-      const subfields = generateSubfields();
-      return {tag: '540', ind1: '', ind2: '', subfields};
-
-      function generateSubfields() {
-        return (/All rights reserved/u).test(value) ? [{code: 'a', value}] : [{code: 'c', value}];
-      }
-    });
-  }
-
-  function generateUri() {
-    const values = getFieldValues('dc.rights.uri');
-    return values.map(value => ({
+  return rightsValues
+    .map(v => v.toLowerCase())
+    .filter(v => Object.keys(fieldMap).includes(v))
+    .map(k => ({
       tag: '540', ind1: '', ind2: '',
-      subfields: [{code: 'u', value}]
+      subfields: [
+        {code: 'f', value: fieldMap[k].value},
+        {code: '2', value: 'cc'},
+        {code: 'u', value: fieldMap[k].url}
+      ]
     }));
-  }
 
-  function generateUrl() {
-    const values = getFieldValues('dc.rights.url');
-    return values.map(value => ({
-      tag: '540', ind1: '', ind2: '',
-      subfields: [{code: 'u', value}]
-    }));
-  }
 
-  function blockGeneration({getFieldValues}) {
-    const rightsFields = getFieldValues('dc.rights');
-    const blockValues = ['This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited.'];
+  function blockGeneration(rightsValues) {
+    const blockValues = [
+      'This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited.',
+      'Tekijänoikeuslaki (404/1961) 9 § Tekijänoikeussuojaa vailla olevat teokset',
+      'Upphovsrättslag (404/1961) 9 § Verk utan upphovsrättsskydd',
+      'Copyright Act (404/1961) 9 § Works excluded from protection'
+    ];
 
-    return rightsFields.some(v => blockValues.includes(v));
+    return rightsValues.some(v => blockValues.includes(v));
   }
 }
 

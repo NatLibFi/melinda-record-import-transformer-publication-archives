@@ -1,4 +1,4 @@
 {
-  "description": "Generates f856 public access fields from doi, uri and url when dc.rights.accesslevel includes value of 'openAccess' and other access fields from dc.relation.urn",
+  "description": "Generates f856 public access fields from doi and uri but not from url when dc.rights.accesslevel includes value of 'openAccess'. Also generates other access fields from dc.relation.urn using mapper",
   "only": false
 }

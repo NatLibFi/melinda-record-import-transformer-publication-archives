@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f540 for random rights note",
+  "only": false
+}
