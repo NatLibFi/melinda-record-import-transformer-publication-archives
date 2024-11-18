@@ -1,0 +1,4 @@
+{
+  "description": "Generates f020 from dc.identifier.isbn",
+  "only": false
+}

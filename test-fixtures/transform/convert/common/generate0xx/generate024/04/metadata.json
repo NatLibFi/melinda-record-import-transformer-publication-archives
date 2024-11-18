@@ -1,0 +1,4 @@
+{
+  "description": "Generates f024 from both dc.identifier.urn and dc.identifier.doi information when available. dc.identifier.uri information is not included in this case.",
+  "only": false
+}

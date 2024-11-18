@@ -1,0 +1,5 @@
+{
+  "description": "Generates fSID using dc.identifier.uri value (https)",
+  "source": "foobar.example.com",
+  "only": false
+}

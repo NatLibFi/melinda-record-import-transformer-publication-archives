@@ -1,0 +1,4 @@
+{
+  "description": "Generates subfield $c including faculty information if dc.contributor.faculty exists",
+  "only": false
+}

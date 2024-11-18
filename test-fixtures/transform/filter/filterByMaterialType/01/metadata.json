@@ -1,0 +1,5 @@
+{
+  "description": "filterByMaterialType passes when publication has approved material type (in this example D6)",
+  "filter": "filterByMaterialType",
+  "only": false
+}

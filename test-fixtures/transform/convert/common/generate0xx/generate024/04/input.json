@@ -1,0 +1,26 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "urn",
+      "value": "URN:ISBN:978-92-95055-20-9"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "doi",
+      "value": "https://doi.org/doi.10.1234/ABCD123456"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "uri",
+      "value": "http://foobar.example.com/handle/123/456"
+    }
+  }
+]

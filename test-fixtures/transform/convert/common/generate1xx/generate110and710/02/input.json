@@ -1,0 +1,25 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "creator",
+      "value": "Esimerkki, Erkki"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "contributor",
+      "qualifier": "groupauthor",
+      "value": "Ryhmä Foo"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "contributor",
+      "qualifier": "groupauthor",
+      "value": "Ryhmä Bar"
+    }
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "coverage",
+      "qualifier": "spatial",
+      "value": "Florida"
+    }
+  }
+]

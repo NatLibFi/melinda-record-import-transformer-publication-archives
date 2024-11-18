@@ -1,0 +1,4 @@
+{
+  "description": "For $a generation dc.publisher.place is preferred over dc.publisher.x-cityofpublication",
+  "only": false
+}

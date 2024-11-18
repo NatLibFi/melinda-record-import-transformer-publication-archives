@@ -1,0 +1,5 @@
+{
+  "description": "Generates f008 from given language and dc.date.issued, dc.publisher.country, and dc.type.ontasot values",
+  "language": "eng",
+  "only": false
+}

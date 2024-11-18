@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "issn-l",
+      "value": "1459-3467"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "issn",
+      "value": "totally-not-valid"
+    }
+  }
+]

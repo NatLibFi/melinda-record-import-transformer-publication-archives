@@ -1,0 +1,32 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "value": "CC BY 4.0"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "url",
+      "value": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "uri",
+      "value": "https://creativecommons.org/licenses/by/4.0/deed.en"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "value": "Tekijänoikeuslaki (404/1961) 9 § Tekijänoikeussuojaa vailla olevat teokset"
+    }
+  }
+]

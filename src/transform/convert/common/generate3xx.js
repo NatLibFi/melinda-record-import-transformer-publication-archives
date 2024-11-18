@@ -1,14 +1,24 @@
 /**
- * Generates field 300 ($a) based on dc.format.extent values.
+ * Generates field 300 ($a) based on first dc.format.extent value.
  * @param {Object} ValueInterface containing getFieldValues function
+ * @param {number} numberOfFiles number of files calculated from kk:file tags
  * @returns Empty array or array containing field 300 ($a)
  */
-export function generate300({getFieldValues}) {
-  const values = getFieldValues('dc.format.extent');
-  return values.map(v => ({
-    tag: '300', ind1: '', ind2: '',
-    subfields: [{code: 'a', value: `1 verkkoaineisto (${v} sivua)`}]
-  }));
+export function generate300({getFieldValues}, numberOfFiles) {
+  const [value] = getFieldValues('dc.format.extent');
+
+  const numberOfAttachments = numberOfFiles && numberOfFiles > 1 ? numberOfFiles - 1 : 0;
+  const subfieldA = value ? [{code: 'a', value: `1 verkkoaineisto (${value} sivua)`}] : [{code: 'a', value: '1 verkkoaineisto'}];
+  const subfieldE = numberOfAttachments > 0 ? [{code: 'e', value: `${numberOfAttachments} liitettä`}] : [];
+
+  const subfields = [...subfieldA, ...subfieldE];
+
+  return [
+    {
+      tag: '300', ind1: '', ind2: '',
+      subfields
+    }
+  ];
 }
 
 /**

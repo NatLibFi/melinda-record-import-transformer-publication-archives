@@ -1,0 +1,4 @@
+{
+  "description": "If ISSN is contained within the value, it is correctly parsed from there",
+  "only": false
+}

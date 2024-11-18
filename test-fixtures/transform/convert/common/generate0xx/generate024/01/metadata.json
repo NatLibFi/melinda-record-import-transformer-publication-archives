@@ -1,0 +1,4 @@
+{
+  "description": "Generates f024 from dc.identifier.urn information",
+  "only": false
+}

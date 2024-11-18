@@ -1,76 +1,44 @@
 # Publication archives record transformer for the Melinda record batch import system
 
-Publication archives record transformer for the Melinda record batch import system. Consumes Dublic Core records from [publication archives](https://www.kansalliskirjasto.fi/en/services/system-platform-services/publication-archive-service).
+DC to MARC21 json record transformer for the Melinda record batch import system. May also be used as standalone cli. Consumes Dublic Core records and outputs JSON.
 
-## Environment variables
-### Mandatory environment values
-Following variables are required for passing harvested records to import system. (API) This behaviour is inherited from [melinda-record-import-commons](https://github.com/NatLibFi/melinda-record-import-commons).
-* RECORD_IMPORT_API_URL
-* RECORD_IMPORT_API_USERNAME_TRANSFORMER
-* RECORD_IMPORT_API_PASSWORD_TRANSFORMER
-* AMQP_URL
-* PROFILE_IDS
-  - style: Stringified string array
-  - example: '["exampleProfile"]'
-* SOURCEMAP
-  - note: All sources that will be transformed to SIDs
-  - style: Stringified JSON map
-  - example: '{"www.example.com":"REPO_EXAMPLE"}'
-* HARVEST_SOURCE
-  - note: This will automagically add "MELINDA_RECORD_IMPORT_REPO:" part to 884 $k
-  - style: Uppercase string
-  - example: "EXAMPLE"
-  - options:
-    | Source                      | HARVEST_SOURCE value | description                                                         |
-    |-----------------------------|----------------------|---------------------------------------------------------------------|
-    | Aaltodoc                    | AALTO                | Aalto-yliopisto                                                     |
-    | Doria                       | DORIA                | 10 organisaatiota                                                   |
-    | Helda                       | HELDA                | Helsingin yliopisto ja 10 muuta organisaatiota                      |
-    | Jukuri                      | JUKURI               | Luonnonvarakeskus                                                   |
-    | Julkari                     | JULKARI              | 6 pääasiassa sosiaali- ja terveysministeriön alaista organisaatiota |
-    | Jultika                     | JULTIKA              | Oulun yliopisto                                                     |
-    | JyX                         | JYX                  | Jyväskylän yliopisto                                                |
-    | Lauda                       | LAUDA                | Lapin yliopisto                                                     |
-    | LutPub                      | LUTPUB               | Lappeenrannan teknillinen yliopisto                                 |
-    | Osuva                       | OSUVA                | Vaasan yliopisto                                                    |
-    | Theseus                     | THESEUS              | 26 ammattikorkeakoulua                                              |
-    | Trepo                       | TREPO                | Tampereen yliopisto                                                 |
-    | UEF Electronic Publications | UEF                  | Itä-Suomen yliopisto                                                |
-    | UTUPub                      | UTUPUP               | Turun yliopisto                                                     |
-    | Valto                       | VALTO                | Valtioneuvosto                                                      |
-
-### Filtering environment variables
-* FILTER_FILETYPE_ONLY
-  - description: Filters records without filetype information
-  - style: integer 0 or 1 parsed to boolean
-  - default: false
-* FILTER_ISBN_ONLY
-  - description: Filters records without isbn information in field dc.identifier.isbn
-  - style: integer 0 or 1 parsed to boolean
-  - default: false
-* FILTER_ISSUED_AFTER
-  - description: Filters records which have dc.date.issued year less than what is configured
-  - style: string year "2022" parsed to integer
-  - default: 0
-* FILTER_MATERIALTYPES
-  - description: Filters record that have material type currently unsupported by the transformation (dc.type.okm is A3, B2 or D2)
-  - style: integer 0 or 1 parsed to boolean
-  - default: true
-
-### Optional environmental values
-These values have default values in inherited configuration file from [melinda-record-import-commons](https://github.com/NatLibFi/melinda-record-import-commons). Default values may change.
-* ABORT_ON_INVALID_RECORDS
-  - style: integer 0 or 1 parsed to boolean
-  - default: false
-* API_CLIENT_USER_AGENT
-  - style: Uppercase string
-  - default: "_RECORD-IMPORT-TRANSFORMER"
+## Usage
+1. clone repo
+2. setup env
+  - Note: if you are running cli, only FILTERS and configuration related to selected filters is required
+3. run as part of record import system / as standalone cli
+  - Cli example usage: ```DOTENV_CONFIG_PATH=envs/.env.myenv npm run cli:dotenv -- -rvf true -d /path/to/converted/data /path/to/input.xml```
 
 ## Configuration
-Transformation is configurated in src/config.js file. [More details.](https://github.com/NatLibFi/melinda-record-import-transformer-publication-archives/wiki/Configuration)
+
+### Record import system
+| Name                     | Description                                                 | default                  |
+|--------------------------|-------------------------------------------------------------|--------------------------|
+| ABORT_ON_INVALID_RECORDS | If record transformation fails abort transformation process | false                    |
+| PROFILE_IDS              | Record-import profiles that wish to use this transformer    | ["foobar"]               |
+| AMQP_URL                 | Rabbit MQ container url                                     | "amqp://127.0.0.1:5672/" |
+| MONGO_URI                | MongoDB connection                                          | "mongodb://127.0.0.1/db" |
+|                          |                                                             |                          |
+
+
+### Filters
+Filters define which records should and should not be converted based on the source XML data. The following filters are available:
+- filterByFileType: requires kk:file tag to be present and have some value to pass
+- filterByIsbnIdentifier: requires dc.identifier.isbn to be presend and have some value to pass
+- filterByIssuedYear: requires dc.date.issued to be equal or greater than what is defined in FILTER_YEAR_NOT_BEFORE to pass
+- filterByMaterialType: if dc.type.okm is found, requires the value be something else than A3/B2/D2 to pass
+
+| Name                   | Description                                                            | default |
+|------------------------|------------------------------------------------------------------------|---------|
+| FILTERS                | Names of filters which should be applied before converting record      | []      |
+| FILTER_YEAR_NOT_BEFORE | Configuration for filterByIssuedYear: oldest publication year to allow | []      |
+|                        |                                                                        |         |
+
+
+#### Other configuration
+Please note sourceConfig contents are static and are used by some of the field generators. This configuration is also expanded for automated tests and applied when NODE_ENV === 'test'.
+
 
 ## License and copyright
 
 Copyright (c) 2020, 2023-2024 **University Of Helsinki (The National Library Of Finland)**
-
-This project's source code is licensed under the terms of **MIT** or any later version.

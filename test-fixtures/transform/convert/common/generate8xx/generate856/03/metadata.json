@@ -1,0 +1,4 @@
+{
+  "description": "Http link generated from dc.identifier.urn is preferred over information in dc.identifier.uri or dc.identifier.doi",
+  "only": false
+}

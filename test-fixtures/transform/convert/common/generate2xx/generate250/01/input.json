@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "edition",
+      "value": "2. painos."
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "edition",
+      "value": "2nd edition."
+    }
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "accesslevel",
+      "value": "openAccess"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "urn",
+      "value": "http://urn.fi/URN:ISBN:978-92-95055-20-9"
+    }
+  }
+]

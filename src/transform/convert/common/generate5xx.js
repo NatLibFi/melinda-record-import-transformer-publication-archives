@@ -1,4 +1,4 @@
-import {hasLevels, isDissertation, extractFinnishTerm} from '../util';
+import {hasLevels, isDissertation, extractFinnishTerm, isOpenAccess} from '../util';
 
 /**
  * Generates field 500 ($a) based on dc.description, dc.description.notification and dc.type.ontasot
@@ -10,16 +10,14 @@ export function generate500({getFieldValues, getFields}) {
   const standardFields = generateStandardFields();
 
   if (hasLevel) {
-    const level = generateLevel();
+    const levels = generateLevels();
+    const level500 = levels.length > 0 ? levels.map(level => ({
+      tag: '500', ind1: '', ind2: '',
+      subfields: [{code: 'a', value: level}]
+    }))
+      : [];
 
-    const level500 = level ? [
-      {
-        tag: '500', ind1: '', ind2: '',
-        subfields: [{code: 'a', value: level}]
-      }
-    ] : [];
-
-    return level500.concat(standardFields);
+    return standardFields.concat(level500);
   }
 
   return standardFields;
@@ -42,9 +40,12 @@ export function generate500({getFieldValues, getFields}) {
 
     function generateDescription() {
       const values = getFieldValues('dc.description');
-      return values.length > 0 ? values.map(v => ({
-        tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value: `${v}.`}]
-      })) : [];
+      return values.length > 0 ? values.map(v => {
+        const separator = v.endsWith('.') ? '' : '.';
+        return {
+          tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value: `${v}${separator}`}]
+        };
+      }) : [];
     }
 
     function generateNotification() {
@@ -55,15 +56,15 @@ export function generate500({getFieldValues, getFields}) {
     }
   }
 
-  function generateLevel() {
-    const [value] = getFieldValues('dc.type.ontasot');
-    return extractFinnishTerm(value);
+  function generateLevels() {
+    const values = getFieldValues('dc.type.ontasot');
+    return values.map(extractFinnishTerm).filter(v => v);
   }
 }
 
 /**
- * Generates field 502 ($a, $d, $c ,$9) if dc.type.ontasot fields exist in record.
- * Generated values are based on dc.contributor.organization, dc.date.issued and dc.contributor faculty
+ * Generates field 502 ($a, $d, $c ,$9) if dc.type.ontasot contains information regarding dissertation.
+ * Generated values are based on dc.contributor.organization, dc.date.issued and dc.contributor.faculty
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 502 ($a, $d, $c ,$9)
  */
@@ -76,58 +77,60 @@ export function generate502({getFieldValues}) {
   ] : [];
 
   function generate502Subfields() {
-    const organizations = getFieldValues('dc.contributor.organization');
-    const issueDate = generateIssueDate();
-    const head = [{code: 'a', value: 'Väitöskirja :'}];
-    const tail = [{code: '9', value: 'FENNI<KEEP>'}];
+    const subfieldD = generateSubfieldD();
+    const subfieldC = generateSubfieldC(subfieldD.length > 0);
 
-    if (organizations.length > 0) {
-      const facultySubfield = generateFacultySubfield();
+    // Static subfields. Generated last so that separator can be evaluated
+    const subfieldASeparator = subfieldC.length > 0 || subfieldD.length > 0 ? ' :' : '';
+    const subfieldA = [{code: 'a', value: `Väitöskirja${subfieldASeparator}`}];
+    const subfield9 = [{code: '9', value: 'FENNI<KEEP>'}];
 
-      if (facultySubfield) {
-        return head.concat(facultySubfield, issueDate, tail);
+    return [
+      ...subfieldA,
+      ...subfieldC,
+      ...subfieldD,
+      ...subfield9
+    ];
+
+
+    function generateSubfieldC(hasSubfieldD) {
+      const [organization] = getFieldValues('dc.contributor.organization');
+      const [faculty] = getFieldValues('dc.contributor.faculty');
+      const subfieldEndSeparator = hasSubfieldD ? ', ' : '.';
+
+      if (organization && faculty) {
+        return [{code: 'c', value: `${organization}, ${faculty}${subfieldEndSeparator}`}];
       }
 
-      return head.concat(generateOrganization(), issueDate, tail);
+      return organization ? [{code: 'c', value: `${organization}${subfieldEndSeparator}`}] : [];
     }
 
-    return head.concat(tail);
-
-    function generateIssueDate() {
-      const date = getFieldValues('dc.date.issued');
-      return {code: 'd', value: `${date.slice(0, 4)}.`};
-    }
-
-    function generateOrganization() {
-      return {code: 'c', value: organizations[0]};
-    }
-
-    function generateFacultySubfield() {
-      const faculties = getFieldValues('dc.contributor.faculty');
-
-      if (faculties.length > 0) {
-        const value = extractFinnishTerm(faculties[0]);
-        return {code: 'c', value: `${organizations[0]}, ${value}, `};
+    function generateSubfieldD() {
+      const [date] = getFieldValues('dc.date.issued');
+      if (date && date.length >= 4) {
+        return [{code: 'd', value: `${date.slice(0, 4)}.`}];
       }
+      return [];
     }
   }
 }
 
 /**
- * Generates field 506 ($a, $f, $2 ,$9) if dc.type.ontasot fields exist in record.
+ * Generates field 506 ($a, $f, $2 ,$9) if dc.type.accesslevel fields exist in record with valid value or field does not exist.
  * Generated values are based on dc.rights.accesslevel and dc.rights.accessrights
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 506 ($a, $f, $2 ,$9)
  */
-export function generate506({getFieldValues, getFields}) {
+export function generate506({getFieldValues}) {
   const accessLevelFields = generateAccessLevelFields();
   const accessRightsFields = generateAccessRightsFields();
 
   return accessLevelFields.concat(accessRightsFields);
 
   function generateAccessLevelFields() {
-    const accessLevel = getFieldValues('dc.rights.accesslevel');
-    const fields = [
+    const openAccess = isOpenAccess({getFieldValues});
+
+    return openAccess ? [
       {
         tag: '506',
         ind1: '0',
@@ -151,68 +154,89 @@ export function generate506({getFieldValues, getFields}) {
           }
         ]
       }
-    ];
-
-    return accessLevel.length === 0 || accessLevel[0] === 'openAccess' ? fields : [];
+    ] : [];
   }
 
   function generateAccessRightsFields() {
-    const accessRights = getFields('dc.rights.accessrights');
-
-    return accessRights.length > 0 ? [
-      {
-        tag: '506',
-        ind1: '1',
-        ind2: ' ',
-        subfields: [
-          {
-            code: 'a',
-            value: ''
-          }
-        ]
-      }
-    ] : [];
+    return getFieldValues('dc.rights.accessrights').map(value => ({
+      tag: '506',
+      ind1: '1',
+      ind2: ' ',
+      subfields: [
+        {
+          code: 'a',
+          value
+        }
+      ]
+    }));
   }
 }
 
 /**
- * Generates field 540 ($u) based on dc.rights and dc.rights.uri fields
+ * Generates field 540 ($a/$c, $u) based on dc.rights and dc.rights.uri fields
  * @param {Object} ValueInterface containing getFieldValues function
- * @returns Empty array or array containing field 540 ($u)
+ * @returns Empty array or array containing field 540
  */
 export function generate540({getFieldValues}) {
-  const rights = generateRights();
-  const uri = generateUri();
-  const url = generateUrl();
+  const rightsValues = getFieldValues('dc.rights');
 
-  return rights.concat(uri, url);
-
-  function generateRights() {
-    const values = getFieldValues('dc.rights');
-    return values.map(value => {
-      const subfields = generateSubfields();
-      return {tag: '540', ind1: '', ind2: '', subfields};
-
-      function generateSubfields() {
-        return (/All rights reserved/u).test(value) ? [{code: 'a', value}] : [{code: 'c', value}];
-      }
-    });
+  if (blockGeneration(rightsValues)) {
+    return [];
   }
 
-  function generateUri() {
-    const values = getFieldValues('dc.rights.uri');
-    return values.map(value => ({
-      tag: '540', ind1: '', ind2: '',
-      subfields: [{code: 'u', value}]
-    }));
-  }
+  const fieldMap = {
+    'cc by-nc-nd 4.0': {
+      value: 'CC BY-NC-ND 4.0',
+      url: 'https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fi'
+    },
+    'cc by-sa 4.0': {
+      value: 'CC BY-SA 4.0',
+      url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fi'
+    },
+    'cc by-sa 4.0 nimeä-jaasamoin': {
+      value: 'CC BY-SA 4.0',
+      url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fi'
+    },
+    'cc by-nd 4.0': {
+      value: 'CC BY-ND 4.0',
+      url: 'https://creativecommons.org/licenses/by-nd/4.0/deed.fi'
+    },
+    'cc by-nc 4.0': {
+      value: 'CC BY-NC 4.0',
+      url: 'https://creativecommons.org/licenses/by-nc/4.0/deed.fi'
+    },
+    'cc by-nc-sa 4.0': {
+      value: 'CC BY-NC-SA 4.0',
+      url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fi'
+    },
+    'cc by 4.0': {
+      value: 'CC BY 4.0',
+      url: 'https://creativecommons.org/licenses/by/4.0/deed.fi'
+    }
+  };
 
-  function generateUrl() {
-    const values = getFieldValues('dc.rights.url');
-    return values.map(value => ({
+  return rightsValues
+    .map(v => v.toLowerCase())
+    .filter(v => Object.keys(fieldMap).includes(v))
+    .map(k => ({
       tag: '540', ind1: '', ind2: '',
-      subfields: [{code: 'u', value}]
+      subfields: [
+        {code: 'f', value: fieldMap[k].value},
+        {code: '2', value: 'cc'},
+        {code: 'u', value: fieldMap[k].url}
+      ]
     }));
+
+
+  function blockGeneration(rightsValues) {
+    const blockValues = [
+      'This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited.',
+      'Tekijänoikeuslaki (404/1961) 9 § Tekijänoikeussuojaa vailla olevat teokset',
+      'Upphovsrättslag (404/1961) 9 § Verk utan upphovsrättsskydd',
+      'Copyright Act (404/1961) 9 § Works excluded from protection'
+    ];
+
+    return rightsValues.some(v => blockValues.includes(v));
   }
 }
 
@@ -224,6 +248,7 @@ export function generate540({getFieldValues}) {
 export function generate542({getFieldValues}) {
   const copyrightHolder = generateCopyrightHolder();
   const copyright = generateCopyright();
+
   return copyrightHolder.concat(copyright);
 
   function generateCopyrightHolder() {

@@ -1,0 +1,11 @@
+[
+  {
+    "tag": "502", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "a", "value": "Väitöskirja :"},
+      {"code": "c", "value": "Example university, Faculty of examples, "},
+      {"code": "d", "value": "2024."},
+      {"code": "9", "value": "FENNI<KEEP>"}
+    ]
+  }
+]

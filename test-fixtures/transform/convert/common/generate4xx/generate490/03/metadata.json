@@ -1,0 +1,4 @@
+{
+  "description": "Generates f490 only from dc.relation.issn",
+  "only": false
+}

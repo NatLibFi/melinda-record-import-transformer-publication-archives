@@ -1,0 +1,34 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "accesslevel",
+      "value": "openAccess"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "uri",
+      "value": "http://foobar.example.com/handle/123/456?uri=true"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "doi",
+      "value": "http://foobar.example.com/handle/123/456?url=true"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "urn",
+      "value": "URN:ISBN:978-92-95055-20-9"
+    }
+  }
+]

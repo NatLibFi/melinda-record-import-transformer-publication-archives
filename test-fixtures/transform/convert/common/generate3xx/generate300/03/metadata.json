@@ -1,0 +1,5 @@
+{
+  "description": "Generates $e if number of files is greater than one",
+  "numberOfFiles": 3,
+  "only": false
+}

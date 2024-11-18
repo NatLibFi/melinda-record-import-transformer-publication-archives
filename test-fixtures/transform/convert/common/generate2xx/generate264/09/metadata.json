@@ -1,0 +1,5 @@
+{
+  "description": "If dc.publisher contains multiple language version information and title language also has had language information, chooses right value that aligns with title.",
+  "titleLanguage": "fi",
+  "only": false
+}

@@ -1,0 +1,9 @@
+{
+  "failed": true,
+  "message": "Filter: Date issued information ([2024]) is older than required by filter configuration (2080)",
+  "title": "Dublin Core - MARC21 konversio",
+  "standardIdentifiers": [
+    "http://foobar.example.com/handle/123/456",
+    "(REPO_FOOBAR)/123/456"
+  ]
+}

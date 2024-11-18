@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f245 from dc.title.alternative",
+  "only": false
+}

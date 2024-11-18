@@ -1,0 +1,9 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "value": "FooBar"
+    }
+  }
+]

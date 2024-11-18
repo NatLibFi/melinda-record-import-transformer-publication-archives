@@ -1,7 +1,0 @@
-{
-    "description": "Transform: Doria basic & generates fields 024(HDL),246,300,540,648,650,651",
-    "sourceMap": {
-        "www.doria.fi": "REPO_DORIA"
-    },
-    "harvestSource": "DORIA"
-}

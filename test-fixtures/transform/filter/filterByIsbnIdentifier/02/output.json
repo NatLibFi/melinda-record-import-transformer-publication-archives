@@ -1,0 +1,9 @@
+{
+  "failed": true,
+  "message": "Filter: Cannot find ISBN identifier which is a required field by the applied filter",
+  "title": "Dublin Core - MARC21 konversio",
+  "standardIdentifiers": [
+    "http://foobar.example.com/handle/123/456",
+    "(REPO_FOOBAR)/123/456"
+  ]
+}

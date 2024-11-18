@@ -1,0 +1,9 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "value": "This is an example of description."
+    }
+  }
+]

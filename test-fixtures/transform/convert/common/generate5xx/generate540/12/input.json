@@ -1,0 +1,9 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "value": "cc by-nc-sa 4.0"
+    }
+  }
+]

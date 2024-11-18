@@ -14,44 +14,45 @@
 		"url": "git@github.com:natlibfi/melinda-record-import-transformer-publication-archives.git"
 	},
 	"license": "MIT",
-	"version": "2.0.9",
+	"version": "3.0.0",
 	"main": "./dist/index.js",
 	"engines": {
-		"node": ">=18"
+		"node": ">=20"
 	},
 	"scripts": {
 		"start": "node dist/index.js",
 		"cli": "node dist/cli.js",
+		"cli:dotenv": "npm run build && node -r dotenv/config dist/cli.js",
 		"build": "babel src --source-maps --copy-files --delete-dir-on-start --out-dir=dist",
 		"lint": "eslint ./src",
 		"lint:dev": "eslint --fix ./src",
-		"test": "npm run lint && npm run test:base",
-		"test:base": "cross-env NODE_ENV=test nyc mocha --package ./package.json",
-		"test:dev": "npm run lint:dev && npm run test:base",
+		"test": "npm run lint && npm run test:base -- \"./src/**/*.spec.js\"",
+		"test:base": "cross-env NODE_ENV=test nyc --reporter=text mocha --reporter-option maxDiffSize=25000 --require @babel/register",
 		"coverage": "npm run cover:unit && npm run cover:report",
 		"cover:unit": "nyc --silent npm run test:base",
 		"cover:report": "nyc report",
-		"dev:test": "cross-env NODE_ENV=test nodemon -w src -w test-fixtures --exec 'clear && npm run test:dev'",
-		"dev:test:debug": "cross-env DEBUG=@natlibfi/* NODE_ENV=test nodemon -w src -w test-fixtures --exec 'clear && npm run test:dev'",
-		"dev": "cross-env nodemon -w src --exec 'clear && babel-node src/index.js'",
-		"dev:cli": "cross-env nodemon -w src --exec 'npm run lint && npm run build && clear && node dist/cli.js'",
-		"dev:debug": "cross-env DEBUG=@natlibfi/* nodemon -w src --exec 'clear && babel-node src/index.js'"
+		"watch:test": "cross-env DEBUG=1 NODE_ENV=test nodemon -e js,xml -w src -w test-fixtures --exec 'npm run test:base -- -b \"./src/**/*.spec.js\"'"
 	},
 	"dependencies": {
-		"@babel/runtime": "^7.25.0",
 		"@natlibfi/marc-record": "^9.0.1",
-		"@natlibfi/marc-record-validate": "^8.0.9",
+		"@natlibfi/marc-record-validate": "^8.0.10",
 		"@natlibfi/marc-record-validators-melinda": "^11.3.1",
 		"@natlibfi/melinda-backend-commons": "^2.3.1",
 		"@natlibfi/melinda-commons": "^13.0.16",
-		"@natlibfi/melinda-record-import-commons": "^10.2.3",
+		"@natlibfi/melinda-record-import-commons": "^11.0.0-alpha.56",
+		"amqplib": "^0.10.4",
+		"debug": "^4.3.6",
+		"isbn3": "^1.1.51",
 		"langs": "^2.0.0",
+		"languagedetect": "^2.0.0",
 		"moment": "^2.30.1",
+		"xml-flow": "^1.0.4",
 		"xml2js": "^0.6.2"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.24.8",
 		"@babel/core": "^7.25.2",
+		"@babel/eslint-parser": "^7.25.1",
 		"@babel/node": "^7.25.0",
 		"@babel/preset-env": "^7.25.3",
 		"@babel/register": "^7.24.6",
@@ -59,17 +60,22 @@
 		"@natlibfi/fixugen": "^2.0.9",
 		"@natlibfi/fixura": "^3.0.8",
 		"babel-plugin-istanbul": "^7.0.0",
-		"babel-plugin-rewire": "^1.2.0",
 		"chai": "^4.5.0",
-		"chai-as-promised": "^7.1.2",
 		"cross-env": "^7.0.3",
+		"dotenv": "^16.4.1",
 		"eslint": "^8.57.0",
 		"mocha": "^10.7.3",
 		"nodemon": "^3.1.4",
 		"nyc": "^17.0.0"
 	},
 	"eslintConfig": {
-		"extends": "@natlibfi/melinda-backend"
+		"parser": "@babel/eslint-parser",
+		"extends": [
+			"@natlibfi/melinda-backend"
+		],
+		"env": {
+			"mocha": true
+		}
 	},
 	"babel": {
 		"presets": [
@@ -83,31 +89,10 @@
 		"env": {
 			"test": {
 				"plugins": [
-					"istanbul",
-					"rewire"
+					"istanbul"
 				]
 			}
 		}
-	},
-	"mocha": {
-		"spec": [
-			"src/*.spec.js",
-			"src/**/*.spec.js"
-		],
-		"require": [
-			"@babel/register"
-		],
-		"inline-diffs": true,
-		"maxDiffSize": 25000,
-		"bail": true,
-		"exit": true
-	},
-	"nodemonConfig": {
-		"exec": "npm run test:dev",
-		"watch": [
-			"src/*",
-			"test-fixtures/*"
-		]
 	},
 	"nyc": {
 		"exclude": [

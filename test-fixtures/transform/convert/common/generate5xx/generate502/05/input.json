@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "type",
+      "qualifier": "ontasot",
+      "value": "fi= Artikkeliväitöskirja | en=Doctoral dissertation (article-based)|"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "date",
+      "qualifier": "issued",
+      "value": "2024"
+    }
+  }
+]

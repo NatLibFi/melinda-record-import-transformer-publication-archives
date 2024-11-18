@@ -1,15 +1,13 @@
-import {formatLanguage} from '../util';
-
 /**
- * Generates control field LDR
+ * Generates static control field LDR
  * @returns Field LDR as string
  */
 export function generateLDR() {
-  return '00000nam a22000003i 4500';
+  return '00000nam a22000002i 4500';
 }
 
 /**
- * Generates control field 007
+ * Generates static control field 007
  * @returns Field 007 as string
  */
 export function generate007() {
@@ -21,22 +19,29 @@ export function generate007() {
 }
 
 /**
- * Generates control field 008
+ * Generates control field 008 based on the current date and following record values:
+ * - dc.date.issued
+ * - dc.publisher.country
+ * - dc.type.ontasot
+ * - dc.language.iso
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
+ * @param {string|null} language language of item
  * @param {Object} moment Moment instance to be used for date generation
  * @returns Field 008 as string
  */
-export function generate008({getFields, getFieldValues}, moment) {
+export function generate008({getFields, getFieldValues}, language, moment) {
   const timestamp = generateTimestamp();
   const date = generateDate();
   const country = generateCountry();
   const contentNature = generateNatureOfContent();
-  const language = generateLanguage();
+  const lng = language || '|||';
 
-  return {
-    tag: '008',
-    value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${language} c`
-  };
+  return [
+    {
+      tag: '008',
+      value: `${timestamp}s${date}    ${country} |||||o${contentNature}|||| ||${lng} c`
+    }
+  ];
 
   function generateTimestamp() {
     return moment().format('YYMMDD');
@@ -55,10 +60,5 @@ export function generate008({getFields, getFieldValues}, moment) {
   function generateNatureOfContent() {
     const levels = getFields('dc.type.ontasot');
     return levels.length > 0 ? 'm   ' : '||||';
-  }
-
-  function generateLanguage() {
-    const values = getFieldValues('dc.language.iso');
-    return formatLanguage(values.slice(-1)[0]);
   }
 }

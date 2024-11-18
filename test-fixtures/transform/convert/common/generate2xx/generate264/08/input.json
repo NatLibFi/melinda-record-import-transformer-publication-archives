@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "qualifier": "place",
+      "value": "Helsinki"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "publisher",
+      "qualifier": "x-cityofpublication",
+      "value": "Foobarila"
+    }
+  }
+]

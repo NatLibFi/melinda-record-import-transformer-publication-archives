@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "coverage",
+      "qualifier": "temporal",
+      "value": "1980-1989"
+    }
+  }
+]
