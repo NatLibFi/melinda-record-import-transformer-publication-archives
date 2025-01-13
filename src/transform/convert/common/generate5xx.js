@@ -116,45 +116,38 @@ export function generate502({getFieldValues}) {
 }
 
 /**
- * Generates field 506 ($a, $f, $2 ,$9) if dc.type.accesslevel fields exist in record with valid value or field does not exist.
- * Generated values are based on dc.rights.accesslevel
+ * Generates field 506 ($a, $f, $2 ,$9) if publication is open access publication.
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 506 ($a, $f, $2 ,$9)
  */
 export function generate506({getFieldValues}) {
-  const accessLevelFields = generateAccessLevelFields();
+  const openAccess = isOpenAccess({getFieldValues});
 
-  return accessLevelFields;
-
-  function generateAccessLevelFields() {
-    const openAccess = isOpenAccess({getFieldValues});
-
-    return openAccess ? [
-      {
-        tag: '506',
-        ind1: '0',
-        ind2: '',
-        subfields: [
-          {
-            code: 'a',
-            value: 'Aineisto on vapaasti saatavissa.'
-          },
-          {
-            code: 'f',
-            value: 'Unrestricted online access'
-          },
-          {
-            code: '2',
-            value: 'star'
-          },
-          {
-            code: '9',
-            value: 'FENNI<KEEP>'
-          }
-        ]
-      }
-    ] : [];
-  }
+  return openAccess ? [
+    {
+      tag: '506',
+      ind1: '0',
+      ind2: '',
+      subfields: [
+        {
+          code: 'a',
+          value: 'Aineisto on vapaasti saatavissa.'
+        },
+        {
+          code: 'f',
+          value: 'Unrestricted online access'
+        },
+        {
+          code: '2',
+          value: 'star'
+        },
+        {
+          code: '9',
+          value: 'FENNI<KEEP>'
+        }
+      ]
+    }
+  ] : [];
 }
 
 /**

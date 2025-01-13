@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "rights",
+      "qualifier": "accesslevel",
+      "value": "OpenAccess"
+    }
+  }
+]

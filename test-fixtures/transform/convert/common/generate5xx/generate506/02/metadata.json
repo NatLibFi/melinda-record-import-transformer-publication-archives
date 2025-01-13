@@ -1,4 +1,4 @@
 {
-  "description": "Does not generate f506 notification based ib dc.rights.accessrights value",
+  "description": "Does not generate f506 notification if dc.rights.accessrights contains a value that is not in open access values list",
   "only": false
 }
