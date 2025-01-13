@@ -262,7 +262,7 @@ export function isOpenAccess({getFieldValues}) {
 }
 
 // This is lax validation -- if stricter is required it will be implemented at later stage and to common package
-export function isValidIssn(issn) {
+export function seemsValidishIssn(issn) {
   if (typeof issn !== 'string' || issn.length < 8) {
     return false;
   }
