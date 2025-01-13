@@ -241,34 +241,6 @@ export function generate540({getFieldValues}) {
 }
 
 /**
- * Generates field 542 ($d, $l) based on dc.rights.copyholder and dc.rights.copyright values
- * @param {Object} ValueInterface containing getFieldValues function
- * @returns Empty array or array containing field 542 ($d, $l)
- */
-export function generate542({getFieldValues}) {
-  const copyrightHolder = generateCopyrightHolder();
-  const copyright = generateCopyright();
-
-  return copyrightHolder.concat(copyright);
-
-  function generateCopyrightHolder() {
-    const values = getFieldValues('dc.rights.copyrightholder');
-    return values.map(value => ({
-      tag: '542', ind1: '', ind2: '',
-      subfields: [{code: 'd', value}]
-    }));
-  }
-
-  function generateCopyright() {
-    const values = getFieldValues('dc.rights.copyright');
-    return values.map(value => ({
-      tag: '542', ind1: '', ind2: '',
-      subfields: [{code: 'l', value}]
-    }));
-  }
-}
-
-/**
  * Generates field 594 containing note about record being machine produced record
  * @returns Array containing field 594 ($a, $5)
  */
