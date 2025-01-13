@@ -117,15 +117,14 @@ export function generate502({getFieldValues}) {
 
 /**
  * Generates field 506 ($a, $f, $2 ,$9) if dc.type.accesslevel fields exist in record with valid value or field does not exist.
- * Generated values are based on dc.rights.accesslevel and dc.rights.accessrights
+ * Generated values are based on dc.rights.accesslevel
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 506 ($a, $f, $2 ,$9)
  */
 export function generate506({getFieldValues}) {
   const accessLevelFields = generateAccessLevelFields();
-  const accessRightsFields = generateAccessRightsFields();
 
-  return accessLevelFields.concat(accessRightsFields);
+  return accessLevelFields;
 
   function generateAccessLevelFields() {
     const openAccess = isOpenAccess({getFieldValues});
@@ -155,20 +154,6 @@ export function generate506({getFieldValues}) {
         ]
       }
     ] : [];
-  }
-
-  function generateAccessRightsFields() {
-    return getFieldValues('dc.rights.accessrights').map(value => ({
-      tag: '506',
-      ind1: '1',
-      ind2: ' ',
-      subfields: [
-        {
-          code: 'a',
-          value
-        }
-      ]
-    }));
   }
 }
 
