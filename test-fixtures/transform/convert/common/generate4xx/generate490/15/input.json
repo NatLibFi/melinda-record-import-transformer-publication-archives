@@ -11,7 +11,7 @@
     "$": {
       "schema": "dc",
       "element": "relation",
-      "qualifier": "numberofseries",
+      "qualifier": "numberinseries",
       "value": "123"
     }
   },

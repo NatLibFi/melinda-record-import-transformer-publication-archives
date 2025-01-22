@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f506 notification if dc.rights.accesslevel contains a value that is not in open access values list",
+  "only": false
+}

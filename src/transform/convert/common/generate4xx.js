@@ -1,4 +1,4 @@
-import {isValidIssn, parseIssnFromString} from '../util';
+import {seemsValidishIssn, parseIssnFromString} from '../util';
 
 /**
  * Generates field 490 ($a, $v, $x) if subfields $a or $x can be generated.
@@ -36,7 +36,7 @@ export function generate490({getFieldValues}) {
     return fieldShoudlBeGenerated ? subfieldA.concat(subfieldsXandV) : [];
 
     function generateSubfieldV() {
-      return getFieldValues(p => p === 'dc.relation.numberinseries' || p === 'dc.relation.numberofseries')
+      return getFieldValues(p => ['dc.relation.numberinseries', 'dc.relation.numberofseries'].includes(p))
         .reduceRight((acc, value) => {
           if (acc.length === 0) {
             return acc.concat({code: 'v', value});
@@ -49,10 +49,24 @@ export function generate490({getFieldValues}) {
     }
 
     function generateSubfieldX(hasSeriesNumber) {
-      const issnFieldValues = getFieldValues('dc.relation.issn').map(parseIssnFromString).filter(isValidIssn);
-      const issnLFieldValues = getFieldValues('dc.relation.issn-l').map(parseIssnFromString).filter(isValidIssn);
+      const issnEFieldValues = getFieldValues('dc.relation.issne').map(parseIssnFromString).filter(seemsValidishIssn);
+      const eIssnFieldValues = getFieldValues('dc.relation.eissn').map(parseIssnFromString).filter(seemsValidishIssn);
+      const eIssnFieldValues2 = getFieldValues('dc.identifier.eissn').map(parseIssnFromString).filter(seemsValidishIssn);
 
-      const issnValues = issnFieldValues.length > 0 ? issnFieldValues : issnLFieldValues;
+      const issnFieldValues = getFieldValues('dc.relation.issn').map(parseIssnFromString).filter(seemsValidishIssn);
+      const issnFieldValues2 = getFieldValues('dc.identifier.issn').map(parseIssnFromString).filter(seemsValidishIssn);
+
+      const issnLFieldValues = getFieldValues('dc.relation.issn-l').map(parseIssnFromString).filter(seemsValidishIssn);
+      const issnLFieldValues2 = getFieldValues('dc.relation.issnl').map(parseIssnFromString).filter(seemsValidishIssn);
+      const issnLFieldValues3 = getFieldValues('dc.identifier.issn-l').map(parseIssnFromString).filter(seemsValidishIssn);
+      const issnLFieldValues4 = getFieldValues('dc.identifier.issnl').map(parseIssnFromString).filter(seemsValidishIssn);
+
+      const issnValues = issnEFieldValues.concat(
+        eIssnFieldValues, eIssnFieldValues2,
+        issnFieldValues, issnFieldValues2,
+        issnLFieldValues, issnLFieldValues2, issnLFieldValues3, issnLFieldValues4
+      );
+
       return issnValues
         .reduceRight((acc, value) => {
           if (acc.length === 0) {
@@ -66,7 +80,11 @@ export function generate490({getFieldValues}) {
     }
 
     function generateSubfieldA(hasOtherSubfields) {
-      const values = getFieldValues('dc.relation.ispartofseries');
+      const isPartOfJournalValues = getFieldValues('dc.relation.ispartofjournal');
+      const isPartOfSeriesValues = getFieldValues('dc.relation.ispartofseries');
+
+      const values = [...isPartOfJournalValues, ...isPartOfSeriesValues];
+
       return values
         .reduceRight(toSubfieldA, [])
         // Reverse so that subfields with ',' separator are placed first

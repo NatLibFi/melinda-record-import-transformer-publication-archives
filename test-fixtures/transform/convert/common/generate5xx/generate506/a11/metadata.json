@@ -1,0 +1,4 @@
+{
+  "description": "Generates f506 open access notification if dc.rights.accessrights includes term 'Kaikille avoin'",
+  "only": false
+}

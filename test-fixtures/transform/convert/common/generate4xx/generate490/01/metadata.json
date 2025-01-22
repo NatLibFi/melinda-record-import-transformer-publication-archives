@@ -1,4 +1,4 @@
 {
-  "description": "Generates f490 from dc.relation.ispartofseries, dc.relation.numberofseries (or dc.relation.numberinseries), dc.relation.numberinseries and dc.relation.issn",
+  "description": "Generates f490 from dc.relation.ispartofseries, dc.relation.numberofseries and dc.relation.issn",
   "only": false
 }

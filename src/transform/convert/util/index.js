@@ -230,17 +230,39 @@ export function getAllValuesInContext(context, ...path) {
   }
 }
 
+/**
+ * Tests whether publication is open access publication or not.
+ * Test is based on dc.rights.accesslevel and dc.rights.accessrights values.
+ * Publication is interpreted as open access if it contains one of accepted terms
+ * for being open access or alternatively does not contain any information regarding
+ * access level or access rights.
+ * @param {Object} ValueInterface containing getFields function
+ * @returns {boolean} true if publication is open access, othwerwise false
+ */
 export function isOpenAccess({getFieldValues}) {
+  const openAccessValues = [
+    'openAccess',
+    'OpenAccess',
+    'openaccess',
+    'avoin',
+    'Avoin',
+    'Aineisto on vapaasti saatavissa',
+    'Available on the Internet',
+    'Kaikille avoin'
+  ];
+
   const dcAccessLevelFields = getFieldValues('dc.rights.accesslevel');
   const dcAccessRightsFields = getFieldValues('dc.rights.accessrights');
 
-  const accessFields = [...dcAccessLevelFields, ...dcAccessRightsFields];
+  const accessFieldsValues = [...dcAccessLevelFields, ...dcAccessRightsFields];
+  const accessRightsInfoDoesNotExist = accessFieldsValues.length === 0;
+  const accessFieldsContainsOpenAccessValue = openAccessValues.some(openAccessValue => accessFieldsValues.includes(openAccessValue));
 
-  return accessFields.length === 0 || dcAccessLevelFields.includes('openAccess');
+  return accessRightsInfoDoesNotExist || accessFieldsContainsOpenAccessValue;
 }
 
 // This is lax validation -- if stricter is required it will be implemented at later stage and to common package
-export function isValidIssn(issn) {
+export function seemsValidishIssn(issn) {
   if (typeof issn !== 'string' || issn.length < 8) {
     return false;
   }
