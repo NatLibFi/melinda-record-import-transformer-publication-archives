@@ -3,8 +3,16 @@
     "$": {
       "schema": "dc",
       "element": "relation",
-      "qualifier": "issn-l",
-      "value": "1234-4321"
+      "qualifier": "ispartofjournal",
+      "value": "The Example Series"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "numberinseries",
+      "value": "123"
     }
   },
   {

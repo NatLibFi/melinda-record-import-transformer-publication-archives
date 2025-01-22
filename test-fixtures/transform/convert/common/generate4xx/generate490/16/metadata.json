@@ -1,0 +1,4 @@
+{
+  "description": "All variations of issn, issn-l and e-issn fields generate $x if value seems validish issn based on regex (NB: these are deduplicated by validator later in the pipeline)",
+  "only": false
+}

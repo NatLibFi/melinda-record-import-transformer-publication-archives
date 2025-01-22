@@ -116,60 +116,38 @@ export function generate502({getFieldValues}) {
 }
 
 /**
- * Generates field 506 ($a, $f, $2 ,$9) if dc.type.accesslevel fields exist in record with valid value or field does not exist.
- * Generated values are based on dc.rights.accesslevel and dc.rights.accessrights
+ * Generates field 506 ($a, $f, $2 ,$9) if publication is open access publication.
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
  * @returns Empty array or array containing field 506 ($a, $f, $2 ,$9)
  */
 export function generate506({getFieldValues}) {
-  const accessLevelFields = generateAccessLevelFields();
-  const accessRightsFields = generateAccessRightsFields();
+  const openAccess = isOpenAccess({getFieldValues});
 
-  return accessLevelFields.concat(accessRightsFields);
-
-  function generateAccessLevelFields() {
-    const openAccess = isOpenAccess({getFieldValues});
-
-    return openAccess ? [
-      {
-        tag: '506',
-        ind1: '0',
-        ind2: '',
-        subfields: [
-          {
-            code: 'a',
-            value: 'Aineisto on vapaasti saatavissa.'
-          },
-          {
-            code: 'f',
-            value: 'Unrestricted online access'
-          },
-          {
-            code: '2',
-            value: 'star'
-          },
-          {
-            code: '9',
-            value: 'FENNI<KEEP>'
-          }
-        ]
-      }
-    ] : [];
-  }
-
-  function generateAccessRightsFields() {
-    return getFieldValues('dc.rights.accessrights').map(value => ({
+  return openAccess ? [
+    {
       tag: '506',
-      ind1: '1',
-      ind2: ' ',
+      ind1: '0',
+      ind2: '',
       subfields: [
         {
           code: 'a',
-          value
+          value: 'Aineisto on vapaasti saatavissa.'
+        },
+        {
+          code: 'f',
+          value: 'Unrestricted online access'
+        },
+        {
+          code: '2',
+          value: 'star'
+        },
+        {
+          code: '9',
+          value: 'FENNI<KEEP>'
         }
       ]
-    }));
-  }
+    }
+  ] : [];
 }
 
 /**
@@ -237,34 +215,6 @@ export function generate540({getFieldValues}) {
     ];
 
     return rightsValues.some(v => blockValues.includes(v));
-  }
-}
-
-/**
- * Generates field 542 ($d, $l) based on dc.rights.copyholder and dc.rights.copyright values
- * @param {Object} ValueInterface containing getFieldValues function
- * @returns Empty array or array containing field 542 ($d, $l)
- */
-export function generate542({getFieldValues}) {
-  const copyrightHolder = generateCopyrightHolder();
-  const copyright = generateCopyright();
-
-  return copyrightHolder.concat(copyright);
-
-  function generateCopyrightHolder() {
-    const values = getFieldValues('dc.rights.copyrightholder');
-    return values.map(value => ({
-      tag: '542', ind1: '', ind2: '',
-      subfields: [{code: 'd', value}]
-    }));
-  }
-
-  function generateCopyright() {
-    const values = getFieldValues('dc.rights.copyright');
-    return values.map(value => ({
-      tag: '542', ind1: '', ind2: '',
-      subfields: [{code: 'l', value}]
-    }));
   }
 }
 

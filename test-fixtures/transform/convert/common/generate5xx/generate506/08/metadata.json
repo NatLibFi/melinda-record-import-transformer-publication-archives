@@ -1,0 +1,4 @@
+{
+  "description": "Generates f506 open access notification if dc.rights.accesslevel includes term 'Aineisto on vapaasti saatavissa'",
+  "only": false
+}

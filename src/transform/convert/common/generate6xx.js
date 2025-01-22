@@ -79,7 +79,8 @@ export function generate651({getFieldValues}) {
 export function generate653({getFieldValues}) {
   const values = getFieldValues(p => [
     'dc.subject.ysa',
-    'dc.subject'
+    'dc.subject',
+    'dc.subject.keyword'
   ].includes(p));
 
   return values.map(value => ({

@@ -7,7 +7,7 @@ import {generate100and700, generate110and710} from './common/generate1xx';
 import {generate245, generate246, generate250, generate264} from './common/generate2xx';
 import {generate300, generate336, generate337, generate338, generate341} from './common/generate3xx';
 import {generate490} from './common/generate4xx';
-import {generate500, generate502, generate506, generate540, generate542, generate594} from './common/generate5xx';
+import {generate500, generate502, generate506, generate540, generate594} from './common/generate5xx';
 import {generate648, generate650, generate651, generate653} from './common/generate6xx';
 import {generate776} from './common/generate7xx';
 import {generate856, generate884} from './common/generate8xx';
@@ -53,7 +53,6 @@ export default ({harvestSource, fieldValueInterface, convertOpts = {}, numberOfF
     generate490(fieldValueInterface),
     generate500(fieldValueInterface),
     generate502(fieldValueInterface),
-    generate542(fieldValueInterface),
     generate506(fieldValueInterface),
     generate540(fieldValueInterface),
     generate594(),
