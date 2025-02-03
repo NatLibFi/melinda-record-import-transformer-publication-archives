@@ -1,7 +1,7 @@
 import createDebugLogger from 'debug';
 
 import {generateSID} from '../convert/common/generateSystemFields';
-import {getInputFields, createValueInterface} from '../convert/util';
+import {getInputFields, createValueInterface, getRecordFiletype} from '../convert/util';
 
 import {filterByFileType} from './filterByFileType';
 import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
@@ -23,7 +23,6 @@ export default (harvestSource, record, applyFilters = [], filterConfig = {}) => 
   const inputFields = getInputFields(record);
   const fieldValueInterface = createValueInterface(inputFields);
   const {getFieldValues} = fieldValueInterface;
-
 
   // Information required for filtering records
   const titleValues = getFieldValues('dc.title');
@@ -64,8 +63,12 @@ export default (harvestSource, record, applyFilters = [], filterConfig = {}) => 
   selectedFilters.raw.forEach(f => f.filter(record, debugInfo));
   selectedFilters.interface.forEach(f => f.filter(fieldValueInterface, debugInfo));
 
+  // Parse filetype. Note that this should not be done before applying filters since records without kk:file-tag may also be filtered.
+  const filetype = getRecordFiletype(record);
+
   return {
     fieldValueInterface,
+    filetype,
     commonErrorPayload: {title, identifiers}
   };
 };

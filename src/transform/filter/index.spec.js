@@ -55,7 +55,7 @@ function callback({getFixture, filter, filterConfig = {}}) {
 
     // NB: filters should not result into halting errors
     // eslint-disable-next-line handle-callback-err, no-unused-vars
-    function handleError(_) {
+    function handleError(_err) {
       expect(1).to.equal(0);
     }
   });

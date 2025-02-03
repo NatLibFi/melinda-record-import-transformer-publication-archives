@@ -92,9 +92,9 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
             throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
           }
 
-          const {fieldValueInterface, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);
+          const {fieldValueInterface, filetype, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);
           const numberOfFiles = getAllValuesInContext(recordMetadata, 'kk:file').length;
-          const convertedRecord = convertRecord({harvestSource, fieldValueInterface, convertOpts, numberOfFiles});
+          const convertedRecord = convertRecord({harvestSource, filetype, fieldValueInterface, convertOpts, numberOfFiles});
 
           if (validate === true || fix === true) {
             const validateFixResult = await validateRecord(convertedRecord, fix, validate);
