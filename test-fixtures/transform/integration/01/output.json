@@ -21,7 +21,7 @@
           },
           {
             "code": "q",
-            "value": "PDF"
+            "value": "HTML"
           }
         ]
       },
@@ -413,7 +413,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:bca9390abe71e65dad7b9c7b2a6a4655c043a412de978e333d04069d54dd13c6"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:32ea80b4d56267a55ae658c0cad207c1b414bc014c83b4cdaedce8117fd6aa52"
           },
           {
             "code": "q",

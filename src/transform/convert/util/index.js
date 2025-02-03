@@ -63,6 +63,34 @@ export function getInputFields(record) {
 }
 
 /**
+ * Getter for filetype information from kk:file tag of the record. Defaults to PDF if no valid filetype cannot be found.
+ * @param {Object} record - record to process
+ * @returns {string} filetype information in format that may be used in f020 $q. Defaults to PDF if no valid filetype can be found.
+ */
+export function getRecordFiletype(record) {
+  const filetypeMappingTable = {
+    'application/pdf': 'PDF',
+    'text/html': 'HTML',
+    'audio/mp3': 'MP3'
+  };
+
+  const validFiletypeDefinitions = Object.keys(filetypeMappingTable);
+  const defaultFiletype = 'application/pdf';
+
+  const recordFiletypeFields = record['kk:file'];
+  if (!recordFiletypeFields) {
+    return filetypeMappingTable[defaultFiletype];
+  }
+
+  const recordFiletype = record['kk:file']
+    .filter(field => '$' in field && field.$.type) // Filter entries who do not have mandatory field
+    .find(field => validFiletypeDefinitions.includes(field.$.type));
+
+  const selectedFiletype = recordFiletype ? recordFiletype.$.type : defaultFiletype;
+  return filetypeMappingTable[selectedFiletype];
+}
+
+/**
  * Parses source and handle from dc.identifier.uri values or from header information
  * @param {string} value URI value
  * @returns false if source or handle cannot be parsed, otherwise object containing source and handle attributes

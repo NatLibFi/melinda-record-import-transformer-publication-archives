@@ -3,16 +3,17 @@ import {formatLanguage, getHandle} from '../util';
 /**
  * Generates field 020 ($a, $q) based on dc.identifier.isbn values
  * @param {Object} ValueInterface containing getFieldValues function
+ * @param {string} filetype - filetype of record that is mapped to f020 $q
  * @returns Empty array or array containing field(s) 020
  */
-export function generate020({getFieldValues}) {
+export function generate020({getFieldValues}, filetype = 'PDF') {
   const values = getFieldValues('dc.identifier.isbn');
   return values.map(value => {
     return {
       tag: '020', ind1: '', ind2: '',
       subfields: [
         {code: 'a', value: formatValue()},
-        {code: 'q', value: 'PDF'}
+        {code: 'q', value: filetype}
       ]
     };
 
