@@ -44,8 +44,8 @@
             value="&lt;&quot;Cool Stuff&quot;, like &apos;this&apos;: Dublin Core &amp; MARC21 &hearts; &gt;" />
           <kk:field schema="dc" element="type" language="fi" value="sarjajulkaisu" />
           <kk:file bundle="ORIGINAL"
-            href="https://foobar.example.com/bitstream/123/456/1/example.pdf"
-            name="example.pdf" type="application/pdf" />
+            href="https://foobar.example.com/bitstream/123/456/1/example.html"
+            name="example.html" type="text/html" />
         </kk:metadata>
       </metadata>
     </record>
