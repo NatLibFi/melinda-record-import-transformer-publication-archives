@@ -356,12 +356,17 @@ export function detectLanguage({getFieldValues}) {
   }
 
   const [title] = titleFields;
-  const detectedTitleLanguages = lngDetector.detect(title, 1).flat().map(([lang, ...rest]) => lang); // eslint-disable-line no-unused-vars
+  const detectedTitleLanguages = lngDetector.detect(title, 1).flat();
 
   if (detectedTitleLanguages.length === 0) {
     return null;
   }
 
   const [lang] = detectedTitleLanguages;
+
+  if (!lang || typeof lang !== 'string') {
+    throw new Error('Something unexpected happened during language detection');
+  }
+
   return validLangs.includes(lang) ? formatLanguage(lang) : null;
 }
