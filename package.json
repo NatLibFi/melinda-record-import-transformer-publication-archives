@@ -26,12 +26,13 @@
 		"build": "babel src --source-maps --copy-files --delete-dir-on-start --out-dir=dist",
 		"lint": "eslint ./src",
 		"lint:dev": "eslint --fix ./src",
-		"test": "npm run lint && npm run test:base -- \"./src/**/*.spec.js\"",
-		"test:base": "cross-env NODE_ENV=test nyc --reporter=text mocha --reporter-option maxDiffSize=25000 --require @babel/register",
+		"test": "npm run lint && npm run test:nyc -- \"./src/**/*.spec.js\"",
+		"test:base": "cross-env NODE_ENV=test mocha --reporter-option maxDiffSize=25000 --require @babel/register",
+		"test:nyc": "cross-env NODE_ENV=test nyc --reporter=text mocha --reporter-option maxDiffSize=25000 --require @babel/register",
 		"coverage": "npm run cover:unit && npm run cover:report",
 		"cover:unit": "nyc --silent npm run test:base",
 		"cover:report": "nyc report",
-		"watch:test": "cross-env DEBUG=1 NODE_ENV=test nodemon -e js,xml -w src -w test-fixtures --exec 'npm run test:base -- -b \"./src/**/*.spec.js\"'"
+		"watch:test": "cross-env NODE_ENV=test nodemon -e js,xml -w src -w test-fixtures --exec 'npm run test:base -- -b \"./src/**/*.spec.js\"'"
 	},
 	"dependencies": {
 		"@natlibfi/marc-record": "^9.0.1",
