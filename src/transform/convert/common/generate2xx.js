@@ -1,3 +1,5 @@
+import {capitalizeValue} from '../util';
+
 /**
  * Generates field 245 ($a) based on first dc.title value
  * @param {Object} ValueInterface containing getFields and getFieldValues functions
@@ -147,8 +149,13 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
 
       const languageVersionValue = titleLanguage ? fields.find(f => f.$.language === titleLanguage) : false;
       const fieldValue = languageVersionValue ? languageVersionValue.$.value : fields[0].$.value;
+      const capitalizedFieldValue = capitalizeValue(fieldValue);
 
-      return [{code: 'b', value: `${fieldValue}${fieldSeparator}`}];
+      if (!capitalizedFieldValue) {
+        return [];
+      }
+
+      return [{code: 'b', value: `${capitalizedFieldValue}${fieldSeparator}`}];
     }
 
 

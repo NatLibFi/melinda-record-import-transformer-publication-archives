@@ -26,7 +26,7 @@
 		"build": "babel src --source-maps --copy-files --delete-dir-on-start --out-dir=dist",
 		"lint": "eslint ./src",
 		"lint:dev": "eslint --fix ./src",
-		"test": "npm run lint && npm run test:nyc -- \"./src/**/*.spec.js\"",
+		"test": "npm run lint && npm run test:base -- \"./src/**/*.spec.js\"",
 		"test:base": "cross-env NODE_ENV=test mocha --reporter-option maxDiffSize=25000 --require @babel/register",
 		"test:nyc": "cross-env NODE_ENV=test nyc --reporter=text mocha --reporter-option maxDiffSize=25000 --require @babel/register",
 		"coverage": "npm run cover:unit && npm run cover:report",

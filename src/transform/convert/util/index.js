@@ -370,3 +370,13 @@ export function detectLanguage({getFieldValues}) {
 
   return validLangs.includes(lang) ? formatLanguage(lang) : null;
 }
+
+export function capitalizeValue(value) {
+  const cannotCapitalize = !value || typeof value !== 'string' || value.length < 2;
+  if (cannotCapitalize) {
+    // Fail silently
+    return value;
+  }
+
+  return `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+}
