@@ -1,5 +1,5 @@
 {
   "description": "Generates $e with correct phrasing if number of files is exactly two (which translates to main file + one attachment)",
   "numberOfFiles": 2,
-  "only": true
+  "only": false
 }
