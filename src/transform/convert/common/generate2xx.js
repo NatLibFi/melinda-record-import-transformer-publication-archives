@@ -151,6 +151,10 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
       const fieldValue = languageVersionValue ? languageVersionValue.$.value : fields[0].$.value;
       const capitalizedFieldValue = capitalizeValue(fieldValue);
 
+      if (!capitalizedFieldValue) {
+        return [];
+      }
+
       return [{code: 'b', value: `${capitalizedFieldValue}${fieldSeparator}`}];
     }
 
