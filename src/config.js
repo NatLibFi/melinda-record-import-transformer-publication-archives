@@ -22,7 +22,7 @@ export const sourceConfig = {
   // eslint-disable-next-line no-process-env
   'foobar.example.com': process.env.NODE_ENV === 'test' ? {'fSID': 'REPO_FOOBAR', 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
   'julkaisut.valtioneuvosto.fi': {
-    'fSID': 'REPO_VALTO',
+    'fSID': 'valto',
     'f884': 'MELINDA_RECORD_IMPORT_REPO:VALTO'
   }
 };
