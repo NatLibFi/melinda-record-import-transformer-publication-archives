@@ -7,9 +7,9 @@
 export function generate300({getFieldValues}, numberOfFiles) {
   const [value] = getFieldValues('dc.format.extent');
 
-  const numberOfAttachments = numberOfFiles && numberOfFiles > 1 ? numberOfFiles - 1 : 0;
+  const numberOfAttachments = numberOfFiles && numberOfFiles > 1 ? numberOfFiles - 1 : 0; // NB: when there are two files, there is one attachment
   const subfieldA = value ? [{code: 'a', value: `1 verkkoaineisto (${value} sivua)`}] : [{code: 'a', value: '1 verkkoaineisto'}];
-  const subfieldE = numberOfAttachments > 0 ? [{code: 'e', value: `${numberOfAttachments} liitettä`}] : [];
+  const subfieldE = numberOfAttachments > 0 ? getSubfieldE(numberOfAttachments) : [];
 
   const subfields = [...subfieldA, ...subfieldE];
 
@@ -19,6 +19,11 @@ export function generate300({getFieldValues}, numberOfFiles) {
       subfields
     }
   ];
+
+
+  function getSubfieldE(numberOfAttachments) {
+    return numberOfAttachments > 1 ? [{code: 'e', value: `${numberOfAttachments} liitettä`}] : [{code: 'e', value: '1 liite'}];
+  }
 }
 
 /**
