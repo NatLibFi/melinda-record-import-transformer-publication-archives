@@ -1,4 +1,4 @@
 {
-  "description": "Http link generation identifies HTTP url from dc.identifier.urn correctly",
+  "description": "Http link generation identifies HTTP url from dc.identifier.urn correctly and transforms to https",
   "only": false
 }

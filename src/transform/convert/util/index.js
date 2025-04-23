@@ -380,3 +380,16 @@ export function capitalizeValue(value) {
 
   return `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
 }
+
+/**
+ * Fixes URN value from http to https. If value is does not include http-protocol, returns it as it is.
+ * @param {string} urn - URN value
+ */
+export function fixUrnValue(urn) {
+  const isHttpUrn = (/^http:\/\/urn.fi/u).test(urn);
+  if (!isHttpUrn) {
+    return urn;
+  }
+
+  return urn.replace(/^http:\/\//u, 'https://');
+}
