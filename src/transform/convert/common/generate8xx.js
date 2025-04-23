@@ -78,11 +78,11 @@ export function generate856({getFieldValues}) {
   }
 
   function urnIsValid(urn) {
-    return (/https?:\/\/urn.fi\//u).test(urn) || (/^URN:/u).test(urn);
+    return (/^https?:\/\/urn.fi\//u).test(urn) || (/^URN:/u).test(urn);
   }
 
   function mapUrnValue(urn) {
-    return (/https?:\/\/urn.fi\//u).test(urn) ? fixUrnValue(urn) : `https://urn.fi/${urn}`;
+    return (/^https?:\/\/urn.fi\//u).test(urn) ? fixUrnValue(urn) : `https://urn.fi/${urn}`;
   }
 }
 
