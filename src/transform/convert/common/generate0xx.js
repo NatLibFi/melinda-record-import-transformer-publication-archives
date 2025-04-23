@@ -1,4 +1,4 @@
-import {formatLanguage, getHandle} from '../util';
+import {fixUrnValue, formatLanguage, getHandle} from '../util';
 
 /**
  * Generates field 020 ($a, $q) based on dc.identifier.isbn values
@@ -38,15 +38,22 @@ export function generate024({getFieldValues}) {
 
   function generateUrnFields() {
     const values = getFieldValues('dc.identifier.urn');
-    return values.length > 0 ? [
+    if (values.length === 0) {
+      return [];
+    }
+
+    const [value] = values;
+    const formattedValue = fixUrnValue(value);
+
+    return [
       {
         tag: '024', ind1: '7', ind2: '',
         subfields: [
-          {code: 'a', value: values[0]},
+          {code: 'a', value: formattedValue},
           {code: '2', value: 'urn'}
         ]
       }
-    ] : [];
+    ];
   }
 
   function generateDoiFields() {

@@ -371,7 +371,7 @@
         "subfields": [
           {
             "code": "u",
-            "value": "http://urn.fi/URN:ISBN:978-92-95055-20-9"
+            "value": "https://urn.fi/URN:ISBN:978-92-95055-20-9"
           },
           {
             "code": "y",
@@ -413,7 +413,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:32ea80b4d56267a55ae658c0cad207c1b414bc014c83b4cdaedce8117fd6aa52"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:73809d1302a2fff66b79d148ce6abcb5fd5d97052bf8fc4ff182a1793fc2372c"
           },
           {
             "code": "q",

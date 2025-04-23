@@ -3,7 +3,7 @@ import {createHash} from 'crypto';
 import {clone} from '@natlibfi/melinda-commons';
 import {MarcRecord} from '@natlibfi/marc-record';
 
-import {isOpenAccess, isValidLink} from '../util';
+import {fixUrnValue, isOpenAccess, isValidLink} from '../util';
 import {sourceConfig} from '../../../config';
 
 /**
@@ -82,7 +82,7 @@ export function generate856({getFieldValues}) {
   }
 
   function mapUrnValue(urn) {
-    return (/https?:\/\/urn.fi\//u).test(urn) ? urn : `http://urn.fi/${urn}`;
+    return (/https?:\/\/urn.fi\//u).test(urn) ? fixUrnValue(urn) : `https://urn.fi/${urn}`;
   }
 }
 
