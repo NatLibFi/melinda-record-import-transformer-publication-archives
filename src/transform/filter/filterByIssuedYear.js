@@ -6,6 +6,7 @@ import ConversionError from '../convert/conversionError';
  * @returns Object containing filter and its name
  */
 export function filterByIssuedYear(filterConfig) {
+  const filterYearNotAfter = filterConfig?.filterByIssuedYear?.filterYearNotAfter;
   const filterYearNotBefore = filterConfig?.filterByIssuedYear?.filterYearNotBefore;
 
   return {
@@ -14,8 +15,12 @@ export function filterByIssuedYear(filterConfig) {
   };
 
   function filter({getFieldValues}, debugInfo = {}) {
+    const filterBeforeMissing = !filterYearNotBefore || isNaN(filterYearNotBefore);
+    const filterAfterMissing = !filterYearNotAfter || isNaN(filterYearNotAfter);
+    const filterConfigMissing = filterBeforeMissing && filterAfterMissing;
+
     // NB: default value of zero is falsy
-    if (!filterYearNotBefore || isNaN(filterYearNotBefore)) {
+    if (filterConfigMissing) {
       return;
     }
 
@@ -23,10 +28,21 @@ export function filterByIssuedYear(filterConfig) {
     const issuedYears = values.map(v => v.length >= 4 ? Number(v.slice(0, 4)) : false);
     const {identifiers, title} = debugInfo;
 
-    if (issuedYears.length > 0 && issuedYears.some(v => Number(v) >= filterYearNotBefore)) {
+    // Do not filter if there is no year information available
+    if (issuedYears.length === 0) {
       return;
     }
 
-    throw new ConversionError({identifiers, title}, `Filter: Date issued information (${JSON.stringify(issuedYears)}) is older than required by filter configuration (${filterYearNotBefore})`);
+    const useFilterBefore = !filterBeforeMissing;
+    const useFilterAfter = !filterAfterMissing;
+
+    const tooEarly = useFilterBefore && issuedYears.some(v => Number(v) < filterYearNotBefore);
+    const tooLate = useFilterAfter && issuedYears.some(v => Number(v) > filterYearNotAfter);
+
+    if (tooEarly || tooLate) {
+      throw new ConversionError({identifiers, title}, `Filter: Date issued information (${JSON.stringify(issuedYears)}) matches filter configuration (${filterYearNotBefore} < X < ${filterYearNotAfter})`);
+    }
+
+    return;
   }
 }
