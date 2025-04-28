@@ -1,5 +1,5 @@
 {
-  "description": "filterByIssuedYear does not pass when publication has been released earlier than the configured year",
+  "description": "filterByIssuedYear does not pass when publication has been released earlier than the configured year (filterYearNotBefore)",
   "filter": "filterByIssuedYear",
   "filterConfig": {
     "filterByIssuedYear": {

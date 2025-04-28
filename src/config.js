@@ -13,7 +13,8 @@ export const nextQueueStatus = readEnvironmentVariable('NEXT_QUEUE_STATUS', {def
 export const applyFilters = readEnvironmentVariable('FILTERS', {defaultValue: [], format: v => JSON.parse(v)});
 export const filterConfig = {
   filterByIssuedYear: {
-    filterYearNotBefore: readEnvironmentVariable('FILTER_YEAR_NOT_BEFORE', {defaultValue: 0, format: v => Number(v)})
+    filterYearNotBefore: readEnvironmentVariable('FILTER_YEAR_NOT_BEFORE', {defaultValue: 0, format: v => Number(v)}), // NB: 0 -> not applied
+    filterYearNotAfter: readEnvironmentVariable('FILTER_YEAR_NOT_AFTER', {defaultValue: 0, format: v => Number(v)}) // NB: 0 -> not applied
   }
 };
 
