@@ -42,7 +42,7 @@ export default (harvestSource, record, applyFilters = [], filterConfig = {}) => 
   // Only some filters require config during initialization
   const availableFilters = {
     raw: [filterByFileType()],
-    interface: [filterByMaterialType(), filterByIsbnIdentifier(), filterByIssuedYear(filterConfig)]
+    interface: [filterByMaterialType(), filterByIsbnIdentifier(filterConfig), filterByIssuedYear(filterConfig)]
   };
 
   // Use only filters that are defined in config
