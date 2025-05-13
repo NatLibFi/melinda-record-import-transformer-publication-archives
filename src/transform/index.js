@@ -53,6 +53,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
       .on('end', () => {
         try {
           debug('All records readed from stream process!');
+          console.log('emitting end of records');
           Emitter.emit('end', numberOfRecords);
 
           // Clear processed identitifers array
@@ -136,6 +137,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
         identifiersProcessed.push(identifier); // eslint-disable-line functional/immutable-data
       });
 
+      console.log('emitting record');
       return emitter.emit('record', result);
     }
   }

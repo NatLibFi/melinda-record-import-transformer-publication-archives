@@ -29,13 +29,19 @@ function callback({getFixture, filter, filterConfig = {}}) {
   return new Promise((resolve, reject) => {
     transform(inputData)
       .on('error', handleError)
-      .on('record', r => results.push(r)) // eslint-disable-line functional/immutable-data
+      .on('record', handleRecord)
       .on('end', handleResults);
+
+    function handleRecord(record) {
+      console.log('pushing record');
+      results.push(record); // eslint-disable-line functional/immutable-data
+    }
 
     // eslint-disable-next-line max-statements
     async function handleResults() {
       await Promise.all(results);
       try {
+        console.log('records transformed');
         // Integration tests consider only one record and its contents
         expect(results).to.have.lengthOf(1);
         const [firstResult] = results;
