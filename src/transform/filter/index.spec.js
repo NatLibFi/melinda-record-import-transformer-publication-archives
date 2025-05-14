@@ -33,7 +33,6 @@ function callback({getFixture, filter, filterConfig = {}}) {
       .on('end', handleResults);
 
     function handleRecord(record) {
-      console.log('pushing record');
       results.push(record); // eslint-disable-line functional/immutable-data
     }
 
@@ -41,7 +40,6 @@ function callback({getFixture, filter, filterConfig = {}}) {
     async function handleResults() {
       await Promise.all(results);
       try {
-        console.log('records transformed');
         // Integration tests consider only one record and its contents
         expect(results).to.have.lengthOf(1);
         const [firstResult] = results;
