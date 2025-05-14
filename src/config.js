@@ -12,6 +12,9 @@ export const nextQueueStatus = readEnvironmentVariable('NEXT_QUEUE_STATUS', {def
 // Filter configuration: what filters to apply and with what type of configuration
 export const applyFilters = readEnvironmentVariable('FILTERS', {defaultValue: [], format: v => JSON.parse(v)});
 export const filterConfig = {
+  filterByIsbnIdentifier: {
+    reverse: readEnvironmentVariable('FILTER_ISBN_REVERSE', {defaultValue: false, format: v => parseBoolean(v)})
+  },
   filterByIssuedYear: {
     filterYearNotBefore: readEnvironmentVariable('FILTER_YEAR_NOT_BEFORE', {defaultValue: 0, format: v => Number(v)}), // NB: 0 -> not applied
     filterYearNotAfter: readEnvironmentVariable('FILTER_YEAR_NOT_AFTER', {defaultValue: 0, format: v => Number(v)}) // NB: 0 -> not applied

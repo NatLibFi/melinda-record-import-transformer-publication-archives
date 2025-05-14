@@ -1,0 +1,10 @@
+{
+  "description": "filterByIsbnIdentifier passes in reversed mode when ISBN information is not available",
+  "filter": "filterByIsbnIdentifier",
+  "filterConfig": {
+    "filterByIsbnIdentifier": {
+      "reverse": true
+    }
+  },
+  "only": false
+}
