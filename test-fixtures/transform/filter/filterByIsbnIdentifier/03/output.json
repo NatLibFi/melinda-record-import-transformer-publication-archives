@@ -1,0 +1,11 @@
+{
+  "failed": true,
+  "message": "Filter: Could find ISBN identifier which not allowed by the applied filter",
+  "title": "Dublin Core - MARC21 konversio",
+  "standardIdentifiers": [
+    "978-92-95055-20-9",
+    "http://foobar.example.com/handle/123/456",
+    "URN:ISBN:978-92-95055-20-9",
+    "(REPO_FOOBAR)/123/456"
+  ]
+}

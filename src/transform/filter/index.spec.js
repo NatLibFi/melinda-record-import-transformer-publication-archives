@@ -29,7 +29,7 @@ function callback({getFixture, filter, filterConfig = {}}) {
   return new Promise((resolve, reject) => {
     transform(inputData)
       .on('error', handleError)
-      .on('record', r => results.push(r)) // eslint-disable-line functional/immutable-data
+      .on('record', record => results.push(record)) // eslint-disable-line functional/immutable-data
       .on('end', handleResults);
 
     // eslint-disable-next-line max-statements

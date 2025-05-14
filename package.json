@@ -32,7 +32,7 @@
 		"coverage": "npm run cover:unit && npm run cover:report",
 		"cover:unit": "nyc --silent npm run test:base",
 		"cover:report": "nyc report",
-		"watch:test": "cross-env NODE_ENV=test nodemon -e js,xml -w src -w test-fixtures --exec 'npm run test:base -- -b \"./src/**/*.spec.js\"'"
+		"watch:test": "cross-env NODE_ENV=test nodemon -e js,xml,json -w src -w test-fixtures --exec 'npm run test:base -- -b \"./src/**/*.spec.js\"'"
 	},
 	"dependencies": {
 		"@natlibfi/marc-record": "^9.1.4",

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="static/style.xsl"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2024-08-19T07:21:22Z</responseDate>
+  <request verb="ListRecords" metadataPrefix="kk">https://foobar.example.com/oai/request</request>
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>oai:foobar.example.com:123/456</identifier>
+        <datestamp>2023-08-18T11:10:04Z</datestamp>
+      </header>
+      <metadata>
+        <kk:metadata xmlns:kk="http://kk/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:doc="http://www.lyncode.com/xoai" xsi:schemaLocation="http://kk/1.0/kk.xsd">
+          <kk:identifier type="handle" value="123/456" />
+          <kk:type name="item" />
+          <kk:link href="http://foobar.example.com/handle/123/456" />
+          <kk:field schema="dc" element="contributor" qualifier="author" language="fi"
+            value="Esimerkki, Erkki" />
+          <kk:field schema="dc" element="date" qualifier="issued" language="fi" value="2024" />
+          <kk:field schema="dc" element="identifier" qualifier="uri" language="none"
+            value="http://foobar.example.com/handle/123/456" />
+          <kk:field schema="dc" element="identifier" qualifier="urn" language="none"
+            value="URN:ISBN:978-92-95055-20-9" />
+          <kk:field schema="dc" element="description" qualifier="abstract" language="fi"
+            value="Example description" />
+          <kk:field schema="dc" element="language" qualifier="iso" language="fi" value="fi" />
+          <kk:field schema="dc" element="relation" qualifier="ispartofseries" language="fi"
+            value="Example series" />
+          <kk:field schema="dc" element="relation" qualifier="issn" language="e" value="1459-3467" />
+          <kk:field schema="dc" element="relation" qualifier="numberinseries" language="none"
+            value="17/2024" />
+          <kk:field schema="dc" element="publisher" language="fi" value="Example publisher" />
+          <kk:field schema="dc" element="rights" language="none"
+            value="This publication is copyrighted. You may download, display and print it for Your own personal use. Commercial use is prohibited." />
+          <kk:field schema="dc" element="subject" language="fi" value="esimerkit" />
+          <kk:field schema="dc" element="subject" language="fi" value="tietotekniikka" />
+          <kk:field schema="dc" element="subject" language="fi" value="ohjelmointi" />
+          <kk:field schema="dc" element="title" language="fi"
+            value="Dublin Core - MARC21 konversio" />
+          <kk:field schema="dc" element="type" language="fi" value="sarjajulkaisu" />
+          <kk:file bundle="ORIGINAL"
+            href="https://foobar.example.com/bitstream/123/456/1/example.pdf"
+            name="example.pdf" type="application/pdf" />
+        </kk:metadata>
+      </metadata>
+    </record>
+  </ListRecords>
+</OAI-PMH>
