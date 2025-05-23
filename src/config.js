@@ -28,5 +28,9 @@ export const sourceConfig = {
   'julkaisut.valtioneuvosto.fi': {
     'fSID': 'valto',
     'f884': 'MELINDA_RECORD_IMPORT_REPO:VALTO'
+  },
+  'www.julkari.fi': {
+    'fSID': 'julkari',
+    'f884': 'MELINDA_RECORD_IMPORT_REPO:JULKARI'
   }
 };
