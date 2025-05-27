@@ -33,11 +33,11 @@ export const sourceConfig = {
     'fSID': 'julkari',
     'f884': 'MELINDA_RECORD_IMPORT_REPO:JULKARI'
   },
-  'http://lutpub.lut.fi': {
+  'lutpub.lut.fi': {
     'fSID': 'lutpub',
     'f884': 'MELINDA_RECORD_IMPORT_REPO:LUTPUB'
   },
-  'http://jukuri.luke.fi': {
+  'jukuri.luke.fi': {
     'fSID': 'jukuri',
     'f884': 'MELINDA_RECORD_IMPORT_REPO:JUKURI'
   }
