@@ -41,4 +41,4 @@ Please note sourceConfig contents are static and are used by some of the field g
 
 ## License and copyright
 
-Copyright (c) 2020, 2023-2024 **University Of Helsinki (The National Library Of Finland)**
+Copyright (c) 2020, 2023-2025 **University Of Helsinki (The National Library Of Finland)**
