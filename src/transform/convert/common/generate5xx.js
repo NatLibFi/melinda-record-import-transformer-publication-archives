@@ -1,4 +1,4 @@
-import {hasLevels, isDissertation, extractFinnishTerm, isOpenAccess} from '../util';
+import {hasLevels, isDissertation, extractFinnishTerm, isOpenAccess} from '../util/index.js';
 
 /**
  * Generates field 500 ($a) based on dc.description, dc.description.notification and dc.type.ontasot

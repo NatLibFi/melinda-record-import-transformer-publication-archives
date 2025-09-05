@@ -1,4 +1,4 @@
-import ConversionError from '../convert/conversionError';
+import ConversionError from '../convert/conversionError.js';
 
 /**
  * Filter filtering items based on issued year.

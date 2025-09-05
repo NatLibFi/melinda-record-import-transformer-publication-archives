@@ -1,11 +1,11 @@
-import {expect} from 'chai';
+import assert from 'node:assert';
 import moment from 'moment';
 
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
-import * as fieldGenerator from './generateControlFields';
-import {createValueInterface} from '../util';
+import * as fieldGenerator from './generateControlFields.js';
+import {createValueInterface} from '../util/index.js';
 
 // Run tests
 generateLDR();
@@ -17,7 +17,7 @@ generate008();
 function generateLDR() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateControlFields', 'generateLDR'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateControlFields', 'generateLDR'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -30,14 +30,14 @@ function generateLDR() {
     const output = getFixture('output.json');
 
     const result = fieldGenerator.generateLDR();
-    expect([result]).to.eql(output); // NB: jsonifying result since return value is string ja getFixture reads JSON from output.json
+    assert.deepStrictEqual([result], output); // NB: jsonifying result since return value is string ja getFixture reads JSON from output.json
   }
 }
 
 function generate007() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateControlFields', 'generate007'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateControlFields', 'generate007'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -50,14 +50,14 @@ function generate007() {
     const output = getFixture('output.json');
 
     const result = fieldGenerator.generate007();
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }
 
 function generate008() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateControlFields', 'generate008'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateControlFields', 'generate008'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -74,6 +74,6 @@ function generate008() {
     const momentMock = () => moment('2020-01-01T00:00:00');
 
     const result = fieldGenerator.generate008(valueInterface, language, momentMock);
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }

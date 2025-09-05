@@ -1,10 +1,10 @@
-import {expect} from 'chai';
+import assert from 'node:assert';
 
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
-import * as fieldGenerator from './generate1xx';
-import {createValueInterface} from '../util';
+import * as fieldGenerator from './generate1xx.js';
+import {createValueInterface} from '../util/index.js';
 
 // Run tests
 generate100and700();
@@ -14,7 +14,7 @@ generate110and710();
 function generate100and700() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate1xx', 'generate100and700'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate1xx', 'generate100and700'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -30,14 +30,14 @@ function generate100and700() {
     const valueInterface = createValueInterface(input);
 
     const result = fieldGenerator.generate100and700(valueInterface);
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }
 
 function generate110and710() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate1xx', 'generate110and710'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate1xx', 'generate110and710'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -53,6 +53,6 @@ function generate110and710() {
     const valueInterface = createValueInterface(input);
 
     const result = fieldGenerator.generate110and710(valueInterface);
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }

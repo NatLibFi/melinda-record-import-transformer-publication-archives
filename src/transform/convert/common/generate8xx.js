@@ -3,8 +3,8 @@ import {createHash} from 'crypto';
 import {clone} from '@natlibfi/melinda-commons';
 import {MarcRecord} from '@natlibfi/marc-record';
 
-import {fixUrnValue, isOpenAccess, isValidLink} from '../util';
-import {sourceConfig} from '../../../config';
+import {fixUrnValue, isOpenAccess, isValidLink} from '../util/index.js';
+import {sourceConfig} from '../../../constants.js';
 
 /**
  * Generates field 856 ($u, $y: optional).
@@ -116,7 +116,7 @@ export function generate884(harvestSource, moment, marcRecord) {
 
 
   function emptyCreationDate(record) {
-    const [f008] = record.pop(/008/u); // eslint-disable-line functional/immutable-data
+    const [f008] = record.pop(/008/u);
     // emptyCreationDate:
     // Normalize f008/00-05 - In non-MARC21 imports f008 'Date entered on file' gets always the current date
     // This propably should be configurable
