@@ -93,7 +93,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
         }
 
         const mandatorySourceConfig = ['fSID', 'f884'];
-        // console.log('sourceConfig ', sourceConfig);
+
         if (!harvestSource || !Object.keys(sourceConfig).includes(harvestSource) || !mandatorySourceConfig.every(v => Object.keys(sourceConfig[harvestSource]).includes(v))) {
           throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
         }
