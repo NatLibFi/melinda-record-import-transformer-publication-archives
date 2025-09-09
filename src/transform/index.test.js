@@ -84,7 +84,7 @@ function callback({getFixture, testDeduplication = false, testHash = false, expe
       assert.equal(successfulRecords.length, 1);
 
       const [failedRecord] = failedRecords;
-      assert.match(failedRecord.message, new RegExp('Record has already been processed once within the current blob (not allowing duplicates).'), u);
+      assert.equal(failedRecord.message, 'Record has already been processed once within the current blob (not allowing duplicates).');
 
       const [successfulRecord] = successfulRecords;
       assert.equal(Object.hasOwn(successfulRecord, 'record'), true);
