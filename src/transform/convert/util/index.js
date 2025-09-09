@@ -204,7 +204,7 @@ export function parseHeaderInformation(header) {
   };
 
   function parseIdentifier(identifierValue) {
-    // eslint-disable-next-line no-unused-vars
+     
     const {source, handle} = getHandle(identifierValue);
     return {source, uniqueIdentifier: handle};
   }

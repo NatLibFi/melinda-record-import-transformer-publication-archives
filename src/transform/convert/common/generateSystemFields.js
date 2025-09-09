@@ -1,5 +1,5 @@
-import {getHandle} from '../util';
-import {sourceConfig} from '../../../config';
+import {getHandle} from '../util/index.js';
+import {sourceConfig} from '../../../constants.js';
 
 /**
  * Generates field SID ($b, $c).

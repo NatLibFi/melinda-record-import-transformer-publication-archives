@@ -1,4 +1,4 @@
-import {capitalizeValue} from '../util';
+import {capitalizeValue} from '../util/index.js';
 
 /**
  * Generates field 245 ($a) based on first dc.title value

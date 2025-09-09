@@ -1,19 +1,19 @@
 import {MarcRecord} from '@natlibfi/marc-record';
 import moment from 'moment';
 
-import {generate007, generate008, generateLDR} from './common/generateControlFields';
-import {generate020, generate024, generate040, generate041, generate042} from './common/generate0xx';
-import {generate100and700, generate110and710} from './common/generate1xx';
-import {generate245, generate246, generate250, generate264} from './common/generate2xx';
-import {generate300, generate336, generate337, generate338, generate341} from './common/generate3xx';
-import {generate490} from './common/generate4xx';
-import {generate500, generate502, generate506, generate540, generate594} from './common/generate5xx';
-import {generate648, generate650, generate651, generate653} from './common/generate6xx';
-import {generate776} from './common/generate7xx';
-import {generate856, generate884} from './common/generate8xx';
-import {generate946} from './common/generate9xx';
-import {generateSID, generateLOW} from './common/generateSystemFields';
-import {getLanguage} from './util';
+import {generate007, generate008, generateLDR} from './common/generateControlFields.js';
+import {generate020, generate024, generate040, generate041, generate042} from './common/generate0xx.js';
+import {generate100and700, generate110and710} from './common/generate1xx.js';
+import {generate245, generate246, generate250, generate264} from './common/generate2xx.js';
+import {generate300, generate336, generate337, generate338, generate341} from './common/generate3xx.js';
+import {generate490} from './common/generate4xx.js';
+import {generate500, generate502, generate506, generate540, generate594} from './common/generate5xx.js';
+import {generate648, generate650, generate651, generate653} from './common/generate6xx.js';
+import {generate776} from './common/generate7xx.js';
+import {generate856, generate884} from './common/generate8xx.js';
+import {generate946} from './common/generate9xx.js';
+import {generateSID, generateLOW} from './common/generateSystemFields.js';
+import {getLanguage} from './util/index.js';
 
 /**
  * Generates MarcRecord using common field generations.
@@ -30,7 +30,7 @@ export default ({harvestSource, fieldValueInterface, filetype, convertOpts = {},
   const titleLanguage = getLanguage(fieldValueInterface);
 
   const marcRecord = new MarcRecord();
-  marcRecord.leader = generateLDR(); // eslint-disable-line functional/immutable-data
+  marcRecord.leader = generateLDR();
 
   const fields = [
     generate007(),
@@ -67,7 +67,7 @@ export default ({harvestSource, fieldValueInterface, filetype, convertOpts = {},
     generateSID(harvestSource, fieldValueInterface),
     generateLOW()
   ]
-  // Remove undefined values
+    // Remove undefined values
     .filter(v => v)
     .flat();
 

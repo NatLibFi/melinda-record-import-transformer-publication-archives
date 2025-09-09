@@ -1,13 +1,14 @@
 import {Parser} from 'xml2js';
-import {toXml} from 'xml-flow';
-import ConversionError from './convert/conversionError';
+import xmlFlowPkg from 'xml-flow';
+import ConversionError from './convert/conversionError.js';
 
 /**
  * Convert XML to JS object
  * @param {object} node Read XML node as object
  * @returns Parsed JS object
- */
+*/
 export function convertToObject(node) {
+  const {toXml} = xmlFlowPkg;
   const str = toXml(node);
   const fixedString = fixHtmlEntities(str);
 

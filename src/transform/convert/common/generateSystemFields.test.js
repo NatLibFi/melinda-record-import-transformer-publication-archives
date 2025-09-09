@@ -1,10 +1,10 @@
-import {expect} from 'chai';
+import assert from 'node:assert';
 
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
-import * as fieldGenerator from './generateSystemFields';
-import {createValueInterface} from '../util';
+import * as fieldGenerator from './generateSystemFields.js';
+import {createValueInterface} from '../util/index.js';
 
 // Run tests
 generateSID();
@@ -15,7 +15,7 @@ generateLOW();
 function generateSID() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateSystemFields', 'generateSID'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateSystemFields', 'generateSID'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -31,14 +31,14 @@ function generateSID() {
     const valueInterface = createValueInterface(input);
 
     const result = fieldGenerator.generateSID(source, valueInterface, returnDebugString);
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }
 
 function generateLOW() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateSystemFields', 'generateLOW'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generateSystemFields', 'generateLOW'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -51,6 +51,6 @@ function generateLOW() {
     const output = getFixture('output.json');
 
     const result = fieldGenerator.generateLOW();
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }

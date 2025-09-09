@@ -1,4 +1,4 @@
-/* eslint-disable new-cap */
+ 
 import validateFactory from '@natlibfi/marc-record-validate';
 import {
   EmptyFields,

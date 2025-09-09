@@ -1,19 +1,19 @@
-import {expect} from 'chai';
+import assert from 'node:assert';
 
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
-import * as fieldGenerator from './generate9xx';
-import {createValueInterface} from '../util';
+import * as fieldGenerator from './generate4xx.js';
+import {createValueInterface} from '../util/index.js';
 
 // Run tests
-generate946();
+generate490();
 
 // Test functions
-function generate946() {
+function generate490() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate9xx', 'generate946'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate4xx', 'generate490'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -28,7 +28,7 @@ function generate946() {
 
     const valueInterface = createValueInterface(input);
 
-    const result = fieldGenerator.generate946(valueInterface);
-    expect(result).to.eql(output);
+    const result = fieldGenerator.generate490(valueInterface);
+    assert.deepStrictEqual(result, output);
   }
 }

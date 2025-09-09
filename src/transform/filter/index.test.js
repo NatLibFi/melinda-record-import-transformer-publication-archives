@@ -1,15 +1,15 @@
 import moment from 'moment';
-import {expect} from 'chai';
+import assert from 'node:assert';
 
 import generateTests from '@natlibfi/fixugen';
 import {READERS} from '@natlibfi/fixura';
 
-import createTransformer from '../';
+import createTransformer from '../index.js';
 
 
 generateTests({
   callback,
-  path: [__dirname, '..', '..', '..', 'test-fixtures', 'transform', 'filter'],
+  path: [import.meta.dirname, '..', '..', '..', 'test-fixtures', 'transform', 'filter'],
   recurse: true,
   useMetadataFile: true,
   fixura: {
@@ -29,22 +29,22 @@ function callback({getFixture, filter, filterConfig = {}}) {
   return new Promise((resolve, reject) => {
     transform(inputData)
       .on('error', handleError)
-      .on('record', record => results.push(record)) // eslint-disable-line functional/immutable-data
+      .on('record', record => results.push(record))
       .on('end', handleResults);
 
-    // eslint-disable-next-line max-statements
+
     async function handleResults() {
       await Promise.all(results);
       try {
         // Integration tests consider only one record and its contents
-        expect(results).to.have.lengthOf(1);
+        assert.equal(results.length, 1);
         const [firstResult] = results;
 
-        expect(firstResult.failed).to.equal(expectedResult.failed);
-        expect(firstResult.title).to.equal(expectedResult.title);
-        expect(firstResult.standardIdentifiers).to.eql(expectedResult.standardIdentifiers);
+        assert.equal(firstResult.failed, expectedResult.failed);
+        assert.equal(firstResult.title, expectedResult.title);
+        assert.deepStrictEqual(firstResult.standardIdentifiers, expectedResult.standardIdentifiers);
 
-        expect(firstResult.message).to.equal(expectedResult.message);
+        assert.equal(firstResult.message, expectedResult.message);
 
         return resolve();
 
@@ -54,9 +54,9 @@ function callback({getFixture, filter, filterConfig = {}}) {
     }
 
     // NB: filters should not result into halting errors
-    // eslint-disable-next-line handle-callback-err, no-unused-vars
+
     function handleError(_err) {
-      expect(1).to.equal(0);
+      assert.fail('This should not fail!');
     }
   });
 }
