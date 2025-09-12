@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "navigointi mahdollista"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "taulukot saavutettavia"
+    }
+  }
+]

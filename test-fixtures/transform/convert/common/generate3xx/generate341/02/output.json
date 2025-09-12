@@ -3,7 +3,7 @@
     "tag": "341", "ind1": "0", "ind2": " ",
     "subfields": [
       {"code": "a", "value": "textual"},
-      {"code": "b", "value": "structuralNavigation"},
+      {"code": "b", "value": "alternativeText"},
       {"code": "2", "value": "sapdv"}
     ]
   }

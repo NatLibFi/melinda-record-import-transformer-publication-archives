@@ -27,6 +27,8 @@
             value="URN:ISBN:978-92-95055-20-9" />
           <kk:field schema="dc" element="description" qualifier="abstract" language="fi"
             value="Example description" />
+          <kk:field schema="dc" element="description" qualifier="accessibilityfeature"
+            value="kuvilla vaihtoehtoiset kuvaukset" />
           <kk:field schema="dc" element="language" qualifier="iso" language="fi" value="fi" />
           <kk:field schema="dc" element="relation" qualifier="ispartofseries" language="fi"
             value="Example series" />
