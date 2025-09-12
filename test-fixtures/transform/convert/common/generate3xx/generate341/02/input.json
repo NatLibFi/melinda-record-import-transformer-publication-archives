@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "kuvilla vaihtoehtoiset kuvaukset"
+    }
+  }
+]

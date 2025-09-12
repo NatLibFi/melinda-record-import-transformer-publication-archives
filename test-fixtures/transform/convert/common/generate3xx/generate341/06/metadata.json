@@ -1,0 +1,4 @@
+{
+  "description": "Generates f341 from two dc.description.accessibilityfeature values where $b is equal (produces one field, adds no subfields)",
+  "only": false
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "taulukot saavutettavia"
+    }
+  }
+]

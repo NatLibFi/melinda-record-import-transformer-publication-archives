@@ -111,9 +111,12 @@ function generate341() {
   });
 
   function callback({getFixture}) {
+    const input = getFixture('input.json');
     const output = getFixture('output.json');
 
-    const result = fieldGenerator.generate341();
+    const valueInterface = createValueInterface(input);
+
+    const result = fieldGenerator.generate341(valueInterface);
     assert.deepStrictEqual(result, output);
   }
 }
