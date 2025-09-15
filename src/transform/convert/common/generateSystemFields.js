@@ -1,4 +1,4 @@
-import {getHandle} from '../util/index.js';
+import {getSystemId} from '../util/index.js';
 import {sourceConfig} from '../../../constants.js';
 
 /**
@@ -12,15 +12,16 @@ import {sourceConfig} from '../../../constants.js';
  */
 export function generateSID(harvestSource, {getFieldValues}, returnDebugString = false) {
   const values = getFieldValues('dc.identifier.uri');
+  const oldValues = getFieldValues('dc.identifier.olduri');
 
   // URI fields may have multiple values. Values that correspond with the harvest source
   // are only one considered valid for SID field/debug string.
-  const validSidValues = values.reduce((acc, value) => {
-    const result = getHandle(value);
+  const validSidValues = values.concat(oldValues).reduce((acc, value) => {
+    const result = getSystemId(value);
 
     if (result && result?.source === harvestSource) {
       const sourceSidValue = sourceConfig[result.source].fSID; // NB: confirming that key exists happens in transformation-level
-      return acc.concat({sourceSidValue, handle: result.handle});
+      return acc.concat({sourceSidValue, systemId: result.systemId});
     }
     return acc;
   }, []);
@@ -28,10 +29,10 @@ export function generateSID(harvestSource, {getFieldValues}, returnDebugString =
   // Return type depends whether information is used for debugging or MARC record
   return validSidValues.length > 0 ? validSidValues.map(v => {
     if (returnDebugString) {
-      return `(${v.sourceSidValue})${v.handle}`;
+      return `(${v.sourceSidValue})${v.systemId}`;
     }
 
-    return {tag: 'SID', ind1: '', ind2: '', subfields: [{code: 'c', value: v.handle}, {code: 'b', value: v.sourceSidValue}]};
+    return {tag: 'SID', ind1: '', ind2: '', subfields: [{code: 'c', value: v.systemId}, {code: 'b', value: v.sourceSidValue}]};
   }) : [];
 }
 

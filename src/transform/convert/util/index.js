@@ -91,11 +91,11 @@ export function getRecordFiletype(record) {
 }
 
 /**
- * Parses source and handle from dc.identifier.uri values or from header information
+ * Parses source and system identifier from dc.identifier.uri/dc.identifier.olduri values or from header information
  * @param {string} value URI value
- * @returns false if source or handle cannot be parsed, otherwise object containing source and handle attributes
+ * @returns false if source or system identifier cannot be parsed, otherwise object containing source and systemId attributes
  */
-export function getHandle(value) {
+export function getSystemId(value) {
   if (value.startsWith('oai:')) {
     return parseOai(value);
   }
@@ -106,16 +106,19 @@ export function getHandle(value) {
 
   return false;
 
-
   function parseHttp(value) {
     const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
-    const handleRegex = /(?<handle>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+    const itemRegexId = /handle(?<itemId>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+    const itemRegexUuid = /items\/(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
 
     const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
-    const {handle} = value.match(handleRegex) ? value.match(handleRegex).groups : {handle: null};
+    const {itemId} = value.match(itemRegexId) ? value.match(itemRegexId).groups : {itemId: null};
+    const {itemUuid} = value.match(itemRegexUuid) ? value.match(itemRegexUuid).groups : {itemUuid: null};
 
-    if (source !== null && handle !== null) {
-      return {source, handle};
+    const systemId = itemId ? itemId : itemUuid;
+
+    if (source !== null && systemId !== null) {
+      return {source, systemId};
     }
 
     return false;
@@ -129,7 +132,7 @@ export function getHandle(value) {
 
     return {
       source: parts[1],
-      handle: parts[2]
+      systemId: parts[2]
     };
   }
 }
@@ -204,9 +207,8 @@ export function parseHeaderInformation(header) {
   };
 
   function parseIdentifier(identifierValue) {
-     
-    const {source, handle} = getHandle(identifierValue);
-    return {source, uniqueIdentifier: handle};
+    const {source, systemId} = getSystemId(identifierValue);
+    return {source, uniqueIdentifier: systemId};
   }
 }
 

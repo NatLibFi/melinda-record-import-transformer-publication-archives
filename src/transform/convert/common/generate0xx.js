@@ -1,4 +1,4 @@
-import {fixUrnValue, formatLanguage, getHandle} from '../util/index.js';
+import {fixUrnValue, formatLanguage} from '../util/index.js';
 
 /**
  * Generates field 020 ($a, $q) based on dc.identifier.isbn values
