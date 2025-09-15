@@ -30,6 +30,7 @@ export default (harvestSource, record, applyFilters = [], filterConfig = {}) => 
   const identifiers = [
     getFieldValues('dc.identifier.isbn'),
     getFieldValues('dc.identifier.uri'),
+    getFieldValues('dc.identifier.olduri'),
     getFieldValues('dc.identifier.urn'),
     generateSID(harvestSource, fieldValueInterface, true)
   ].flat();
