@@ -24,7 +24,7 @@ export function generate020({getFieldValues}, filetype = 'PDF') {
 }
 
 /**
- * Generates field 024 ($a, $2) based on dc.identifier.(urn|doi|uri) values.
+ * Generates field 024 ($a, $2) based on dc.identifier.(urn|doi) values.
  * Each value maps to a new field.
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 024(s) ($a, $2)
@@ -32,9 +32,8 @@ export function generate020({getFieldValues}, filetype = 'PDF') {
 export function generate024({getFieldValues}) {
   const urn = generateUrnFields();
   const doi = generateDoiFields();
-  const handle = generateHandleFields();
 
-  return urn.length > 0 || doi.length > 0 ? urn.concat(doi) : handle;
+  return urn.length > 0 || doi.length > 0 ? urn.concat(doi) : [];
 
   function generateUrnFields() {
     const values = getFieldValues('dc.identifier.urn');
@@ -67,18 +66,6 @@ export function generate024({getFieldValues}) {
         ]
       }
     ] : [];
-  }
-
-  function generateHandleFields() {
-    const values = getFieldValues('dc.identifier.uri');
-
-    return values.length > 0 ? values.filter(v => getHandle(v) !== false).map(v => ({
-      tag: '024', ind1: '7', ind2: '',
-      subfields: [
-        {code: 'a', value: v},
-        {code: '2', value: 'hdl'}
-      ]
-    })) : [];
   }
 }
 

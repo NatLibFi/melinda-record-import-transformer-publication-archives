@@ -1,4 +1,5 @@
 {
-  "description": "Generates f024 from dc.identifier.uri information",
-  "only": false
+  "description": "[DEPRECATED] Generates f024 from dc.identifier.uri information",
+  "only": false,
+  "skip": true
 }
