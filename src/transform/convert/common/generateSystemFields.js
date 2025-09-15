@@ -1,5 +1,5 @@
 import {getSystemId} from '../util/index.js';
-import {sourceConfig} from '../../../constants.js';
+import {sourceConfig, validHarvestSources} from '../../../constants.js';
 
 /**
  * Generates field SID ($b, $c).
@@ -19,7 +19,7 @@ export function generateSID(harvestSource, {getFieldValues}, returnDebugString =
   const validSidValues = values.concat(oldValues).reduce((acc, value) => {
     const result = getSystemId(value);
 
-    if (result && result?.source === harvestSource) {
+    if (result && validHarvestSources.includes(result?.source)) {
       const sourceSidValue = sourceConfig[result.source].fSID; // NB: confirming that key exists happens in transformation-level
       return acc.concat({sourceSidValue, systemId: result.systemId});
     }

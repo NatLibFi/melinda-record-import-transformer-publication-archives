@@ -1,0 +1,16 @@
+[
+  {
+    "tag": "SID", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "c", "value": "65882a7b-8a3c-49ac-adb9-02427dfb994e"},
+      {"code": "b", "value": "REPO_FOOBAR2"}
+    ]
+  },
+  {
+    "tag": "SID", "ind1": "", "ind2": "",
+    "subfields": [
+      {"code": "c", "value": "/123/456"},
+      {"code": "b", "value": "REPO_FOOBAR"}
+    ]
+  }
+]

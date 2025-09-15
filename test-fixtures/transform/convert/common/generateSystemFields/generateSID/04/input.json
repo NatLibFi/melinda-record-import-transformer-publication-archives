@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "olduri",
+      "value": "https://foobar.example.com/handle/123/456"
+    }
+  }
+]
