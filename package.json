@@ -43,7 +43,7 @@
 		"@natlibfi/melinda-commons": "^14.0.0-alpha.3",
 		"@natlibfi/melinda-record-import-commons": "^13.0.0-alpha.6",
 		"amqplib": "^0.10.9",
-		"debug": "^4.4.1",
+		"debug": "^4.4.3",
 		"isbn3": "^1.2.14",
 		"langs": "^2.0.0",
 		"languagedetect": "^2.0.0",

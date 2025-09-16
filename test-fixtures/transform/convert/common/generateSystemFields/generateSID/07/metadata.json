@@ -1,0 +1,5 @@
+{
+  "description": "Does not generate fSID from dc.identifier.uri or dc.source.identifier values when base URLs are not found from list of valid sources",
+  "source": "foobar.example.com",
+  "only": false
+}
