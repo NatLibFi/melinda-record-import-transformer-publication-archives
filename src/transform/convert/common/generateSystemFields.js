@@ -12,7 +12,7 @@ import {sourceConfig, validHarvestSources} from '../../../constants.js';
  */
 export function generateSID(harvestSource, {getFieldValues}, returnDebugString = false) {
   const values = getFieldValues('dc.identifier.uri');
-  const oldValues = getFieldValues('dc.identifier.olduri');
+  const oldValues = getFieldValues('dc.source.identifier');
 
   // URI fields may have multiple values. Values that correspond with the harvest source
   // are only one considered valid for SID field/debug string.
@@ -20,7 +20,7 @@ export function generateSID(harvestSource, {getFieldValues}, returnDebugString =
     const result = getSystemId(value);
 
     if (result && validHarvestSources.includes(result?.source)) {
-      const sourceSidValue = sourceConfig[result.source].fSID; // NB: confirming that key exists happens in transformation-level
+      const sourceSidValue = sourceConfig[result.source].fSID[result.identifierType]; // NB: confirming that key exists happens in transformation-level
       return acc.concat({sourceSidValue, systemId: result.systemId});
     }
     return acc;

@@ -91,7 +91,7 @@ export function getRecordFiletype(record) {
 }
 
 /**
- * Parses source and system identifier from dc.identifier.uri/dc.identifier.olduri values or from header information
+ * Parses source and system identifier from dc.identifier.uri/dc.source.identifier values or from header information
  * @param {string} value URI value
  * @returns false if source or system identifier cannot be parsed, otherwise object containing source and systemId attributes
  */
@@ -108,33 +108,50 @@ export function getSystemId(value) {
 
   function parseHttp(value) {
     const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
-    const itemRegexId = /handle(?<itemId>\/[0-9a-zA-Z]+\/[^/]+$)/u;
-    const itemRegexUuid = /items\/(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
+    const httpItemRegexId = /handle(?<itemId>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+    const httpItemRegexUuid = /items\/(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
 
     const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
-    const {itemId} = value.match(itemRegexId) ? value.match(itemRegexId).groups : {itemId: null};
-    const {itemUuid} = value.match(itemRegexUuid) ? value.match(itemRegexUuid).groups : {itemUuid: null};
+    const {itemId} = value.match(httpItemRegexId) ? value.match(httpItemRegexId).groups : {itemId: null};
+    const {itemUuid} = value.match(httpItemRegexUuid) ? value.match(httpItemRegexUuid).groups : {itemUuid: null};
 
     const systemId = itemId ? itemId : itemUuid;
+    const identifierType = itemId ? 'handle' : 'uuid';
 
-    if (source !== null && systemId !== null) {
-      return {source, systemId};
+    if (source && systemId) {
+      return {source, systemId, identifierType};
     }
 
     return false;
   }
 
+
+
   function parseOai(value) {
+    const oaiItemRegexId = /(?<itemId>[0-9a-zA-Z]+\/[^/]+$)/u;
+    const oaiItemRegexUuid = /(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
+
     const parts = value.split(':');
     if (parts.length !== 3) {
       return false;
     }
 
-    return {
-      source: parts[1],
-      systemId: parts[2]
-    };
+    const source = parts[1];
+    const itemValue = parts[2];
+
+    const {itemId} = itemValue.match(oaiItemRegexId) ? itemValue.match(oaiItemRegexId).groups : {itemId: null};
+    const {itemUuid} = itemValue.match(oaiItemRegexUuid) ? itemValue.match(oaiItemRegexUuid).groups : {itemUuid: null};
+
+    const systemId = itemId ? `/${itemId}` : itemUuid;
+    const identifierType = itemId ? 'handle' : 'uuid';
+
+    if (source && systemId) {
+      return {source, systemId, identifierType};
+    }
+
+    return false;
   }
+
 }
 
 /**

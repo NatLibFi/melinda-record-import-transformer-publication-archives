@@ -2,26 +2,26 @@
 
 const productionSources = {
   'julkaisut.valtioneuvosto.fi': {
-    'fSID': 'valto',
+    'fSID': {handle: 'valto', uuid: 'valt2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:VALTO'
   },
   'www.julkari.fi': {
-    'fSID': 'julkari',
+    'fSID': {handle: 'julkr', uuid: 'julk2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:JULKARI'
   },
   'lutpub.lut.fi': {
-    'fSID': 'lutpub',
+    'fSID': {handle: 'lutpb', uuid: 'lutp2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:LUTPUB'
   },
   'jukuri.luke.fi': {
-    'fSID': 'jukuri',
+    'fSID': {handle: 'jukur', uuid: 'juku2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:JUKURI'
   }
 }
 
 const testSources = {
-  'foobar.example.com': process.env.NODE_ENV === 'test' ? {'fSID': 'REPO_FOOBAR', 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
-  'foobar.example2.dev': process.env.NODE_ENV === 'test' ? {'fSID': 'REPO_FOOBAR2', 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
+  'foobar.example.com': process.env.NODE_ENV === 'test' ? {'fSID': {handle: 'REPO_FOOBAR', uuid: 'REPO_FOOBAR2'}, 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
+  'foobar.example2.dev': process.env.NODE_ENV === 'test' ? {'fSID': {handle: 'REPO_FOOBAR', uuid: 'REPO_FOOBAR2'}, 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
 };
 
 export const sourceConfig = {

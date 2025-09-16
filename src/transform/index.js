@@ -98,6 +98,15 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
           throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
         }
 
+        // Verify fSID generation includes both handle and uuid configurations
+        const fSidConfiguration = sourceConfig[harvestSource].fSID
+        const fSidConfigurationContainsKeys = ['handle', 'uuid'].every(mandatoryKey => Object.keys(fSidConfiguration).includes(mandatoryKey));
+        const fSidConfigurationIsValid = ['handle', 'uuid'].every(mandatoryKey => typeof fSidConfiguration[mandatoryKey] === 'string' && fSidConfiguration[mandatoryKey].length > 0);
+
+        if (!fSidConfigurationContainsKeys || !fSidConfigurationIsValid) {
+          throw new ConversionError({}, 'Configuration for generating fSID is invalid. Please check the configuration contains handle and uuid keys with proper values');
+        }
+
         const {fieldValueInterface, filetype, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);
         const numberOfFiles = getAllValuesInContext(recordMetadata, 'kk:file').length;
         const convertedRecord = convertRecord({harvestSource, filetype, fieldValueInterface, convertOpts, numberOfFiles});

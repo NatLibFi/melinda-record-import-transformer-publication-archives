@@ -1,0 +1,5 @@
+{
+  "description": "Generates fSID using both dc.identifier.uri and dc.source.identifier values. $b mapping is done based on item type observed from URL.",
+  "source": "foobar.example.com",
+  "only": false
+}
