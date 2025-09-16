@@ -20,8 +20,8 @@ const productionSources = {
 }
 
 const testSources = {
-  'foobar.example.com': process.env.NODE_ENV === 'test' ? {'fSID': {handle: 'REPO_FOOBAR', uuid: 'REPO_FOOBAR2'}, 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
-  'foobar.example2.dev': process.env.NODE_ENV === 'test' ? {'fSID': {handle: 'REPO_FOOBAR', uuid: 'REPO_FOOBAR2'}, 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
+  'foobar.example.com': process.env.NODE_ENV === 'test' ? {'fSID': {handle: 'fooba', uuid: 'foob2'}, 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
+  'foobar.example2.dev': process.env.NODE_ENV === 'test' ? {'fSID': {handle: 'fooba', uuid: 'foob2'}, 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,
 };
 
 export const sourceConfig = {

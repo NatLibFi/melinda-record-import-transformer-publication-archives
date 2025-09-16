@@ -3,7 +3,7 @@
     "tag": "SID", "ind1": "", "ind2": "",
     "subfields": [
       {"code": "c", "value": "/123/456"},
-      {"code": "b", "value": "REPO_FOOBAR"}
+      {"code": "b", "value": "fooba"}
     ]
   }
 ]
