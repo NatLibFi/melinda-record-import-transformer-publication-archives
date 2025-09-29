@@ -10,6 +10,11 @@ export function generate776({getFieldValues}) {
   const values = getFieldValues('dc.relation.isversionof');
   return values.map(value => ({
     tag: '776', ind1: '0', ind2: ' ',
-    subfields: [{code: 'z', value}]
+    subfields: [{code: 'z', value: formatValue(value)}]
   }));
+
+  // Similar formatting to f020 $ə
+  function formatValue(value) {
+    return value.replace(/ISBN|\s+|:|\(print\)/gu, '');
+  }
 }
