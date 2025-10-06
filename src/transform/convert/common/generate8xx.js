@@ -3,8 +3,8 @@ import {createHash} from 'crypto';
 import {clone} from '@natlibfi/melinda-commons';
 import {MarcRecord} from '@natlibfi/marc-record';
 
-import {fixUrnValue, isOpenAccess, isValidLink} from '../util';
-import {sourceConfig} from '../../../config';
+import {fixUrnValue, isOpenAccess, isValidLink} from '../util/index.js';
+import {sourceConfig} from '../../../constants.js';
 
 /**
  * Generates field 856 ($u, $y: optional).
@@ -20,7 +20,7 @@ export function generate856({getFieldValues}) {
   /**
    * Generation prioritization if open access fields are to be generated:
    *   1. If dc.identifier.urn has value(s), generate subfields using all these values
-   *   2. If dc.identifier.doi/dc.identifier.uri have value(s), generate subfields using all these values
+   *   2. If dc.identifier.doi has value(s), generate subfields using all these values
   */
   function generatePublicAccessFields({getFieldValues}) {
     const openAccess = isOpenAccess({getFieldValues});
@@ -41,13 +41,12 @@ export function generate856({getFieldValues}) {
     function generateLinkSubfields({getFieldValues}) {
       const urn = generateUrn({getFieldValues});
       const doi = generateU('dc.identifier.doi', {getFieldValues});
-      const uri = generateU('dc.identifier.uri', {getFieldValues});
 
       if (urn.length > 0) {
         return urn;
       }
 
-      return doi.concat(uri);
+      return doi;
 
       // NB: URN needs to be in proper format (http|https://urn.fi/<value>) or otherwise it will not be used in subfield generation
       function generateUrn({getFieldValues}) {
@@ -116,7 +115,7 @@ export function generate884(harvestSource, moment, marcRecord) {
 
 
   function emptyCreationDate(record) {
-    const [f008] = record.pop(/008/u); // eslint-disable-line functional/immutable-data
+    const [f008] = record.pop(/008/u);
     // emptyCreationDate:
     // Normalize f008/00-05 - In non-MARC21 imports f008 'Date entered on file' gets always the current date
     // This propably should be configurable

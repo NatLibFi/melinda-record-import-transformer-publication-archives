@@ -1,0 +1,18 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "source",
+      "qualifier": "identifier",
+      "value": "https://foobar.example.com/items/65882a7b-8a3c-49ac-adb9-02427dfb994e"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "uri",
+      "value": "https://foobar.example2.dev/handle/123/456"
+    }
+  }
+]

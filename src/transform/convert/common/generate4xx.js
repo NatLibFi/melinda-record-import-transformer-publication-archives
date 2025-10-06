@@ -1,4 +1,4 @@
-import {seemsValidishIssn, parseIssnFromString} from '../util';
+import {seemsValidishIssn, parseIssnFromString} from '../util/index.js';
 
 /**
  * Generates field 490 ($a, $v, $x) if subfields $a or $x can be generated.
@@ -44,7 +44,7 @@ export function generate490({getFieldValues}) {
 
           return acc.concat({code: 'v', value: `${value} ; `});
         }, [])
-      // Reverse so that subfields with ';' separator are placed first
+        // Reverse so that subfields with ';' separator are placed first
         .reduceRight((acc, v) => acc.concat(v), []);
     }
 
@@ -75,7 +75,7 @@ export function generate490({getFieldValues}) {
 
           return acc.concat({code: 'x', value: `${value}, `});
         }, [])
-      // Reverse so that subfields with ',' separator are placed first
+        // Reverse so that subfields with ',' separator are placed first
         .reduceRight((acc, v) => acc.concat(v), []);
     }
 

@@ -1,0 +1,34 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "navigointi mahdollista"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "kuvilla vaihtoehtoiset kuvaukset"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "looginen lukemisjärjestys"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "accessibilityfeature",
+      "value": "taulukot saavutettavia"
+    }
+  }
+]

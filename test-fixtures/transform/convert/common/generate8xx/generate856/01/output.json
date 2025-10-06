@@ -3,7 +3,6 @@
     "tag": "856", "ind1": "4", "ind2": "0",
     "subfields": [
       {"code": "u", "value": "https://doi.org/12.3456/example"},
-      {"code": "u", "value": "http://foobar.example.com/handle/123/456?uri=true"},
       {"code": "y", "value": "Linkki verkkoaineistoon"}
     ]
   },

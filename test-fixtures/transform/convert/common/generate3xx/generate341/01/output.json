@@ -1,8 +1,10 @@
 [
   {
-    "tag": "341", "ind1": "", "ind2": "",
+    "tag": "341", "ind1": "0", "ind2": " ",
     "subfields": [
-      {"code": "a", "value": "tekstiin perustuva"}
+      {"code": "a", "value": "textual"},
+      {"code": "b", "value": "structuralNavigation"},
+      {"code": "2", "value": "sapdv"}
     ]
   }
 ]

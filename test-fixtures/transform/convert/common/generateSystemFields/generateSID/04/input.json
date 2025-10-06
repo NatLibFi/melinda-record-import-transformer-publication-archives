@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "source",
+      "qualifier": "identifier",
+      "value": "https://foobar.example.com/handle/123/456"
+    }
+  }
+]

@@ -91,11 +91,11 @@ export function getRecordFiletype(record) {
 }
 
 /**
- * Parses source and handle from dc.identifier.uri values or from header information
+ * Parses source and system identifier from dc.identifier.uri/dc.source.identifier values or from header information
  * @param {string} value URI value
- * @returns false if source or handle cannot be parsed, otherwise object containing source and handle attributes
+ * @returns false if source or system identifier cannot be parsed, otherwise object containing source and systemId attributes
  */
-export function getHandle(value) {
+export function getSystemId(value) {
   if (value.startsWith('oai:')) {
     return parseOai(value);
   }
@@ -106,32 +106,52 @@ export function getHandle(value) {
 
   return false;
 
-
   function parseHttp(value) {
     const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
-    const handleRegex = /(?<handle>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+    const httpItemRegexId = /handle(?<itemId>\/[0-9a-zA-Z]+\/[^/]+$)/u;
+    const httpItemRegexUuid = /items\/(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
 
     const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
-    const {handle} = value.match(handleRegex) ? value.match(handleRegex).groups : {handle: null};
+    const {itemId} = value.match(httpItemRegexId) ? value.match(httpItemRegexId).groups : {itemId: null};
+    const {itemUuid} = value.match(httpItemRegexUuid) ? value.match(httpItemRegexUuid).groups : {itemUuid: null};
 
-    if (source !== null && handle !== null) {
-      return {source, handle};
+    const systemId = itemId ? itemId : itemUuid;
+    const identifierType = itemId ? 'handle' : 'uuid';
+
+    if (source && systemId) {
+      return {source, systemId, identifierType};
     }
 
     return false;
   }
 
+
+
   function parseOai(value) {
+    const oaiItemRegexId = /(?<itemId>[0-9a-zA-Z]+\/[^/]+$)/u;
+    const oaiItemRegexUuid = /(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
+
     const parts = value.split(':');
     if (parts.length !== 3) {
       return false;
     }
 
-    return {
-      source: parts[1],
-      handle: parts[2]
-    };
+    const source = parts[1];
+    const itemValue = parts[2];
+
+    const {itemId} = itemValue.match(oaiItemRegexId) ? itemValue.match(oaiItemRegexId).groups : {itemId: null};
+    const {itemUuid} = itemValue.match(oaiItemRegexUuid) ? itemValue.match(oaiItemRegexUuid).groups : {itemUuid: null};
+
+    const systemId = itemId ? `/${itemId}` : itemUuid;
+    const identifierType = itemId ? 'handle' : 'uuid';
+
+    if (source && systemId) {
+      return {source, systemId, identifierType};
+    }
+
+    return false;
   }
+
 }
 
 /**
@@ -204,9 +224,8 @@ export function parseHeaderInformation(header) {
   };
 
   function parseIdentifier(identifierValue) {
-    // eslint-disable-next-line no-unused-vars
-    const {source, handle} = getHandle(identifierValue);
-    return {source, uniqueIdentifier: handle};
+    const {source, systemId} = getSystemId(identifierValue);
+    return {source, uniqueIdentifier: systemId};
   }
 }
 

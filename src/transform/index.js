@@ -1,17 +1,18 @@
 import {EventEmitter} from 'events';
 
-import createStreamParser, {ALWAYS as streamParserAlways} from 'xml-flow';
+import createStreamParser from 'xml-flow';
+const {ALWAYS: streamParserAlways} = createStreamParser;
 
-import ConversionError from './convert/conversionError';
+import ConversionError from './convert/conversionError.js';
 
-import convertRecord from './convert';
-import createValidator from '../validate';
-import filterAndCreateValueInterface from './filter';
+import convertRecord from './convert/index.js';
+import createValidator from '../validate.js';
+import filterAndCreateValueInterface from './filter/index.js';
 
-import {convertToObject, getMetadataHeader, getRecordMetadata} from './xmlParser';
-import {getAllValuesInContext, parseHeaderInformation} from './convert/util';
+import {convertToObject, getMetadataHeader, getRecordMetadata} from './xmlParser.js';
+import {getAllValuesInContext, parseHeaderInformation} from './convert/util/index.js';
 
-import {sourceConfig} from '../config';
+import {sourceConfig} from '../constants.js';
 
 
 class TransformEmitter extends EventEmitter { }
@@ -33,11 +34,11 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
 
   function readStream(stream) {
     const xmlRecordEntries = [];
-    let numberOfRecords = 0; // eslint-disable-line functional/no-let
-    let harvestSource = false; // eslint-disable-line functional/no-let
+    let numberOfRecords = 0;
+    let harvestSource = false;
 
     // Used for deduplication
-    let identifiersProcessed = []; // eslint-disable-line functional/no-let,prefer-const
+    let identifiersProcessed = [];
 
     // Parsing as stream to avoid holding full XML in memory
     createStreamParser(stream, {
@@ -49,7 +50,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
       useArrays: streamParserAlways
     })
       .on('error', err => Emitter.emit('error', err))
-      .on('tag:record', xmlRecordEntry => xmlRecordEntries.push(xmlRecordEntry)) // eslint-disable-line functional/immutable-data
+      .on('tag:record', xmlRecordEntry => xmlRecordEntries.push(xmlRecordEntry))
       .on('end', async () => {
         await Promise.all(xmlRecordEntries.map(xmlRecordEntry => processRecord(xmlRecordEntry)));
         Emitter.emit('end', numberOfRecords);
@@ -62,14 +63,12 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
       }
 
       identifiers.forEach(identifier => {
-        identifiersProcessed.push(identifier); // eslint-disable-line functional/immutable-data
+        identifiersProcessed.push(identifier);
       });
 
       return emitter.emit('record', result);
     }
 
-
-    // eslint-disable-next-line max-statements
     async function processRecord(xmlRecordEntry) {
       try {
         // Destructuring to get the header + metadata from the xml parsed to object
@@ -89,14 +88,23 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
         const headerInformation = parseHeaderInformation(headerValue);
 
         // Set harvest source if it has not yet been set for the package
-        // eslint-disable-next-line functional/no-conditional-statements
         if (!harvestSource) {
           harvestSource = headerInformation?.identifier?.source;
         }
 
         const mandatorySourceConfig = ['fSID', 'f884'];
+
         if (!harvestSource || !Object.keys(sourceConfig).includes(harvestSource) || !mandatorySourceConfig.every(v => Object.keys(sourceConfig[harvestSource]).includes(v))) {
           throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
+        }
+
+        // Verify fSID generation includes both handle and uuid configurations
+        const fSidConfiguration = sourceConfig[harvestSource].fSID
+        const fSidConfigurationContainsKeys = ['handle', 'uuid'].every(mandatoryKey => Object.keys(fSidConfiguration).includes(mandatoryKey));
+        const fSidConfigurationIsValid = ['handle', 'uuid'].every(mandatoryKey => typeof fSidConfiguration[mandatoryKey] === 'string' && fSidConfiguration[mandatoryKey].length > 0);
+
+        if (!fSidConfigurationContainsKeys || !fSidConfigurationIsValid) {
+          throw new ConversionError({}, 'Configuration for generating fSID is invalid. Please check the configuration contains handle and uuid keys with proper values');
         }
 
         const {fieldValueInterface, filetype, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);

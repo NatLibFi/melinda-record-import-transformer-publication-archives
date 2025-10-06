@@ -1,12 +1,12 @@
 import createDebugLogger from 'debug';
 
-import {generateSID} from '../convert/common/generateSystemFields';
-import {getInputFields, createValueInterface, getRecordFiletype} from '../convert/util';
+import {generateSID} from '../convert/common/generateSystemFields.js';
+import {getInputFields, createValueInterface, getRecordFiletype} from '../convert/util/index.js';
 
-import {filterByFileType} from './filterByFileType';
-import {filterByIsbnIdentifier} from './filterByIsbnIdentifier';
-import {filterByIssuedYear} from './filterByIssuedYear';
-import {filterByMaterialType} from './filterByMaterialType';
+import {filterByFileType} from './filterByFileType.js';
+import {filterByIsbnIdentifier} from './filterByIsbnIdentifier.js';
+import {filterByIssuedYear} from './filterByIssuedYear.js';
+import {filterByMaterialType} from './filterByMaterialType.js';
 
 /**
  * Filter generator
@@ -30,6 +30,7 @@ export default (harvestSource, record, applyFilters = [], filterConfig = {}) => 
   const identifiers = [
     getFieldValues('dc.identifier.isbn'),
     getFieldValues('dc.identifier.uri'),
+    getFieldValues('dc.source.identifier'),
     getFieldValues('dc.identifier.urn'),
     generateSID(harvestSource, fieldValueInterface, true)
   ].flat();

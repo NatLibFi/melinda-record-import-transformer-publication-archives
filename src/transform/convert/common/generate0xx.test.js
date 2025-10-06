@@ -1,10 +1,10 @@
-import {expect} from 'chai';
+import assert from 'node:assert';
 
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
-import * as fieldGenerator from './generate0xx';
-import {createValueInterface} from '../util';
+import * as fieldGenerator from './generate0xx.js';
+import {createValueInterface} from '../util/index.js';
 
 // Run tests
 generate020();
@@ -17,7 +17,7 @@ generate042();
 function generate020() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate020'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate020'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -33,14 +33,14 @@ function generate020() {
     const valueInterface = createValueInterface(input);
 
     const result = fieldGenerator.generate020(valueInterface);
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }
 
 function generate024() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate024'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate024'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -56,14 +56,14 @@ function generate024() {
     const valueInterface = createValueInterface(input);
 
     const result = fieldGenerator.generate024(valueInterface);
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }
 
 function generate040() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate040'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate040'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -73,19 +73,19 @@ function generate040() {
   });
 
   function callback({getFixture}) {
-    // eslint-disable-next-line no-unused-vars
+
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
     const result = fieldGenerator.generate040();
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }
 
 function generate041() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate041'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate041'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -101,14 +101,14 @@ function generate041() {
     const valueInterface = createValueInterface(input);
 
     const result = fieldGenerator.generate041(valueInterface);
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }
 
 function generate042() {
   generateTests({
     callback,
-    path: [__dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate042'],
+    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate0xx', 'generate042'],
     recurse: false,
     useMetadataFile: true,
     fixura: {
@@ -118,11 +118,11 @@ function generate042() {
   });
 
   function callback({getFixture}) {
-    // eslint-disable-next-line no-unused-vars
+
     const input = getFixture('input.json');
     const output = getFixture('output.json');
 
     const result = fieldGenerator.generate042();
-    expect(result).to.eql(output);
+    assert.deepStrictEqual(result, output);
   }
 }

@@ -1,5 +1,5 @@
-import {getAllValuesInContext} from '../convert/util';
-import ConversionError from '../convert/conversionError';
+import {getAllValuesInContext} from '../convert/util/index.js';
+import ConversionError from '../convert/conversionError.js';
 
 /**
  * Filter filtering items that do not have filetype information included to their metadata.

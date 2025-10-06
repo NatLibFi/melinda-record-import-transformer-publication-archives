@@ -196,12 +196,20 @@
       },
       {
         "tag": "341",
-        "ind1": " ",
+        "ind1": "0",
         "ind2": " ",
         "subfields": [
           {
             "code": "a",
-            "value": "tekstiin perustuva"
+            "value": "textual"
+          },
+          {
+            "code": "b",
+            "value": "alternativeText"
+          },
+          {
+            "code": "2",
+            "value": "sapdv"
           }
         ]
       },
@@ -413,7 +421,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:73809d1302a2fff66b79d148ce6abcb5fd5d97052bf8fc4ff182a1793fc2372c"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:e1f4dfce531ae774a4907744e7614bd49d392e20f37febb535d9f66fa00a5fcb"
           },
           {
             "code": "q",
@@ -455,7 +463,7 @@
           },
           {
             "code": "b",
-            "value": "REPO_FOOBAR"
+            "value": "fooba"
           }
         ]
       },
