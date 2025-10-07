@@ -83,6 +83,8 @@ export function generate338() {
  * @returns Array containing field 341
  */
 export function generate341({getFieldValues}) {
+  // Mapping is in process and may be expanded in future.
+  // 'looginen lukemisjärjestys' and 'taulukot saavutettavia' do have equal mapping by design
   const accessibilityFeatureMap = {
     'navigointi mahdollista': {
       ind1: '0',
