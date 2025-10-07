@@ -1,0 +1,9 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "title",
+      "value": "Foo 1.osa: Bar"
+    }
+  }
+]

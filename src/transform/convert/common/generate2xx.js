@@ -57,10 +57,10 @@ export function generate245({getFields}) {
     function findRegex(titleText) {
       // Note: order defines priority
       const pluralOfRegex = [
-        // split title to mainTitle and subtitle at first '.', do not keep '.'
-        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /\.\s+/u},
         // split title to mainTitle and subtitle at first ':', do not keep ':'
         {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /:\s+/u},
+        // split title to mainTitle and subtitle at first '.' that is not directly following a number, do not keep '.' but keep the prior character.
+        {keepCharactersFromStart: 1, keepCharactersFromEnd: 0, regex: /[^0-9]\.\s+/u},
         // split title to mainTitle and subtitle at first ' - ', do not keep the separator
         {keepCharactersFromStart: 1, keepCharactersFromEnd: 1, regex: /[^0-9]\s+[\u2013\u2014-]\s+[^0-9]/u},
         // split title to mainTitle and subtitle at '! ' or '? ', keep question and exclamation marks, they are part of the title
