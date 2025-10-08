@@ -128,7 +128,8 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
             failed: true,
             title,
             standardIdentifiers: identifiers,
-            message: err.message
+            message: err.message,
+            messages: [err.message]
           });
         }
 
