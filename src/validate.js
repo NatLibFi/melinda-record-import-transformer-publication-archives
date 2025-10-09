@@ -33,13 +33,28 @@ export default () => {
 
   const validate = validateFactory(validators);
 
-  return async (record, fix, validateFixes) => {
-    const opts = fix ? {fix, validateFixes} : /* istanbul ignore next: No need to test this */ {fix};
+  return async (record, fix, validateFixes, commonErrorPayload) => {
+    const opts = fix ? { fix, validateFixes } : { fix };
     const result = await validate(record, opts);
+
+    if (result.valid === false) {
+      const failureMessages = result.report
+        .filter((report) => report.state === 'invalid')
+        .map(({ messages }) => messages)
+        .flat();
+
+      return {
+        failed: true,
+        title: commonErrorPayload.title,
+        standardIdentifiers: commonErrorPayload.identifiers,
+        message: failureMessages.join(','),
+        messages: failureMessages,
+      };
+    }
+
     return {
+      failed: false,
       record: result.record.toObject(),
-      failed: result.valid === false,
-      messages: result.report
     };
   };
 };

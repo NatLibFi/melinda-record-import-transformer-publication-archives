@@ -65,6 +65,7 @@ function callback({getFixture, testDeduplication = false, testHash = false, expe
         debug(firstResult);
         assert.equal(firstResult.title, expectedResult.title);
         assert.deepStrictEqual(firstResult.standardIdentifiers, expectedResult.standardIdentifiers);
+        assert.deepStrictEqual(firstResult.messages, expectedResult.messages);
         assert.equal(firstResult.message, expectedResult.message);
 
         return resolve();
@@ -138,11 +139,12 @@ function callback({getFixture, testDeduplication = false, testHash = false, expe
     assert.equal(typeof expectedResult.failed === 'boolean', true, 'Expected result should always contain failed boolean');
     if (!expectedResult.failed) {
       assert.equal(typeof expectedResult.record === 'object', true, 'Expected result should contain record object');
-      assert.equal(Array.isArray(expectedResult.messages), true, 'Expected result should contain messages array');
       return;
     }
 
     assert.equal(typeof expectedResult.message === 'string', true, 'Failed expected result should contain message string');
+    assert.equal(Array.isArray(expectedResult.messages), true)
+
     assert.equal(typeof expectedResult.title === 'string', true, 'Failed expected result should contain title string');
     assert.equal(Array.isArray(expectedResult.standardIdentifiers), true, 'Failed expected result should contain standard identifiers string array');
     return;
