@@ -1,4 +1,4 @@
 {
   "description": "Correctly fixes Windows newline (\\r\\n).",
-  "only": true
+  "only": false
 }

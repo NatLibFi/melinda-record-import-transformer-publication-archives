@@ -1,4 +1,4 @@
 {
   "description": "Handles normalizing consecutive whitespaces while removing Windows newlines and trimming whitespace from start and end of the string",
-  "only": true
+  "only": false
 }
