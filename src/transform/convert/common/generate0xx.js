@@ -93,13 +93,24 @@ export function generate040() {
  */
 export function generate041({getFieldValues}) {
   const values = getFieldValues('dc.language.iso');
-  return values
+  const subfields = values
     .map(language => formatLanguage(language))
     .filter(v => v) // formatLanguage may return null, this strips invalid values
-    .map(v => ({
-      tag: '041', ind1: '', ind2: '',
-      subfields: [{code: 'a', value: v}]
-    }));
+    .map(v => ({code: 'a', value: v}));
+
+  // Do not generate field if there are no subfields
+  if(subfields.length === 0) {
+    return [];
+  }
+
+  return [
+    {
+      tag: '041',
+      ind1: '',
+      ind2: '',
+      subfields
+    }
+  ];
 }
 
 /**
