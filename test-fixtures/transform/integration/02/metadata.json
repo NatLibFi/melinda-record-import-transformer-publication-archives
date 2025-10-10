@@ -1,0 +1,5 @@
+{
+  "description": "Transformation fails as expected (ISBN is not valid)",
+  "testHash": false,
+  "only": false
+}
