@@ -1,4 +1,4 @@
 {
-  "description": "Generates f041 from each dc.language.iso entry",
+  "description": "Generates f041 subfield $a from each dc.language.iso entry",
   "only": false
 }

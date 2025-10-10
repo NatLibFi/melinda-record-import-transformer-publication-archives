@@ -112,7 +112,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
         const convertedRecord = convertRecord({harvestSource, filetype, fieldValueInterface, convertOpts, numberOfFiles});
 
         if (validate === true || fix === true) {
-          const validateFixResult = await validateRecord(convertedRecord, fix, validate);
+          const validateFixResult = await validateRecord(convertedRecord, fix, validate, commonErrorPayload);
           return emitUniqueRecord(Emitter, validateFixResult, commonErrorPayload);
         }
 
@@ -128,7 +128,8 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
             failed: true,
             title,
             standardIdentifiers: identifiers,
-            message: err.message
+            message: err.message,
+            messages: [err.message]
           });
         }
 

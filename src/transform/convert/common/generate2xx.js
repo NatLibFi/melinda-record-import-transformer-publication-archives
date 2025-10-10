@@ -1,4 +1,4 @@
-import {capitalizeValue} from '../util/index.js';
+import {capitalizeValue, normalizeTitleString} from '../util/index.js';
 
 /**
  * Generates field 245 ($a) based on first dc.title value
@@ -19,9 +19,13 @@ export function generate245({getFields}) {
 
   const {title, alternativeSubtitle} = getTitle(titleText);
 
+  // Fix plausible newlines (both Windows/Unix variants)
+  const titleWithoutNewlines = normalizeTitleString(title);
+  const alternativeSubtitleWithoutNewlines = normalizeTitleString(alternativeSubtitle);
+
   return alternativeSubtitle
-    ? [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title} :`}, {code: 'b', value: `${alternativeSubtitle}.`}]}]
-    : [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title}.`}]}];
+    ? [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${titleWithoutNewlines} :`}, {code: 'b', value: `${alternativeSubtitleWithoutNewlines}.`}]}]
+    : [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${titleWithoutNewlines}.`}]}];
 
 
   function generateIsAddedEntry() {

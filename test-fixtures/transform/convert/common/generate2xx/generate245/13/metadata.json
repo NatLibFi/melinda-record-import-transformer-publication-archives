@@ -1,0 +1,4 @@
+{
+  "description": "Correctly fixes Unix newline (\\n).",
+  "only": false
+}

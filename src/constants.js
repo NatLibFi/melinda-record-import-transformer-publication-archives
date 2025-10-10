@@ -17,7 +17,7 @@ const productionSources = {
     'fSID': {handle: 'jukur', uuid: 'juku2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:JUKURI'
   }
-}
+};
 
 const testSources = {
   'foobar.example.com': process.env.NODE_ENV === 'test' ? {'fSID': {handle: 'fooba', uuid: 'foob2'}, 'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'} : null,

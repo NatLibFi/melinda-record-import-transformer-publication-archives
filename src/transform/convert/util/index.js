@@ -412,3 +412,24 @@ export function fixUrnValue(urn) {
 
   return urn.replace(/^http:\/\//u, 'https://');
 }
+
+/**
+ * Normalizes newlines and carriage returns typed as string to a single whitespace.
+ * @param {string|undefined|null} value - Value to normalize
+ */
+export function normalizeTitleString(value) {
+  const cannotFix = !value || typeof value !== 'string';
+  if (cannotFix) {
+    return value;
+  }
+
+  const windowsNewline = /\\r\\n/g;
+  const unixNewline = /\\n/g;
+  const multiSpace = /\s+/g;
+
+  return value
+    .replaceAll(windowsNewline, ' ') // First remove windows newlines, otherwise carriage return would be left intact
+    .replaceAll(unixNewline, ' ') // Remove unix newlines
+    .replaceAll(multiSpace, ' ') // Normalize multiple whitespaces to one as these may occur after processing newlines
+    .trim(); // Remove whitespaces surrounding the string
+}
