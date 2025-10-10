@@ -8,7 +8,7 @@ async function run() {
   const logger = createLogger();
   registerInterruptionHandlers();
 
-  logger.info('Starting publication archives transformer V3.0.2')
+  logger.info('Starting publication archives transformer V3.0.2');
   await startApp(config);
 
   function registerInterruptionHandlers() {
