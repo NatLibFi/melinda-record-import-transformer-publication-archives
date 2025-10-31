@@ -20,7 +20,7 @@
       "schema": "dc",
       "element": "identifier",
       "qualifier": "uri",
-      "value": "http://foobar.example.com/handle/123/456?uri=true"
+      "value": "http://foobar.example.com/handle/10024/456?uri=true"
     }
   },
   {

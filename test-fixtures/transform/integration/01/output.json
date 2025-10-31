@@ -421,7 +421,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:e1f4dfce531ae774a4907744e7614bd49d392e20f37febb535d9f66fa00a5fcb"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:10abb6ce6a1c65dec5aa348730eb47985eb83117dd2f3463b49c5e4157ec13d7"
           },
           {
             "code": "q",
@@ -459,7 +459,7 @@
         "subfields": [
           {
             "code": "c",
-            "value": "/123/456"
+            "value": "/10024/456"
           },
           {
             "code": "b",

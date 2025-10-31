@@ -4,7 +4,7 @@
       "schema": "dc",
       "element": "source",
       "qualifier": "identifier",
-      "value": "https://foobar.example.com/handle/123/456"
+      "value": "https://foobar.example.com/handle/10024/456"
     }
   },
   {
@@ -12,7 +12,7 @@
       "schema": "dc",
       "element": "identifier",
       "qualifier": "uri",
-      "value": "https://foobar.example2.dev/items/65882a7b-8a3c-49ac-adb9-02427dfb994e/"
+      "value": "https://foobar.example.com/handle/11111/456"
     }
   }
 ]

@@ -100,8 +100,8 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
 
         // Verify fSID generation includes both handle and uuid configurations
         const fSidConfiguration = sourceConfig[harvestSource].fSID
-        const fSidConfigurationContainsKeys = ['handle', 'uuid'].every(mandatoryKey => Object.keys(fSidConfiguration).includes(mandatoryKey));
-        const fSidConfigurationIsValid = ['handle', 'uuid'].every(mandatoryKey => typeof fSidConfiguration[mandatoryKey] === 'string' && fSidConfiguration[mandatoryKey].length > 0);
+        const fSidConfigurationContainsKeys = ['10024', '11111'].every(mandatoryKey => Object.keys(fSidConfiguration).includes(mandatoryKey));
+        const fSidConfigurationIsValid = ['10024', '11111'].every(mandatoryKey => typeof fSidConfiguration[mandatoryKey] === 'string' && fSidConfiguration[mandatoryKey].length > 0 && fSidConfiguration[mandatoryKey].length < 6);
 
         if (!fSidConfigurationContainsKeys || !fSidConfigurationIsValid) {
           throw new ConversionError({}, 'Configuration for generating fSID is invalid. Please check the configuration contains handle and uuid keys with proper values');

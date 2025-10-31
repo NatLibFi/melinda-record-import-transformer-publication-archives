@@ -2,14 +2,14 @@
   {
     "tag": "SID", "ind1": "", "ind2": "",
     "subfields": [
-      {"code": "c", "value": "/123/456"},
+      {"code": "c", "value": "/10024/456"},
       {"code": "b", "value": "fooba"}
     ]
   },
   {
     "tag": "SID", "ind1": "", "ind2": "",
     "subfields": [
-      {"code": "c", "value": "65882a7b-8a3c-49ac-adb9-02427dfb994e"},
+      {"code": "c", "value": "/11111/456"},
       {"code": "b", "value": "foob2"}
     ]
   }

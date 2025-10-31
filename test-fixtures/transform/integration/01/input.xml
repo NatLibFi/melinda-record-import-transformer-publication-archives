@@ -7,22 +7,22 @@
   <ListRecords>
     <record>
       <header>
-        <identifier>oai:foobar.example.com:123/456</identifier>
+        <identifier>oai:foobar.example.com:10024/456</identifier>
         <datestamp>2023-08-18T11:10:04Z</datestamp>
       </header>
       <metadata>
         <kk:metadata xmlns:kk="http://kk/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xmlns:doc="http://www.lyncode.com/xoai" xsi:schemaLocation="http://kk/1.0/kk.xsd">
-          <kk:identifier type="handle" value="123/456" />
+          <kk:identifier type="handle" value="10024/456" />
           <kk:type name="item" />
-          <kk:link href="http://foobar.example.com/handle/123/456" />
+          <kk:link href="http://foobar.example.com/handle/10024/456" />
           <kk:field schema="dc" element="contributor" qualifier="author" language="fi"
             value="Esimerkki, Erkki" />
           <kk:field schema="dc" element="date" qualifier="issued" language="fi" value="2024" />
           <kk:field schema="dc" element="identifier" qualifier="isbn" language="fi"
             value="978-92-95055-20-9" />
           <kk:field schema="dc" element="identifier" qualifier="uri" language="none"
-            value="http://foobar.example.com/handle/123/456" />
+            value="http://foobar.example.com/handle/10024/456" />
           <kk:field schema="dc" element="identifier" qualifier="urn" language="none"
             value="URN:ISBN:978-92-95055-20-9" />
           <kk:field schema="dc" element="description" qualifier="abstract" language="fi"
@@ -46,7 +46,7 @@
             value="&lt;&quot;Cool Stuff&quot;, like &apos;this&apos;: Dublin Core &amp; MARC21 &hearts; &gt;" />
           <kk:field schema="dc" element="type" language="fi" value="sarjajulkaisu" />
           <kk:file bundle="ORIGINAL"
-            href="https://foobar.example.com/bitstream/123/456/1/example.html"
+            href="https://foobar.example.com/bitstream/10024/456/1/example.html"
             name="example.html" type="text/html" />
         </kk:metadata>
       </metadata>

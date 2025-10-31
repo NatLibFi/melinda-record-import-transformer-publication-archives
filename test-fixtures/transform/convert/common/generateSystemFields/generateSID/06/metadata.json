@@ -1,5 +1,5 @@
 {
-  "description": "Generates fSID using both dc.identifier.uri and dc.source.identifier values when base URLs are found from list of valid sources",
+  "description": "Generates fSID using both dc.identifier.uri and dc.source.identifier values. Both are mapped based on prefix.",
   "source": "foobar.example.com",
   "only": false
 }

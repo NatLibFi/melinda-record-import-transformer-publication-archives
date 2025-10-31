@@ -96,30 +96,39 @@ export function getRecordFiletype(record) {
  * @returns false if source or system identifier cannot be parsed, otherwise object containing source and systemId attributes
  */
 export function getSystemId(value) {
+  let result = false;
+
   if (value.startsWith('oai:')) {
-    return parseOai(value);
+    result = parseOai(value);
   }
 
   if (value.startsWith('http')) {
-    return parseHttp(value);
+    result = parseHttp(value);
   }
 
-  return false;
+  if (!result) {
+    return false;
+  }
+
+  const parts = result.systemId.split('/');
+  if (parts.length !== 3) {
+    return false;
+  }
+
+  const [, prefix] = parts;
+
+  return {source: result.source, systemId: result.systemId, prefix}
+
 
   function parseHttp(value) {
     const baseUrlRegex = /https?:\/\/(?<source>[^?#/]+)/u;
     const httpItemRegexId = /handle(?<itemId>\/[0-9a-zA-Z]+\/[^/]+$)/u;
-    const httpItemRegexUuid = /items\/(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
 
     const {source} = value.match(baseUrlRegex) ? value.match(baseUrlRegex).groups : {source: null};
     const {itemId} = value.match(httpItemRegexId) ? value.match(httpItemRegexId).groups : {itemId: null};
-    const {itemUuid} = value.match(httpItemRegexUuid) ? value.match(httpItemRegexUuid).groups : {itemUuid: null};
 
-    const systemId = itemId ? itemId : itemUuid;
-    const identifierType = itemId ? 'handle' : 'uuid';
-
-    if (source && systemId) {
-      return {source, systemId, identifierType};
+    if (source && itemId) {
+      return {source, systemId: itemId};
     }
 
     return false;
@@ -129,7 +138,6 @@ export function getSystemId(value) {
 
   function parseOai(value) {
     const oaiItemRegexId = /(?<itemId>[0-9a-zA-Z]+\/[^/]+$)/u;
-    const oaiItemRegexUuid = /(?<itemUuid>[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i // source: https://stackoverflow.com/a/13653180
 
     const parts = value.split(':');
     if (parts.length !== 3) {
@@ -140,13 +148,9 @@ export function getSystemId(value) {
     const itemValue = parts[2];
 
     const {itemId} = itemValue.match(oaiItemRegexId) ? itemValue.match(oaiItemRegexId).groups : {itemId: null};
-    const {itemUuid} = itemValue.match(oaiItemRegexUuid) ? itemValue.match(oaiItemRegexUuid).groups : {itemUuid: null};
 
-    const systemId = itemId ? `/${itemId}` : itemUuid;
-    const identifierType = itemId ? 'handle' : 'uuid';
-
-    if (source && systemId) {
-      return {source, systemId, identifierType};
+    if (source && itemId) {
+      return {source, systemId: `/${itemId}`};
     }
 
     return false;

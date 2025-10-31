@@ -1,5 +1,5 @@
 {
-  "description": "Generates fSID using dc.identifier.uri value when using UUID as system identifier (https)",
+  "description": "Handle prefix 11111 in dc.identifier.uri maps to secondary $b value",
   "source": "foobar.example.com",
   "only": false
 }
