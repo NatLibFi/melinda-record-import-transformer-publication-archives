@@ -2,7 +2,7 @@
   {
     "tag": "024", "ind1": "7", "ind2": "",
     "subfields": [
-      {"code": "a", "value": "http://foobar.example.com/handle/123/456"},
+      {"code": "a", "value": "http://foobar.example.com/handle/10024/456"},
       {"code": "2", "value": "hdl"}
     ]
   }

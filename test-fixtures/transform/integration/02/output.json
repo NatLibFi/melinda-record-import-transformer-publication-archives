@@ -1,7 +1,7 @@
 {
   "failed": true,
   "title": "<\"Cool Stuff\", like 'this': Dublin Core & MARC21 ♥ >",
-  "standardIdentifiers": ["123-45-6789", "http://foobar.example.com/handle/123/456", "(fooba)/123/456"],
+  "standardIdentifiers": ["123-45-6789", "http://foobar.example.com/handle/10024/456", "(fooba)/10024/456"],
   "messages": ["ISBN (123-45-6789) is not valid"],
   "message": "ISBN (123-45-6789) is not valid"
 }
