@@ -3,7 +3,7 @@
   "message": "Filter: Date issued information ([2080]) matches filter configuration (undefined < X < 2020)",
   "title": "Dublin Core - MARC21 konversio",
   "standardIdentifiers": [
-    "http://foobar.example.com/handle/123/456",
-    "(fooba)/123/456"
+    "http://foobar.example.com/handle/10024/456",
+    "(fooba)/10024/456"
   ]
 }

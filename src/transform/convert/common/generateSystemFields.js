@@ -20,7 +20,7 @@ export function generateSID(harvestSource, {getFieldValues}, returnDebugString =
     const result = getSystemId(value);
 
     if (result && validHarvestSources.includes(result?.source)) {
-      const sourceSidValue = sourceConfig[result.source].fSID[result.identifierType]; // NB: confirming that key exists happens in transformation-level
+      const sourceSidValue = sourceConfig[result.source].fSID[result.prefix]; // NB: confirming that key exists happens in transformation-level
       return acc.concat({sourceSidValue, systemId: result.systemId});
     }
     return acc;
