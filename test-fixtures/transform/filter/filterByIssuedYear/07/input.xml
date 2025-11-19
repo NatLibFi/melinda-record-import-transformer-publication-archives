@@ -7,7 +7,7 @@
   <ListRecords>
     <record>
       <header>
-        <identifier>oai:foobar.example.com:10024/456</identifier>
+        <identifier>oai:foobar.issuedYear3.com:10024/456</identifier>
         <datestamp>2023-08-18T11:10:04Z</datestamp>
       </header>
       <metadata>
@@ -38,6 +38,9 @@
           <kk:field schema="dc" element="title" language="fi"
             value="Dublin Core - MARC21 konversio" />
           <kk:field schema="dc" element="type" language="fi" value="sarjajulkaisu" />
+          <kk:file bundle="ORIGINAL"
+            href="https://foobar.example.com/bitstream/10024/456/1/example.pdf"
+            name="example.pdf" type="application/pdf" />
         </kk:metadata>
       </metadata>
     </record>

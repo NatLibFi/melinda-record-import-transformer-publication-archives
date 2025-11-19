@@ -20,10 +20,11 @@ export default (harvestSource, record, filterConfigs = []) => {
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:filter');
   debug('Staring to define and apply filter configuration');
 
-  const isbnFilterConf = filterConfigs.find(filter => filter.type === 'isbn');
-  const issuedYearConf = filterConfigs.find(filter => filter.type === 'issuedYear');
-  const fileTypeConf = filterConfigs.find(filter => filter.type === 'fileType');
-  const materialTypeConf = filterConfigs.find(filter => filter.type === 'materialType');
+  const isbnFilterConf = filterConfigs.find(filter => filter.type === 'isbn') ?? {active: false};
+  const issuedYearConf = filterConfigs.find(filter => filter.type === 'issuedYear') ?? {active: false};
+  const fileTypeConf = filterConfigs.find(filter => filter.type === 'fileType') ?? {active: false};
+  const materialTypeConf = filterConfigs.find(filter => filter.type === 'materialType') ?? {active: false};
+  debug(`Configured filters: isbn ${isbnFilterConf.active}, issued year ${issuedYearConf.active}, file type ${fileTypeConf.active}, material type ${materialTypeConf.active}`);
 
   const inputFields = getInputFields(record);
   const fieldValueInterface = createValueInterface(inputFields);

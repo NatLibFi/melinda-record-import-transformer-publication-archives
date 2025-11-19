@@ -17,14 +17,14 @@ generateTests({
   }
 });
 
-function callback({getFixture, filter, filterConfig = {}}) {
+function callback({getFixture}) {
   const momentMock = () => moment('2020-01-01T00:00:00');
   const results = [];
 
   const inputData = getFixture({components: ['input.xml'], reader: READERS.STREAM});
   const expectedResult = getFixture({components: ['output.json'], reader: READERS.JSON});
 
-  const transform = createTransformer({applyFilters: [filter], filterConfig, moment: momentMock});
+  const transform = createTransformer({moment: momentMock});
 
   return new Promise((resolve, reject) => {
     transform(inputData)

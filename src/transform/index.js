@@ -105,9 +105,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
           throw new ConversionError({}, 'Configuration for generating fSID is invalid. Please check the configuration contains handle and uuid keys with proper values');
         }
 
-        const mandatoryFilterConfigSchema = ['type', 'active'];
-
-        if (!harvestSource || !Object.keys(sourceConfig[harvestSource]).includes('filters') || !mandatoryFilterConfigSchema.every(v => Object.keys(sourceConfig[harvestSource].filters).includes(v))) {
+        if (!harvestSource || !Object.keys(sourceConfig[harvestSource]).includes('filters')) {
           throw new ConversionError({}, `Cannot find filter configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
         }
 

@@ -7,7 +7,7 @@
   <ListRecords>
     <record>
       <header>
-        <identifier>oai:foobar.example.com:10024/456</identifier>
+        <identifier>oai:foobar.isbn2.com:10024/456</identifier>
         <datestamp>2023-08-18T11:10:04Z</datestamp>
       </header>
       <metadata>
@@ -18,11 +18,9 @@
           <kk:link href="http://foobar.example.com/handle/10024/456" />
           <kk:field schema="dc" element="contributor" qualifier="author" language="fi"
             value="Esimerkki, Erkki" />
-          <kk:field schema="dc" element="date" qualifier="issued" language="fi" value="2024" />
+          <kk:field schema="dc" element="date" qualifier="issued" language="fi" value="2081" />
           <kk:field schema="dc" element="identifier" qualifier="uri" language="none"
             value="http://foobar.example.com/handle/10024/456" />
-          <kk:field schema="dc" element="identifier" qualifier="urn" language="none"
-            value="URN:ISBN:978-92-95055-20-9" />
           <kk:field schema="dc" element="description" qualifier="abstract" language="fi"
             value="Example description" />
           <kk:field schema="dc" element="language" qualifier="iso" language="fi" value="fi" />

@@ -1,5 +1,4 @@
 {
   "description": "filterByIsbnIdentifier does not pass when ISBN information is not available",
-  "filter": "filterByIsbnIdentifier",
   "only": false
 }
