@@ -16,9 +16,14 @@ import {filterByMaterialType} from './filterByMaterialType.js';
  * @param {object} filterConfig configuration object containing filter specific configurations
  * @return object containing fieldValueInterface (for interacting with record) and commonErrorPayload to use for producing debugging information
  */
-export default (harvestSource, record, applyFilters = [], filterConfig = {}) => {
+export default (harvestSource, record, filterConfigs = []) => {
   const debug = createDebugLogger('@natlibfi/melinda-record-import/transformer-dc:filter');
   debug('Staring to define and apply filter configuration');
+
+  const isbnFilterConf = filterConfigs.find(filter => filter.type === 'isbn');
+  const issuedYearConf = filterConfigs.find(filter => filter.type === 'issuedYear');
+  const fileTypeConf = filterConfigs.find(filter => filter.type === 'fileType');
+  const materialTypeConf = filterConfigs.find(filter => filter.type === 'materialType');
 
   const inputFields = getInputFields(record);
   const fieldValueInterface = createValueInterface(inputFields);
@@ -42,14 +47,14 @@ export default (harvestSource, record, applyFilters = [], filterConfig = {}) => 
 
   // Only some filters require config during initialization
   const availableFilters = {
-    raw: [filterByFileType()],
-    interface: [filterByMaterialType(), filterByIsbnIdentifier(filterConfig), filterByIssuedYear(filterConfig)]
+    raw: [filterByFileType(fileTypeConf)],
+    interface: [filterByMaterialType(materialTypeConf), filterByIsbnIdentifier(isbnFilterConf), filterByIssuedYear(issuedYearConf)]
   };
 
   // Use only filters that are defined in config
   const selectedFilters = {
-    raw: availableFilters.raw.filter(f => applyFilters.includes(f.name)),
-    interface: availableFilters.interface.filter(f => applyFilters.includes(f.name))
+    raw: availableFilters.raw.filter(f => f),
+    interface: availableFilters.interface.filter(f => f)
   };
 
   const selectedFiltersNames = Object.keys(selectedFilters).map(filterType => {

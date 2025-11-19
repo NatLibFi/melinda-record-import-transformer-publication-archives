@@ -2,18 +2,42 @@
 
 const productionSources = {
   'julkaisut.valtioneuvosto.fi': {
+    'filters': [
+      {'type': 'isbn', 'active': true, 'reverse': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2016', 'notAfterYear': false},
+      {'type': 'fileType', 'active': true},
+      {'type': 'materialType', 'active': true}
+    ],
     'fSID': {'10024': 'valto', '11111': 'valt2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:VALTO'
   },
   'www.julkari.fi': {
+    'filters': [
+      {'type': 'isbn', 'active': true, 'reverse': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},
+      {'type': 'fileType', 'active': true},
+      {'type': 'materialType', 'active': true}
+    ],
     'fSID': {'10024': 'julkr', '11111': 'julk2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:JULKARI'
   },
   'lutpub.lut.fi': {
+    'filters': [
+      {'type': 'isbn', 'active': true, 'reverse': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},
+      {'type': 'fileType', 'active': true},
+      {'type': 'materialType', 'active': true}
+    ],
     'fSID': {'10024': 'lutpb', '11111': 'lutp2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:LUTPUB'
   },
   'jukuri.luke.fi': {
+    'filters': [
+      {'type': 'isbn', 'active': true, 'reverse': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},
+      {'type': 'fileType', 'active': true},
+      {'type': 'materialType', 'active': true}
+    ],
     'fSID': {'10024': 'jukur', '11111': 'juku2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:JUKURI'
   }

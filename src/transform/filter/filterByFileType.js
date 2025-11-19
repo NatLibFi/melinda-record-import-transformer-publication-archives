@@ -5,11 +5,14 @@ import ConversionError from '../convert/conversionError.js';
  * Filter filtering items that do not have filetype information included to their metadata.
  * @returns Object containing filter and its name
  */
-export function filterByFileType() {
-  return {
-    filter,
-    name: 'filterByFileType'
-  };
+export function filterByFileType({active = true}) {
+  if (active) {
+    return {
+      filter,
+      name: 'filterByFileType'
+    };
+  }
+  return false;
 
   function filter(record, debugInfo = {}) {
     const filetypeInformation = getAllValuesInContext(record, 'kk:file');

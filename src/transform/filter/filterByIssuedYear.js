@@ -5,18 +5,18 @@ import ConversionError from '../convert/conversionError.js';
  * @param filterConfig Filter configuration
  * @returns Object containing filter and its name
  */
-export function filterByIssuedYear(filterConfig) {
-  const filterYearNotAfter = filterConfig?.filterByIssuedYear?.filterYearNotAfter;
-  const filterYearNotBefore = filterConfig?.filterByIssuedYear?.filterYearNotBefore;
-
-  return {
-    filter,
-    name: 'filterByIssuedYear'
-  };
+export function filterByIssuedYear({active = false, notBeforeYear = false, notAfterYear = false}) {
+  if (active) {
+    return {
+      filter,
+      name: 'filterByIssuedYear'
+    };
+  }
+  return false;
 
   function filter({getFieldValues}, debugInfo = {}) {
-    const filterBeforeMissing = !filterYearNotBefore || isNaN(filterYearNotBefore);
-    const filterAfterMissing = !filterYearNotAfter || isNaN(filterYearNotAfter);
+    const filterBeforeMissing = !notBeforeYear || isNaN(notBeforeYear);
+    const filterAfterMissing = !notAfterYear || isNaN(notAfterYear);
     const filterConfigMissing = filterBeforeMissing && filterAfterMissing;
 
     // NB: default value of zero is falsy
@@ -36,11 +36,11 @@ export function filterByIssuedYear(filterConfig) {
     const useFilterBefore = !filterBeforeMissing;
     const useFilterAfter = !filterAfterMissing;
 
-    const tooEarly = useFilterBefore && issuedYears.some(v => Number(v) < filterYearNotBefore);
-    const tooLate = useFilterAfter && issuedYears.some(v => Number(v) > filterYearNotAfter);
+    const tooEarly = useFilterBefore && issuedYears.some(v => Number(v) < notBeforeYear);
+    const tooLate = useFilterAfter && issuedYears.some(v => Number(v) > notAfterYear);
 
     if (tooEarly || tooLate) {
-      throw new ConversionError({identifiers, title}, `Filter: Date issued information (${JSON.stringify(issuedYears)}) matches filter configuration (${filterYearNotBefore} < X < ${filterYearNotAfter})`);
+      throw new ConversionError({identifiers, title}, `Filter: Date issued information (${JSON.stringify(issuedYears)}) matches filter configuration (${notBeforeYear} < X < ${notAfterYear})`);
     }
 
     return;
