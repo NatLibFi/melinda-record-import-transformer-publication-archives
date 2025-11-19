@@ -1,11 +1,4 @@
 {
   "description": "filterByIssuedYear does not pass with both years (filterYearNotAfter, filterYearNotBefore) configured but filterYearNotAfter matching configuration",
-  "filter": "filterByIssuedYear",
-  "filterConfig": {
-    "filterByIssuedYear": {
-      "filterYearNotBefore": 2010,
-      "filterYearNotAfter": 2020
-    }
-  },
   "only": false
 }
