@@ -18,7 +18,7 @@
           <kk:link href="http://foobar.example.com/handle/10024/456" />
           <kk:field schema="dc" element="contributor" qualifier="author" language="fi"
             value="Esimerkki, Erkki" />
-          <kk:field schema="dc" element="date" qualifier="issued" language="fi" value="2004" />
+          <kk:field schema="dc" element="date" qualifier="issued" language="fi" value="2024" />
           <kk:field schema="dc" element="identifier" qualifier="uri" language="none"
             value="http://foobar.example.com/handle/10024/456" />
           <kk:field schema="dc" element="description" qualifier="abstract" language="fi"
