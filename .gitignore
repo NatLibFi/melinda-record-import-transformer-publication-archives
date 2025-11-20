@@ -10,7 +10,7 @@ testMaterial
 
 # By default ignore xml
 data
-#*.xml
+*.xml
 
 # By default ignore bash scripts
 *.sh

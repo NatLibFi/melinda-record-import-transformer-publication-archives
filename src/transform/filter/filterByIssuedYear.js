@@ -2,7 +2,10 @@ import ConversionError from '../convert/conversionError.js';
 
 /**
  * Filter filtering items based on issued year.
- * @param filterConfig Filter configuration
+ * @param {{ active?: boolean; notBeforeYear?: boolean|string;  notAfterYear?: boolean|string;}} param0
+ * @param {boolean} [param0.active=true] Is filter active
+ * @param {boolean|string} [param0.notBeforeYear=false] Year limiter to pass records after specified year
+ * @param {boolean|string} [param0.notAfterYear=false] Year limiter to pass records before specified year
  * @returns Object containing filter and its name
  */
 export function filterByIssuedYear({active = false, notBeforeYear = false, notAfterYear = false}) {

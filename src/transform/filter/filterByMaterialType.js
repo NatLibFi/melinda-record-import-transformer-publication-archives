@@ -2,6 +2,8 @@ import ConversionError from '../convert/conversionError.js';
 
 /**
  * Filter filtering items based on material type (dc.type.okm).
+ * @param {{ active?: boolean; }} param0
+ * @param {boolean} [param0.active=true] Is filter active
  * @returns Object containing filter and its name
  */
 export function filterByMaterialType({active = true}) {
