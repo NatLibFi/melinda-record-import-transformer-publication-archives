@@ -44,49 +44,49 @@ const productionSources = {
 };
 
 const testSources = {
-  'foobar.isbn.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.isbn.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
   } : null,
-  'foobar.isbn2.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.isbn2.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': true}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
   } : null,
-  'foobar.fileType.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.fileType.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'fileType', 'active': true}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
   } : null,
-  'foobar.issuedYear.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.issuedYear.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2024', 'notAfterYear': false}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
   } : null,
-  'foobar.issuedYear2.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.issuedYear2.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': '2020'}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
   } : null,
-  'foobar.issuedYear3.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.issuedYear3.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2010', 'notAfterYear': '2020'}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
   } : null,
-  'foobar.materialType.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.materialType.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'materialType', 'active': true}
     ],
@@ -103,7 +103,7 @@ const testSources = {
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
   } : null,
-  'foobar.example2.dev': process.env.NODE_ENV === 'test' ? {
+  'foobar.example2.dev.example.com': process.env.NODE_ENV === 'test' ? {
     'filters': [
       {'type': 'isbn', 'active': false, 'reverse': false},
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},

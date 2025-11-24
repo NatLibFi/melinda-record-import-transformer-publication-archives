@@ -7,7 +7,7 @@
   <ListRecords>
     <record>
       <header>
-        <identifier>oai:foobar.isbn.com:10024/456</identifier>
+        <identifier>oai:foobar.isbn.example.com:10024/456</identifier>
         <datestamp>2023-08-18T11:10:04Z</datestamp>
       </header>
       <metadata>
