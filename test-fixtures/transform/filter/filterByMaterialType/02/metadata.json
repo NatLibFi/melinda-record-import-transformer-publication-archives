@@ -1,5 +1,4 @@
 {
   "description": "filterByMaterialType does not pass when publication has material type that is not to be approved (B2 in this example)",
-  "filter": "filterByMaterialType",
   "only": false
 }

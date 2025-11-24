@@ -24,8 +24,6 @@ class TransformEmitter extends EventEmitter { }
  *   - error = transformation process resulted into an fatal error. Emits the error as value.
  */
 export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
-  const {applyFilters, filterConfig} = convertOpts;
-
   const Emitter = new TransformEmitter();
   const validateRecord = createValidator();
   readStream(stream);
@@ -99,7 +97,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
         }
 
         // Verify fSID generation includes both handle and uuid configurations
-        const fSidConfiguration = sourceConfig[harvestSource].fSID
+        const fSidConfiguration = sourceConfig[harvestSource].fSID;
         const fSidConfigurationContainsKeys = ['10024', '11111'].every(mandatoryKey => Object.keys(fSidConfiguration).includes(mandatoryKey));
         const fSidConfigurationIsValid = ['10024', '11111'].every(mandatoryKey => typeof fSidConfiguration[mandatoryKey] === 'string' && fSidConfiguration[mandatoryKey].length > 0 && fSidConfiguration[mandatoryKey].length < 6);
 
@@ -107,7 +105,11 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
           throw new ConversionError({}, 'Configuration for generating fSID is invalid. Please check the configuration contains handle and uuid keys with proper values');
         }
 
-        const {fieldValueInterface, filetype, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, applyFilters, filterConfig);
+        if (!harvestSource || !Object.keys(sourceConfig[harvestSource]).includes('filters')) {
+          throw new ConversionError({}, `Cannot find filter configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
+        }
+
+        const {fieldValueInterface, filetype, commonErrorPayload} = filterAndCreateValueInterface(harvestSource, recordMetadata, sourceConfig[harvestSource].filters);
         const numberOfFiles = getAllValuesInContext(recordMetadata, 'kk:file').length;
         const convertedRecord = convertRecord({harvestSource, filetype, fieldValueInterface, convertOpts, numberOfFiles});
 

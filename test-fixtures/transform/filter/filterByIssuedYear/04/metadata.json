@@ -1,10 +1,4 @@
 {
   "description": "filterByIssuedYear does not pass when publication has been released before the configured year (filterYearNotAfter)",
-  "filter": "filterByIssuedYear",
-  "filterConfig": {
-    "filterByIssuedYear": {
-      "filterYearNotAfter": 2020
-    }
-  },
   "only": false
 }

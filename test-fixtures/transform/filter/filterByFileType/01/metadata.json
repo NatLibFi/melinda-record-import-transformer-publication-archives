@@ -1,5 +1,4 @@
 {
   "description": "filterByFileType passes when kk:file tag is present and contains information",
-  "filter": "filterByFileType",
   "only": false
 }
