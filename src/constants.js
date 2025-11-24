@@ -34,7 +34,7 @@ const productionSources = {
   'jukuri.luke.fi': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
-      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2016', 'notAfterYear': false},
       {'type': 'fileType', 'active': true},
       {'type': 'materialType', 'active': true}
     ],
