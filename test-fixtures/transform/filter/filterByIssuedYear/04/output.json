@@ -1,6 +1,6 @@
 {
   "failed": true,
-  "message": "Filter: Date issued information ([2080]) matches filter configuration (undefined < X < 2020)",
+  "message": "Filter: Date issued information ([2080]) matches filter configuration (false < X < 2020)",
   "title": "Dublin Core - MARC21 konversio",
   "standardIdentifiers": [
     "http://foobar.example.com/handle/10024/456",

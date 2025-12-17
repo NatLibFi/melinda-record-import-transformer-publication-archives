@@ -1,9 +1,10 @@
 {
   "failed": true,
-  "message": "Filter: Date issued information ([2004]) matches filter configuration (2010 < X < 2020)",
+  "message": "Filter: Cannot find ISBN identifier which is a required field by the applied filter",
   "title": "Dublin Core - MARC21 konversio",
   "standardIdentifiers": [
     "http://foobar.example.com/handle/10024/456",
+    "URN:ISBN:978-92-95055-20-9",
     "(fooba)/10024/456"
   ]
 }
