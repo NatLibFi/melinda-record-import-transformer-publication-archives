@@ -11,7 +11,7 @@ const productionSources = {
     'fSID': {'10024': 'valto', '11111': 'valt2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:VALTO'
   },
-  'www.julkari.fi': {
+  'julkari.fi': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2016', 'notAfterYear': false},
