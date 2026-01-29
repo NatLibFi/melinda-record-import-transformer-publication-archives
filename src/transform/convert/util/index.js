@@ -437,3 +437,16 @@ export function normalizeTitleString(value) {
     .replaceAll(multiSpace, ' ') // Normalize multiple whitespaces to one as these may occur after processing newlines
     .trim(); // Remove whitespaces surrounding the string
 }
+
+/**
+ * Removes HTML tags from given value
+ * @param {string|undefined|null} value - Value to remove HTML tags from
+ * @returns {string|null} String without HTML tags if it was defined, otherwise null
+ */
+export function removeHtmlTags(value) {
+  if(!value) {
+    return null;
+  }
+
+  return value.replaceAll(/<[^>]*>/g, '');
+}

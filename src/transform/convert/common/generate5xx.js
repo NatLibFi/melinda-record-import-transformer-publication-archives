@@ -1,4 +1,4 @@
-import {hasLevels, isDissertation, extractFinnishTerm, isOpenAccess} from '../util/index.js';
+import {hasLevels, isDissertation, extractFinnishTerm, isOpenAccess, removeHtmlTags} from '../util/index.js';
 
 /**
  * Generates field 500 ($a) based on dc.description, dc.description.notification and dc.type.ontasot
@@ -40,19 +40,23 @@ export function generate500({getFieldValues, getFields}) {
 
     function generateDescription() {
       const values = getFieldValues('dc.description');
-      return values.length > 0 ? values.map(v => {
-        const separator = v.endsWith('.') ? '' : '.';
-        return {
-          tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value: `${v}${separator}`}]
-        };
+      return values.length > 0 ? values
+        .map(removeHtmlTags)
+        .map(v => {
+          const separator = v.endsWith('.') ? '' : '.';
+          return {
+            tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value: `${v}${separator}`}]
+          };
       }) : [];
     }
 
     function generateNotification() {
       const values = getFieldValues('dc.description.notification');
-      return values.length > 0 ? values.map(value => ({
-        tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value}]
-      })) : [];
+      return values.length > 0 ? values
+        .map(removeHtmlTags)
+        .map(value => ({
+          tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value}]
+        })) : [];
     }
   }
 
