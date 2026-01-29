@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "subject",
+      "qualifier": "thl",
+      "value": "example keyword"
+    }
+  }
+]
