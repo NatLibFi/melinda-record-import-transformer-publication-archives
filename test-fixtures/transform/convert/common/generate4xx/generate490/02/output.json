@@ -1,8 +1,12 @@
 [
   {
-    "tag": "490", "ind1": "0", "ind2": " ",
+    "tag": "490",
+    "ind1": "0",
     "subfields": [
-      {"code": "a", "value": "The Example Series"}
+      {
+        "code": "a",
+        "value": "The Example Series"
+      }
     ]
   }
 ]

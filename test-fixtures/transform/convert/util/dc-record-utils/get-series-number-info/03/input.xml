@@ -1,0 +1,4 @@
+<kk:metadata>
+  <kk:field schema="dc" element="relation" qualifier="numberinseries" value="10" />
+  <kk:field schema="dc" element="relation" qualifier="numberofseries" value="10" />
+</kk:metadata>

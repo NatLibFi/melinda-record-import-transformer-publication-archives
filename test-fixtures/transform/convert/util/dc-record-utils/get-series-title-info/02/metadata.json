@@ -1,0 +1,7 @@
+{
+  "description": "Removes series number from series title if identified",
+  "expectedValue": [
+    {"seriesTitle": "Example series", "seriesNumber": "01/2026"}
+  ],
+  "only": false
+}

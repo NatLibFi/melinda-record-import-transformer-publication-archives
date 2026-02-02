@@ -1,0 +1,4 @@
+<kk:metadata>
+  <kk:field schema="dc" element="relation" qualifier="ispartofjournal" value="Example series #1" />
+  <kk:field schema="dc" element="relation" qualifier="ispartofseries" value="Example series #2" />
+</kk:metadata>

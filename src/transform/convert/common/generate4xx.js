@@ -1,108 +1,105 @@
-import {seemsValidishIssn, parseIssnFromString} from '../util/index.js';
+import {getSeriesIssn, getSeriesNumberInfo, getSeriesTitleInfo} from '../util/dc-record-utils.js';
 
 /**
- * Generates field 490 ($a, $v, $x) if subfields $a or $x can be generated.
- * Values creation is based on are found from dc.relation.ispartofseries,
- * dc.relation.numberofseries, dc.relation.numberinseries and dc.relation.issn.
- * @param {Object} ValueInterface containing getFieldValues function
- * @returns Empty array or array containing field 490 ($a, $v, $x)
+ * Generate f490 containing series information.
+ * @param {import('../../../types.js').ValueInterface} valueInterface - valueInterface containing getFieldValues and getFields functions
+ * @returns {import('../../../types.js').DataField[]}
  */
-export function generate490({getFieldValues}) {
-  const subfields = generateSubfields();
+export function generate490(valueInterface) {
+  const seriesTitleInfo = getSeriesTitleInfo(valueInterface);
+  const seriesNumberInfo = getSeriesNumberInfo(valueInterface);
+  const seriesIssn = getSeriesIssn(valueInterface);
 
-  if (subfields.length > 0) {
-    return [
-      {
-        tag: '490',
-        ind1: '0',
-        ind2: ' ',
-        subfields
-      }
-    ];
+  const hasTitlesOrIssn = seriesTitleInfo.length > 0 || seriesIssn.length > 0;
+  if (!hasTitlesOrIssn) {
+    return [];
   }
 
-  return [];
+  // Loop through series titles to construct resulting datafields
+  // Expect series information ordering be unified between different DC fields
+  const resultFields = [];
+  const maxSeriesTitleIdx = seriesTitleInfo.length - 1;
 
+  for (let i = 0; i < seriesTitleInfo.length; i++) {
+    const {seriesTitle, seriesNumber: seriesTitleNumber} = seriesTitleInfo[i];
 
-  function generateSubfields() {
-    const subfieldV = generateSubfieldV();
-    const subfieldX = generateSubfieldX(subfieldV.length > 0);
-    const subfieldsXandV = [...subfieldX, ...subfieldV]; // NB: order is important ($x before $v)
+    const associatedSeriesNumbers = getSeriesAssociations(seriesNumberInfo, i, maxSeriesTitleIdx);
+    const associatedIssn = getSeriesAssociations(seriesIssn, i, maxSeriesTitleIdx);
 
-    const subfieldA = generateSubfieldA(subfieldsXandV.length > 0);
+    // Construct $v by utilizing only number from title
+    const subfieldVValue = seriesTitleNumber || associatedSeriesNumbers.join(' ; ');
+    const subfieldV = !subfieldVValue ? [] : [{code: 'v', value: subfieldVValue}];
 
-    // Do not generate field if only subfield $v would be available
-    const fieldShoudlBeGenerated = subfieldA.length > 0 || subfieldX.length > 0;
-    return fieldShoudlBeGenerated ? subfieldA.concat(subfieldsXandV) : [];
+    // Construct $x. Use all ISSN that were observed to be associated with the given serial title.
+    const subfieldsX = associatedIssn.map((issn, idx, originalArray) => {
+      const isLastIssn = idx === originalArray.length - 1;
+      const multipleIssn = originalArray.length > 0;
 
-    function generateSubfieldV() {
-      return getFieldValues(p => ['dc.relation.numberinseries', 'dc.relation.numberofseries'].includes(p))
-        .reduceRight((acc, value) => {
-          if (acc.length === 0) {
-            return acc.concat({code: 'v', value});
-          }
-
-          return acc.concat({code: 'v', value: `${value} ; `});
-        }, [])
-        // Reverse so that subfields with ';' separator are placed first
-        .reduceRight((acc, v) => acc.concat(v), []);
-    }
-
-    function generateSubfieldX(hasSeriesNumber) {
-      const issnEFieldValues = getFieldValues('dc.relation.issne').map(parseIssnFromString).filter(seemsValidishIssn);
-      const eIssnFieldValues = getFieldValues('dc.relation.eissn').map(parseIssnFromString).filter(seemsValidishIssn);
-      const eIssnFieldValues2 = getFieldValues('dc.identifier.eissn').map(parseIssnFromString).filter(seemsValidishIssn);
-
-      const issnFieldValues = getFieldValues('dc.relation.issn').map(parseIssnFromString).filter(seemsValidishIssn);
-      const issnFieldValues2 = getFieldValues('dc.identifier.issn').map(parseIssnFromString).filter(seemsValidishIssn);
-
-      const issnLFieldValues = getFieldValues('dc.relation.issn-l').map(parseIssnFromString).filter(seemsValidishIssn);
-      const issnLFieldValues2 = getFieldValues('dc.relation.issnl').map(parseIssnFromString).filter(seemsValidishIssn);
-      const issnLFieldValues3 = getFieldValues('dc.identifier.issn-l').map(parseIssnFromString).filter(seemsValidishIssn);
-      const issnLFieldValues4 = getFieldValues('dc.identifier.issnl').map(parseIssnFromString).filter(seemsValidishIssn);
-
-      const issnValues = issnEFieldValues.concat(
-        eIssnFieldValues, eIssnFieldValues2,
-        issnFieldValues, issnFieldValues2,
-        issnLFieldValues, issnLFieldValues2, issnLFieldValues3, issnLFieldValues4
-      );
-
-      return issnValues
-        .reduceRight((acc, value) => {
-          if (acc.length === 0) {
-            return acc.concat({code: 'x', value: hasSeriesNumber ? `${value} ;` : value});
-          }
-
-          return acc.concat({code: 'x', value: `${value}, `});
-        }, [])
-        // Reverse so that subfields with ',' separator are placed first
-        .reduceRight((acc, v) => acc.concat(v), []);
-    }
-
-    function generateSubfieldA(hasOtherSubfields) {
-      const isPartOfJournalValues = getFieldValues('dc.relation.ispartofjournal');
-      const isPartOfSeriesValues = getFieldValues('dc.relation.ispartofseries');
-
-      const values = [...isPartOfJournalValues, ...isPartOfSeriesValues];
-
-      return values
-        .reduceRight(toSubfieldA, [])
-        // Reverse so that subfields with ',' separator are placed first
-        .reduceRight((acc, v) => acc.concat(v), []);
-
-      function toSubfieldA(acc, value) {
-        const subfieldValue = generateValue();
-        return acc.concat({code: 'a', value: subfieldValue});
-
-        function generateValue() {
-          // NB: separator depends whether there are one or many subfield $a
-          if (acc.length === 0) {
-            return hasOtherSubfields ? `${value},` : value;
-          }
-
-          return `${value} `;
-        }
+      // Separate multiple $x with ', '
+      if (!isLastIssn && multipleIssn) {
+        return {code: 'x', value: `${issn},`};
       }
+
+      // Separate last $x from $v with ' ;'
+      if (isLastIssn && !!subfieldVValue) {
+        return {code: 'x', value: `${issn} ;`};
+      }
+
+      return {code: 'x', value: `${issn}`};
+    });
+
+    // Construct $a. Punctuation is ', ' if $x or $v is available, otherwise there is no ending punctuation
+    const subfieldAPunctuation = !!subfieldVValue || subfieldsX.length > 0 ? ',' : '';
+    const subfieldA = {code: 'a', value: `${seriesTitle}${subfieldAPunctuation}`};
+
+    resultFields.push({
+      tag: '490',
+      ind1: '0',
+      subfields: [
+        subfieldA,
+        ...subfieldsX,
+        ...subfieldV
+      ]
+    });
+  }
+
+  // In case no title information was not available, construct fields with only $x using issn information
+  const noTitleInformation = seriesTitleInfo.length === 0;
+  const hasIssnInfo = seriesIssn.length > 0;
+
+  if (noTitleInformation && hasIssnInfo) {
+    const issnOnlyFields = seriesIssn.map(issn => ({
+      tag: '490',
+      ind1: '0',
+      subfields: [{code: 'x', value: issn}]
+    }));
+
+    return issnOnlyFields;
+  }
+
+  return resultFields;
+
+  /**
+   * Helper function to get information associated with series title.
+   * Created to help with edge cases where there might be more series number or ISSN information
+   * than there are information about series titles.
+   * @param {string[]} associationArray - array containing associative elements
+   * @param {number} currentIdx - index currently within the generative loop
+   * @param {number} maxSeriesTitleIdx - max index of generative loop
+   * @returns {string[]} elements that should be associated with the title in given loop index
+   */
+  function getSeriesAssociations(associationArray, currentIdx, maxSeriesTitleIdx) {
+    // Edge case: no associations
+    if (associationArray.length === 0) {
+      return [];
     }
+
+    // Edge case: If current idx is max idx, return every entry from associationArray from that idx onwards
+    const isLastEntry = currentIdx === maxSeriesTitleIdx;
+    if (isLastEntry) {
+      return associationArray.slice(currentIdx);
+    }
+
+    return [associationArray[currentIdx]];
   }
 }

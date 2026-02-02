@@ -1,0 +1,4 @@
+<kk:metadata>
+  <kk:field schema="dc" element="relation" qualifier="issn-l" value="1459-3467" />
+  <kk:field schema="dc" element="relation" qualifier="issn" value="totally-not-valid-issn" />
+</kk:metadata>

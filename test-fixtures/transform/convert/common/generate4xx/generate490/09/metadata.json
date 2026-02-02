@@ -1,4 +1,4 @@
 {
-  "description": "Won't use value from dc.relation.issn-l if it's not valid ISSN value (lax validation)",
+  "description": "If ISSN is contained within the value, it is correctly parsed from there even if value is not solely ISSN",
   "only": false
 }

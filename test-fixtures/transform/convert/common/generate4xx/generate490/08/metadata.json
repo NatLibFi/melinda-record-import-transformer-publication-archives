@@ -1,4 +1,4 @@
 {
-  "description": "Won't use value from dc.relation.issn if it's not valid ISSN value (lax validation)",
+  "description": "Multiple issn fields are considered, but only with reasonably validish value will produce datafield",
   "only": false
 }
