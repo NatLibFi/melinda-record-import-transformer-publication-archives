@@ -6,12 +6,18 @@ import generateTests from '@natlibfi/fixugen';
 import * as fieldGenerator from './generate3xx.js';
 import {createValueInterface} from '../util/index.js';
 
-// Run tests
-generate300();
-generate336();
-generate337();
-generate338();
-generate341();
+import {generateDatafieldFixtureTest} from '../../../test-utils/generate-fixture-test.js';
+
+const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate3xx'];
+
+// Refactored tests
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate341'), fieldGenerator.generate341);
+
+// Run old tests
+// generate300();
+// generate336();
+// generate337();
+// generate338();
 
 // Test functions
 function generate300() {
