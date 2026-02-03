@@ -1,4 +1,4 @@
 {
-  "description": "Generates f490 $a from dc.relation.ispartofjournal",
+  "description": "If number in series is observed from title, it is used and prioritized over other numbering information",
   "only": false
 }

@@ -1,4 +1,4 @@
 {
-  "description": "Generates a f246 from first dc.title.alternative information.",
+  "description": "Generates f246 from each dc.title.alternative information.",
   "only": false
 }

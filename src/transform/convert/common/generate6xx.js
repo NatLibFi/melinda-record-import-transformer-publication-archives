@@ -80,7 +80,8 @@ export function generate653({getFieldValues}) {
   const values = getFieldValues(p => [
     'dc.subject.ysa',
     'dc.subject',
-    'dc.subject.keyword'
+    'dc.subject.keyword',
+    'dc.subject.thl'
   ].includes(p));
 
   return values.map(value => ({

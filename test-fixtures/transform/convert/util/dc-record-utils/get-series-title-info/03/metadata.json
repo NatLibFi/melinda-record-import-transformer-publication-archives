@@ -1,0 +1,5 @@
+{
+  "description": "Returns empty array when no series title info is found",
+  "expectedValue": [],
+  "only": false
+}

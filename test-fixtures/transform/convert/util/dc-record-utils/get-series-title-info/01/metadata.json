@@ -1,0 +1,8 @@
+{
+  "description": "Returns values from dc.relation.ispartofjournal and dc.relation.ispartofseries",
+  "expectedValue": [
+    {"seriesTitle": "Example series #1", "seriesNumber": null},
+    {"seriesTitle": "Example series #2", "seriesNumber": null}
+  ],
+  "only": false
+}

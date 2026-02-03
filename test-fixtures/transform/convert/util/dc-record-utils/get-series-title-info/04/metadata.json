@@ -1,0 +1,7 @@
+{
+  "description": "Deduplicates based on series title",
+  "expectedValue": [
+    {"seriesTitle": "Example series #1", "seriesNumber": null}
+  ],
+  "only": false
+}

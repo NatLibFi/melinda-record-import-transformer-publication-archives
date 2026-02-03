@@ -1,4 +1,4 @@
 {
-  "description": "If multiple ISSN is contained within one value, only first one is parsed and used for field generation",
+  "description": "Observed order implies association: first ISSN is associated with first series title and so on",
   "only": false
 }

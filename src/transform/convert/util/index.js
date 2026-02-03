@@ -9,6 +9,11 @@ import LanguageDetect from 'languagedetect';
 export function createValueInterface(inputFields) {
   return {getFieldValues, getFields};
 
+  /**
+   * Getter for DC field values
+   * @param {*} filter - function to filter field or string containing DC field path
+   * @returns {string[]} array containing values for fields that passed the given filter
+   */
   function getFieldValues(filter) {
     const fields = getFields(filter);
     return fields
@@ -16,17 +21,26 @@ export function createValueInterface(inputFields) {
       .map(f => f.$.value);
   }
 
+  /**
+   * Gets field based on given argument
+   * If argument is function it is used as filter function with field path as string passed in as argument
+   * Otherwise a filter is constructed from the arg so that fields having equal DC path to arg are returned
+   * @param {*} filter - function to filter field or string containing DC field path
+   * @returns {Object[]} Field objects matching the given filter
+   */
   function getFields(arg) {
-    const filter = typeof arg === 'function' ? arg : p => p === arg;
-
-    const newFields = inputFields.filter(field => {
+    const filterFn = typeof arg === 'function' ? arg : p => p === arg;
+    return inputFields.filter(field => {
       const dcPath = getDCPath(field);
-      return filter(dcPath);
+      return filterFn(dcPath);
     });
-
-    return newFields;
   }
 
+  /**
+   * Returns DC field path as string
+   * @param {*} field - field object
+   * @returns {string} field path (e.g., 'dc.relation.ispartofjournal')
+   */
   function getDCPath(field) {
     const dcPath = `${field.$.schema}.${field.$.element}`;
 
@@ -58,6 +72,11 @@ export function formatLanguage(code) {
  * @returns Array containing record fields
  */
 export function getInputFields(record) {
+  const recordFields = record['kk:field'];
+  if (!recordFields) {
+    return [];
+  }
+
   return record['kk:field']
     .filter(field => '$' in field);
 }
@@ -117,7 +136,7 @@ export function getSystemId(value) {
 
   const [, prefix] = parts;
 
-  return {source: result.source, systemId: result.systemId, prefix}
+  return {source: result.source, systemId: result.systemId, prefix};
 
 
   function parseHttp(value) {
@@ -312,28 +331,6 @@ export function isOpenAccess({getFieldValues}) {
   return accessRightsInfoDoesNotExist || accessFieldsContainsOpenAccessValue;
 }
 
-// This is lax validation -- if stricter is required it will be implemented at later stage and to common package
-export function seemsValidishIssn(issn) {
-  if (typeof issn !== 'string' || issn.length < 8) {
-    return false;
-  }
-
-  const issnRegexLax = /^\d{4}-\d{3}[0-9xX]{1}$/u;
-  return issnRegexLax.test(issn);
-}
-
-export function parseIssnFromString(issnString) {
-  const issnRegex = /\d{4}-\d{3}[0-9xX]{1}/u;
-  const containsIssn = issnRegex.test(issnString);
-
-  if (!containsIssn) {
-    return null;
-  }
-
-  const [result] = issnString.match(issnRegex);
-  return result;
-}
-
 /**
  * Wrapper for language getters. Prioritizes dc.language.iso > dc.title.$.language > language detection from title text
  * @returns Lang code as it was if seems valid, otherwise ISO 639-2B lang code or null if not found
@@ -436,4 +433,17 @@ export function normalizeTitleString(value) {
     .replaceAll(unixNewline, ' ') // Remove unix newlines
     .replaceAll(multiSpace, ' ') // Normalize multiple whitespaces to one as these may occur after processing newlines
     .trim(); // Remove whitespaces surrounding the string
+}
+
+/**
+ * Removes HTML tags from given value
+ * @param {string|undefined|null} value - Value to remove HTML tags from
+ * @returns {string|null} String without HTML tags if it was defined, otherwise null
+ */
+export function removeHtmlTags(value) {
+  if (!value) {
+    return null;
+  }
+
+  return value.replaceAll(/<[^>]*>/g, '');
 }

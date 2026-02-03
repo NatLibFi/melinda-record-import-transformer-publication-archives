@@ -1,0 +1,11 @@
+<kk:metadata>
+  <kk:field schema="dc" element="relation" qualifier="issn" value="1000-1000" />
+  <kk:field schema="dc" element="relation" qualifier="issne" value="1000-1001" />
+  <kk:field schema="dc" element="relation" qualifier="eissn" value="1000-1002" />
+  <kk:field schema="dc" element="relation" qualifier="issnl" value="1000-1003" />
+  <kk:field schema="dc" element="relation" qualifier="issn-l" value="1000-1004" />
+  <kk:field schema="dc" element="identifier" qualifier="issn" value="1000-1005" />
+  <kk:field schema="dc" element="identifier" qualifier="eissn" value="1000-1006" />
+  <kk:field schema="dc" element="identifier" qualifier="issnl" value="1000-1007" />
+  <kk:field schema="dc" element="identifier" qualifier="issn-l" value="1000-1008" />
+</kk:metadata>

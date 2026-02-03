@@ -1,0 +1,15 @@
+{
+  "description": "Returns values from multiple fields that may define series ISSN",
+  "expectedValue": [
+    "1000-1000",
+    "1000-1001",
+    "1000-1002",
+    "1000-1003",
+    "1000-1004",
+    "1000-1005",
+    "1000-1006",
+    "1000-1007",
+    "1000-1008"
+  ],
+  "only": false
+}
