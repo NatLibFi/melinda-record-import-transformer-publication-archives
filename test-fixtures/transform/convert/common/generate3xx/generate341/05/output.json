@@ -1,11 +1,24 @@
 [
   {
-    "tag": "341", "ind1": "0", "ind2": " ",
+    "tag": "341",
+    "ind1": "0",
     "subfields": [
-      {"code": "a", "value": "textual"},
-      {"code": "b", "value": "structuralNavigation"},
-      {"code": "b", "value": "readingOrder"},
-      {"code": "2", "value": "sapdv"}
+      {
+        "code": "a",
+        "value": "textual"
+      },
+      {
+        "code": "b",
+        "value": "structuralNavigation"
+      },
+      {
+        "code": "b",
+        "value": "readingOrder"
+      },
+      {
+        "code": "2",
+        "value": "sapdv"
+      }
     ]
   }
 ]

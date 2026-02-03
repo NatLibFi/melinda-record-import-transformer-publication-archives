@@ -79,8 +79,8 @@ export function generate338() {
 
 /**
  * Generates field 341 using accessibility feature mapping table
- * @param {Object} ValueInterface containing getFieldValues function
- * @returns Array containing field 341
+ * @param {import('../../../types.js').ValueInterface} valueInterface - valueInterface containing getFieldValues and getFields functions
+ * @returns {import('../../../types.js').DataField[]}
  */
 export function generate341({getFieldValues}) {
   // Mapping is in process and may be expanded in future.
@@ -88,37 +88,33 @@ export function generate341({getFieldValues}) {
   const accessibilityFeatureMap = {
     'navigointi mahdollista': {
       ind1: '0',
-      ind2: ' ',
       subfieldA: 'textual',
       subfieldB: 'structuralNavigation',
       subfield2: 'sapdv'
     },
     'kuvilla vaihtoehtoiset kuvaukset': {
       ind1: '0',
-      ind2: ' ',
-      subfieldA: 'textual',
+      subfieldA: 'visual',
       subfieldB: 'alternativeText',
       subfield2: 'sapdv'
     },
     'looginen lukemisjärjestys': {
       ind1: '0',
-      ind2: ' ',
       subfieldA: 'textual',
       subfieldB: 'readingOrder',
       subfield2: 'sapdv'
     },
     'taulukot saavutettavia': {
       ind1: '0',
-      ind2: ' ',
       subfieldA: 'textual',
       subfieldB: 'readingOrder',
       subfield2: 'sapdv'
     }
-  }
+  };
 
   const accessibilityFeatures = getFieldValues('dc.description.accessibilityfeature')
-    .map(feature => Object.keys(accessibilityFeatureMap).includes(feature) ? accessibilityFeatureMap[feature] : null)
-    .filter(v => v !== null);
+    .map(feature => accessibilityFeatureMap[feature])
+    .filter(v => v);
 
   const fields = accessibilityFeatures.reduce((prev, next) => {
     // Do not create duplicate field if field with matching $b already exists
@@ -142,9 +138,8 @@ export function generate341({getFieldValues}) {
       const subfieldAMatches = fieldSubfieldA === next.subfieldA;
       const subfield2Matches = fieldSubfield2 === next.subfield2;
       const subfieldInd1Matches = field.ind1 === next.ind1;
-      const subfieldInd2Matches = field.ind2 === next.ind2;
 
-      const matchConditions = [subfieldAMatches, subfieldBNotMatches, subfield2Matches, subfieldInd1Matches, subfieldInd2Matches];
+      const matchConditions = [subfieldAMatches, subfieldBNotMatches, subfield2Matches, subfieldInd1Matches];
       return matchConditions.every(matchCondition => matchCondition === true);
     });
 
@@ -169,14 +164,14 @@ export function generate341({getFieldValues}) {
     return [
       ...prev,
       {
-        tag: '341', ind1: next.ind1, ind2: next.ind2,
+        tag: '341', ind1: next.ind1,
         subfields: [
           {code: 'a', value: next.subfieldA},
           {code: 'b', value: next.subfieldB},
           {code: '2', value: next.subfield2}
         ]
       }
-    ]
+    ];
   }, []);
 
   return fields;

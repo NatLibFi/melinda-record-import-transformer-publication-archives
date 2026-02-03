@@ -12,49 +12,32 @@ export function generate648({getFieldValues}) {
 }
 
 /**
- * Generates field 650 ($a, $2) based on dc.subject.yso values.
- * $2 subfield contains static value 'yso'.
- * @param {Object} ValueInterface containing getFieldValues function
- * @returns Empty array or array containing field 650 ($a, $2)
+ * Generates field 650 ($a, $2) based on values of different vocabularies
+ * @param {import('../../../types.js').ValueInterface} valueInterface - valueInterface containing getFieldValues and getFields functions
+ * @returns {import('../../../types.js').DataField[]}
  */
 export function generate650({getFieldValues}) {
-  const yso = generateYso();
-  const afo = generateAfo();
-  const juho = generateJuho();
+  const yso = getFieldValues('dc.subject.yso').map(v => generateControlledVocabularyField(v, 'yso'));
+  const afo = getFieldValues('dc.subject.afo').map(v => generateControlledVocabularyField(v, 'afo'));
+  const juho = getFieldValues('dc.subject.juho').map(v => generateControlledVocabularyField(v, 'juho'));
+  const tero = getFieldValues('dc.subject.tero').map(v => generateControlledVocabularyField(v, 'tero'));
 
-  return yso.concat(afo, juho);
+  return yso.concat(afo, juho, tero);
 
-  function generateYso() {
-    const values = getFieldValues('dc.subject.yso');
-    return values.map(value => ({
-      tag: '650', ind1: '', ind2: '7',
+  /**
+   * Helper function for generating f650 for given vocabulary
+   * @param {string} fieldValue - value for f650 $a
+   * @param {string} subfield2Value - value for f650 $2
+   * @returns {import('../../../types.js').DataField[]}
+   */
+  function generateControlledVocabularyField(fieldValue, subfield2Value) {
+    return {
+      tag: '650', ind2: '7',
       subfields: [
-        {code: 'a', value},
-        {code: '2', value: 'yso'}
+        {code: 'a', value: fieldValue},
+        {code: '2', value: subfield2Value}
       ]
-    }));
-  }
-
-  function generateAfo() {
-    const values = getFieldValues('dc.subject.afo');
-    return values.map(value => ({
-      tag: '650', ind1: '', ind2: '7',
-      subfields: [
-        {code: 'a', value},
-        {code: '2', value: 'afo'}
-      ]
-    }));
-  }
-
-  function generateJuho() {
-    const values = getFieldValues('dc.subject.juho');
-    return values.map(value => ({
-      tag: '650', ind1: '', ind2: '7',
-      subfields: [
-        {code: 'a', value},
-        {code: '2', value: 'juho'}
-      ]
-    }));
+    };
   }
 }
 
