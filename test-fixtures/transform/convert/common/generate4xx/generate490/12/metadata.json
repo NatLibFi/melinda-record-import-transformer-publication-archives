@@ -1,4 +1,4 @@
 {
-  "description": "If ISSN is contained within the value, it is correctly parsed from there",
+  "description": "Each ISSN will generate a new field",
   "only": false
 }

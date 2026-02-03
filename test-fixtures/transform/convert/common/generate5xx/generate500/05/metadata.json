@@ -1,0 +1,4 @@
+{
+  "description": "Removes HTML tags from dc.description.notification value",
+  "only": false
+}

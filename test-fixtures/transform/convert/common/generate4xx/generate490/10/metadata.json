@@ -1,4 +1,4 @@
 {
-  "description": "Value may be taken from dc.relation.issn-l if dc.relation.issn can be found but is invalid",
+  "description": "If one DC field contains multiple ISSN values only first one is parsed and used for field generation",
   "only": false
 }

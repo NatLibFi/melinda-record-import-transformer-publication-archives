@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "description",
+      "qualifier": "notification",
+      "value": "<b>This</b> is an example of <a href=\"#\">description</a> notification."
+    }
+  }
+]

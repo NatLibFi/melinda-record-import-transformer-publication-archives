@@ -1,30 +1,72 @@
 [
   {
-    "tag": "650", "ind1": "", "ind2": "7",
+    "tag": "650",
+    "ind2": "7",
     "subfields": [
-      {"code": "a", "value": "esimerkit"},
-      {"code": "2", "value": "yso"}
+      {
+        "code": "a",
+        "value": "esimerkit"
+      },
+      {
+        "code": "2",
+        "value": "yso"
+      }
     ]
   },
   {
-    "tag": "650", "ind1": "", "ind2": "7",
+    "tag": "650",
+    "ind2": "7",
     "subfields": [
-      {"code": "a", "value": "bonukset"},
-      {"code": "2", "value": "yso"}
+      {
+        "code": "a",
+        "value": "bonukset"
+      },
+      {
+        "code": "2",
+        "value": "yso"
+      }
     ]
   },
   {
-    "tag": "650", "ind1": "", "ind2": "7",
+    "tag": "650",
+    "ind2": "7",
     "subfields": [
-      {"code": "a", "value": "raaka-ainekustannukset"},
-      {"code": "2", "value": "afo"}
+      {
+        "code": "a",
+        "value": "raaka-ainekustannukset"
+      },
+      {
+        "code": "2",
+        "value": "afo"
+      }
     ]
   },
   {
-    "tag": "650", "ind1": "", "ind2": "7",
+    "tag": "650",
+    "ind2": "7",
     "subfields": [
-      {"code": "a", "value": "sekakomiteat"},
-      {"code": "2", "value": "juho"}
+      {
+        "code": "a",
+        "value": "sekakomiteat"
+      },
+      {
+        "code": "2",
+        "value": "juho"
+      }
+    ]
+  },
+  {
+    "tag": "650",
+    "ind2": "7",
+    "subfields": [
+      {
+        "code": "a",
+        "value": "aamiainen"
+      },
+      {
+        "code": "2",
+        "value": "tero"
+      }
     ]
   }
 ]

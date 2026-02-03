@@ -1,0 +1,7 @@
+{
+  "description": "Deduplicates entries",
+  "expectedValue": [
+    "1000-1000"
+  ],
+  "only": false
+}

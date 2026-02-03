@@ -201,7 +201,7 @@
         "subfields": [
           {
             "code": "a",
-            "value": "textual"
+            "value": "visual"
           },
           {
             "code": "b",
@@ -421,7 +421,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:10abb6ce6a1c65dec5aa348730eb47985eb83117dd2f3463b49c5e4157ec13d7"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:a2140bf57c091d5f401157e9fee79717fef8ceab9bd5fc504ac7a6c9851f4c89"
           },
           {
             "code": "q",

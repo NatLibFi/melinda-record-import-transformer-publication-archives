@@ -1,0 +1,5 @@
+<kk:metadata>
+  <kk:field schema="dc" element="relation" qualifier="ispartofseries" value="The Example Series" />
+  <kk:field schema="dc" element="relation" qualifier="numberofseries" value="123" />
+  <kk:field schema="dc" element="relation" qualifier="issn" value="1459-3467" />
+</kk:metadata>

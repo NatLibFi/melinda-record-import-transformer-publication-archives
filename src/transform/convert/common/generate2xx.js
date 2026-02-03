@@ -83,12 +83,10 @@ export function generate245({getFields}) {
  */
 export function generate246({getFieldValues}) {
   const values = getFieldValues('dc.title.alternative');
-  return values.length > 0 ? [
-    {
-      tag: '246', ind1: '1', ind2: '3',
-      subfields: [{code: 'a', value: values[0]}]
-    }
-  ] : [];
+  return values.map(value => ({
+    tag: '246', ind1: '1', ind2: '3',
+    subfields: [{code: 'a', value: value}]
+  }));
 }
 
 /**

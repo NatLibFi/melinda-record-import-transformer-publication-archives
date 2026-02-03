@@ -8,9 +8,8 @@ test_runs
 test/
 testMaterial
 
-# By default ignore xml
+# Ignore data folder
 data
-*.xml
 
 # By default ignore bash scripts
 *.sh

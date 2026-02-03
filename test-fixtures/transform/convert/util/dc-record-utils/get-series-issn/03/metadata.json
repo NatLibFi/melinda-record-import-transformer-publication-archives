@@ -1,0 +1,5 @@
+{
+  "description": "Returns empty array when no series issn are found",
+  "expectedValue": [],
+  "only": false
+}
