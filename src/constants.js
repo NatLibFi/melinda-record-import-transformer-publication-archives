@@ -24,7 +24,7 @@ const productionSources = {
   'lutpub.lut.fi': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
-      {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2016', 'notAfterYear': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': '2016'},
       {'type': 'fileType', 'active': true},
       {'type': 'materialType', 'active': true}
     ],
@@ -34,7 +34,7 @@ const productionSources = {
   'jukuri.luke.fi': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
-      {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2016', 'notAfterYear': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': '2016'},
       {'type': 'fileType', 'active': true},
       {'type': 'materialType', 'active': true}
     ],
