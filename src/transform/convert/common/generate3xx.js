@@ -85,6 +85,7 @@ export function generate338() {
 export function generate341({getFieldValues}) {
   // Mapping is in process and may be expanded in future.
   // 'looginen lukemisjärjestys' and 'taulukot saavutettavia' do have equal mapping by design
+  // unknown accessibility has language versions with equal mapping by design
   const accessibilityFeatureMap = {
     'navigointi mahdollista': {
       ind1: '0',
@@ -108,6 +109,24 @@ export function generate341({getFieldValues}) {
       ind1: '0',
       subfieldA: 'textual',
       subfieldB: 'readingOrder',
+      subfield2: 'sapdv'
+    },
+    'ei tietoa saavutettavuudesta': {
+      ind1: '0',
+      subfieldA: 'textual',
+      subfieldB: 'unknown',
+      subfield2: 'sapdv'
+    },
+    'okänd tillgänglighet': {
+      ind1: '0',
+      subfieldA: 'textual',
+      subfieldB: 'unknown',
+      subfield2: 'sapdv'
+    },
+    'unknown accessibility': {
+      ind1: '0',
+      subfieldA: 'textual',
+      subfieldB: 'unknown',
       subfield2: 'sapdv'
     }
   };

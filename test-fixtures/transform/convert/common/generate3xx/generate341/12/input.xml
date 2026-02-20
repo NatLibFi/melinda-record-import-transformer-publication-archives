@@ -1,0 +1,7 @@
+<kk:metadata>
+  <kk:field schema="dc" element="description" qualifier="accessibilityfeature" value="ei tietoa saavutettavuudesta" />
+
+  <!-- These should be deduplicated -->
+  <kk:field schema="dc" element="description" qualifier="accessibilityfeature" value="okänd tillgänglighet" />
+  <kk:field schema="dc" element="description" qualifier="accessibilityfeature" value="unknown accessibility" />
+</kk:metadata>
