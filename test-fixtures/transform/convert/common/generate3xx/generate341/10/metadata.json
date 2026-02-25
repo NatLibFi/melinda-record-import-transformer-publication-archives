@@ -1,0 +1,4 @@
+{
+  "description": "Generates f341 from dc.description.accessibilityfeature values defining unknown accessibility (Swedish text only).",
+  "only": false
+}
