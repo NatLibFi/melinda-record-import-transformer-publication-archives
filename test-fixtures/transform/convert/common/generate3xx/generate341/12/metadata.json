@@ -1,0 +1,4 @@
+{
+  "description": "Deduplicates unknown accessibility fields when record contains same information using multiple languages.",
+  "only": false
+}
