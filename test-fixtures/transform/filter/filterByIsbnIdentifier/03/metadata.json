@@ -1,4 +1,4 @@
 {
-  "description": "filterByIsbnIdentifier does not pass in reversed mode when ISBN information is available",
+  "description": "filterByIsbnIdentifier does not pass if entry contains non-Finnish ISBN information",
   "only": false
 }

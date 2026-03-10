@@ -1,4 +1,0 @@
-{
-  "description": "filterByIsbnIdentifier should not pass when ISBN information is available just as URN",
-  "only": false
-}
