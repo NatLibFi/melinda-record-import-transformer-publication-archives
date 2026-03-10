@@ -17,7 +17,7 @@
         "subfields": [
           {
             "code": "a",
-            "value": "978-92-95055-20-9"
+            "value": "978-952-222-356-2"
           },
           {
             "code": "q",
@@ -32,7 +32,7 @@
         "subfields": [
           {
             "code": "a",
-            "value": "URN:ISBN:978-92-95055-20-9"
+            "value": "URN:ISBN:978-952-222-356-2"
           },
           {
             "code": "2",
@@ -379,7 +379,7 @@
         "subfields": [
           {
             "code": "u",
-            "value": "https://urn.fi/URN:ISBN:978-92-95055-20-9"
+            "value": "https://urn.fi/URN:ISBN:978-952-222-356-2"
           },
           {
             "code": "y",
@@ -394,7 +394,7 @@
         "subfields": [
           {
             "code": "u",
-            "value": "https://urn.fi/URN:ISBN:978-92-95055-20-9"
+            "value": "https://urn.fi/URN:ISBN:978-952-222-356-2"
           },
           {
             "code": "z",
@@ -421,7 +421,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:a2140bf57c091d5f401157e9fee79717fef8ceab9bd5fc504ac7a6c9851f4c89"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:17d4dd59f4ac2ba4440f6a647ee80c7d0ba044b21ddf1c8477ecc5232ce9e9f9"
           },
           {
             "code": "q",

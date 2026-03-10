@@ -17,21 +17,21 @@ export function filterByIsbnIdentifier({active = true, reverse = false}) {
   return false;
 
   function filter({getFieldValues}, debugInfo = {}) {
-    // <kk:field schema="dc" element="identifier" qualifier="isbn" language="none" value="978-xxx-xxx-xxx-8" />
     const isbnIdentifier = getFieldValues('dc.identifier.isbn') || [];
-    // <kk:field schema="dc" element="identifier" qualifier="urn" language="en" value="URN:978-xxx-xxx-xxx-8" />
-    //const isbnUrnIdentifier = getFieldValues('dc.identifier.urn').filter(field => field.match(/URN:978-/ui) || field.match(/URN:ISBN:978-/ui)) || [];
-    //const hasIdentifier = isbnIdentifier.length !== 0 || isbnUrnIdentifier.length !== 0;
-    const hasIdentifier = isbnIdentifier.length !== 0;
+    const nonFinnishIsbn = isbnIdentifier.filter(isbn => {
+      const validFinnishIsbnStart = /^(978)?-?(951|952)-?/ui;
+      return typeof isbn === 'string' && isbn.length >= 10 && !isbn.match(validFinnishIsbnStart);
+    });
 
+    const hasOnlyFinnishIsbn = isbnIdentifier.length !== 0 && nonFinnishIsbn.length === 0;
 
     const {identifiers, title} = debugInfo;
 
-    if (reverse && hasIdentifier) {
+    if (reverse && hasOnlyFinnishIsbn) {
       throw new ConversionError({identifiers, title}, 'Filter: Could find ISBN identifier which not allowed by the applied filter');
     }
 
-    if (!reverse && !hasIdentifier) {
+    if (!reverse && !hasOnlyFinnishIsbn) {
       throw new ConversionError({identifiers, title}, 'Filter: Cannot find ISBN identifier which is a required field by the applied filter');
     }
   }
