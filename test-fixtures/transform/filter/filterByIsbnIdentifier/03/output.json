@@ -3,9 +3,9 @@
   "message": "Filter: Could find ISBN identifier which not allowed by the applied filter",
   "title": "Dublin Core - MARC21 konversio",
   "standardIdentifiers": [
-    "978-92-95055-20-9",
+    "978-952-222-356-2",
     "http://foobar.example.com/handle/10024/456",
-    "URN:ISBN:978-92-95055-20-9",
+    "URN:ISBN:978-952-222-356-2",
     "(fooba)/10024/456"
   ]
 }
