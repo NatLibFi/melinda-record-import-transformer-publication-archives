@@ -1,4 +1,4 @@
 {
   "description": "filterByIsbnIdentifier passes when only Finnish ISBN information is available",
-  "only": true
+  "only": false
 }
