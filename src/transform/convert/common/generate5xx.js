@@ -77,18 +77,16 @@ export function generate502({getFieldValues}) {
     return [];
   }
 
-  const subfieldD = generateSubfieldD(getFieldValues);
-  const subfieldC = generateSubfieldC(getFieldValues, subfieldD.length > 0);
+  const subfieldC = generateSubfieldC(getFieldValues);
+  const subfieldA = generateSubfieldA(getFieldValues, subfieldC.length > 0);
 
-  const subfieldASeparator = subfieldC.length > 0 || subfieldD.length > 0 ? ' :' : '';
-  const subfieldA = [{code: 'a', value: `Väitöskirja${subfieldASeparator}`}];
+  const subfields = subfieldA.concat(subfieldC);
 
-  const subfields = subfieldA.concat(subfieldC, subfieldD);
 
   return [{tag: '502', subfields}];
 
 
-  function generateSubfieldC(getFieldValues, hasSubfieldD) {
+  function generateSubfieldC(getFieldValues) {
     const [organization] = getFieldValues('dc.contributor.organization');
     const [faculty] = getFieldValues('dc.contributor.faculty');
 
@@ -96,20 +94,20 @@ export function generate502({getFieldValues}) {
       return [];
     }
 
-    const baseValue = faculty ? `${organization}, ${faculty}` : `${organization}`;
-    const separator = hasSubfieldD ? ', ' : '.';
-
-    return [{code: 'c', value: `${baseValue}${separator}`}];
+    const value = faculty ? `${organization}, ${faculty}.` : `${organization}.`;
+    return [{code: 'c', value}];
   }
 
-  function generateSubfieldD(getFieldValues) {
+  function generateSubfieldA(getFieldValues, hasSubfieldC) {
     const [date] = getFieldValues('dc.date.issued');
 
-    if (date && date.length >= 4) {
-      return [{code: 'd', value: `${date.slice(0, 4)}.`}];
-    }
+    // Expects date to be in format where year is defined first
+    const year = date && date.length >= 4 ? date.slice(0, 4) : undefined;
 
-    return [];
+    const subfieldASeparator = hasSubfieldC ? ' :' : '.';
+    const value = year ? `Väitöskirja, ${year}${subfieldASeparator}` : `Väitöskirja${subfieldASeparator}`;
+
+    return [{code: 'a', value}];
   }
 }
 

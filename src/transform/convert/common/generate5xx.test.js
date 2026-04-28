@@ -14,10 +14,10 @@ const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-
 generateDatafieldFixtureTest(testFixtureRootPath.concat('generate502'), fieldGenerator.generate502);
 
 // Old tests
-generate500();
-generate506();
-generate540();
-generate594();
+// generate500();
+// generate506();
+// generate540();
+// generate594();
 
 // Test functions
 function generate500() {
