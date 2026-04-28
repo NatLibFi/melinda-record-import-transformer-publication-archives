@@ -1,8 +1,35 @@
 [
   {
-    "tag": "500", "ind1": "", "ind2": "",
+    "tag": "500",
+    "subfields": [{ "code": "a", "value": "Koneellisesti tuotettu tietue." }]
+  },
+  {
+    "tag": "500",
     "subfields": [
-      {"code": "a", "value": "Koneellisesti tuotettu tietue."}
+      { "code": "a", "value": "This is an example of description." }
+    ]
+  },
+  {
+    "tag": "500",
+    "subfields": [
+      {
+        "code": "a",
+        "value": "This is an example of description notification."
+      }
+    ]
+  },
+  {
+    "tag": "500",
+    "subfields": [{ "code": "a", "value": "Artikkeliväitöskirja" }]
+  },
+  {
+    "tag": "500",
+    "subfields": [
+      {
+        "code": "a",
+        "value": "EXAMPLE general conference; 123, Foobarila, 2025"
+      },
+      { "code": "9", "value": "FENNI<KEEP>" }
     ]
   }
 ]
