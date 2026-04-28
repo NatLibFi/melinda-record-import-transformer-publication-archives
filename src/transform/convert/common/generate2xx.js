@@ -126,7 +126,7 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
   function generateSubfields(titleLanguage) {
     const subfieldC = generateSubfieldC();
     const subfieldB = generateSubfieldB(subfieldC.length > 0, titleLanguage);
-    const subfieldA = generateSubfieldA(subfieldB.length > 0, subfieldC.lenth > 0);
+    const subfieldA = generateSubfieldA(subfieldB.length > 0, subfieldC.length > 0);
 
     return subfieldA.concat(subfieldB, subfieldC);
 
