@@ -47,7 +47,7 @@ export function generate500({getFieldValues, getFields}) {
           return {
             tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value: `${v}${separator}`}]
           };
-      }) : [];
+        }) : [];
     }
 
     function generateNotification() {
@@ -73,49 +73,43 @@ export function generate500({getFieldValues, getFields}) {
  * @returns Empty array or array containing field 502 ($a, $d, $c ,$9)
  */
 export function generate502({getFieldValues}) {
-  return isDissertation({getFieldValues}) ? [
-    {
-      tag: '502', ind1: '', ind2: '',
-      subfields: generate502Subfields()
-    }
-  ] : [];
+  if (!isDissertation({getFieldValues})) {
+    return [];
+  }
 
-  function generate502Subfields() {
-    const subfieldD = generateSubfieldD();
-    const subfieldC = generateSubfieldC(subfieldD.length > 0);
+  const subfieldD = generateSubfieldD(getFieldValues);
+  const subfieldC = generateSubfieldC(getFieldValues, subfieldD.length > 0);
 
-    // Static subfields. Generated last so that separator can be evaluated
-    const subfieldASeparator = subfieldC.length > 0 || subfieldD.length > 0 ? ' :' : '';
-    const subfieldA = [{code: 'a', value: `Väitöskirja${subfieldASeparator}`}];
-    const subfield9 = [{code: '9', value: 'FENNI<KEEP>'}];
+  const subfieldASeparator = subfieldC.length > 0 || subfieldD.length > 0 ? ' :' : '';
+  const subfieldA = [{code: 'a', value: `Väitöskirja${subfieldASeparator}`}];
 
-    return [
-      ...subfieldA,
-      ...subfieldC,
-      ...subfieldD,
-      ...subfield9
-    ];
+  const subfields = subfieldA.concat(subfieldC, subfieldD);
+
+  return [{tag: '502', subfields}];
 
 
-    function generateSubfieldC(hasSubfieldD) {
-      const [organization] = getFieldValues('dc.contributor.organization');
-      const [faculty] = getFieldValues('dc.contributor.faculty');
-      const subfieldEndSeparator = hasSubfieldD ? ', ' : '.';
+  function generateSubfieldC(getFieldValues, hasSubfieldD) {
+    const [organization] = getFieldValues('dc.contributor.organization');
+    const [faculty] = getFieldValues('dc.contributor.faculty');
 
-      if (organization && faculty) {
-        return [{code: 'c', value: `${organization}, ${faculty}${subfieldEndSeparator}`}];
-      }
-
-      return organization ? [{code: 'c', value: `${organization}${subfieldEndSeparator}`}] : [];
-    }
-
-    function generateSubfieldD() {
-      const [date] = getFieldValues('dc.date.issued');
-      if (date && date.length >= 4) {
-        return [{code: 'd', value: `${date.slice(0, 4)}.`}];
-      }
+    if (!organization) {
       return [];
     }
+
+    const baseValue = faculty ? `${organization}, ${faculty}` : `${organization}`;
+    const separator = hasSubfieldD ? ', ' : '.';
+
+    return [{code: 'c', value: `${baseValue}${separator}`}];
+  }
+
+  function generateSubfieldD(getFieldValues) {
+    const [date] = getFieldValues('dc.date.issued');
+
+    if (date && date.length >= 4) {
+      return [{code: 'd', value: `${date.slice(0, 4)}.`}];
+    }
+
+    return [];
   }
 }
 
