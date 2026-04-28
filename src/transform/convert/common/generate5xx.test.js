@@ -3,12 +3,18 @@ import assert from 'node:assert';
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
-import * as fieldGenerator from './generate5xx.js';
 import {createValueInterface} from '../util/index.js';
+import {generateDatafieldFixtureTest} from '../../../test-utils/generate-fixture-test.js';
 
-// Run tests
+import * as fieldGenerator from './generate5xx.js';
+
+const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate5xx'];
+
+// Refactored tests
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate502'), fieldGenerator.generate502);
+
+// Old tests
 generate500();
-generate502();
 generate506();
 generate540();
 generate594();
@@ -33,29 +39,6 @@ function generate500() {
     const valueInterface = createValueInterface(input);
 
     const result = fieldGenerator.generate500(valueInterface);
-    assert.deepStrictEqual(result, output);
-  }
-}
-
-function generate502() {
-  generateTests({
-    callback,
-    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate5xx', 'generate502'],
-    recurse: false,
-    useMetadataFile: true,
-    fixura: {
-      reader: READERS.JSON,
-      failWhenNotFound: true
-    }
-  });
-
-  function callback({getFixture}) {
-    const input = getFixture('input.json');
-    const output = getFixture('output.json');
-
-    const valueInterface = createValueInterface(input);
-
-    const result = fieldGenerator.generate502(valueInterface);
     assert.deepStrictEqual(result, output);
   }
 }
