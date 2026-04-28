@@ -5,18 +5,20 @@
  * @returns Empty array or array containing field 300 ($a)
  */
 export function generate300({getFieldValues}, numberOfFiles) {
-  const [value] = getFieldValues('dc.format.extent');
+  const [extentValue] = getFieldValues('dc.format.extent');
+
+  const invalidExtentSuffix = /(p|s){1}\.?$/;
+  const formattedExtendValue = extentValue ? extentValue.replace(invalidExtentSuffix, '').trim() : undefined;
 
   const numberOfAttachments = numberOfFiles && numberOfFiles > 1 ? numberOfFiles - 1 : 0; // NB: when there are two files, there is one attachment
-  const subfieldA = value ? [{code: 'a', value: `1 verkkoaineisto (${value} sivua)`}] : [{code: 'a', value: '1 verkkoaineisto'}];
-  const subfieldE = numberOfAttachments > 0 ? getSubfieldE(numberOfAttachments) : [];
 
-  const subfields = [...subfieldA, ...subfieldE];
+  const subfieldA = formattedExtendValue ? [{code: 'a', value: `1 verkkoaineisto (${formattedExtendValue} sivua)`}] : [{code: 'a', value: '1 verkkoaineisto'}];
+  const subfieldE = numberOfAttachments > 0 ? getSubfieldE(numberOfAttachments) : [];
 
   return [
     {
       tag: '300', ind1: '', ind2: '',
-      subfields
+      subfields: subfieldA.concat(subfieldE)
     }
   ];
 
