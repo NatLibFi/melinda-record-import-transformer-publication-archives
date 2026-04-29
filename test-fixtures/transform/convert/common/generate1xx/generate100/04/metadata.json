@@ -1,0 +1,4 @@
+{
+  "description": "Generates f100 from first dc.contributor.author entry if no dc.creator is available",
+  "only": false
+}

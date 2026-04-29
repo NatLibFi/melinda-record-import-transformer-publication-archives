@@ -1,58 +1,8 @@
-import assert from 'node:assert';
-
-import {READERS} from '@natlibfi/fixura';
-import generateTests from '@natlibfi/fixugen';
+import {generateDatafieldFixtureTest} from '../../../test-utils/generate-fixture-test.js';
 
 import * as fieldGenerator from './generate1xx.js';
-import {createValueInterface} from '../util/index.js';
 
-// Run tests
-generate100and700();
-generate110and710();
+const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate1xx'];
 
-// Test functions
-function generate100and700() {
-  generateTests({
-    callback,
-    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate1xx', 'generate100and700'],
-    recurse: false,
-    useMetadataFile: true,
-    fixura: {
-      reader: READERS.JSON,
-      failWhenNotFound: true
-    }
-  });
-
-  function callback({getFixture}) {
-    const input = getFixture('input.json');
-    const output = getFixture('output.json');
-
-    const valueInterface = createValueInterface(input);
-
-    const result = fieldGenerator.generate100and700(valueInterface);
-    assert.deepStrictEqual(result, output);
-  }
-}
-
-function generate110and710() {
-  generateTests({
-    callback,
-    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate1xx', 'generate110and710'],
-    recurse: false,
-    useMetadataFile: true,
-    fixura: {
-      reader: READERS.JSON,
-      failWhenNotFound: true
-    }
-  });
-
-  function callback({getFixture}) {
-    const input = getFixture('input.json');
-    const output = getFixture('output.json');
-
-    const valueInterface = createValueInterface(input);
-
-    const result = fieldGenerator.generate110and710(valueInterface);
-    assert.deepStrictEqual(result, output);
-  }
-}
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate100'), fieldGenerator.generate100);
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate110'), fieldGenerator.generate110);

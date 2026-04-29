@@ -1,0 +1,4 @@
+{
+  "description": "Generates 710 from groupauthors that are not main author while observing editor role properly from name",
+  "only": false
+}

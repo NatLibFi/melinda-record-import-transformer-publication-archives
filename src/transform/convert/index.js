@@ -3,13 +3,13 @@ import moment from 'moment';
 
 import {generate007, generate008, generateLDR} from './common/generateControlFields.js';
 import {generate020, generate024, generate040, generate041, generate042} from './common/generate0xx.js';
-import {generate100and700, generate110and710} from './common/generate1xx.js';
+import {generate100, generate110} from './common/generate1xx.js';
 import {generate245, generate246, generate250, generate264} from './common/generate2xx.js';
 import {generate300, generate336, generate337, generate338, generate341} from './common/generate3xx.js';
 import {generate490} from './common/generate4xx.js';
 import {generate500, generate502, generate506, generate540, generate594} from './common/generate5xx.js';
 import {generate648, generate650, generate651, generate653} from './common/generate6xx.js';
-import {generate776} from './common/generate7xx.js';
+import {generate700, generate710, generate776} from './common/generate7xx.js';
 import {generate856, generate884} from './common/generate8xx.js';
 import {generate946} from './common/generate9xx.js';
 import {generateSID, generateLOW} from './common/generateSystemFields.js';
@@ -40,8 +40,8 @@ export default ({harvestSource, fieldValueInterface, filetype, convertOpts = {},
     generate040(),
     generate041(fieldValueInterface),
     generate042(),
-    generate100and700(fieldValueInterface),
-    generate110and710(fieldValueInterface),
+    generate100(fieldValueInterface),
+    generate110(fieldValueInterface),
     generate245(fieldValueInterface),
     generate246(fieldValueInterface),
     generate250(fieldValueInterface),
@@ -61,6 +61,8 @@ export default ({harvestSource, fieldValueInterface, filetype, convertOpts = {},
     generate650(fieldValueInterface),
     generate651(fieldValueInterface),
     generate653(fieldValueInterface),
+    generate700(fieldValueInterface),
+    generate710(fieldValueInterface),
     generate776(fieldValueInterface),
     generate856(fieldValueInterface),
     generate946(fieldValueInterface),

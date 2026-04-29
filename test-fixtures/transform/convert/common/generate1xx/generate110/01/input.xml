@@ -1,0 +1,4 @@
+<kk:metadata>
+  <kk:field schema="dc" element="creator" value="Esimerkki, Erkki" />
+  <kk:field schema="dc" element="contributor" qualifier="groupauthor" value="Ryhmä Foo" />
+</kk:metadata>

@@ -1,0 +1,4 @@
+{
+  "description": "Generate f110 from mainAuthor if it is group author",
+  "only": false
+}
