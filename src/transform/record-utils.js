@@ -191,7 +191,7 @@ export function translateIso6931Lang(isoLanguage) {
     'pl': 'Puola',
     'pt': 'Portugali',
     'ru': 'Venäjä',
-    'se': 'Saami, pohjois-',
+    'se': 'Pohjoissaame',
     'so': 'Somali',
     'sv': 'Ruotsi',
     'uk': 'Ukraina',
