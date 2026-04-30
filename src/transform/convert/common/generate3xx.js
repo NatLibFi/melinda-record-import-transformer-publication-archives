@@ -7,12 +7,14 @@
 export function generate300({getFieldValues}, numberOfFiles) {
   const [extentValue] = getFieldValues('dc.format.extent');
 
-  const invalidExtentSuffix = /(p|s){1}\.?$/;
+  const invalidExtentSuffix = /[ps]{1}\.?$/;
   const formattedExtendValue = extentValue ? extentValue.replace(invalidExtentSuffix, '').trim() : undefined;
 
   const numberOfAttachments = numberOfFiles && numberOfFiles > 1 ? numberOfFiles - 1 : 0; // NB: when there are two files, there is one attachment
 
-  const subfieldA = formattedExtendValue ? [{code: 'a', value: `1 verkkoaineisto (${formattedExtendValue} sivua)`}] : [{code: 'a', value: '1 verkkoaineisto'}];
+  const useNominative = Number(formattedExtendValue) === 1;
+  const pageTerm = useNominative ? 'sivu' : 'sivua';
+  const subfieldA = formattedExtendValue ? [{code: 'a', value: `1 verkkoaineisto (${formattedExtendValue} ${pageTerm})`}] : [{code: 'a', value: '1 verkkoaineisto'}];
   const subfieldE = numberOfAttachments > 0 ? getSubfieldE(numberOfAttachments) : [];
 
   return [
