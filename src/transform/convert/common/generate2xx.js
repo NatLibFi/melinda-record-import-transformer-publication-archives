@@ -28,7 +28,7 @@ export function generate240(valueInterface) {
     {
       tag: '240',
       ind1: '1',
-      // ind2 generated in validation phase by marc-record-validators-melinda:IndicatorFixes,
+      ind2: '0', // ind2 properly generated in validation phase by marc-record-validators-melinda:IndicatorFixes,
       subfields
     }
   ];
@@ -43,7 +43,7 @@ export function generate245(valueInterface) {
   const {mainAuthor} = getContributors(valueInterface);
 
   const ind1 = mainAuthor !== null ? '1' : '0';
-  // Note ind2 is generated in validation phase by marc-record-validators-melinda:IndicatorFixes
+  const ind2 = '0'; // Note ind2 is properly generated in validation phase by marc-record-validators-melinda:IndicatorFixes
 
   const {title, subtitle} = getRecordTitle(valueInterface);
 
@@ -52,8 +52,8 @@ export function generate245(valueInterface) {
   }
 
   return subtitle
-    ? [{tag: '245', ind1, subfields: [{code: 'a', value: `${title} :`}, {code: 'b', value: `${subtitle}.`}]}]
-    : [{tag: '245', ind1, subfields: [{code: 'a', value: `${title}.`}]}];
+    ? [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title} :`}, {code: 'b', value: `${subtitle}.`}]}]
+    : [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title}.`}]}];
 }
 
 /**

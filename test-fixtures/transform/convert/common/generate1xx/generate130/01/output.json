@@ -1,6 +1,7 @@
 [
   {
     "tag": "130",
+    "ind1": "0",
     "subfields": [
       {"code": "a", "value": "Dublin Core."},
       {"code": "l", "value": "Suomi"}

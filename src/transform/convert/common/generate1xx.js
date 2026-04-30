@@ -76,7 +76,7 @@ export function generate130(valueInterface) {
   return [
     {
       tag: '130',
-      // ind1 generated in validation phase by marc-record-validators-melinda:IndicatorFixes,
+      ind1: '0', // ind1 properly generated in validation phase by marc-record-validators-melinda:IndicatorFixes,
       subfields
     }
   ];
