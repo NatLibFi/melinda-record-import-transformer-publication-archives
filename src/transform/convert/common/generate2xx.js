@@ -1,79 +1,59 @@
-import {capitalizeValue, normalizeTitleString} from '../util/index.js';
+import {getContributors, getRecordTitle, translateIso6931Lang} from '../../record-utils.js';
+import {capitalizeValue} from '../util/index.js';
 
 /**
- * Generates field 245 ($a) based on first dc.title value
- * @param {Object} ValueInterface containing getFields and getFieldValues functions
+ * Generates f240 based on first dc.title value if main
+ * @param {Object} valueInterface containing getFields and getFieldValues functions
  * @returns Empty array or array containing field 245 ($a)
  */
-export function generate245({getFields}) {
-  const isAddedEntry = generateIsAddedEntry();
-  const ind1 = isAddedEntry ? '1' : '0';
-  const ind2 = ' '; // NB: generated in validation phase by marc-record-validators-melinda:IndicatorFixes
+export function generate240(valueInterface) {
+  const {mainAuthor} = getContributors(valueInterface);
+  const {title} = getRecordTitle(valueInterface);
 
-  const fields = getFields('dc.title');
-  if (fields.length === 0) {
+  if (!mainAuthor || !title) {
     return [];
   }
 
-  const titleText = fields.length > 0 ? fields[0].$.value : null;
+  const subfields = [{code: 'a', value: `${title}.`}];
 
-  const {title, alternativeSubtitle} = getTitle(titleText);
+  // If language is available, add it to $l
+  const [language] = valueInterface.getFieldValues('dc.language.iso');
+  const translatedLanguage = language ? translateIso6931Lang(language) : null;
 
-  // Fix plausible newlines (both Windows/Unix variants)
-  const titleWithoutNewlines = normalizeTitleString(title);
-  const alternativeSubtitleWithoutNewlines = normalizeTitleString(alternativeSubtitle);
-
-  return alternativeSubtitle
-    ? [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${titleWithoutNewlines} :`}, {code: 'b', value: `${alternativeSubtitleWithoutNewlines}.`}]}]
-    : [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${titleWithoutNewlines}.`}]}];
-
-
-  function generateIsAddedEntry() {
-    const fields = getFields(p => [
-      'dc.contributor.author',
-      'dc.creator'
-    ].includes(p));
-
-    return fields.length > 0;
+  if (translatedLanguage) {
+    subfields.push({code: 'l', value: translatedLanguage});
   }
 
-  // Splits title to title+subtitle if title contains any of patterns that require this type of processing.
-  // Note: this getter is same as one defined within ONIX-transformer
-  function getTitle(titleText) {
-    const regexObj = findRegex(titleText);
-    const result = regexObj ? regexObj.regex.exec(titleText) : undefined;
-
-    if (!result) {
-      return {title: titleText.trimEnd(), alternativeSubtitle: undefined};
+  return [
+    {
+      tag: '240',
+      ind1: '1',
+      // ind2 generated in validation phase by marc-record-validators-melinda:IndicatorFixes,
+      subfields
     }
+  ];
+}
 
-    const titleResult = regexObj.keepResult === true ? {
-      title: (titleText.slice(0, result.index + regexObj.keepCharactersFromStart) + result).trimEnd(),
-      alternativeSubtitle: titleText.slice(result.index + result[0].length - regexObj.keepCharactersFromEnd).trimEnd().trimStart()
-    }
-      : {
-        title: titleText.slice(0, result.index + regexObj.keepCharactersFromStart).trimEnd(),
-        alternativeSubtitle: titleText.slice(result.index + result[0].length - regexObj.keepCharactersFromEnd).trimEnd().trimStart()
-      };
+/**
+ * Generates field 245 ($a) based on first dc.title value
+ * @param {Object} valueInterface containing getFields and getFieldValues functions
+ * @returns Empty array or array containing field 245 ($a)
+ */
+export function generate245(valueInterface) {
+  const {mainAuthor} = getContributors(valueInterface);
 
-    return titleResult;
+  const ind1 = mainAuthor !== null ? '1' : '0';
+  // Note ind2 is generated in validation phase by marc-record-validators-melinda:IndicatorFixes
 
-    function findRegex(titleText) {
-      // Note: order defines priority
-      const pluralOfRegex = [
-        // split title to mainTitle and subtitle at first ':', do not keep ':'
-        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /:\s+/u},
-        // split title to mainTitle and subtitle at first '.' that is not directly following a number, do not keep '.' but keep the prior character.
-        {keepCharactersFromStart: 1, keepCharactersFromEnd: 0, regex: /[^0-9]\.\s+/u},
-        // split title to mainTitle and subtitle at first ' - ', do not keep the separator
-        {keepCharactersFromStart: 1, keepCharactersFromEnd: 1, regex: /[^0-9]\s+[\u2013\u2014-]\s+[^0-9]/u},
-        // split title to mainTitle and subtitle at '! ' or '? ', keep question and exclamation marks, they are part of the title
-        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, keepResult: true, regex: /!+|\?+/u}
-      ];
+  const {title, subtitle} = getRecordTitle(valueInterface);
 
-      return pluralOfRegex.find(({regex}) => regex.test(titleText));
-    }
+  if (!title) {
+    return [];
   }
+
+  return subtitle
+    ? [{tag: '245', ind1, subfields: [{code: 'a', value: `${title} :`}, {code: 'b', value: `${subtitle}.`}]}]
+    : [{tag: '245', ind1, subfields: [{code: 'a', value: `${title}.`}]}];
 }
 
 /**

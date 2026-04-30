@@ -1,0 +1,4 @@
+{
+  "description": "Generates f130 from dc.title when item does not have main author using translated language from dc.language.iso",
+  "only": false
+}

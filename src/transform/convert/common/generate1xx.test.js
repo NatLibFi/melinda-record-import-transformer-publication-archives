@@ -6,3 +6,4 @@ const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-
 
 generateDatafieldFixtureTest(testFixtureRootPath.concat('generate100'), fieldGenerator.generate100);
 generateDatafieldFixtureTest(testFixtureRootPath.concat('generate110'), fieldGenerator.generate110);
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate130'), fieldGenerator.generate130);
