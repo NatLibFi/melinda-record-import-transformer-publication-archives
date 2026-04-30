@@ -142,7 +142,7 @@ export function getRecordTitle({getFields}) {
         // split title to mainTitle and subtitle at first ' - ', do not keep the separator
         {keepCharactersFromStart: 1, keepCharactersFromEnd: 1, regex: /[^0-9]\s+[\u2013\u2014-]\s+[^0-9]/u},
         // split title to mainTitle and subtitle at '! ' or '? ', keep question and exclamation marks, they are part of the title
-        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, keepResult: true, regex: /!+|\?+/u}
+        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, keepResult: true, regex: /[!?]+/u}
       ];
 
       return pluralOfRegex.find(({regex}) => regex.test(titleText));
