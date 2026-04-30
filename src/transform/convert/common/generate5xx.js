@@ -76,7 +76,7 @@ export function generate500Level({getFieldValues}) {
 
   return levels.map(level => ({
     tag: '500',
-    subfields: [{code: 'a', value: level}]
+    subfields: [{code: 'a', value: `${level}.`}]
   }));
 }
 
@@ -88,7 +88,7 @@ export function generate500Level({getFieldValues}) {
 export function generate500Conference({getFieldValues}) {
   const values = getFieldValues('dc.relation.conference');
   return values.map(v => ({
-    tag: '500', subfields: [{code: 'a', value: v}, {code: '9', value: 'FENNI<KEEP>'}]
+    tag: '500', subfields: [{code: 'a', value: `${v}.`}, {code: '9', value: 'FENNI<KEEP>'}]
   }));
 }
 

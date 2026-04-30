@@ -20,14 +20,14 @@
   },
   {
     "tag": "500",
-    "subfields": [{ "code": "a", "value": "Artikkeliväitöskirja" }]
+    "subfields": [{ "code": "a", "value": "Artikkeliväitöskirja." }]
   },
   {
     "tag": "500",
     "subfields": [
       {
         "code": "a",
-        "value": "EXAMPLE general conference; 123, Foobarila, 2025"
+        "value": "EXAMPLE general conference; 123, Foobarila, 2025."
       },
       { "code": "9", "value": "FENNI<KEEP>" }
     ]

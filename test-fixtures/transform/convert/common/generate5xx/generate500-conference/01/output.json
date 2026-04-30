@@ -2,7 +2,7 @@
   {
     "tag": "500",
     "subfields": [
-      {"code": "a", "value": "EXAMPLE general conference; 123, Foobarila, 2025"},
+      {"code": "a", "value": "EXAMPLE general conference; 123, Foobarila, 2025."},
       {"code": "9", "value": "FENNI<KEEP>"}
     ]
   }
