@@ -7,7 +7,7 @@
 export function generate300({getFieldValues}, numberOfFiles) {
   const [extentValue] = getFieldValues('dc.format.extent');
 
-  const invalidExtentSuffix = /[ps]{1}\.?$/;
+  const invalidExtentSuffix = /\b[ps]\.?$/;
   const formattedExtendValue = extentValue ? extentValue.replace(invalidExtentSuffix, '').trim() : undefined;
 
   const numberOfAttachments = numberOfFiles && numberOfFiles > 1 ? numberOfFiles - 1 : 0; // NB: when there are two files, there is one attachment
