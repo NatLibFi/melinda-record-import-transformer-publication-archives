@@ -1,8 +1,10 @@
 [
   {
-    "tag": "264", "ind1": "", "ind2": "1",
+    "tag": "264", "ind2": "1",
     "subfields": [
-      {"code": "a", "value": "Helsinki"}
+      {"code": "a", "value": "Helsinki :"},
+      {"code": "b", "value": "[kustantaja tuntematon],"},
+      {"code": "c", "value": "[kustannusaika tuntematon]"}
     ]
   }
 ]

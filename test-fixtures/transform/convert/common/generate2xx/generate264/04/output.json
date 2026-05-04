@@ -1,8 +1,10 @@
 [
   {
-    "tag": "264", "ind1": "", "ind2": "1",
+    "tag": "264", "ind2": "1",
     "subfields": [
-      {"code": "b", "value": "Helsingin yliopisto"}
+      {"code": "a", "value": "[Kustannuspaikka tuntematon] :"},
+      {"code": "b", "value": "Helsingin yliopisto,"},
+      {"code": "c", "value": "[kustannusaika tuntematon]"}
     ]
   }
 ]
