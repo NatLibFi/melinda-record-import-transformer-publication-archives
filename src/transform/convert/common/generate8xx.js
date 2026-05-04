@@ -4,7 +4,7 @@ import {clone} from '@natlibfi/melinda-commons';
 import {MarcRecord} from '@natlibfi/marc-record';
 
 import {fixUrnValue, isOpenAccess, isValidLink} from '../util/index.js';
-import {sourceConfig} from '../../../constants.js';
+import {sourceConfig} from '../../../source-constants.js';
 
 /**
  * Generates field 856 ($u, $y: optional).

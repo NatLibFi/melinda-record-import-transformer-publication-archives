@@ -1,0 +1,4 @@
+{
+  "description": "Generates f700 from other contributors than main author if they are not group authors",
+  "only": false
+}
