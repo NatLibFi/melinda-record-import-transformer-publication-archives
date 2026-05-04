@@ -1,0 +1,4 @@
+{
+  "description": "Generates f500 notification from dc.relation.conference value",
+  "only": false
+}
