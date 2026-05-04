@@ -1,69 +1,95 @@
 import {hasLevels, isDissertation, extractFinnishTerm, isOpenAccess, removeHtmlTags} from '../util/index.js';
 
 /**
- * Generates field 500 ($a) based on dc.description, dc.description.notification and dc.type.ontasot
+ * Wrapper for f500 generators
  * @param {Object} ValueInterface containing getFieldValues and getFields functions
- * @returns Empty array or array containing field 500 ($a)
+ * @returns Empty array or array containing field 500
  */
-export function generate500({getFieldValues, getFields}) {
-  const hasLevel = hasLevels({getFields});
-  const standardFields = generateStandardFields();
+export function generate500(valueInterace) {
+  const machineGeneratedNotification = generate500MachineGenerated(valueInterace);
+  const descriptionNotification = generate500Description(valueInterace);
+  const dcNotificationNotification = generate500Notification(valueInterace);
+  const levelNotification = generate500Level(valueInterace);
+  const conferenceNotification = generate500Conference(valueInterace);
 
-  if (hasLevel) {
-    const levels = generateLevels();
-    const level500 = levels.length > 0 ? levels.map(level => ({
-      tag: '500', ind1: '', ind2: '',
-      subfields: [{code: 'a', value: level}]
-    }))
-      : [];
+  return machineGeneratedNotification.concat(
+    descriptionNotification,
+    dcNotificationNotification,
+    levelNotification,
+    conferenceNotification
+  );
+}
 
-    return standardFields.concat(level500);
-  }
-
-  return standardFields;
-
-  function generateStandardFields() {
-    const staticFields = generateStatic();
-    const description = generateDescription();
-    const notification = generateNotification();
-
-    return staticFields.concat(description, notification);
-
-    function generateStatic() {
-      return [
-        {
-          tag: '500', ind1: '', ind2: '',
-          subfields: [{code: 'a', value: 'Koneellisesti tuotettu tietue.'}]
-        }
-      ];
+/**
+ * Generator for f500 notification regarding machine generated record
+ * @param {Object} ValueInterface containing getFieldValues and getFields functions
+ * @returns Empty array or array containing field 500
+ */
+export function generate500MachineGenerated({getFieldValues}) {
+  return [
+    {
+      tag: '500',
+      subfields: [{code: 'a', value: 'Koneellisesti tuotettu tietue.'}]
     }
+  ];
+}
 
-    function generateDescription() {
-      const values = getFieldValues('dc.description');
-      return values.length > 0 ? values
-        .map(removeHtmlTags)
-        .map(v => {
-          const separator = v.endsWith('.') ? '' : '.';
-          return {
-            tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value: `${v}${separator}`}]
-          };
-      }) : [];
-    }
+/**
+ * Generator for f500 notification from dc.description
+ * @param {Object} ValueInterface containing getFieldValues and getFields functions
+ * @returns Empty array or array containing field 500
+ */
+export function generate500Description({getFieldValues}) {
+  const values = getFieldValues('dc.description');
+  return values.length > 0 ? values
+    .map(removeHtmlTags)
+    .map(v => {
+      const separator = v.endsWith('.') ? '' : '.';
+      return {
+        tag: '500', subfields: [{code: 'a', value: `${v}${separator}`}]
+      };
+    }) : [];
+}
 
-    function generateNotification() {
-      const values = getFieldValues('dc.description.notification');
-      return values.length > 0 ? values
-        .map(removeHtmlTags)
-        .map(value => ({
-          tag: '500', ind1: '', ind2: '', subfields: [{code: 'a', value}]
-        })) : [];
-    }
-  }
+/**
+ * Generator for f500 notification from dc.description.notification
+ * @param {Object} ValueInterface containing getFieldValues and getFields functions
+ * @returns Empty array or array containing field 500
+ */
+export function generate500Notification({getFieldValues}) {
+  const values = getFieldValues('dc.description.notification');
+  return values.length > 0 ? values
+    .map(removeHtmlTags)
+    .map(value => ({
+      tag: '500', subfields: [{code: 'a', value}]
+    })) : [];
+}
 
-  function generateLevels() {
-    const values = getFieldValues('dc.type.ontasot');
-    return values.map(extractFinnishTerm).filter(v => v);
-  }
+/**
+ * Generator for f500 notification from dc.type.ontasot
+ * @param {Object} ValueInterface containing getFieldValues and getFields functions
+ * @returns Empty array or array containing field 500
+ */
+export function generate500Level({getFieldValues}) {
+  const values = getFieldValues('dc.type.ontasot');
+  const levels = values.map(extractFinnishTerm).filter(v => v);
+
+  return levels.map(level => ({
+    tag: '500',
+    subfields: [{code: 'a', value: `${level}.`}]
+  }));
+}
+
+/**
+ * Generator for f500 notification regarding conference from dc.relation.conference
+ * @param {Object} ValueInterface containing getFieldValues and getFields functions
+ * @returns Empty array or array containing field 500
+ */
+export function generate500Conference({getFieldValues}) {
+  const values = getFieldValues('dc.relation.conference');
+  return values.map(v => ({
+    tag: '500', subfields: [{code: 'a', value: `${v}.`}, {code: '9', value: 'FENNI<KEEP>'}]
+  }));
 }
 
 /**
@@ -73,49 +99,22 @@ export function generate500({getFieldValues, getFields}) {
  * @returns Empty array or array containing field 502 ($a, $d, $c ,$9)
  */
 export function generate502({getFieldValues}) {
-  return isDissertation({getFieldValues}) ? [
-    {
-      tag: '502', ind1: '', ind2: '',
-      subfields: generate502Subfields()
-    }
-  ] : [];
+  if (!isDissertation({getFieldValues})) {
+    return [];
+  }
 
-  function generate502Subfields() {
-    const subfieldD = generateSubfieldD();
-    const subfieldC = generateSubfieldC(subfieldD.length > 0);
-
-    // Static subfields. Generated last so that separator can be evaluated
-    const subfieldASeparator = subfieldC.length > 0 || subfieldD.length > 0 ? ' :' : '';
-    const subfieldA = [{code: 'a', value: `Väitöskirja${subfieldASeparator}`}];
-    const subfield9 = [{code: '9', value: 'FENNI<KEEP>'}];
-
-    return [
-      ...subfieldA,
-      ...subfieldC,
-      ...subfieldD,
-      ...subfield9
-    ];
+  const subfieldA = generateSubfieldA(getFieldValues);
+  return [{tag: '502', subfields: subfieldA}];
 
 
-    function generateSubfieldC(hasSubfieldD) {
-      const [organization] = getFieldValues('dc.contributor.organization');
-      const [faculty] = getFieldValues('dc.contributor.faculty');
-      const subfieldEndSeparator = hasSubfieldD ? ', ' : '.';
+  function generateSubfieldA(getFieldValues) {
+    const [date] = getFieldValues('dc.date.issued');
 
-      if (organization && faculty) {
-        return [{code: 'c', value: `${organization}, ${faculty}${subfieldEndSeparator}`}];
-      }
+    // Expects date to be in format where year is defined first
+    const year = date && date.length >= 4 ? date.slice(0, 4) : undefined;
+    const value = year ? `Väitöskirja, ${year}.` : `Väitöskirja.`;
 
-      return organization ? [{code: 'c', value: `${organization}${subfieldEndSeparator}`}] : [];
-    }
-
-    function generateSubfieldD() {
-      const [date] = getFieldValues('dc.date.issued');
-      if (date && date.length >= 4) {
-        return [{code: 'd', value: `${date.slice(0, 4)}.`}];
-      }
-      return [];
-    }
+    return [{code: 'a', value}];
   }
 }
 
