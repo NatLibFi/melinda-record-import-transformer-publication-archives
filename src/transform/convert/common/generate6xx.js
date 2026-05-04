@@ -1,3 +1,5 @@
+import {isDissertation} from '../util/index.js';
+
 /**
  * Generates field 648 ($a) based on dc.coverage.temporal values
  * @param {Object} ValueInterface containing getFieldValues function
@@ -72,4 +74,37 @@ export function generate653({getFieldValues}) {
     tag: '653', ind1: '', ind2: '',
     subfields: [{code: 'a', value}]
   }));
+}
+
+/**
+ * Generates field 655 based if entry is dissertation.
+ * @param {Object} ValueInterface containing getFieldValues function
+ * @returns Empty array or array containing field 653 ($a)
+ */
+export function generate655({getFieldValues}) {
+  if (!isDissertation({getFieldValues})) {
+    return [];
+  }
+
+  return [
+    {
+      code: '655',
+      ind2: '7',
+      subfields: [
+        {code: 'a', value: 'väitöskirjat'},
+        {code: '2', value: 'slm/fin'},
+        {code: '0', value: 'http://urn.fi/URN:NBN:fi:au:slm:s1227'},
+        {code: '9', value: 'FENNI<KEEP>'}
+      ]
+    },
+    {
+      code: '655',
+      ind2: '7',
+      subfields: [
+        {code: 'a', value: 'doktorsavhandlingar'},
+        {code: '2', value: 'slm/swe'},
+        {code: '0', value: 'http://urn.fi/URN:NBN:fi:au:slm:s1227'}
+      ]
+    }
+  ];
 }

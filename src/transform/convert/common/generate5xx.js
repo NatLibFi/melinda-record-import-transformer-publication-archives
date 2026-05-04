@@ -99,49 +99,22 @@ export function generate500Conference({getFieldValues}) {
  * @returns Empty array or array containing field 502 ($a, $d, $c ,$9)
  */
 export function generate502({getFieldValues}) {
-  return isDissertation({getFieldValues}) ? [
-    {
-      tag: '502', ind1: '', ind2: '',
-      subfields: generate502Subfields()
-    }
-  ] : [];
+  if (!isDissertation({getFieldValues})) {
+    return [];
+  }
 
-  function generate502Subfields() {
-    const subfieldD = generateSubfieldD();
-    const subfieldC = generateSubfieldC(subfieldD.length > 0);
-
-    // Static subfields. Generated last so that separator can be evaluated
-    const subfieldASeparator = subfieldC.length > 0 || subfieldD.length > 0 ? ' :' : '';
-    const subfieldA = [{code: 'a', value: `Väitöskirja${subfieldASeparator}`}];
-    const subfield9 = [{code: '9', value: 'FENNI<KEEP>'}];
-
-    return [
-      ...subfieldA,
-      ...subfieldC,
-      ...subfieldD,
-      ...subfield9
-    ];
+  const subfieldA = generateSubfieldA(getFieldValues);
+  return [{tag: '502', subfields: subfieldA}];
 
 
-    function generateSubfieldC(hasSubfieldD) {
-      const [organization] = getFieldValues('dc.contributor.organization');
-      const [faculty] = getFieldValues('dc.contributor.faculty');
-      const subfieldEndSeparator = hasSubfieldD ? ', ' : '.';
+  function generateSubfieldA(getFieldValues) {
+    const [date] = getFieldValues('dc.date.issued');
 
-      if (organization && faculty) {
-        return [{code: 'c', value: `${organization}, ${faculty}${subfieldEndSeparator}`}];
-      }
+    // Expects date to be in format where year is defined first
+    const year = date && date.length >= 4 ? date.slice(0, 4) : undefined;
+    const value = year ? `Väitöskirja, ${year}.` : `Väitöskirja.`;
 
-      return organization ? [{code: 'c', value: `${organization}${subfieldEndSeparator}`}] : [];
-    }
-
-    function generateSubfieldD() {
-      const [date] = getFieldValues('dc.date.issued');
-      if (date && date.length >= 4) {
-        return [{code: 'd', value: `${date.slice(0, 4)}.`}];
-      }
-      return [];
-    }
+    return [{code: 'a', value}];
   }
 }
 

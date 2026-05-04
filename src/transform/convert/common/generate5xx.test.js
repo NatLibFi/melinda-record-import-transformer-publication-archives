@@ -18,8 +18,9 @@ generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-notificatio
 generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-level'), fieldGenerator.generate500Level);
 generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-conference'), fieldGenerator.generate500Conference);
 
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate502'), fieldGenerator.generate502);
+
 // Old tests
-generate502();
 generate506();
 generate540();
 generate594();
