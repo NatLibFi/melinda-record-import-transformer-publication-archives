@@ -1,0 +1,6 @@
+<kk:metadata>
+  <kk:field schema="dc" element="relation" qualifier="conference" value="EXAMPLE general conference; 123, Foobarila, 2025" />
+  <kk:field schema="dc" element="description" value="This is an example of description." />
+  <kk:field schema="dc" element="type" qualifier="ontasot" value="fi= Artikkeliväitöskirja | en=Doctoral dissertation (article-based)|" />
+  <kk:field schema="dc" element="description" qualifier="notification" value="This is an example of description notification." />
+</kk:metadata>

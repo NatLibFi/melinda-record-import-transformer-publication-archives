@@ -3,7 +3,7 @@ import {AUTHOR_ROLES} from '../data-constants.js';
 /**
  * Getter for record main author and contributors.
  * @param {import('../types.js').ValueInterface} valueInterface ValueInterface containing getValue/getValues functions
- * @returns {{name: string, isNameInverted: boolean, isGroupAuthor: boolean, role: string}[]} object containing item main author and contributor information
+ * @returns {import('../types.js').ItemContributors} object containing item main author and contributor information
  */
 export function getContributors({getFieldValues}) {
   const authors = getFieldValues('dc.contributor.author').map((v) => ({

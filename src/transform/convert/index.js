@@ -8,7 +8,7 @@ import {generate245, generate246, generate250, generate264} from './common/gener
 import {generate300, generate336, generate337, generate338, generate341} from './common/generate3xx.js';
 import {generate490} from './common/generate4xx.js';
 import {generate500, generate502, generate506, generate540, generate594} from './common/generate5xx.js';
-import {generate648, generate650, generate651, generate653} from './common/generate6xx.js';
+import {generate648, generate650, generate651, generate653, generate655} from './common/generate6xx.js';
 import {generate700, generate710, generate776} from './common/generate7xx.js';
 import {generate856, generate884} from './common/generate8xx.js';
 import {generate946} from './common/generate9xx.js';
@@ -61,6 +61,7 @@ export default ({harvestSource, fieldValueInterface, filetype, convertOpts = {},
     generate650(fieldValueInterface),
     generate651(fieldValueInterface),
     generate653(fieldValueInterface),
+    generate655(fieldValueInterface),
     generate700(fieldValueInterface),
     generate710(fieldValueInterface),
     generate776(fieldValueInterface),
