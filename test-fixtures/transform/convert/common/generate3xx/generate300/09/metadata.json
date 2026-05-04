@@ -1,0 +1,4 @@
+{
+  "description": "Uses nominative form when contains only one page",
+  "only": false
+}
