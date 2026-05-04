@@ -155,13 +155,7 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
 
 
       function getYear(v) {
-        const validFormats = [
-          /^\d{4}-\d{2}-\d{2}$/u,
-          /^\d{4}-\d{2}$/u,
-          /^\d{4}$/u
-        ];
-
-        const valueIsValid = validFormats.some(re => re.test(v));
+        const valueIsValid = (/^\d{4}(-\d\d){0,2}$/u).test(v);
         if (!valueIsValid) {
           return null;
         }
