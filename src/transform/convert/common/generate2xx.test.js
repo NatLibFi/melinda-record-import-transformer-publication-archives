@@ -3,10 +3,17 @@ import assert from 'node:assert';
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
+import {generateDatafieldFixtureTest} from '../../../test-utils/generate-fixture-test.js';
+
 import * as fieldGenerator from './generate2xx.js';
 import {createValueInterface} from '../util/index.js';
 
-// Run tests
+// Refactored tests
+const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate2xx'];
+
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate240'), fieldGenerator.generate240);
+
+// Old tests
 generate245();
 generate246();
 generate250();
