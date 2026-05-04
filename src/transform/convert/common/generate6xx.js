@@ -64,7 +64,8 @@ export function generate653({getFieldValues}) {
     'dc.subject.ysa',
     'dc.subject',
     'dc.subject.keyword',
-    'dc.subject.thl'
+    'dc.subject.thl',
+    'dc.subject.agrifors'
   ].includes(p));
 
   return values.map(value => ({
