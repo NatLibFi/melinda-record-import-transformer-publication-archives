@@ -148,7 +148,7 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
      * - YYYY-MM-DD
      */
     function generateSubfieldC() {
-      const unknownPublishingTimeSubfield = [{code: 'c', value: '[kustannusaika tuntematon]'}];
+      const unknownPublishingTimeSubfield = [{code: 'c', value: '[julkaisuaika tuntematon]'}];
 
       const dcValues = getFieldValues('dc.date.issued');
       const validValues = dcValues.map(getYear).filter(v => v !== null);

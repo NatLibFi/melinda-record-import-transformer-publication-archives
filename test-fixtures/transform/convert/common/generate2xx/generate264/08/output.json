@@ -4,7 +4,7 @@
     "subfields": [
       {"code": "a", "value": "Helsinki :"},
       {"code": "b", "value": "[kustantaja tuntematon],"},
-      {"code": "c", "value": "[kustannusaika tuntematon]"}
+      {"code": "c", "value": "[julkaisuaika tuntematon]"}
     ]
   }
 ]
