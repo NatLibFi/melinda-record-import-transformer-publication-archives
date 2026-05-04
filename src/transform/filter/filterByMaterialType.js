@@ -2,32 +2,44 @@ import ConversionError from '../convert/conversionError.js';
 
 /**
  * Filter filtering items based on material type (dc.type.okm).
- * @param {{ active?: boolean; }} param0
- * @param {boolean} [param0.active=true] Is filter active
+ * @param {{ active?: boolean; }} options
+ * @param {boolean} [options.active=true] Is filter active
  * @returns Object containing filter and its name
  */
 export function filterByMaterialType({active = true}) {
   if (active) {
     return {
-      filter,
+      filter: materialTypeFilter,
       name: 'filterByMaterialType'
     };
   }
+
   return false;
+}
 
-  function filter({getFieldValues}, debugInfo = {}) {
-    const materialTypes = getFieldValues('dc.type.okm');
+function materialTypeFilter({getFieldValues}, debugInfo = {}) {
+  const unsupportedMaterialTypes = [
+    'A1', 'A2', 'A3', 'A4',
+    'B1', 'B2', 'B3',
+    'D1', 'D2', 'D3',
+    'E1',
+    'F1', 'F2', 'F3',
+    'G1', 'G2', 'G3',
+    'H1', 'H2',
+    'I1', 'I2'
+  ];
 
-    const {identifiers, title} = debugInfo;
+  const {identifiers, title} = debugInfo;
+  const materialTypes = getFieldValues('dc.type.okm');
 
-    if (materialTypes.length > 0) {
-      if (materialTypes.some(isUnsupportedMaterialType)) {
-        throw new ConversionError({identifiers, title}, `Filter: Conversion does not support the given type of material (${materialTypes})`);
-      }
-    }
+  const isUnsupported = materialTypes.some(
+    // Uses String.prototype.include instead of regex
+    mt => unsupportedMaterialTypes.some(unsupportedType => mt.toLowerCase().includes(unsupportedType.toLowerCase()))
+  );
+
+  if (isUnsupported) {
+    throw new ConversionError({identifiers, title}, `Filter: Conversion does not support the given type of material (${materialTypes})`);
   }
 
-  function isUnsupportedMaterialType(mType) {
-    return mType.match(/A3/ui) || mType.match(/B2/ui) || mType.match(/D2/ui);
-  }
+  return;
 }
