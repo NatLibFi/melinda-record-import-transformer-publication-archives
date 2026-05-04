@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f110 if main author is not group author",
+  "only": false
+}

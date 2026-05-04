@@ -1,0 +1,4 @@
+{
+  "description": "Generates f100 only from first dc.creator",
+  "only": false
+}

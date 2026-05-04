@@ -1,5 +1,5 @@
 import {getSystemId} from '../util/index.js';
-import {sourceConfig, validHarvestSources} from '../../../constants.js';
+import {sourceConfig, validHarvestSources} from '../../../source-constants.js';
 
 /**
  * Generates field SID ($b, $c).

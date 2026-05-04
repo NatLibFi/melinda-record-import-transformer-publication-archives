@@ -1,0 +1,4 @@
+{
+  "description": "Editor role is observed from both: dc qualifier or contributor name",
+  "only": false
+}

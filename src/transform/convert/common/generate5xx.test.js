@@ -3,39 +3,27 @@ import assert from 'node:assert';
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
-import * as fieldGenerator from './generate5xx.js';
 import {createValueInterface} from '../util/index.js';
+import {generateDatafieldFixtureTest} from '../../../test-utils/generate-fixture-test.js';
 
-// Run tests
-generate500();
-generate502();
+import * as fieldGenerator from './generate5xx.js';
+
+const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate5xx'];
+
+// Refactored tests
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500'), fieldGenerator.generate500);
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-machine-generated'), fieldGenerator.generate500MachineGenerated);
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-description'), fieldGenerator.generate500Description);
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-notification'), fieldGenerator.generate500Notification);
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-level'), fieldGenerator.generate500Level);
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate500-conference'), fieldGenerator.generate500Conference);
+
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate502'), fieldGenerator.generate502);
+
+// Old tests
 generate506();
 generate540();
 generate594();
-
-// Test functions
-function generate500() {
-  generateTests({
-    callback,
-    path: [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate5xx', 'generate500'],
-    recurse: false,
-    useMetadataFile: true,
-    fixura: {
-      reader: READERS.JSON,
-      failWhenNotFound: true
-    }
-  });
-
-  function callback({getFixture}) {
-    const input = getFixture('input.json');
-    const output = getFixture('output.json');
-
-    const valueInterface = createValueInterface(input);
-
-    const result = fieldGenerator.generate500(valueInterface);
-    assert.deepStrictEqual(result, output);
-  }
-}
 
 function generate502() {
   generateTests({

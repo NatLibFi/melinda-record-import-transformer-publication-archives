@@ -1,0 +1,9 @@
+[
+  {
+    "tag": "110", "ind1": "1",
+    "subfields": [
+      {"code": "a", "value": "Ryhmä Foo,"},
+      {"code": "e", "value": "kirjoittaja."}
+    ]
+  }
+]

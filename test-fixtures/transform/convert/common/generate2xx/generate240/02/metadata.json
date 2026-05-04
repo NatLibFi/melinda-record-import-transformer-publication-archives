@@ -1,0 +1,4 @@
+{
+  "description": "Generates f240 from dc.title and dc.iso.language if main author is defined",
+  "only": false
+}

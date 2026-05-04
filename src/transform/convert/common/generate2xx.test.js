@@ -4,6 +4,8 @@ import {Readable} from 'node:stream';
 import {READERS} from '@natlibfi/fixura';
 import generateTests from '@natlibfi/fixugen';
 
+import {generateDatafieldFixtureTest} from '../../../test-utils/generate-fixture-test.js';
+
 import * as fieldGenerator from './generate2xx.js';
 
 import {readTestInput} from '../../../test-utils/read-test-record.js';
@@ -13,9 +15,10 @@ import {convertToObject} from '../../xmlParser.js';
 const testFixtureRootPath = [import.meta.dirname, '..', '..', '..', '..', 'test-fixtures', 'transform', 'convert', 'common', 'generate2xx'];
 
 // Refactored tests
+generateDatafieldFixtureTest(testFixtureRootPath.concat('generate240'), fieldGenerator.generate240);
 generate264();
 
-// Run tests
+// Old tests
 generate245();
 generate246();
 generate250();

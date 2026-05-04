@@ -1,4 +1,4 @@
 {
-  "description": "Generates f500 notification regarding computer generated record without input",
+  "description": "Combines all f500 notification generators",
   "only": false
 }
