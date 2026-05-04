@@ -95,7 +95,7 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
   if (subfields.length > 0) {
     return [
       {
-        tag: '264', ind1: '', ind2: '1', subfields
+        tag: '264', ind2: '1', subfields
       }
     ];
   }
@@ -104,29 +104,29 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
 
 
   function generateSubfields(titleLanguage) {
+    const subfieldA = generateSubfieldA();
+    const subfieldB = generateSubfieldB(titleLanguage);
     const subfieldC = generateSubfieldC();
-    const subfieldB = generateSubfieldB(subfieldC.length > 0, titleLanguage);
-    const subfieldA = generateSubfieldA(subfieldB.length > 0, subfieldC.length > 0);
 
     return subfieldA.concat(subfieldB, subfieldC);
 
-    function generateSubfieldA(hasSubfieldB, hasSubfieldC) {
-      const fieldSeparator = hasSubfieldB || hasSubfieldC ? ':' : '';
-
+    function generateSubfieldA() {
+      const unknownPublisherPlaceSubfield = [{code: 'a', value: '[Kustannuspaikka tuntematon] :'}];
       const dcPublisherPlaceValues = getFieldValues('dc.publisher.place');
       const dcPublisherCityOfPublicationValues = getFieldValues('dc.publisher.x-cityofpublication');
 
       const values = dcPublisherPlaceValues.length > 0 ? dcPublisherPlaceValues : dcPublisherCityOfPublicationValues;
-      return values.length > 0 ? [{code: 'a', value: `${values[0]}${fieldSeparator}`}] : [];
+
+      return values.length > 0 ? [{code: 'a', value: `${values[0]} :`}] : unknownPublisherPlaceSubfield;
     }
 
     function generateSubfieldB(hasSubfieldC, titleLanguage) {
-      const fieldSeparator = hasSubfieldC ? ',' : '';
+      const unknownPublisherSubfield = [{code: 'b', value: '[kustantaja tuntematon],'}];
 
-      const fields = getFields('dc.publisher');
+      const fields = getFields('dc.publisher') || [];
 
       if (fields.length === 0) {
-        return [];
+        return unknownPublisherSubfield;
       }
 
       const languageVersionValue = titleLanguage ? fields.find(f => f.$.language === titleLanguage) : false;
@@ -134,10 +134,10 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
       const capitalizedFieldValue = capitalizeValue(fieldValue);
 
       if (!capitalizedFieldValue) {
-        return [];
+        return unknownPublisherSubfield;
       }
 
-      return [{code: 'b', value: `${capitalizedFieldValue}${fieldSeparator}`}];
+      return [{code: 'b', value: `${capitalizedFieldValue},`}];
     }
 
 
@@ -148,10 +148,12 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
      * - YYYY-MM-DD
      */
     function generateSubfieldC() {
+      const unknownPublishingTimeSubfield = [{code: 'c', value: '[julkaisuaika tuntematon]'}];
+
       const dcValues = getFieldValues('dc.date.issued');
       const validValues = dcValues.map(getYear).filter(v => v !== null);
 
-      return validValues.length > 0 ? [{code: 'c', value: `${validValues[0]}.`}] : [];
+      return validValues.length > 0 ? [{code: 'c', value: `${validValues[0]}.`}] : unknownPublishingTimeSubfield;
 
 
       function getYear(v) {
