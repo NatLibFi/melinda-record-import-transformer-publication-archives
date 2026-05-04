@@ -106,8 +106,6 @@ function generate264() {
     }
   });
 
-  // This simulates the current state of processing loop but without having to wrap
-  // XML into <record> and <metadata> elements to make test input files more concise
   async function callback({getFixture, expectedError, titleLanguage}) {
     const inputXml = getFixture('input.xml');
     const inputStream = Readable.from(inputXml);
