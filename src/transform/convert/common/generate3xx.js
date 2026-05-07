@@ -1,3 +1,5 @@
+import {getAccessibilityFieldInfo} from '../util/accessibility-feature-map.js';
+
 /**
  * Generates field 300 ($a) based on first dc.format.extent value.
  * @param {Object} ValueInterface containing getFieldValues function
@@ -87,115 +89,47 @@ export function generate338() {
  * @returns {import('../../../types.js').DataField[]}
  */
 export function generate341({getFieldValues}) {
-  // Mapping is in process and may be expanded in future.
-  // 'looginen lukemisjärjestys' and 'taulukot saavutettavia' do have equal mapping by design
-  // unknown accessibility has language versions with equal mapping by design
-  const accessibilityFeatureMap = {
-    'navigointi mahdollista': {
-      ind1: '0',
-      subfieldA: 'textual',
-      subfieldB: 'structuralNavigation',
-      subfield2: 'sapdv'
-    },
-    'kuvilla vaihtoehtoiset kuvaukset': {
-      ind1: '0',
-      subfieldA: 'visual',
-      subfieldB: 'alternativeText',
-      subfield2: 'sapdv'
-    },
-    'looginen lukemisjärjestys': {
-      ind1: '0',
-      subfieldA: 'textual',
-      subfieldB: 'readingOrder',
-      subfield2: 'sapdv'
-    },
-    'taulukot saavutettavia': {
-      ind1: '0',
-      subfieldA: 'textual',
-      subfieldB: 'readingOrder',
-      subfield2: 'sapdv'
-    },
-    'ei tietoa saavutettavuudesta': {
-      ind1: '0',
-      subfieldA: 'textual',
-      subfieldB: 'unknown',
-      subfield2: 'sapdv'
-    },
-    'okänd tillgänglighet': {
-      ind1: '0',
-      subfieldA: 'textual',
-      subfieldB: 'unknown',
-      subfield2: 'sapdv'
-    },
-    'unknown accessibility': {
-      ind1: '0',
-      subfieldA: 'textual',
-      subfieldB: 'unknown',
-      subfield2: 'sapdv'
-    }
-  };
-
+  // Mapping is in process and may be changed in future.
+  // Note that some mappings do share mapping - this is by design and duplicates are deduplicated during processing.
   const accessibilityFeatures = getFieldValues('dc.description.accessibilityfeature')
-    .map(feature => accessibilityFeatureMap[feature])
-    .filter(v => v);
+    .map(feature => getAccessibilityFieldInfo(feature))
+    .filter(v => v !== null);
 
-  const fields = accessibilityFeatures.reduce((prev, next) => {
-    // Do not create duplicate field if field with matching $b already exists
-    const hasMatchingField = prev.find(field => {
-      const subfieldBValues = field.subfields.filter(sf => sf.code === 'b').map(sf => sf.value);
-      return subfieldBValues.includes(next.subfieldB);
-    });
+  if (accessibilityFeatures.length === 0) {
+    return [];
+  }
 
-    if (hasMatchingField) {
+  const deduplicatedFeatures = accessibilityFeatures.reduce((prev, next) => {
+    const featureType = next.a;
+    const currentFeatures = prev[featureType];
+
+    const isDuplicate = currentFeatures.find(entry => entry === next.b);
+    if (isDuplicate) {
       return prev;
     }
 
-    // Expand $b to existing subfield if it can be done
-    const expandableFieldIdx = prev.findIndex(field => {
-      const fieldSubfieldA = field.subfields.find(sf => sf.code === 'a')?.value;
-      const fieldSubfieldB = field.subfields.find(sf => sf.code === 'b')?.value;
-      const fieldSubfield2 = field.subfields.find(sf => sf.code === '2')?.value;
-
-      const subfieldBNotMatches = fieldSubfieldB !== next.subfieldB;
-
-      const subfieldAMatches = fieldSubfieldA === next.subfieldA;
-      const subfield2Matches = fieldSubfield2 === next.subfield2;
-      const subfieldInd1Matches = field.ind1 === next.ind1;
-
-      const matchConditions = [subfieldAMatches, subfieldBNotMatches, subfield2Matches, subfieldInd1Matches];
-      return matchConditions.every(matchCondition => matchCondition === true);
-    });
-
-    if (expandableFieldIdx !== -1) {
-      const expandableField = prev[expandableFieldIdx];
-
-      // Done to keep subfield ordering intact
-      const expandableSubfieldsA = expandableField.subfields.filter(sf => sf.code === 'a');
-      const expandableSubfieldsB = expandableField.subfields.filter(sf => sf.code === 'b');
-      const expandableSubfields2 = expandableField.subfields.filter(sf => sf.code === '2');
-
-      expandableField.subfields = [
-        ...expandableSubfieldsA,
-        ...expandableSubfieldsB,
-        {code: 'b', value: next.subfieldB},
-        ...expandableSubfields2
-      ];
-
-      return prev;
-    }
-
-    return [
+    const newFeatures = currentFeatures.concat(next.b);
+    return {
       ...prev,
-      {
-        tag: '341', ind1: next.ind1,
-        subfields: [
-          {code: 'a', value: next.subfieldA},
-          {code: 'b', value: next.subfieldB},
-          {code: '2', value: next.subfield2}
-        ]
-      }
-    ];
-  }, []);
+      [featureType]: newFeatures
+    };
+  }, {auditory: [], visual: [], textual: []});
+
+  const featuresWithValues = Object.keys(deduplicatedFeatures).filter(f => deduplicatedFeatures[f].length > 0);
+
+  // Each feature type has its own field and contains deduplicated features associated with the type in $b
+  const fields = featuresWithValues.map(feature => {
+    const subfieldBs = deduplicatedFeatures[feature].map(v => ({code: 'b', value: v}));
+
+    return {
+      tag: '341', ind1: '0',
+      subfields: [
+        {code: 'a', value: feature},
+        ...subfieldBs,
+        {code: '2', value: 'sapdv'}
+      ]
+    };
+  });
 
   return fields;
 }
