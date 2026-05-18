@@ -5,15 +5,11 @@
     "subfields": [
       {
         "code": "a",
-        "value": "textual"
+        "value": "visual"
       },
       {
         "code": "b",
-        "value": "structuralNavigation"
-      },
-      {
-        "code": "b",
-        "value": "readingOrder"
+        "value": "alternativeText"
       },
       {
         "code": "2",
@@ -27,11 +23,15 @@
     "subfields": [
       {
         "code": "a",
-        "value": "visual"
+        "value": "textual"
       },
       {
         "code": "b",
-        "value": "alternativeText"
+        "value": "structuralNavigation"
+      },
+      {
+        "code": "b",
+        "value": "readingOrder"
       },
       {
         "code": "2",

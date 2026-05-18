@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f240 when main author is not defined",
+  "only": false
+}

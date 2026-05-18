@@ -117,6 +117,10 @@
         "ind2": "1",
         "subfields": [
           {
+            "code": "a",
+            "value": "[Kustannuspaikka tuntematon] :"
+          },
+          {
             "code": "b",
             "value": "Esimerkkikustantaja,"
           },
@@ -421,7 +425,7 @@
           },
           {
             "code": "k",
-            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:17d4dd59f4ac2ba4440f6a647ee80c7d0ba044b21ddf1c8477ecc5232ce9e9f9"
+            "value": "MELINDA_RECORD_IMPORT_REPO:FOOBAR:de4a2bc86b0ead626c775b6ade30ac315d784eb2bfb355cdebbcb4631168fc40"
           },
           {
             "code": "q",

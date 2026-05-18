@@ -1,0 +1,5 @@
+<kk:metadata>
+  <kk:field schema="dc" element="creator" value="Esimerkki, Erkki" />
+  <kk:field schema="dc" element="contributor" qualifier="author" value="Esimerkki, Eino (toim.)" />
+  <kk:field schema="dc" element="contributor" qualifier="editor" value="Esimerkki, Esteri" />
+</kk:metadata>

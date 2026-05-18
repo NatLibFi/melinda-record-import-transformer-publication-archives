@@ -1,4 +1,4 @@
 {
-  "description": "Generates subfield $c if dc.contributor.organization exists",
-  "only": false
+  "description": "[DEPRECATED] Generates subfield $c if dc.contributor.organization exists",
+  "skip": true
 }
