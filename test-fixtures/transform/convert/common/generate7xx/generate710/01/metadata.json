@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate 710 in case group author is main author",
+  "only": false
+}

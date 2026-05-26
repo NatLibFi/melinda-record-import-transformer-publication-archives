@@ -1,4 +1,4 @@
 {
-  "description": "Generates f341 from four dc.description.accessibilityfeature values where $b is different (produces one field, adds multiple new $b)",
+  "description": "Generates f341 from three dc.description.accessibilityfeature values where $b is different (produces two fields, adds multiple $b to one of them)",
   "only": false
 }

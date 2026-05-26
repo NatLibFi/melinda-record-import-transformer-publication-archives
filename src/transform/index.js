@@ -12,7 +12,7 @@ import filterAndCreateValueInterface from './filter/index.js';
 import {convertToObject, getMetadataHeader, getRecordMetadata} from './xmlParser.js';
 import {getAllValuesInContext, parseHeaderInformation} from './convert/util/index.js';
 
-import {sourceConfig} from '../constants.js';
+import {sourceConfig} from '../source-constants.js';
 
 
 class TransformEmitter extends EventEmitter { }

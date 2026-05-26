@@ -1,0 +1,4 @@
+{
+  "description": "Creates f700 when no main author can be determined",
+  "only": false
+}

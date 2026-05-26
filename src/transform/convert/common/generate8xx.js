@@ -4,7 +4,7 @@ import {clone} from '@natlibfi/melinda-commons';
 import {MarcRecord} from '@natlibfi/marc-record';
 
 import {fixUrnValue, isOpenAccess, isValidLink} from '../util/index.js';
-import {sourceConfig} from '../../../constants.js';
+import {sourceConfig} from '../../../source-constants.js';
 
 /**
  * Generates field 856 ($u, $y: optional).
@@ -12,68 +12,49 @@ import {sourceConfig} from '../../../constants.js';
  * @returns Empty array or array containing field 856 ($u, $y)
  */
 export function generate856({getFieldValues}) {
-  const publicAccessFields = generatePublicAccessFields({getFieldValues});
-  const otherUrnFields = generateOtherUrnFields({getFieldValues});
-
-  return publicAccessFields.concat(otherUrnFields);
-
   /**
    * Generation prioritization if open access fields are to be generated:
    *   1. If dc.identifier.urn has value(s), generate subfields using all these values
    *   2. If dc.identifier.doi has value(s), generate subfields using all these values
   */
-  function generatePublicAccessFields({getFieldValues}) {
-    const openAccess = isOpenAccess({getFieldValues});
+  const openAccess = isOpenAccess({getFieldValues});
 
-    if (openAccess) {
-      const subfields = generateSubfields({getFieldValues});
-      return subfields.length > 0 ? [{tag: '856', ind1: '4', ind2: '0', subfields}] : [];
-    }
-
-    return [];
-
-
-    function generateSubfields({getFieldValues}) {
-      const linkSubfields = generateLinkSubfields({getFieldValues});
-      return linkSubfields.length > 0 ? linkSubfields.concat({code: 'y', value: 'Linkki verkkoaineistoon'}) : [];
-    }
-
-    function generateLinkSubfields({getFieldValues}) {
-      const urn = generateUrn({getFieldValues});
-      const doi = generateU('dc.identifier.doi', {getFieldValues});
-
-      if (urn.length > 0) {
-        return urn;
-      }
-
-      return doi;
-
-      // NB: URN needs to be in proper format (http|https://urn.fi/<value>) or otherwise it will not be used in subfield generation
-      function generateUrn({getFieldValues}) {
-        const values = getFieldValues('dc.identifier.urn');
-        return values
-          .filter(urnIsValid)
-          .map(mapUrnValue)
-          .map(v => ({code: 'u', value: v}));
-      }
-
-      function generateU(path, {getFieldValues}) {
-        const values = getFieldValues(path);
-        return values.filter(value => isValidLink(value)).map(value => ({code: 'u', value}));
-      }
-    }
+  if (openAccess) {
+    const subfields = generateSubfields({getFieldValues});
+    return subfields.length > 0 ? [{tag: '856', ind1: '4', ind2: '0', subfields}] : [];
   }
 
-  function generateOtherUrnFields({getFieldValues}) {
-    const urn = getFieldValues('dc.relation.urn');
-    const firstUrnValue = urn.length > 0 ? urn[0] : null;
-    const validUrn = urnIsValid(firstUrnValue);
+  return [];
 
-    if (!firstUrnValue || !validUrn) {
-      return [];
+
+  function generateSubfields({getFieldValues}) {
+    const linkSubfields = generateLinkSubfields({getFieldValues});
+    return linkSubfields.length > 0 ? linkSubfields.concat({code: 'y', value: 'Linkki verkkoaineistoon'}) : [];
+  }
+
+  function generateLinkSubfields({getFieldValues}) {
+    const urn = generateUrn({getFieldValues});
+    const doi = generateU('dc.identifier.doi', {getFieldValues});
+
+    if (urn.length > 0) {
+      return urn;
     }
 
-    return [{tag: '856', ind1: '4', ind2: '2', subfields: [{code: 'u', value: mapUrnValue(firstUrnValue)}]}];
+    return doi;
+
+    // NB: URN needs to be in proper format (http|https://urn.fi/<value>) or otherwise it will not be used in subfield generation
+    function generateUrn({getFieldValues}) {
+      const values = getFieldValues('dc.identifier.urn');
+      return values
+        .filter(urnIsValid)
+        .map(mapUrnValue)
+        .map(v => ({code: 'u', value: v}));
+    }
+
+    function generateU(path, {getFieldValues}) {
+      const values = getFieldValues(path);
+      return values.filter(value => isValidLink(value)).map(value => ({code: 'u', value}));
+    }
   }
 
   function urnIsValid(urn) {

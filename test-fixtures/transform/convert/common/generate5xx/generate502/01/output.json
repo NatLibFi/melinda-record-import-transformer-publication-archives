@@ -1,9 +1,8 @@
 [
   {
-    "tag": "502", "ind1": "", "ind2": "",
+    "tag": "502",
     "subfields": [
-      {"code": "a", "value": "Väitöskirja"},
-      {"code": "9", "value": "FENNI<KEEP>"}
+      {"code": "a", "value": "Väitöskirja."}
     ]
   }
 ]

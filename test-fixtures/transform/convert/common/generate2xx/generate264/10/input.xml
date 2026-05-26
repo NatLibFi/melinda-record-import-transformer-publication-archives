@@ -1,0 +1,5 @@
+<kk:metadata>
+  <kk:field schema="dc" element="publisher" language="fi" value="helsingin yliopisto" />
+  <kk:field schema="dc" element="publisher" qualifier="place" value="Helsinki" />
+  <kk:field schema="dc" element="date" qualifier="issued" value="2023" />
+</kk:metadata>

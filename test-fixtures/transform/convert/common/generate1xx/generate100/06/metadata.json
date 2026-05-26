@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f100 from authors that are observed to be editors",
+  "only": false
+}

@@ -1,5 +1,50 @@
-// Note: Generation of field 700 is defined together with generation of field 100
-// Both fields (100/700) consider author information
+import {getContributors, translateAuthorRole} from "../../record-utils.js";
+
+/**
+ * Generates f700 from contributor information that does not consider main author or group authors
+ * @param {Object} valueInterface containing getFieldValues function
+ * @returns Empty array or array containing f700
+ */
+export function generate700(valueInterface) {
+  const {contributors} = getContributors(valueInterface);
+  const nonGroupContributors = contributors.filter(c => !c.isGroupAuthor);
+
+  if (nonGroupContributors.length === 0) {
+    return [];
+  }
+
+  return nonGroupContributors.map((c) => ({
+    tag: '700',
+    ind1: c.isNameInverted ? '1' : '0',
+    subfields: [
+      {code: 'a', value: `${c.name},`},
+      {code: 'e', value: `${translateAuthorRole(c.role)}.`}
+    ]
+  }));
+}
+
+/**
+ * Generates f710 from contributor information that does not consider main author or group authors
+ * @param {Object} valueInterface containing getFieldValues function
+ * @returns Empty array or array containing f710
+ */
+export function generate710(valueInterface) {
+  const {contributors} = getContributors(valueInterface);
+  const groupContributors = contributors.filter(c => c.isGroupAuthor);
+
+  if (groupContributors.length === 0) {
+    return [];
+  }
+
+  return groupContributors.map((c) => ({
+    tag: '710',
+    ind1: '1',
+    subfields: [
+      {code: 'a', value: `${c.name},`},
+      {code: 'e', value: `${translateAuthorRole(c.role)}.`}
+    ]
+  }));
+}
 
 /**
  * Generates field 776 ($z, $9) based on dc.relation.isversionof values.

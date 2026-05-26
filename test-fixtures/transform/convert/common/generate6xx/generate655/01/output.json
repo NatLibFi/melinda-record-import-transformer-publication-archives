@@ -1,0 +1,21 @@
+[
+  {
+    "code": "655",
+    "ind2": "7",
+    "subfields": [
+      { "code": "a", "value": "väitöskirjat" },
+      { "code": "2", "value": "slm/fin" },
+      { "code": "0", "value": "http://urn.fi/URN:NBN:fi:au:slm:s1227" },
+      { "code": "9", "value": "FENNI<KEEP>" }
+    ]
+  },
+  {
+    "code": "655",
+    "ind2": "7",
+    "subfields": [
+      { "code": "a", "value": "doktorsavhandlingar" },
+      { "code": "2", "value": "slm/swe" },
+      { "code": "0", "value": "http://urn.fi/URN:NBN:fi:au:slm:s1227" }
+    ]
+  }
+]

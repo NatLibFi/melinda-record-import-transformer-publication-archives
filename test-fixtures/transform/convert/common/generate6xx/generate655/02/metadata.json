@@ -1,0 +1,4 @@
+{
+  "description": "Return empty array if entry is not dissertation",
+  "only": false
+}

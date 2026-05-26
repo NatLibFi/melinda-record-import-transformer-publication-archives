@@ -1,0 +1,10 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "subject",
+      "qualifier": "agrifors",
+      "value": "example keyword"
+    }
+  }
+]

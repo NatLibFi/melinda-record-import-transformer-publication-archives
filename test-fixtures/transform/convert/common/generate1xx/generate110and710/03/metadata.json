@@ -1,4 +1,0 @@
-{
-  "description": "Generate f110 from first dc.contributor.groupauthor and f710 other dc.contributor.groupauthors if dc.creator is not available",
-  "only": false
-}

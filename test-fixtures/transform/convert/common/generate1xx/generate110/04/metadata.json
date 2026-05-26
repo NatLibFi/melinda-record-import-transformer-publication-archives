@@ -1,0 +1,4 @@
+{
+  "description": "Does not generate f110 if group author has role of editor",
+  "only": false
+}

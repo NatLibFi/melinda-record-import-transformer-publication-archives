@@ -1,4 +1,0 @@
-{
-  "description": "Generates f100 from first dc.creator or dc.contributor.author entry and f700 from second entry onwards",
-  "only": false
-}

@@ -1,4 +1,0 @@
-{
-  "description": "Generates additional f500 notification containing thesis level information in Finnish if dc.type.ontasot is available",
-  "only": false
-}

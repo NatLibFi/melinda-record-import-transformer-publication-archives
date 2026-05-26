@@ -1,4 +1,0 @@
-{
-  "description": "Generates additional f500 notification containing description if dc.description is available",
-  "only": false
-}

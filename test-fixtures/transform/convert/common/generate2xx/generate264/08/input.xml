@@ -1,0 +1,4 @@
+<kk:metadata>
+  <kk:field schema="dc" element="publisher" qualifier="place" value="Helsinki" />
+  <kk:field schema="dc" element="publisher" qualifier="x-cityofpublication" value="Foobarila" />
+</kk:metadata>
