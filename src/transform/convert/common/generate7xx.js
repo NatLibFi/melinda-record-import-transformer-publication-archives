@@ -53,13 +53,16 @@ export function generate710(valueInterface) {
  */
 export function generate776({ getFieldValues }) {
   const elsbValues = getFieldValues('dc.identifier.elsb');
+  const eisbnValues = getFieldValues('dc.identifier.eisbn');
+  const prioritizedIsbnValues = elsbValues.concat(eisbnValues);
+
   const isbnValues = getFieldValues('dc.identifier.isbn');
 
   const values = getFieldValues('dc.relation.isversionof');
 
   // In case identifier.elsb contains values, they are used for f020 generation
   // This means dc.identifier.isbn values can be used here
-  if (elsbValues.length > 0) {
+  if (prioritizedIsbnValues.length > 0) {
     values.push(...isbnValues)
   }
 
