@@ -7,11 +7,14 @@ import { fixUrnValue, formatLanguage } from '../util/index.js';
  * @returns Empty array or array containing field(s) 020
  */
 export function generate020({ getFieldValues }, filetype = 'PDF') {
-  // Prioritize using identifier.elsb over identifier.isbn
+  // Prioritize using identifier.elsb & identifier.eisbn over identifier.isbn
   const elsbValues = getFieldValues('dc.identifier.elsb');
+  const eisbnValues = getFieldValues('dc.identifier.eisbn');
+  const prioritizedValues = elsbValues.concat(eisbnValues);
+
   const isbnValues = getFieldValues('dc.identifier.isbn');
 
-  const values = elsbValues.length > 0 ? elsbValues : isbnValues;
+  const values = prioritizedValues.length > 0 ? prioritizedValues : isbnValues;
 
   return values.map(value => {
     return {
