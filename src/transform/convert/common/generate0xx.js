@@ -1,4 +1,4 @@
-import {fixUrnValue, formatLanguage} from '../util/index.js';
+import { fixUrnValue, formatLanguage } from '../util/index.js';
 
 /**
  * Generates field 020 ($a, $q) based on dc.identifier.isbn values
@@ -6,14 +6,19 @@ import {fixUrnValue, formatLanguage} from '../util/index.js';
  * @param {string} filetype - filetype of record that is mapped to f020 $q
  * @returns Empty array or array containing field(s) 020
  */
-export function generate020({getFieldValues}, filetype = 'PDF') {
-  const values = getFieldValues('dc.identifier.isbn');
+export function generate020({ getFieldValues }, filetype = 'PDF') {
+  // Prioritize using identifier.elsb over identifier.isbn
+  const elsbValues = getFieldValues('dc.identifier.elsb');
+  const isbnValues = getFieldValues('dc.identifier.isbn');
+
+  const values = elsbValues.length > 0 ? elsbValues : isbnValues;
+
   return values.map(value => {
     return {
       tag: '020', ind1: '', ind2: '',
       subfields: [
-        {code: 'a', value: formatValue()},
-        {code: 'q', value: filetype}
+        { code: 'a', value: formatValue() },
+        { code: 'q', value: filetype }
       ]
     };
 
@@ -29,7 +34,7 @@ export function generate020({getFieldValues}, filetype = 'PDF') {
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 024(s) ($a, $2)
  */
-export function generate024({getFieldValues}) {
+export function generate024({ getFieldValues }) {
   const urn = generateUrnFields();
   const doi = generateDoiFields();
 
@@ -48,8 +53,8 @@ export function generate024({getFieldValues}) {
       {
         tag: '024', ind1: '7', ind2: '',
         subfields: [
-          {code: 'a', value: formattedValue},
-          {code: '2', value: 'urn'}
+          { code: 'a', value: formattedValue },
+          { code: '2', value: 'urn' }
         ]
       }
     ];
@@ -61,8 +66,8 @@ export function generate024({getFieldValues}) {
       {
         tag: '024', ind1: '7', ind2: '',
         subfields: [
-          {code: 'a', value: values[0]},
-          {code: '2', value: 'urn'}
+          { code: 'a', value: values[0] },
+          { code: '2', value: 'urn' }
         ]
       }
     ] : [];
@@ -78,9 +83,9 @@ export function generate040() {
     {
       tag: '040', ind1: '', ind2: '',
       subfields: [
-        {code: 'b', value: 'fin'},
-        {code: 'e', value: 'rda'},
-        {code: 'd', value: 'FI-NL'}
+        { code: 'b', value: 'fin' },
+        { code: 'e', value: 'rda' },
+        { code: 'd', value: 'FI-NL' }
       ]
     }
   ];
@@ -91,15 +96,15 @@ export function generate040() {
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 041 ($a)
  */
-export function generate041({getFieldValues}) {
+export function generate041({ getFieldValues }) {
   const values = getFieldValues('dc.language.iso');
   const subfields = values
     .map(language => formatLanguage(language))
     .filter(v => v) // formatLanguage may return null, this strips invalid values
-    .map(v => ({code: 'a', value: v}));
+    .map(v => ({ code: 'a', value: v }));
 
   // Do not generate field if there are no subfields
-  if(subfields.length === 0) {
+  if (subfields.length === 0) {
     return [];
   }
 
@@ -121,7 +126,7 @@ export function generate042() {
   return [
     {
       tag: '042', ind1: '', ind2: '',
-      subfields: [{code: 'a', value: 'finb'}]
+      subfields: [{ code: 'a', value: 'finb' }]
     }
   ];
 }

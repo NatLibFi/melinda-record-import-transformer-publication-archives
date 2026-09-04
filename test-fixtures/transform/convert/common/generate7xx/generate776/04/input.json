@@ -1,0 +1,26 @@
+[
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "isbn",
+      "value": "978-92-95055-19-3"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "identifier",
+      "qualifier": "elsb",
+      "value": "978-92-95055-21-6"
+    }
+  },
+  {
+    "$": {
+      "schema": "dc",
+      "element": "relation",
+      "qualifier": "isversionof",
+      "value": "978-92-95055-20-9"
+    }
+  }
+]

@@ -1,4 +1,4 @@
-import {getContributors, translateAuthorRole} from "../../record-utils.js";
+import { getContributors, translateAuthorRole } from "../../record-utils.js";
 
 /**
  * Generates f700 from contributor information that does not consider main author or group authors
@@ -6,7 +6,7 @@ import {getContributors, translateAuthorRole} from "../../record-utils.js";
  * @returns Empty array or array containing f700
  */
 export function generate700(valueInterface) {
-  const {contributors} = getContributors(valueInterface);
+  const { contributors } = getContributors(valueInterface);
   const nonGroupContributors = contributors.filter(c => !c.isGroupAuthor);
 
   if (nonGroupContributors.length === 0) {
@@ -17,8 +17,8 @@ export function generate700(valueInterface) {
     tag: '700',
     ind1: c.isNameInverted ? '1' : '0',
     subfields: [
-      {code: 'a', value: `${c.name},`},
-      {code: 'e', value: `${translateAuthorRole(c.role)}.`}
+      { code: 'a', value: `${c.name},` },
+      { code: 'e', value: `${translateAuthorRole(c.role)}.` }
     ]
   }));
 }
@@ -29,7 +29,7 @@ export function generate700(valueInterface) {
  * @returns Empty array or array containing f710
  */
 export function generate710(valueInterface) {
-  const {contributors} = getContributors(valueInterface);
+  const { contributors } = getContributors(valueInterface);
   const groupContributors = contributors.filter(c => c.isGroupAuthor);
 
   if (groupContributors.length === 0) {
@@ -40,8 +40,8 @@ export function generate710(valueInterface) {
     tag: '710',
     ind1: '1',
     subfields: [
-      {code: 'a', value: `${c.name},`},
-      {code: 'e', value: `${translateAuthorRole(c.role)}.`}
+      { code: 'a', value: `${c.name},` },
+      { code: 'e', value: `${translateAuthorRole(c.role)}.` }
     ]
   }));
 }
@@ -51,11 +51,21 @@ export function generate710(valueInterface) {
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 776 ($z, $9)
  */
-export function generate776({getFieldValues}) {
+export function generate776({ getFieldValues }) {
+  const elsbValues = getFieldValues('dc.identifier.elsb');
+  const isbnValues = getFieldValues('dc.identifier.isbn');
+
   const values = getFieldValues('dc.relation.isversionof');
+
+  // In case identifier.elsb contains values, they are used for f020 generation
+  // This means dc.identifier.isbn values can be used here
+  if (elsbValues.length > 0) {
+    values.push(...isbnValues)
+  }
+
   return values.map(value => ({
     tag: '776', ind1: '0', ind2: ' ',
-    subfields: [{code: 'z', value: formatValue(value)}]
+    subfields: [{ code: 'z', value: formatValue(value) }]
   }));
 
   // Similar formatting to f020 $ə
