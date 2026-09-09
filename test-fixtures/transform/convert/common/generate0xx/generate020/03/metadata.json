@@ -1,0 +1,4 @@
+{
+  "description": "Uses values in dc.identifier.elsb over values in dc.identifier.isbn",
+  "only": false
+}
