@@ -1,0 +1,4 @@
+{
+  "description": "Does not use country code for $a generation.",
+  "only": false
+}
