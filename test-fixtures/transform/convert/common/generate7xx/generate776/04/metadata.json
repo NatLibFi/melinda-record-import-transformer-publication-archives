@@ -1,0 +1,4 @@
+{
+  "description": "Adds value from dc.identifier.isbn as a new field if dc.identifier.elsb is available (as it's used for f020 generation)",
+  "only": false
+}

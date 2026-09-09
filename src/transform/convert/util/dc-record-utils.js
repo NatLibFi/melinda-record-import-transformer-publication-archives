@@ -1,4 +1,4 @@
-import {deduplicateObjects, deduplicatePrimitives} from "./generic-utils.js";
+import { deduplicateObjects, deduplicatePrimitives } from "./generic-utils.js";
 
 /**
  * Get DC record series name information
@@ -44,6 +44,7 @@ export function getSeriesIssn(valueInterface) {
     'dc.identifier.eissn',
     'dc.identifier.issnl',
     'dc.identifier.issn-l',
+    'dc.identifier.elss'
   ];
 
   const fieldValues = issnFields
@@ -68,7 +69,7 @@ export function extractSeriesNumber(seriesTitle) {
 
   const splitRegex = serialTitleRegex.find(regex => regex.test(seriesTitle));
   if (!splitRegex) {
-    return {seriesTitle, seriesNumber: null};
+    return { seriesTitle, seriesNumber: null };
   }
 
   const [seriesNumber] = splitRegex.exec(seriesTitle);

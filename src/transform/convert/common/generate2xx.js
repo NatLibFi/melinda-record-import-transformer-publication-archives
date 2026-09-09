@@ -1,5 +1,5 @@
-import {getContributors, getRecordTitle, translateIso6931Lang} from '../../record-utils.js';
-import {capitalizeValue} from '../util/index.js';
+import { getContributors, getRecordTitle, translateIso6931Lang } from '../../record-utils.js';
+import { capitalizeValue } from '../util/index.js';
 
 /**
  * Generates f240 based on first dc.title value if main
@@ -7,21 +7,21 @@ import {capitalizeValue} from '../util/index.js';
  * @returns Empty array or array containing field 245 ($a)
  */
 export function generate240(valueInterface) {
-  const {mainAuthor} = getContributors(valueInterface);
-  const {title} = getRecordTitle(valueInterface);
+  const { mainAuthor } = getContributors(valueInterface);
+  const { title } = getRecordTitle(valueInterface);
 
   if (!mainAuthor || !title) {
     return [];
   }
 
-  const subfields = [{code: 'a', value: `${title}.`}];
+  const subfields = [{ code: 'a', value: `${title}.` }];
 
   // If language is available, add it to $l
   const [language] = valueInterface.getFieldValues('dc.language.iso');
   const translatedLanguage = language ? translateIso6931Lang(language) : null;
 
   if (translatedLanguage) {
-    subfields.push({code: 'l', value: translatedLanguage});
+    subfields.push({ code: 'l', value: translatedLanguage });
   }
 
   return [
@@ -40,20 +40,20 @@ export function generate240(valueInterface) {
  * @returns Empty array or array containing field 245 ($a)
  */
 export function generate245(valueInterface) {
-  const {mainAuthor} = getContributors(valueInterface);
+  const { mainAuthor } = getContributors(valueInterface);
 
   const ind1 = mainAuthor !== null ? '1' : '0';
   const ind2 = '0'; // Note ind2 is properly generated in validation phase by marc-record-validators-melinda:IndicatorFixes
 
-  const {title, subtitle} = getRecordTitle(valueInterface);
+  const { title, subtitle } = getRecordTitle(valueInterface);
 
   if (!title) {
     return [];
   }
 
   return subtitle
-    ? [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title} :`}, {code: 'b', value: `${subtitle}.`}]}]
-    : [{tag: '245', ind1, ind2, subfields: [{code: 'a', value: `${title}.`}]}];
+    ? [{ tag: '245', ind1, ind2, subfields: [{ code: 'a', value: `${title} :` }, { code: 'b', value: `${subtitle}.` }] }]
+    : [{ tag: '245', ind1, ind2, subfields: [{ code: 'a', value: `${title}.` }] }];
 }
 
 /**
@@ -61,11 +61,11 @@ export function generate245(valueInterface) {
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 245 ($a)
  */
-export function generate246({getFieldValues}) {
+export function generate246({ getFieldValues }) {
   const values = getFieldValues('dc.title.alternative');
   return values.map(value => ({
     tag: '246', ind1: '1', ind2: '3',
-    subfields: [{code: 'a', value: value}]
+    subfields: [{ code: 'a', value: value }]
   }));
 }
 
@@ -74,11 +74,11 @@ export function generate246({getFieldValues}) {
  * @param {Object} ValueInterface containing getFieldValues function
  * @returns Empty array or array containing field 250 ($a)
  */
-export function generate250({getFieldValues}) {
+export function generate250({ getFieldValues }) {
   const values = getFieldValues('dc.description.edition');
   return values.map(value => ({
     tag: '250', ind1: '', ind2: '',
-    subfields: [{code: 'a', value}]
+    subfields: [{ code: 'a', value }]
   }));
 }
 
@@ -89,7 +89,7 @@ export function generate250({getFieldValues}) {
  * @returns Empty array or array containing field 264 ($a, $b, $c)
  */
 
-export function generate264({getFields, getFieldValues}, titleLanguage) {
+export function generate264({ getFields, getFieldValues }, titleLanguage) {
   const subfields = generateSubfields(titleLanguage);
 
   if (subfields.length > 0) {
@@ -111,17 +111,18 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
     return subfieldA.concat(subfieldB, subfieldC);
 
     function generateSubfieldA() {
-      const unknownPublisherPlaceSubfield = [{code: 'a', value: '[Kustannuspaikka tuntematon] :'}];
+      const unknownPublisherPlaceSubfield = [{ code: 'a', value: '[Kustannuspaikka tuntematon] :' }];
       const dcPublisherPlaceValues = getFieldValues('dc.publisher.place');
       const dcPublisherCityOfPublicationValues = getFieldValues('dc.publisher.x-cityofpublication');
 
       const values = dcPublisherPlaceValues.length > 0 ? dcPublisherPlaceValues : dcPublisherCityOfPublicationValues;
+      const filteredValues = values.filter(v => !(/^[a-z]{2}$/).test(v)); // hacky way to filter majority of country codes
 
-      return values.length > 0 ? [{code: 'a', value: `${values[0]} :`}] : unknownPublisherPlaceSubfield;
+      return filteredValues.length > 0 ? [{ code: 'a', value: `${filteredValues[0]} :` }] : unknownPublisherPlaceSubfield;
     }
 
     function generateSubfieldB(hasSubfieldC, titleLanguage) {
-      const unknownPublisherSubfield = [{code: 'b', value: '[kustantaja tuntematon],'}];
+      const unknownPublisherSubfield = [{ code: 'b', value: '[kustantaja tuntematon],' }];
 
       const fields = getFields('dc.publisher') || [];
 
@@ -137,7 +138,7 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
         return unknownPublisherSubfield;
       }
 
-      return [{code: 'b', value: `${capitalizedFieldValue},`}];
+      return [{ code: 'b', value: `${capitalizedFieldValue},` }];
     }
 
 
@@ -148,12 +149,12 @@ export function generate264({getFields, getFieldValues}, titleLanguage) {
      * - YYYY-MM-DD
      */
     function generateSubfieldC() {
-      const unknownPublishingTimeSubfield = [{code: 'c', value: '[julkaisuaika tuntematon]'}];
+      const unknownPublishingTimeSubfield = [{ code: 'c', value: '[julkaisuaika tuntematon]' }];
 
       const dcValues = getFieldValues('dc.date.issued');
       const validValues = dcValues.map(getYear).filter(v => v !== null);
 
-      return validValues.length > 0 ? [{code: 'c', value: `${validValues[0]}.`}] : unknownPublishingTimeSubfield;
+      return validValues.length > 0 ? [{ code: 'c', value: `${validValues[0]}.` }] : unknownPublishingTimeSubfield;
 
 
       function getYear(v) {
