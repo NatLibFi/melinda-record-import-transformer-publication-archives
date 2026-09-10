@@ -88,7 +88,7 @@ export function generate655({getFieldValues}) {
 
   return [
     {
-      code: '655',
+      tag: '655',
       ind2: '7',
       subfields: [
         {code: 'a', value: 'väitöskirjat'},
@@ -98,7 +98,7 @@ export function generate655({getFieldValues}) {
       ]
     },
     {
-      code: '655',
+      tag: '655',
       ind2: '7',
       subfields: [
         {code: 'a', value: 'doktorsavhandlingar'},
