@@ -1,11 +1,11 @@
-import {AUTHOR_ROLES} from '../data-constants.js';
+import { AUTHOR_ROLES } from '../data-constants.js';
 
 /**
  * Getter for record main author and contributors.
  * @param {import('../types.js').ValueInterface} valueInterface ValueInterface containing getValue/getValues functions
  * @returns {import('../types.js').ItemContributors} object containing item main author and contributor information
  */
-export function getContributors({getFieldValues}) {
+export function getContributors({ getFieldValues }) {
   const authors = getFieldValues('dc.contributor.author').map((v) => ({
     name: v,
     role: AUTHOR_ROLES.AUTHOR,
@@ -42,13 +42,18 @@ export function getContributors({getFieldValues}) {
       isGroupAuthor: author.isGroupAuthor,
     };
 
-    const canBeMainAuthor = authorInfo.role === AUTHOR_ROLES.AUTHOR;
-    if (!p.mainAuthor && canBeMainAuthor) {
-      return {mainAuthor: authorInfo, contributors: p.contributors};
+    // Disallow contributor entries without sufficient name information
+    if (!authorInfo.name || authorInfo.name.length < 2) {
+      return p;
     }
 
-    return {mainAuthor: p.mainAuthor, contributors: p.contributors.concat(authorInfo)};
-  }, {mainAuthor: null, contributors: []});
+    const canBeMainAuthor = authorInfo.role === AUTHOR_ROLES.AUTHOR;
+    if (!p.mainAuthor && canBeMainAuthor) {
+      return { mainAuthor: authorInfo, contributors: p.contributors };
+    }
+
+    return { mainAuthor: p.mainAuthor, contributors: p.contributors.concat(authorInfo) };
+  }, { mainAuthor: null, contributors: [] });
 
 
   function getIsNameInverted(name, isGroupAuthor) {
@@ -65,8 +70,8 @@ export function getContributors({getFieldValues}) {
   }
 
   function processAuthorName(name) {
-    // Remove content within parenthesis at end of field
-    return name.replace(/\(.*\)$/, '').trim();
+    // Remove content within parenthesis
+    return name.replaceAll(/\(.*\)/g, '').trim();
   }
 }
 
@@ -91,16 +96,16 @@ export function translateAuthorRole(role) {
  * @param {import('../types.js').ValueInterface} valueInterface ValueInterface containing getValue/getValues functions
  * @returns {{title: string | null, subtitle: string | null}} object containing item main author and contributor information
  */
-export function getRecordTitle({getFields}) {
+export function getRecordTitle({ getFields }) {
   const fields = getFields('dc.title');
 
   if (fields.length === 0) {
-    return {title: null, subtitle: null};
+    return { title: null, subtitle: null };
   }
 
   const titleText = fields.length > 0 ? fields[0].$.value : null;
 
-  const {title, alternativeSubtitle} = getTitle(titleText);
+  const { title, alternativeSubtitle } = getTitle(titleText);
 
   // Fix plausible newlines (both Windows/Unix variants)
   const processedTitle = normalizeTitleString(title);
@@ -118,7 +123,7 @@ export function getRecordTitle({getFields}) {
     const result = regexObj ? regexObj.regex.exec(titleText) : undefined;
 
     if (!result) {
-      return {title: titleText.trimEnd(), alternativeSubtitle: undefined};
+      return { title: titleText.trimEnd(), alternativeSubtitle: undefined };
     }
 
     const titleResult = regexObj.keepResult === true ? {
@@ -136,16 +141,16 @@ export function getRecordTitle({getFields}) {
       // Note: order defines priority
       const pluralOfRegex = [
         // split title to mainTitle and subtitle at first ':', do not keep ':'
-        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /:\s+/u},
+        { keepCharactersFromStart: 0, keepCharactersFromEnd: 0, regex: /:\s+/u },
         // split title to mainTitle and subtitle at first '.' that is not directly following a number, do not keep '.' but keep the prior character.
-        {keepCharactersFromStart: 1, keepCharactersFromEnd: 0, regex: /[^0-9]\.\s+/u},
+        { keepCharactersFromStart: 1, keepCharactersFromEnd: 0, regex: /[^0-9]\.\s+/u },
         // split title to mainTitle and subtitle at first ' - ', do not keep the separator
-        {keepCharactersFromStart: 1, keepCharactersFromEnd: 1, regex: /[^0-9]\s+[\u2013\u2014-]\s+[^0-9]/u},
+        { keepCharactersFromStart: 1, keepCharactersFromEnd: 1, regex: /[^0-9]\s+[\u2013\u2014-]\s+[^0-9]/u },
         // split title to mainTitle and subtitle at '! ' or '? ', keep question and exclamation marks, they are part of the title
-        {keepCharactersFromStart: 0, keepCharactersFromEnd: 0, keepResult: true, regex: /[!?]+/u}
+        { keepCharactersFromStart: 0, keepCharactersFromEnd: 0, keepResult: true, regex: /[!?]+/u }
       ];
 
-      return pluralOfRegex.find(({regex}) => regex.test(titleText));
+      return pluralOfRegex.find(({ regex }) => regex.test(titleText));
     }
   }
 

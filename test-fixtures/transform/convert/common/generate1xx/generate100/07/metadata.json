@@ -1,0 +1,4 @@
+{
+  "description": "Generates filters dc.creator which name contains parenthesis and without it does not satisfy name minimum length requirement",
+  "only": false
+}
