@@ -32,11 +32,14 @@ export function getContributors({ getFieldValues }) {
 
   // Construct full authorinfo package by combining all gathered information
   return creators.concat(authors, editors, groupAuthors).reduce((p, author) => {
-    const isNameInverted = getIsNameInverted(author.name, author.groupAuthor);
     const nameImpliesEditorRole = isEditor(author.name);
 
+    const processedAuthorName = processAuthorName(author.name);
+    // Note: always use processed author name version here!
+    const isNameInverted = getIsNameInverted(processedAuthorName, author.groupAuthor);
+
     const authorInfo = {
-      name: processAuthorName(author.name),
+      name: processedAuthorName,
       isNameInverted,
       role: nameImpliesEditorRole ? AUTHOR_ROLES.EDITOR : author.role,
       isGroupAuthor: author.isGroupAuthor,
@@ -71,7 +74,17 @@ export function getContributors({ getFieldValues }) {
 
   function processAuthorName(name) {
     // Remove content within parenthesis
-    return name.replaceAll(/\(.*\)/g, '').trim();
+    const trimmed = name.replaceAll(/\(.*\)/g, '').trim();
+
+    const missingCommaDelimiterRegex = /^(?<lastName>[a-öA-Ö]+[a-öA-Ö-]+)\s(?<firstNameInitial>[A-Ö]){1}[^\w]*$/;
+    const regexResult = missingCommaDelimiterRegex.exec(trimmed);
+    const { lastName, firstNameInitial } = regexResult?.groups ?? {};
+
+    if (!regexResult || !lastName || !firstNameInitial) {
+      return trimmed
+    }
+
+    return `${lastName}, ${firstNameInitial}.`
   }
 }
 

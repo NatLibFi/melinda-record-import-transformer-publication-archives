@@ -1,0 +1,4 @@
+{
+  "description": "Properly processes author with name form \"<lastname> <firstname-initial>\"",
+  "only": false
+}
