@@ -1,5 +1,7 @@
 // NB: Source config is static and not to be read from env vars
 
+import { isAutomatedTest } from "./utils.js";
+
 const productionSources = {
   'julkaisut.valtioneuvosto.fi': {
     'filters': [
@@ -14,7 +16,7 @@ const productionSources = {
   'julkari.fi': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
-      {'type': 'issuedYear', 'active': false, 'notBeforeYear': false, 'notAfterYear': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2010', 'notAfterYear': false},
       {'type': 'fileType', 'active': true},
       {'type': 'materialType', 'active': true}
     ],
@@ -24,7 +26,7 @@ const productionSources = {
   'lutpub.lut.fi': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
-      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2013', 'notAfterYear': false},
       {'type': 'fileType', 'active': true},
       {'type': 'materialType', 'active': true}
     ],
@@ -34,7 +36,7 @@ const productionSources = {
   'jukuri.luke.fi': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
-      {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},
+      {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2008', 'notAfterYear': false},
       {'type': 'fileType', 'active': true},
       {'type': 'materialType', 'active': true}
     ],
@@ -44,56 +46,56 @@ const productionSources = {
 };
 
 const testSources = {
-  'foobar.isbn.example.com': process.env.NODE_ENV === 'test' ? {
+  'foobar.isbn.example.com': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.isbn2.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.isbn2.example.com': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': true}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.fileType.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.fileType.example.com': {
     'filters': [
       {'type': 'fileType', 'active': true}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.issuedYear.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.issuedYear.example.com': {
     'filters': [
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2024', 'notAfterYear': false}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.issuedYear2.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.issuedYear2.example.com': {
     'filters': [
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': '2020'}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.issuedYear3.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.issuedYear3.example.com': {
     'filters': [
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2010', 'notAfterYear': '2020'}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.materialType.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.materialType.example.com': {
     'filters': [
       {'type': 'materialType', 'active': true}
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.example.com': {
     'filters': [
       {'type': 'isbn', 'active': true, 'reverse': false},
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': '2024', 'notAfterYear': false},
@@ -102,8 +104,8 @@ const testSources = {
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null,
-  'foobar.example2.dev.example.com': process.env.NODE_ENV === 'test' ? {
+  },
+  'foobar.example2.dev.example.com': {
     'filters': [
       {'type': 'isbn', 'active': false, 'reverse': false},
       {'type': 'issuedYear', 'active': true, 'notBeforeYear': false, 'notAfterYear': false},
@@ -112,13 +114,7 @@ const testSources = {
     ],
     'fSID': {'10024': 'fooba', '11111': 'foob2'},
     'f884': 'MELINDA_RECORD_IMPORT_REPO:FOOBAR'
-  } : null
+  }
 };
 
-export const sourceConfig = {
-  ...productionSources,
-  ...testSources
-};
-
-// This allows use of testSources in test environment but disables them in production
-export const validHarvestSources = Object.keys(sourceConfig).filter(url => sourceConfig[url] !== null);
+export const sourceConfig = isAutomatedTest() ? testSources : productionSources;
