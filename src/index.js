@@ -1,6 +1,9 @@
 import {handleInterrupt, createLogger} from '@natlibfi/melinda-backend-commons';
-import * as config from './config.js';
+
 import {startApp} from './app.js';
+
+import * as config from './config.js';
+import packageJson from '../package.json' with {type: 'json'};
 
 run();
 
@@ -8,7 +11,7 @@ async function run() {
   const logger = createLogger();
   registerInterruptionHandlers();
 
-  logger.info('Starting publication archives transformer V3.0.3');
+  logger.info(`Starting publication archives transformer v${packageJson.version}`);
   await startApp(config);
 
   function registerInterruptionHandlers() {

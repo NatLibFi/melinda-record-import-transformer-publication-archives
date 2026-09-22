@@ -110,7 +110,8 @@ export function getRecordFiletype(record) {
 }
 
 /**
- * Parses source and system identifier from dc.identifier.uri/dc.source.identifier values or from header information
+ * Parses source and system identifier from dc.identifier.uri/dc.source.identifier values or from header information.
+ * Important note: if source is prefixed with "www.", it is removed during parsing.
  * @param {string} value URI value
  * @returns false if source or system identifier cannot be parsed, otherwise object containing source and systemId attributes
  */
@@ -147,7 +148,8 @@ export function getSystemId(value) {
     const {itemId} = value.match(httpItemRegexId) ? value.match(httpItemRegexId).groups : {itemId: null};
 
     if (source && itemId) {
-      return {source, systemId: itemId};
+      const nonPrefixedSource = source.replace(/^www\./, '');
+      return {source: nonPrefixedSource, systemId: itemId};
     }
 
     return false;
@@ -169,7 +171,8 @@ export function getSystemId(value) {
     const {itemId} = itemValue.match(oaiItemRegexId) ? itemValue.match(oaiItemRegexId).groups : {itemId: null};
 
     if (source && itemId) {
-      return {source, systemId: `/${itemId}`};
+      const nonPrefixedSource = source.replace(/^www\./, '');
+      return {source: nonPrefixedSource, systemId: `/${itemId}`};
     }
 
     return false;
