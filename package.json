@@ -14,7 +14,7 @@
 		"url": "git@github.com:natlibfi/melinda-record-import-transformer-publication-archives.git"
 	},
 	"license": "MIT",
-	"version": "3.3.5-alpha.2",
+	"version": "3.3.5",
 	"main": "./dist/index.js",
 	"type": "module",
 	"engines": {
