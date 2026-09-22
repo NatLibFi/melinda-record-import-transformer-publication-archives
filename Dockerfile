@@ -9,11 +9,11 @@ RUN apk add -U --no-cache --virtual .build-deps git sudo \
   && sudo -u node sh -c 'npm i --ignore-scripts --production'
 
 FROM docker.io/node:22-alpine
-CMD ["/usr/local/bin/node", "index.js"]
+CMD ["/usr/local/bin/node", "dist/index.js"]
 WORKDIR /home/node
 USER node
 
-COPY --from=builder /home/node/build/dist/ .
+COPY --from=builder /home/node/build/dist/ dist
 COPY --from=builder /home/node/node_modules node_modules
 COPY --from=builder /home/node/package.json .
 COPY --from=builder /home/node/package-lock.json .
