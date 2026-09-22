@@ -13,7 +13,7 @@ import {convertToObject, getMetadataHeader, getRecordMetadata} from './xmlParser
 import {getAllValuesInContext, parseHeaderInformation} from './convert/util/index.js';
 
 import {sourceConfig} from '../source-constants.js';
-
+import { isAutomatedTest } from '../utils.js';
 
 class TransformEmitter extends EventEmitter { }
 
@@ -92,8 +92,16 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
 
         const mandatorySourceConfig = ['fSID', 'f884'];
 
-        if (!harvestSource || !Object.keys(sourceConfig).includes(harvestSource) || !mandatorySourceConfig.every(v => Object.keys(sourceConfig[harvestSource]).includes(v))) {
+        const harvestSourceHasConfig = harvestSource ? Object.keys(sourceConfig).includes(harvestSource) : false;
+        if(!harvestSourceHasConfig) {
           throw new ConversionError({}, `Cannot find conversion configuration for the following harvest source or config is missing at least one of mandatory keys: ${harvestSource}`);
+        }
+
+        const harvestSourceConfig = sourceConfig[harvestSource];
+        const mandatoryConfigMissing = mandatorySourceConfig.filter(configKey => !Object.keys(harvestSourceConfig).includes(configKey))
+
+        if (mandatoryConfigMissing.length > 0) {
+          throw new ConversionError({}, `Mandatory configuration keys ${mandatoryConfigMissing.join(', ')} are missing`);
         }
 
         // Verify fSID generation includes both handle and uuid configurations

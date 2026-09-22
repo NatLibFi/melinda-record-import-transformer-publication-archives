@@ -1,0 +1,5 @@
+{
+  "description": "Properly drops www-prefix from header identifier (note: keep otherwise in sync with test 01)",
+  "testHash": true,
+  "only": false
+}
