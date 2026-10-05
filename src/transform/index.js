@@ -54,6 +54,7 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
         // more improvements may be done in future
         for (const xmlRecordEntry of xmlRecordEntries) {
           await processRecord(xmlRecordEntry);
+          await new Promise((resolve) => setTimeout(resolve, 100));
         }
 
         Emitter.emit('end', numberOfRecords);
