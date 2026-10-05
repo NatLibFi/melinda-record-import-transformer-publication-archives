@@ -50,7 +50,12 @@ export default convertOpts => (stream, {validate = true, fix = true} = {}) => {
       .on('error', err => Emitter.emit('error', err))
       .on('tag:record', xmlRecordEntry => xmlRecordEntries.push(xmlRecordEntry))
       .on('end', async () => {
-        await Promise.all(xmlRecordEntries.map(xmlRecordEntry => processRecord(xmlRecordEntry)));
+        // reduce memory usage by sequentially processing the read entries
+        // more improvements may be done in future
+        for (const xmlRecordEntry of xmlRecordEntries) {
+          await processRecord(xmlRecordEntry);
+        }
+
         Emitter.emit('end', numberOfRecords);
       });
 
